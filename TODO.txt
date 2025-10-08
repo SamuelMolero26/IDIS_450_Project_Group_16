@@ -1,0 +1,24 @@
+Correlation Heatmap (Matrix)
+All numeric variables
+Shows strength and direction of relationships at a glance.
+Excellent for identifying highly correlated variables for ML or forecasting.
+
+Scatter Plot
+Unit Price vs Total Revenue
+See linear relationship between price and sales outcome.
+Illustrates how pricing impacts revenue.
+
+Scatter Plot
+Unit Cost vs Profit Margin
+Shows cost efficiency; high cost may reduce margin.
+Business insight into pricing and cost control.
+
+Box Plot / Violin Plot
+Profit Margin by Sales Channel
+Compare margin distribution across channels.
+Adds categorical comparison to numeric insights.
+
+Histogram or Bar Chart
+Sales Channel vs Total Revenue
+Compare average revenue contribution by channel.
+Connects statistical results to business strategy.

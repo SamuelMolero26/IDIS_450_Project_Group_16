@@ -332,6 +332,7 @@ def assess_scales_and_encoding(df):
     print(f"Numerical columns: {numerical_cols}")
 
     # Check scales of numerical variables
+    
     print("\nNumerical variable scales:")
     for col in numerical_cols:
         if col in df.columns:

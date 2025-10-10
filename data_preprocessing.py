@@ -66,34 +66,87 @@ def explain_data():
     and forecast future sales. This preprocessing pipeline prepares the data for machine learning tasks
     such as sales prediction, customer segmentation, and channel classification.
 
-    VARIABLE DESCRIPTIONS:
+    DETAILED VARIABLE DESCRIPTIONS:
 
-    1. OrderNumber (string): Unique identifier for each sales order (e.g., 'SO - 000101')
-    2. Sales Channel (categorical): Channel through which sale was made
-       - In-Store: Direct store purchases
-       - Online: E-commerce transactions
-       - Distributor: B2B distribution
-       - Wholesale: Bulk sales
-    3. WarehouseCode (string): Warehouse identifier (e.g., 'WARE-UHY1004')
-    4. ProcuredDate (datetime): When product was procured
-    5. OrderDate (datetime): When order was placed
-    6. ShipDate (datetime): When product was shipped
-    7. DeliveryDate (datetime): When product was delivered
-    8. CurrencyCode (string): Transaction currency (primarily USD)
-    9. _SalesTeamID (int): Sales team identifier
-    10. _CustomerID (int): Customer identifier
-    11. _StoreID (int): Store identifier
-    12. _ProductID (int): Product identifier
-    13. Order Quantity (int): Quantity of products ordered
-    14. Discount Applied (float): Discount percentage (0.0 to 1.0)
-    15. Unit Cost (float): Cost price per unit
-    16. Unit Price (float): Selling price per unit
+    1. OrderNumber (string, categorical): Unique identifier for each sales order (e.g., 'SO - 000101')
+       - Type: Categorical (nominal)
+       - Relevance: Primary key for transaction identification, useful for deduplication and tracking
 
-    KEY INSIGHTS:
-    - Temporal features allow for delivery time analysis
-    - Price features enable profit margin calculations
-    - Categorical features support segmentation analysis
-    - ID features can be used for grouping and aggregation
+    2. Sales Channel (string, categorical): Channel through which sale was made
+       - Type: Categorical (nominal)
+       - Values: In-Store, Online, Distributor, Wholesale
+       - Relevance: Critical for sales analysis, channel performance comparison, and customer segmentation
+
+    3. WarehouseCode (string, categorical): Warehouse identifier (e.g., 'WARE-UHY1004')
+       - Type: Categorical (nominal)
+       - Relevance: Enables regional analysis, inventory management, and supply chain optimization
+
+    4. ProcuredDate (datetime, temporal): When product was procured
+       - Type: DateTime
+       - Relevance: Foundation for temporal analysis, lead time calculations, and procurement optimization
+
+    5. OrderDate (datetime, temporal): When order was placed
+       - Type: DateTime
+       - Relevance: Key temporal marker for sales cycle analysis and forecasting
+
+    6. ShipDate (datetime, temporal): When product was shipped
+       - Type: DateTime
+       - Relevance: Enables shipping time analysis and delivery performance metrics
+
+    7. DeliveryDate (datetime, temporal): When product was delivered
+       - Type: DateTime
+       - Relevance: Critical for customer satisfaction analysis and delivery time optimization
+
+    8. CurrencyCode (string, categorical): Transaction currency (primarily USD)
+       - Type: Categorical (nominal)
+       - Relevance: Important for multi-currency analysis, though mostly uniform in this dataset
+
+    9. _SalesTeamID (int, categorical): Sales team identifier
+       - Type: Categorical (nominal)
+       - Relevance: Enables sales team performance analysis and territory management
+
+    10. _CustomerID (int, categorical): Customer identifier
+        - Type: Categorical (nominal)
+        - Relevance: Essential for customer segmentation, lifetime value analysis, and personalization
+
+    11. _StoreID (int, categorical): Store identifier
+        - Type: Categorical (nominal)
+        - Relevance: Supports store-level performance analysis and location-based insights
+
+    12. _ProductID (int, categorical): Product identifier
+        - Type: Categorical (nominal)
+        - Relevance: Enables product performance analysis, category insights, and recommendation systems
+
+    13. Order Quantity (int, numerical): Quantity of products ordered
+        - Type: Numerical (discrete)
+        - Relevance: Key metric for sales volume analysis, inventory management, and demand forecasting
+
+    14. Discount Applied (float, numerical): Discount percentage (0.0 to 1.0)
+        - Type: Numerical (continuous)
+        - Relevance: Critical for pricing strategy analysis, margin optimization, and discount effectiveness
+
+    15. Unit Cost (float, numerical): Cost price per unit
+        - Type: Numerical (continuous)
+        - Relevance: Essential for profit margin calculations, cost control, and pricing decisions
+
+    16. Unit Price (float, numerical): Selling price per unit
+        - Type: Numerical (continuous)
+        - Relevance: Primary revenue driver, enables pricing analysis and market positioning
+
+    DERIVED FEATURES (added during preprocessing):
+    - Procurement_to_Order_Days (int, numerical): Days between procurement and order
+    - Order_to_Ship_Days (int, numerical): Days between order and shipping
+    - Ship_to_Delivery_Days (int, numerical): Days between shipping and delivery
+    - Total_Lead_Time (int, numerical): Total days from procurement to delivery
+    - Profit_Margin (float, numerical): Profit margin percentage
+    - Total_Revenue (float, numerical): Total revenue per transaction
+
+    KEY INSIGHTS FOR ML IMPLEMENTATION:
+    1. Sales Analysis: Use Sales Channel, temporal features, and revenue metrics for pattern recognition
+    2. Inventory Management: Leverage Order Quantity, temporal features, and WarehouseCode for optimization
+    3. Customer Segmentation: Apply clustering on CustomerID, purchasing behavior, and channel preferences
+    4. Revenue Forecasting: Use time series analysis on temporal features and revenue metrics
+    5. Discount Effectiveness: Analyze Discount Applied correlations with Total_Revenue and Profit_Margin
     """)
 
 def check_missing_values(df):
@@ -230,15 +283,18 @@ def univariate_outlier_detection(df):
             Q1 = df[col].quantile(0.25)
             Q3 = df[col].quantile(0.75)
             IQR = Q3 - Q1
-            iqr_outliers = ((df[col] < (Q1 - 1.5 * IQR)) | (df[col] > (Q3 + 1.5 * IQR))).sum()
+            lower_bound = Q1 - 1.5 * IQR
+            upper_bound = Q3 + 1.5 * IQR
+            iqr_outliers = ((df[col] < lower_bound) | (df[col] > upper_bound)).sum()
 
             outlier_summary[col] = {
                 'Z-score outliers': z_outliers,
                 'IQR outliers': iqr_outliers,
-                'Percentage': (iqr_outliers / len(df)) * 100
+                'Percentage': (iqr_outliers / len(df)) * 100,
+                'IQR bounds': (lower_bound, upper_bound)
             }
 
-            print(f"{col}: {iqr_outliers} outliers ({outlier_summary[col]['Percentage']:.2f}%)")
+            print(f"{col}: {iqr_outliers} outliers ({outlier_summary[col]['Percentage']:.2f}%) - IQR bounds: [{lower_bound:.2f}, {upper_bound:.2f}]")
 
     # Flag outliers using IQR method
     for col in numeric_cols:

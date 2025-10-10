@@ -458,6 +458,27 @@ def assess_balance(df):
 
     return df
 
+def drop_columns(df, columns_to_drop):
+    """
+    Drop specified columns from the dataframe.
+    """
+    print(f"\n=== DROPPING COLUMNS ===")
+    print(f"Columns to drop: {columns_to_drop}")
+
+    # Check which columns exist in the dataframe
+    existing_columns = [col for col in columns_to_drop if col in df.columns]
+    missing_columns = [col for col in columns_to_drop if col not in df.columns]
+
+    if missing_columns:
+        print(f"Warning: The following columns do not exist in the dataframe: {missing_columns}")
+
+    if existing_columns:
+        print(f"Dropping columns: {existing_columns}")
+        df = df.drop(columns=existing_columns)
+        print(f"New shape after dropping columns: {df.shape}")
+
+    return df
+
 def exploratory_data_analysis(df):
     """
     Conduct exploratory data analysis with correlations and visualizations.
@@ -592,4 +613,9 @@ df = contextual_outlier_detection(df)
 
 df = assess_balance(df)
 df = exploratory_data_analysis(df)
+
+# Drop unnecessary columns
+columns_to_drop = ['CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID']
+df = drop_columns(df, columns_to_drop)
+
 df = finalize_dataset(df)

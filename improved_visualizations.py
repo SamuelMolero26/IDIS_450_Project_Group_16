@@ -9,12 +9,16 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 import warnings
+import os
 
 warnings.filterwarnings('ignore')
 
 # Set style
 plt.style.use('seaborn-v0_8')
 sns.set_palette('husl')
+
+# Create visualizations directory if it doesn't exist
+os.makedirs('visualizations', exist_ok=True)
 
 # Load preprocessed data
 df = pd.read_csv('preprocessed_sales_data.csv')
@@ -208,6 +212,65 @@ def partial_correlation_matrix(data, columns, control_vars=None, save_path=None)
     else:
         plt.show()
 
+def qq_plot_skewness_validation(data, column, save_path=None):
+    """
+    Create Q-Q plot to validate skewness and normality assumption.
+    """
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Q-Q plot
+    stats.probplot(data[column].dropna(), dist="norm", plot=ax)
+
+    # Add skewness info
+    skewness = data[column].skew()
+    ax.set_title(f'Q-Q Plot for {column}\nSkewness: {skewness:.3f} ({ "Right-skewed" if skewness > 0.5 else "Left-skewed" if skewness < -0.5 else "Approximately normal" })')
+
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.close()
+    else:
+        plt.show()
+
+def skewness_validation_plot(data, column, save_path=None):
+    """
+    Create a comprehensive skewness validation plot with histogram, KDE, and skewness measures.
+    """
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+
+    # Histogram with KDE
+    sns.histplot(data[column].dropna(), kde=True, ax=ax1, alpha=0.7)
+    skewness = data[column].skew()
+    kurtosis = data[column].kurtosis()
+    ax1.set_title(f'Histogram & KDE: {column}\nSkewness: {skewness:.3f}, Kurtosis: {kurtosis:.3f}')
+    ax1.axvline(data[column].mean(), color='red', linestyle='-', linewidth=2, label='Mean')
+    ax1.axvline(data[column].median(), color='blue', linestyle='--', linewidth=2, label='Median')
+    ax1.legend()
+
+    # Q-Q plot
+    stats.probplot(data[column].dropna(), dist="norm", plot=ax2)
+    ax2.set_title(f'Q-Q Plot: {column}\nNormality Test')
+
+    # Add skewness interpretation
+    interpretation = ""
+    if abs(skewness) < 0.5:
+        interpretation = "Approximately normal distribution"
+    elif skewness > 0.5:
+        interpretation = "Right-skewed (positive skew)"
+    else:
+        interpretation = "Left-skewed (negative skew)"
+
+    fig.suptitle(f'Skewness Validation for {column}\n{interpretation}', fontsize=14)
+
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.close()
+    else:
+        plt.show()
+
 
 # Main execution
 if __name__ == "__main__":
@@ -245,5 +308,12 @@ if __name__ == "__main__":
     clustered_correlation_heatmap(df, numeric_cols,
                                  save_path='visualizations/clustered_correlation_heatmap.png')
     print("Generated clustered correlation heatmap")
- 
+
+    # Comprehensive skewness validation plots
+    skewed_vars = ['Discount Applied', 'Unit Cost', 'Unit Price', 'Profit_Margin', 'Total_Revenue']
+    for var in skewed_vars:
+        skewness_validation_plot(df, var,
+                                save_path=f'visualizations/skewness_validation_{var.lower().replace(" ", "_")}.png')
+        print(f"Generated comprehensive skewness validation plot for {var}")
+
     print("All improved visualizations generated!")

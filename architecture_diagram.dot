@@ -1,0 +1,14 @@
+digraph Architecture {
+  rankdir=LR;
+  node [shape=box, style=filled, fillcolor="#f7f7f7", fontsize=11, penwidth=1];
+
+  DataLoading [label="Data Loading\n& Versioning"];
+  FeaturePrep [label="Feature Preparation\n& Selection"];
+  TrainVal [label="Train / Validation\nSplit"];
+  CoreModel [label="Core Modeling\nPipeline\n(Model1: Linear/Logistic\nModel2: Tree/RF\nRedis Cache)"];
+  Evaluation [label="Enhanced Evaluation\n(Holdout, K-Fold CV,\nSHAP, Error Analysis)"];
+  MetaLearning [label="Meta-Learning\n& Continuous\nImprovement"];
+  Selection [label="Model Selection\n& Reporting"];
+
+  DataLoading -> FeaturePrep -> TrainVal -> CoreModel -> Evaluation -> MetaLearning -> Selection;
+}

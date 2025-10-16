@@ -287,7 +287,7 @@ if __name__ == "__main__":
     other_vars = ['Discount Applied', 'Unit Cost', 'Total_Lead_Time']
     for var in other_vars:
         enhanced_histogram(df, var,
-                          save_path=f'visualizations/enhanced_histogram_{var.lower().replace(" ", "_")}.png')
+                          save_path=f'visualizations/pre-processing/enhanced_histogram_{var.lower().replace(" ", "_")}.png')
         print(f"Generated enhanced histogram for {var}")
 
     # Enhanced scatter plots
@@ -306,14 +306,14 @@ if __name__ == "__main__":
 
     # Advanced correlations
     clustered_correlation_heatmap(df, numeric_cols,
-                                 save_path='visualizations/clustered_correlation_heatmap.png')
+                                 save_path='visualizations/pre-processing/clustered_correlation_heatmap.png')
     print("Generated clustered correlation heatmap")
 
     # Comprehensive skewness validation plots
     skewed_vars = ['Discount Applied', 'Unit Cost', 'Unit Price', 'Profit_Margin', 'Total_Revenue']
     for var in skewed_vars:
         skewness_validation_plot(df, var,
-                                save_path=f'visualizations/skewness_validation_{var.lower().replace(" ", "_")}.png')
+                                save_path=f'visualizations/pre-processing/skewness_validation_{var.lower().replace(" ", "_")}.png')
         print(f"Generated comprehensive skewness validation plot for {var}")
 
     print("All improved visualizations generated!")

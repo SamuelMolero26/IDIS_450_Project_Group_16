@@ -10,6 +10,11 @@ from sklearn.neighbors import LocalOutlierFactor
 from sklearn.impute import SimpleImputer
 from scipy import stats
 import warnings
+import os
+from pathlib import Path
+import argparse
+import sys
+import subprocess
 
 warnings.filterwarnings('ignore')
 
@@ -17,8 +22,79 @@ warnings.filterwarnings('ignore')
 plt.style.use('seaborn-v0_8')
 sns.set_palette('husl')
 
-#For sanity check
-print("Libraries imported successfully.")
+
+def find_data_file(data_arg: str | None = None) -> str:
+    """Locate the data CSV by checking common repo-relative locations, a provided arg, or env var.
+
+    Returns the file path as a string if found, otherwise raises FileNotFoundError with helpful guidance.
+    """
+    repo_root = Path(__file__).resolve().parent.parent
+    candidates = []
+
+    # CLI-provided path
+    if data_arg:
+        candidates.append(Path(data_arg))
+
+    # Environment variable
+    env_path = os.environ.get('DATA_PATH')
+    if env_path:
+        candidates.append(Path(env_path))
+
+    
+    candidates.extend([
+        repo_root / 'Project4_USRegionalSales' / 'Data-USRegionalSales.csv',
+        repo_root / 'Project4_USRegionalSales' / 'Data-USRegionalSales.yaml',
+        repo_root / 'Project4_USRegionalSales' / 'Data-USRegionalSales.csv',
+        repo_root / 'Data-USRegionalSales.csv',
+        Path.cwd() / 'Project4_USRegionalSales' / 'Data-USRegionalSales.csv',
+        Path.cwd() / 'Data-USRegionalSales.csv'
+    ])
+
+    for p in candidates:
+        if p and p.exists():
+            return str(p)
+
+    tried = '\n'.join(str(p) for p in candidates)
+    raise FileNotFoundError(
+        "Could not find 'Data-USRegionalSales.csv'.\nTried the following locations:\n" + tried +
+        "\n\nProvide the path with --data /full/path/to/Data-USRegionalSales.csv or set DATA_PATH env var."
+    )
+
+
+def run_improved_visualizations(preprocessed_csv_path: Path):
+    """Locate `utils/improved_visualizations.py` and execute it in the directory of the CSV.
+
+    The function will be skipped if the environment variable RUN_IMPROVED_VIZ is set to '0'.
+    """
+    # Respect opt-out
+    if os.environ.get('RUN_IMPROVED_VIZ', '1') == '0':
+        print("RUN_IMPROVED_VIZ=0 -> skipping improved visualizations")
+        return
+
+    repo_root = Path(__file__).resolve().parent.parent
+    candidates = [
+        repo_root / 'utils' / 'improved_visualizations.py',
+        repo_root / 'src' / 'utils' / 'improved_visualizations.py',
+        repo_root / 'utils' / 'visualizations' / 'improved_visualizations.py'
+    ]
+
+    viz_script = None
+    for c in candidates:
+        if c.exists():
+            viz_script = c
+            break
+
+    if viz_script is None:
+        raise FileNotFoundError(f"improved_visualizations.py not found. Tried: {candidates}")
+
+    # Run the visualization script in the directory containing the CSV so relative paths like
+    # 'visualizations/' and 'preprocessed_sales_data.csv' resolve correctly.
+    work_dir = preprocessed_csv_path.parent
+
+    cmd = [sys.executable, str(viz_script)]
+
+    print(f"Running improved visualizations: {viz_script} (cwd={work_dir})")
+    subprocess.check_call(cmd, cwd=str(work_dir))
 
 
 def load_data(file_path):
@@ -582,40 +658,65 @@ def finalize_dataset(df):
     print(f"Encoded features: {len(encoded_cols)}")
 
     # Save processed dataset
-    df.to_csv('preprocessed_sales_data.csv', index=False)
-    print("Preprocessed dataset saved as 'preprocessed_sales_data.csv'")
+    out_csv = Path.cwd() / 'preprocessed_sales_data.csv'
+    df.to_csv(out_csv, index=False)
+    print(f"Preprocessed dataset saved as '{out_csv}'")
+
+    # Attempt to automatically run improved visualizations (optional)
+    try:
+        run_improved_visualizations(out_csv)
+    except Exception as e:
+        print(f"Could not run improved visualizations automatically: {e}")
 
     return df
 
-# Main execution
-# Load data
-file_path = 'Project4_USRegionalSales/Data-USRegionalSales.csv'
-df = load_data(file_path)
+def _run_all_steps(data_path: str):
+    """Helper to run the entire preprocessing flow given a data path."""
+    df = load_data(data_path)
 
-print(f"Dataset loaded successfully. Shape: {df.shape}")
-print(f"Columns: {list(df.columns)}")
+    print(f"Dataset loaded successfully. Shape: {df.shape}")
+    print(f"Columns: {list(df.columns)}")
 
-# Initial exploration
-df = initial_exploration(df)
+    # Initial exploration
+    df = initial_exploration(df)
 
-# Explain the data and variables
-explain_data()
+    # Explain the data and variables
+    explain_data()
 
-# Check missing and handle filling missing values
-df = check_missing_values(df)
+    # Check missing and handle filling missing values
+    df = check_missing_values(df)
 
-# Execute the remaining functions
-df = check_data_consistency(df)
-df = convert_data_types(df)
-df = univariate_outlier_detection(df)
-df = multivariate_outlier_detection(df)
-df = contextual_outlier_detection(df)
+    # Execute the remaining functions
+    df = check_data_consistency(df)
+    df = convert_data_types(df)
+    df = univariate_outlier_detection(df)
+    df = multivariate_outlier_detection(df)
+    df = contextual_outlier_detection(df)
 
-df = assess_balance(df)
-df = exploratory_data_analysis(df)
+    df = assess_balance(df)
+    df = exploratory_data_analysis(df)
 
-# Drop unnecessary columns
-columns_to_drop = ['CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID']
-df = drop_columns(df, columns_to_drop)
+    # Drop unnecessary columns
+    columns_to_drop = ['CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID']
+    df = drop_columns(df, columns_to_drop)
 
-df = finalize_dataset(df)
+    df = finalize_dataset(df)
+
+    return df
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Preprocess US Regional Sales dataset")
+    parser.add_argument('--data', '-d', help='Path to Data-USRegionalSales.csv', default=None)
+    args = parser.parse_args()
+
+    try:
+        data_path = find_data_file(args.data)
+    except FileNotFoundError as e:
+        print(str(e))
+        sys.exit(2)
+
+    _run_all_steps(data_path)
+    
+    
+

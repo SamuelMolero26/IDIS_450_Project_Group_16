@@ -1,0 +1,265 @@
+2025-10-14 18:25:05,898 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:25:05,901 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:26:59,483 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:26:59,485 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:27:00,562 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:27:00,562 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-14 18:31:43,040 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:31:43,042 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:31:44,016 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:31:44,016 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-14 18:31:45,564 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:32:13,570 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:32:13,572 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:32:14,719 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:32:14,719 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:32:14,720 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:32:34,381 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:32:34,382 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:32:35,351 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:32:35,352 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:32:35,352 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:32:50,847 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:32:50,849 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:32:51,824 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:32:51,825 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:32:51,825 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:35:29,562 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:35:29,564 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:35:31,199 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:35:31,464 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:35:31,465 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:36:37,338 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:36:37,341 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:36:38,299 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-14 18:36:38,300 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:36:38,300 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:37:31,374 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:37:31,376 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:37:32,482 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-14 18:37:32,482 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:37:32,482 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:37:38,197 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:37:38,198 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:37:39,216 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-14 18:37:39,216 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:37:39,217 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:37:42,602 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:37:42,603 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:37:43,474 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:37:43,620 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-14 18:37:45,313 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-14 18:38:02,428 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:38:02,429 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:38:03,569 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-14 18:38:03,569 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:38:03,570 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:40:18,800 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:40:18,802 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:40:19,841 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-14 18:40:19,842 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:40:19,842 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:43:17,767 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:43:17,769 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:43:18,714 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-14 18:43:18,715 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-14 18:43:18,715 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-14 18:46:35,574 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:46:35,577 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:46:35,578 - cache - INFO - Cache cleared
+2025-10-14 18:46:39,130 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 18:46:39,130 - cache - INFO - SQLite cache database initialized
+2025-10-14 18:46:40,083 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-14 18:46:40,083 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 18:46:40,083 - cache - INFO - Cache miss for linear
+2025-10-14 18:46:40,112 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-14 18:46:40,234 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-14 18:46:40,234 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-14 18:46:40,234 - cache - INFO - Cache miss for decision_tree
+2025-10-14 18:46:40,390 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-14 18:46:41,951 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-14 18:46:41,951 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-14 18:46:41,951 - cache - INFO - Cache miss for random_forest
+2025-10-14 18:46:51,582 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-14 23:04:10,836 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-14 23:04:10,838 - cache - INFO - SQLite cache database initialized
+2025-10-14 23:04:11,909 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-14 23:04:11,911 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-14 23:04:11,911 - cache - INFO - Cache miss for linear
+2025-10-14 23:04:11,934 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-14 23:04:12,041 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-14 23:04:12,041 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-14 23:04:12,041 - cache - INFO - Cache miss for decision_tree
+2025-10-14 23:04:12,195 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-14 23:04:13,572 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-14 23:04:13,572 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-14 23:04:13,572 - cache - INFO - Cache miss for random_forest
+2025-10-14 23:04:22,418 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 10:41:40,628 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 10:41:40,640 - cache - INFO - SQLite cache database initialized
+2025-10-15 10:41:41,853 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 10:41:41,854 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-15 10:41:41,854 - cache - INFO - Cache miss for linear
+2025-10-15 10:41:41,872 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 10:41:42,031 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 10:41:42,031 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-15 10:41:42,031 - cache - INFO - Cache miss for decision_tree
+2025-10-15 10:41:42,184 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 10:41:43,671 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 10:41:43,671 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-15 10:41:43,671 - cache - INFO - Cache miss for random_forest
+2025-10-15 10:41:52,694 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 14:58:49,919 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 14:58:49,921 - cache - INFO - SQLite cache database initialized
+2025-10-15 14:58:51,096 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 14:58:51,099 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-15 14:58:51,099 - cache - INFO - Cache miss for linear
+2025-10-15 14:58:51,121 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 14:58:51,691 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 14:58:51,691 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-15 14:58:51,691 - cache - INFO - Cache miss for decision_tree
+2025-10-15 14:58:51,915 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 14:58:53,525 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 14:58:53,525 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-15 14:58:53,526 - cache - INFO - Cache miss for random_forest
+2025-10-15 14:59:03,142 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:11:09,232 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:11:09,235 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:11:10,378 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:11:10,378 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-15 15:11:10,378 - cache - INFO - Cache miss for linear
+2025-10-15 15:11:10,413 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:11:10,549 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:11:10,549 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-15 15:11:10,549 - cache - INFO - Cache miss for decision_tree
+2025-10-15 15:11:10,728 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:11:12,349 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:11:12,349 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-15 15:11:12,349 - cache - INFO - Cache miss for random_forest
+2025-10-15 15:11:22,950 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:13:46,873 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:13:46,876 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:13:47,960 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:13:47,961 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:13:47,961 - cache - INFO - Cache hit for linear
+2025-10-15 15:13:47,975 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:13:48,091 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:13:48,091 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:13:48,091 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:13:48,240 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:13:49,633 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:13:49,634 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:13:49,634 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:13:59,603 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:19:07,876 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:19:07,877 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:19:08,845 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:19:08,848 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:19:08,848 - cache - INFO - Cache hit for linear
+2025-10-15 15:19:08,876 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:19:09,023 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:19:09,023 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:19:09,023 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:19:09,181 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:19:10,725 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:19:10,725 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:19:10,725 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:19:21,086 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:19:22,375 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:19:22,376 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:19:23,554 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:19:23,557 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:19:23,557 - cache - INFO - Cache hit for linear
+2025-10-15 15:19:23,571 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:19:23,735 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:19:23,735 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:19:23,736 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:19:23,898 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:19:25,525 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:19:25,525 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:19:25,525 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:19:37,280 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:20:04,632 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:20:04,632 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:20:05,642 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:20:05,643 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:20:05,643 - cache - INFO - Cache hit for linear
+2025-10-15 15:20:05,670 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:20:05,890 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:20:05,890 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:20:05,890 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:20:06,076 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:20:07,815 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:20:07,816 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:20:07,816 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:20:18,619 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:23:34,068 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:23:34,070 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:23:35,128 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:23:35,135 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:23:35,135 - cache - INFO - Cache hit for linear
+2025-10-15 15:23:35,148 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:23:35,275 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:23:35,276 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:23:35,276 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:23:35,456 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:23:36,885 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:23:36,885 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:23:36,885 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:23:45,793 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:24:52,472 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:24:52,474 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:24:55,090 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:24:55,090 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-15 15:24:55,090 - cache - INFO - Cache miss for linear
+2025-10-15 15:24:55,109 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:24:55,276 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:24:55,276 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-15 15:24:55,276 - cache - INFO - Cache miss for decision_tree
+2025-10-15 15:24:55,445 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:24:57,178 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:24:57,178 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-15 15:24:57,178 - cache - INFO - Cache miss for random_forest
+2025-10-15 15:25:09,417 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:25:28,775 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:25:28,776 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:25:29,712 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:25:29,713 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:25:29,713 - cache - INFO - Cache hit for linear
+2025-10-15 15:25:29,730 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:25:29,879 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:25:29,879 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:25:29,879 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:25:30,036 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:25:32,262 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:25:32,262 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:25:32,262 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:25:42,145 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:38:10,888 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 15:38:10,891 - cache - INFO - SQLite cache database initialized
+2025-10-15 15:38:12,005 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:38:12,007 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: SUCCESS
+2025-10-15 15:38:12,008 - cache - INFO - Cache hit for linear
+2025-10-15 15:38:12,025 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 15:38:12,188 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:38:12,188 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: SUCCESS
+2025-10-15 15:38:12,188 - cache - INFO - Cache hit for decision_tree
+2025-10-15 15:38:12,345 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 15:38:13,933 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 15:38:13,933 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: SUCCESS
+2025-10-15 15:38:13,933 - cache - INFO - Cache hit for random_forest
+2025-10-15 15:38:24,333 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 17:45:59,529 - cache - WARNING - Redis connection failed: Error 61 connecting to localhost:6379. Connection refused.. Using SQLite fallback.
+2025-10-15 17:45:59,532 - cache - INFO - SQLite cache database initialized
+2025-10-15 17:46:00,596 - cache - INFO - Retrieving cached model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 17:46:00,603 - cache - INFO - Cache GET - Key: aacc711cec765779... - Status: FAILED
+2025-10-15 17:46:00,603 - cache - INFO - Cache miss for linear
+2025-10-15 17:46:00,622 - cache - INFO - Caching model results for linear with key: aacc711cec7657792887ef0daab38b6f
+2025-10-15 17:46:00,763 - cache - INFO - Retrieving cached model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 17:46:00,763 - cache - INFO - Cache GET - Key: 0d4a982ae595a2c6... - Status: FAILED
+2025-10-15 17:46:00,763 - cache - INFO - Cache miss for decision_tree
+2025-10-15 17:46:00,915 - cache - INFO - Caching model results for decision_tree with key: 0d4a982ae595a2c6961053d971af7cb3
+2025-10-15 17:46:02,314 - cache - INFO - Retrieving cached model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46
+2025-10-15 17:46:02,314 - cache - INFO - Cache GET - Key: 8dde9a58ce11fede... - Status: FAILED
+2025-10-15 17:46:02,314 - cache - INFO - Cache miss for random_forest
+2025-10-15 17:46:11,172 - cache - INFO - Caching model results for random_forest with key: 8dde9a58ce11fede2278c172ad506b46

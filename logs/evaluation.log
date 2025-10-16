@@ -1,0 +1,429 @@
+2025-10-14 18:27:09,938 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_0
+2025-10-14 18:27:17,324 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:28:42,529 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-14 18:28:42,532 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_0. Test R²: 0.9985
+2025-10-14 18:28:42,662 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-14 18:28:42,666 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-14 18:28:42,666 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-14 18:28:42,699 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-14 18:28:42,699 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-14 18:28:42,700 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-14 18:31:44,180 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_0
+2025-10-14 18:31:44,301 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:31:45,558 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-14 18:31:45,559 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_0. Test R²: 0.9961
+2025-10-14 18:31:45,618 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-14 18:31:45,619 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-14 18:31:45,619 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-14 18:31:45,632 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-14 18:31:45,632 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-14 18:31:45,633 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-14 18:32:14,840 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_dc85316c.json
+2025-10-14 18:32:35,465 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_bcdb6c67.json
+2025-10-14 18:32:51,935 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_65496cd7.json
+2025-10-14 18:35:31,108 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-14 18:35:31,287 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-14 18:35:31,322 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:35:31,452 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-14 18:35:31,453 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-14 18:35:31,526 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-14 18:35:31,526 - evaluation - INFO - Performing error analysis for linear
+2025-10-14 18:35:31,543 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-14 18:35:31,543 - evaluation - INFO - Checking business alignment for linear
+2025-10-14 18:35:31,543 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-14 18:36:38,211 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-14 18:36:38,438 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_06b8e52e.json
+2025-10-14 18:37:32,357 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-14 18:37:32,613 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_55f4645a.json
+2025-10-14 18:37:39,349 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_d614984b.json
+2025-10-14 18:37:43,388 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-14 18:37:43,497 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-14 18:37:43,514 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:37:43,619 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-14 18:37:43,620 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-14 18:37:43,787 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-14 18:37:43,916 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:37:45,312 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-14 18:37:45,312 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-14 18:37:55,229 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-14 18:38:03,696 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_b8f411c2.json
+2025-10-14 18:38:03,730 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:39:29,727 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-14 18:39:29,730 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-14 18:39:29,849 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_96b13eb2.json
+2025-10-14 18:40:19,956 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_d4f41e67.json
+2025-10-14 18:43:18,825 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_664323f7.json
+2025-10-14 18:46:39,934 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-14 18:46:40,114 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-14 18:46:40,125 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:46:40,227 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-14 18:46:40,228 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-14 18:46:40,391 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-14 18:46:40,522 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:46:41,941 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-14 18:46:41,941 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-14 18:46:51,584 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-14 18:47:00,279 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 18:48:26,031 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-14 18:48:26,036 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-14 18:48:26,242 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-14 18:48:26,242 - evaluation - INFO - Performing error analysis for linear
+2025-10-14 18:48:26,277 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-14 18:48:26,278 - evaluation - INFO - Checking business alignment for linear
+2025-10-14 18:48:26,278 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-14 18:48:26,279 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-14 18:48:26,279 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-14 18:48:26,294 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-14 18:48:26,294 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-14 18:48:26,295 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-14 18:48:26,325 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-14 18:48:26,325 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-14 18:48:26,350 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-14 18:48:26,350 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-14 18:48:26,350 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-14 18:48:26,483 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_7c90f45f.json
+2025-10-14 23:04:11,934 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-14 23:04:11,944 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 23:04:12,028 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-14 23:04:12,029 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-14 23:04:12,196 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-14 23:04:12,314 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 23:04:13,559 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-14 23:04:13,559 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-14 23:04:22,419 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-14 23:04:29,508 - evaluation - INFO - Performing bias-variance analysis
+2025-10-14 23:05:49,207 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-14 23:05:49,212 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-14 23:05:49,332 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-14 23:05:49,490 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-14 23:05:49,490 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-14 23:05:49,490 - evaluation - INFO - Performing error analysis for linear
+2025-10-14 23:05:49,507 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-14 23:05:49,507 - evaluation - INFO - Checking business alignment for linear
+2025-10-14 23:05:49,508 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-14 23:05:49,508 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-14 23:05:49,509 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-14 23:05:49,509 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-14 23:05:49,518 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-14 23:05:49,518 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-14 23:05:49,519 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-14 23:05:49,540 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-14 23:05:49,541 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-14 23:05:49,541 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-14 23:05:49,550 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-14 23:05:49,550 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-14 23:05:49,550 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-14 23:05:49,643 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_d0a65843.json
+2025-10-15 10:41:41,873 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 10:41:41,883 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 10:41:42,006 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 10:41:42,006 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 10:41:42,184 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 10:41:42,304 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 10:41:43,649 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 10:41:43,650 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 10:41:52,696 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 10:42:00,054 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 10:43:24,196 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 10:43:24,199 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 10:43:24,348 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 10:43:24,556 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 10:43:24,556 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 10:43:24,556 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 10:43:24,591 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 10:43:24,591 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 10:43:24,592 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 10:43:24,593 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 10:43:24,593 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 10:43:24,593 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 10:43:24,606 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 10:43:24,606 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 10:43:24,607 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 10:43:24,631 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 10:43:24,632 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 10:43:24,632 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 10:43:24,642 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 10:43:24,642 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 10:43:24,642 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 10:43:24,739 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_c1dc28e8.json
+2025-10-15 14:58:51,126 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 14:58:51,359 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 14:58:51,638 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 14:58:51,641 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 14:58:51,916 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 14:58:52,052 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 14:58:53,498 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 14:58:53,498 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 14:59:03,146 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 14:59:11,690 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:00:47,285 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:00:47,290 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:00:47,446 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 15:00:47,681 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 15:00:47,681 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 15:00:47,681 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:00:47,713 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:00:47,713 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:00:47,714 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:00:47,715 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 15:00:47,715 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 15:00:47,715 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:00:47,728 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:00:47,728 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:00:47,729 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:00:47,753 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 15:00:47,754 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 15:00:47,754 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:00:47,771 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:00:47,771 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:00:47,772 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:00:47,879 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_4006f37d.json
+2025-10-15 15:11:10,286 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-15 15:11:10,414 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:11:10,434 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:11:10,540 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:11:10,542 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:11:10,729 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:11:10,866 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:11:12,334 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:11:12,335 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:11:22,960 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:11:30,886 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:13:03,472 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:13:03,476 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:13:03,619 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-15 15:13:03,619 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:13:03,649 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:13:03,649 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:13:03,650 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:13:03,650 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-15 15:13:03,651 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:13:03,661 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:13:03,661 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:13:03,662 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:13:03,685 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-15 15:13:03,685 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:13:03,696 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:13:03,696 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:13:03,696 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:13:03,787 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_eb0f1067.json
+2025-10-15 15:13:47,976 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:13:47,991 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:13:48,077 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:13:48,078 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:13:48,241 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:13:48,361 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:13:49,618 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:13:49,618 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:13:59,609 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:14:07,671 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:15:36,307 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:15:36,311 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:15:36,475 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 15:15:36,718 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 15:15:36,718 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 15:15:36,718 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:15:36,747 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:15:36,748 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:15:36,748 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:15:36,749 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 15:15:36,750 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 15:15:36,750 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:15:36,762 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:15:36,762 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:15:36,762 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:15:36,784 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 15:15:36,784 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 15:15:36,784 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:15:36,794 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:15:36,794 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:15:36,795 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:15:36,901 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_5180e739.json
+2025-10-15 15:19:08,723 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-15 15:19:08,878 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:19:08,892 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:19:09,002 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:19:09,004 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:19:09,182 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:19:09,312 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:19:10,663 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:19:10,664 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:19:21,090 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:19:23,572 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:19:23,586 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:19:23,710 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:19:23,711 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:19:23,899 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:19:24,035 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:19:25,491 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:19:25,491 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:19:30,741 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:19:37,285 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:19:45,644 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:20:05,474 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-15 15:20:05,671 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:20:05,689 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:20:05,857 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:20:05,858 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:20:06,077 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:20:06,245 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:20:07,771 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:20:07,771 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:20:18,623 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:20:28,960 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:21:10,826 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:21:10,830 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:21:10,995 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-15 15:21:10,995 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:21:11,077 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:21:11,077 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:21:11,077 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:21:11,078 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-15 15:21:11,078 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:21:11,090 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:21:11,090 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:21:11,091 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:21:11,115 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-15 15:21:11,115 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:21:11,128 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:21:11,128 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:21:11,128 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:21:11,239 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_27cd76a5.json
+2025-10-15 15:21:23,247 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:21:23,252 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:21:23,524 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 15:21:23,784 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 15:21:23,784 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 15:21:23,784 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:21:23,807 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:21:23,807 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:21:23,807 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:21:23,808 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 15:21:23,809 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 15:21:23,809 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:21:23,819 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:21:23,819 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:21:23,820 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:21:23,843 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 15:21:23,843 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 15:21:23,843 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:21:23,853 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:21:23,853 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:21:23,854 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:21:23,951 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_cf5f4104.json
+2025-10-15 15:23:35,149 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:23:35,161 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:23:35,244 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:23:35,245 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:23:35,457 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:23:35,591 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:23:36,854 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:23:36,854 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:23:45,795 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:23:53,286 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:24:55,109 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:24:55,126 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:24:55,267 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:24:55,268 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:24:55,446 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:24:55,583 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:24:57,163 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:24:57,164 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:25:09,419 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:25:17,639 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:25:29,730 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:25:29,742 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:25:29,865 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:25:29,867 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:25:30,036 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:25:30,161 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:25:32,239 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:25:32,240 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:25:42,147 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:25:49,903 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:27:14,795 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:27:14,801 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:27:14,959 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 15:27:15,130 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 15:27:15,130 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 15:27:15,130 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:27:15,148 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:27:15,148 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:27:15,149 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:27:15,149 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 15:27:15,150 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 15:27:15,150 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:27:15,159 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:27:15,159 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:27:15,160 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:27:15,181 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 15:27:15,182 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 15:27:15,182 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:27:15,191 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:27:15,191 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:27:15,192 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:27:15,288 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_12cc04a2.json
+2025-10-15 15:38:12,027 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 15:38:12,043 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:38:12,165 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 15:38:12,166 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 15:38:12,346 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 15:38:12,467 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:38:13,909 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 15:38:13,910 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 15:38:24,338 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 15:38:31,955 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 15:39:55,564 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 15:39:55,568 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 15:39:55,703 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 15:39:55,849 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 15:39:55,849 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 15:39:55,849 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 15:39:55,865 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 15:39:55,865 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 15:39:55,866 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 15:39:55,866 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 15:39:55,867 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 15:39:55,867 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 15:39:55,876 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 15:39:55,876 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 15:39:55,876 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 15:39:55,898 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 15:39:55,898 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 15:39:55,898 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 15:39:55,908 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 15:39:55,908 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 15:39:55,908 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 15:39:55,996 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_1a255e50.json
+2025-10-15 17:46:00,622 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-15 17:46:00,633 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 17:46:00,739 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-15 17:46:00,740 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-15 17:46:00,915 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-15 17:46:01,035 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 17:46:02,290 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-15 17:46:02,290 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-15 17:46:11,174 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-15 17:46:18,257 - evaluation - INFO - Performing bias-variance analysis
+2025-10-15 17:47:38,481 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-15 17:47:38,489 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-15 17:47:38,619 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-15 17:47:38,783 - evaluation - WARNING - Failed to generate SHAP plot: summary_legacy() got an unexpected keyword argument 'ax'
+2025-10-15 17:47:38,783 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-15 17:47:38,783 - evaluation - INFO - Performing error analysis for linear
+2025-10-15 17:47:38,809 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-15 17:47:38,809 - evaluation - INFO - Checking business alignment for linear
+2025-10-15 17:47:38,809 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-15 17:47:38,810 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-15 17:47:38,811 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-15 17:47:38,811 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-15 17:47:38,822 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-15 17:47:38,822 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-15 17:47:38,822 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-15 17:47:38,844 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-15 17:47:38,845 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.ensemble._forest.RandomForestRegressor'>
+2025-10-15 17:47:38,845 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-15 17:47:38,855 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-15 17:47:38,856 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-15 17:47:38,856 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-15 17:47:38,946 - evaluation - INFO - Saved evaluation report to /Users/samuel/IDIS450/Project/reports/pipeline_report_e27a4019.json

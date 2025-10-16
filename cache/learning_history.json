@@ -1,0 +1,107 @@
+[
+  {
+    "event": "system_update",
+    "timestamp": "2025-10-16T09:53:50.744642",
+    "experiment_results": {
+      "experiment_id": "ba949ed8",
+      "model_results": {
+        "linear": {
+          "error": "No module named 'config'"
+        },
+        "decision_tree": {
+          "error": "No module named 'config'"
+        },
+        "random_forest": {
+          "error": "No module named 'config'"
+        }
+      },
+      "qualitative_results": {},
+      "data_info": {
+        "data_hash": "ce15b282d69912ef",
+        "feature_columns": [
+          "Order Quantity",
+          "Discount Applied",
+          "Unit Cost",
+          "Unit Price",
+          "Procurement_to_Order_Days",
+          "Order_to_Ship_Days",
+          "Ship_to_Delivery_Days",
+          "Total_Lead_Time",
+          "Profit_Margin",
+          "Sales Channel",
+          "WarehouseCode"
+        ],
+        "target_column": "Total_Revenue",
+        "scaler_params": {
+          "mean": [
+            4.525341008634714,
+            0.11439431860843449,
+            1431.9115129520712,
+            2284.536503566512,
+            109.24314854210988,
+            15.168940057564761,
+            5.5039419346765115,
+            129.91603053435114,
+            0.4830904844146993
+          ],
+          "scale": [
+            2.3124863995785354,
+            0.08556489544788644,
+            1112.343456962351,
+            1672.9916739501375,
+            34.3693392169652,
+            7.7934633954323465,
+            2.855630785695947,
+            35.29535825948034,
+            0.3652461491325985
+          ]
+        },
+        "label_encoders": {
+          "Sales Channel": [
+            "Distributor",
+            "In-Store",
+            "Online",
+            "Wholesale"
+          ],
+          "WarehouseCode": [
+            "WARE-MKL1006",
+            "WARE-NBV1002",
+            "WARE-NMK1003",
+            "WARE-PUJ1005",
+            "WARE-UHY1004",
+            "WARE-XYS1001"
+          ]
+        }
+      }
+    },
+    "progress_evaluation": {
+      "current_performance": {
+        "linear": 0,
+        "decision_tree": 0,
+        "random_forest": 0
+      },
+      "historical_comparison": {},
+      "improvement_metrics": {
+        "average_current_performance": 0.0,
+        "best_current_performance": 0,
+        "performance_consistency": 0.0
+      },
+      "learning_insights": []
+    },
+    "strategy_adaptations": {
+      "strategy_changes": [],
+      "model_priorities": {},
+      "exploration_suggestions": [],
+      "risk_assessment": "low",
+      "meta_insights": [
+        "No experiment data available for meta-learning"
+      ],
+      "meta_recommendations": []
+    },
+    "meta_update_result": {
+      "updated": false,
+      "reason": "Insufficient experiment data",
+      "total_experiments": 3
+    }
+  }
+]

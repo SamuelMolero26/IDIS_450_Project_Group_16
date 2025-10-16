@@ -1,0 +1,6 @@
+2025-10-15 19:40:29,010 - pipeline - INFO - Starting complete pipeline run: 499fb83b
+2025-10-15 19:40:29,042 - pipeline - INFO - Starting phase: Data
+2025-10-15 19:40:29,042 - pipeline - INFO - Running data pipeline
+2025-10-15 19:40:29,042 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/src/preprocessed_sales_data.csv
+2025-10-15 19:40:29,044 - pipeline - ERROR - Error loading data: [Errno 2] No such file or directory: '/Users/samuel/IDIS450/Project/src/preprocessed_sales_data.csv'
+2025-10-15 19:40:29,044 - pipeline - ERROR - Data pipeline failed: [Errno 2] No such file or directory: '/Users/samuel/IDIS450/Project/src/preprocessed_sales_data.csv'

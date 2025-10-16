@@ -296,11 +296,15 @@ class ModelPipeline:
             mse = mean_squared_error(y_test, y_pred)
             r2 = r2_score(y_test, y_pred)
 
+            # Calculate MAPE safely, avoiding division by zero
+            epsilon = 1e-10
+            mape = np.mean(np.abs((y_test - y_pred) / (y_test + epsilon))) * 100
+
             metrics = {
                 'test_mse': mse,
                 'test_rmse': np.sqrt(mse),
                 'test_r2': r2,
-                'test_mape': np.mean(np.abs((y_test - y_pred) / y_test)) * 100
+                'test_mape': mape
             }
         else:
             accuracy = accuracy_score(y_test, y_pred)

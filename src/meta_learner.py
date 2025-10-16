@@ -278,7 +278,7 @@ class MetaLearner:
         Returns:
             Dictionary of configuration predictions
         """
-        from config import MODEL_CONFIGS
+        from .config import MODEL_CONFIGS
 
         config_predictions = {}
 
@@ -321,7 +321,7 @@ class MetaLearner:
         Returns:
             Default configuration
         """
-        from config import MODEL_CONFIGS
+        from .config import MODEL_CONFIGS
 
         default_config = {}
         if model_type in MODEL_CONFIGS:

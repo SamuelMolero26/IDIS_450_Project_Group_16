@@ -86,9 +86,10 @@ class EvaluationEngine:
         train_r2 = r2_score(y_train, y_train_pred)
         test_r2 = r2_score(y_test, y_test_pred)
 
-        # MAPE (Mean Absolute Percentage Error)
-        train_mape = np.mean(np.abs((y_train - y_train_pred) / y_train)) * 100
-        test_mape = np.mean(np.abs((y_test - y_test_pred) / y_test)) * 100
+        # MAPE (Mean Absolute Percentage Error) - avoid division by zero
+        epsilon = 1e-10
+        train_mape = np.mean(np.abs((y_train - y_train_pred) / (y_train + epsilon))) * 100
+        test_mape = np.mean(np.abs((y_test - y_test_pred) / (y_test + epsilon))) * 100
 
         # Cross-validation scores
         cv_scores = cross_val_score(model, X_train, y_train, cv=self.cv_folds,
@@ -236,7 +237,7 @@ class EvaluationEngine:
             tests['normality_shapiro'] = {
                 'statistic': float(shapiro_stat),
                 'p_value': float(shapiro_p),
-                'normal_distribution': shapiro_p > 0.05
+                'normal_distribution': 1 if shapiro_p > 0.05 else 0
             }
         except:
             tests['normality_shapiro'] = {'error': 'Could not perform Shapiro test'}
@@ -247,7 +248,7 @@ class EvaluationEngine:
             tests['normality_jarque_bera'] = {
                 'statistic': float(jb_stat),
                 'p_value': float(jb_p),
-                'normal_distribution': jb_p > 0.05
+                'normal_distribution': 1 if jb_p > 0.05 else 0
             }
         except:
             tests['normality_jarque_bera'] = {'error': 'Could not perform Jarque-Bera test'}
@@ -257,7 +258,7 @@ class EvaluationEngine:
         tests['mean_zero_test'] = {
             't_statistic': float(t_stat),
             'p_value': float(p_value),
-            'mean_is_zero': p_value > 0.05
+            'mean_is_zero': 1 if p_value > 0.05 else 0
         }
 
         # Homoscedasticity test (Breusch-Pagan)
@@ -284,7 +285,7 @@ class EvaluationEngine:
             return {
                 'bp_statistic': float(bp_stat),
                 'p_value': float(bp_p),
-                'homoscedastic': bp_p > 0.05,  # Fail to reject null = homoscedastic
+                'homoscedastic': 1 if bp_p > 0.05 else 0,  # Fail to reject null = homoscedastic
                 'test_type': 'breusch_pagan'
             }
         except ImportError:
@@ -317,7 +318,7 @@ class EvaluationEngine:
             'n_severe_outliers': int(np.sum(severe_outliers)),
             'outlier_percentage': float(np.mean(outliers) * 100),
             'severe_outlier_percentage': float(np.mean(severe_outliers) * 100),
-            'outlier_indices': outliers.nonzero()[0].tolist(),
+            'outlier_indices': np.where(outliers)[0].tolist(),
             'standardized_residuals': std_residuals.tolist()
         }
 
@@ -355,8 +356,8 @@ class EvaluationEngine:
                 'leverage_threshold': float(leverage_threshold),
                 'n_influential_points': int(np.sum(influential_points)),
                 'n_high_leverage_points': int(np.sum(high_leverage_points)),
-                'influential_indices': influential_points.nonzero()[0].tolist(),
-                'high_leverage_indices': high_leverage_points.nonzero()[0].tolist(),
+                'influential_indices': np.where(influential_points)[0].tolist(),
+                'high_leverage_indices': np.where(high_leverage_points)[0].tolist(),
                 'max_cooks_distance': float(np.max(cooks_d)),
                 'max_leverage': float(np.max(leverage))
             }
@@ -378,7 +379,7 @@ class EvaluationEngine:
             tests['goldfeld_quandt'] = {
                 'statistic': float(gq_stat),
                 'p_value': float(gq_p),
-                'homoscedastic': gq_p > 0.05
+                'homoscedastic': 1 if gq_p > 0.05 else 0
             }
         except:
             tests['goldfeld_quandt'] = {'error': 'Could not perform Goldfeld-Quandt test'}
@@ -390,7 +391,7 @@ class EvaluationEngine:
             tests['white_test'] = {
                 'statistic': float(white_stat),
                 'p_value': float(white_p),
-                'homoscedastic': white_p > 0.05
+                'homoscedastic': 1 if white_p > 0.05 else 0
             }
         except:
             tests['white_test'] = {'error': 'Could not perform White test'}
@@ -420,7 +421,7 @@ class EvaluationEngine:
             return {
                 'durbin_watson_statistic': float(dw_stat),
                 'interpretation': interpretation,
-                'no_autocorrelation': 1.5 <= dw_stat <= 2.5
+                'no_autocorrelation': 1 if 1.5 <= dw_stat <= 2.5 else 0
             }
         except ImportError:
             return {'error': 'statsmodels not available for Durbin-Watson test'}

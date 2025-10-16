@@ -1,0 +1,401 @@
+Starting Advanced Modeling Pipeline...
+2025-10-16 13:20:57,578 - pipeline - INFO - Starting complete pipeline run: 3c29763a
+Pipeline phases:   0%|          | 0/5 [00:00<?, ?it/s]2025-10-16 13:20:57,591 - pipeline - INFO - Starting phase: Data
+2025-10-16 13:20:57,591 - pipeline - INFO - Running data pipeline
+2025-10-16 13:20:57,591 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-16 13:20:57,646 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-16 13:20:57,646 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-16 13:20:57,646 - pipeline - INFO - Preprocessing features
+2025-10-16 13:20:57,653 - pipeline - INFO - Processed 11 features
+2025-10-16 13:20:57,653 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-16 13:20:57,655 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-16 13:20:57,667 - pipeline - INFO - Data quality validation completed
+2025-10-16 13:20:57,764 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-16 13:20:57,764 - pipeline - INFO - Data pipeline completed successfully
+Pipeline phases:  20%|██        | 1/5 [00:00<00:00,  5.77it/s]2025-10-16 13:20:57,768 - pipeline - INFO - Starting phase: Modeling
+2025-10-16 13:20:57,768 - pipeline - INFO - Running modeling pipeline
+
+Training models:   0%|          | 0/3 [00:00<?, ?it/s][A2025-10-16 13:20:57,768 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-16 13:20:57,768 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-16 13:20:57,769 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-16 13:20:57,769 - model - INFO - Checking cache for linear with key: linear_regression_[]
+2025-10-16 13:20:57,770 - model - INFO - Using cached results for linear
+2025-10-16 13:20:57,770 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-16 13:20:57,770 - model - INFO - Training linear model with params: {}
+2025-10-16 13:20:57,773 - model - INFO - Stored trained model with ID: linear_0
+2025-10-16 13:20:57,792 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-10-16 13:20:57,792 - model - INFO - Model linear trained successfully. CV Score: 12204820.6103
+2025-10-16 13:20:57,792 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-16 13:20:57,792 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-16 13:20:57,806 - evaluation - INFO - Performing bias-variance analysis
+2025-10-16 13:20:57,936 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+/Users/samuel/IDIS450/Project/src/evaluation_engine.py:129: RuntimeWarning: invalid value encountered in sqrt
+  'rmse_std': np.sqrt(cv_scores).std()
+2025-10-16 13:20:58,237 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-16 13:20:58,309 - pipeline - INFO - Created model version: model_linear_ceca20e99c0c
+
+Training models:  33%|███▎      | 1/3 [00:00<00:01,  1.85it/s][A2025-10-16 13:20:58,309 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-16 13:20:58,309 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-16 13:20:58,309 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-16 13:20:58,309 - model - INFO - Checking cache for decision_tree with key: decision_tree_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2)]
+2025-10-16 13:20:58,309 - model - INFO - Using cached results for decision_tree
+2025-10-16 13:20:58,309 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-16 13:20:58,309 - model - INFO - Training decision_tree model with params: {'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-16 13:20:58,342 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-10-16 13:20:58,462 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-10-16 13:20:58,462 - model - INFO - Model decision_tree trained successfully. CV Score: 410490.4941
+2025-10-16 13:20:58,462 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-16 13:20:58,462 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-16 13:20:58,581 - evaluation - INFO - Performing bias-variance analysis
+2025-10-16 13:20:59,838 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+/Users/samuel/IDIS450/Project/src/evaluation_engine.py:129: RuntimeWarning: invalid value encountered in sqrt
+  'rmse_std': np.sqrt(cv_scores).std()
+2025-10-16 13:20:59,846 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-16 13:20:59,923 - pipeline - INFO - Created model version: model_decision_tree_9d0bc4ec473c
+
+Training models:  67%|██████▋   | 2/3 [00:02<00:01,  1.17s/it][A2025-10-16 13:20:59,923 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-16 13:20:59,923 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-16 13:20:59,923 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-16 13:20:59,924 - model - INFO - Checking cache for random_forest with key: random_forest_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]
+2025-10-16 13:20:59,924 - model - INFO - Using cached results for random_forest
+2025-10-16 13:20:59,924 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-16 13:20:59,924 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-16 13:21:01,713 - model - INFO - Stored trained model with ID: random_forest_2
+2025-10-16 13:21:08,902 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-10-16 13:21:08,902 - model - INFO - Model random_forest trained successfully. CV Score: 179276.2159
+2025-10-16 13:21:08,902 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-16 13:21:08,902 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-16 13:21:16,167 - evaluation - INFO - Performing bias-variance analysis
+2025-10-16 13:22:39,566 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+/Users/samuel/IDIS450/Project/src/evaluation_engine.py:129: RuntimeWarning: invalid value encountered in sqrt
+  'rmse_std': np.sqrt(cv_scores).std()
+2025-10-16 13:22:39,579 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-16 13:22:39,657 - pipeline - INFO - Created model version: model_random_forest_134aebd0cbd0
+
+Training models: 100%|██████████| 3/3 [01:41<00:00, 46.18s/it][A
+                                                              [A2025-10-16 13:22:39,660 - model - INFO - Model linear_0 evaluation completed. Test Score: 0.8445
+2025-10-16 13:22:39,663 - model - INFO - Model decision_tree_1 evaluation completed. Test Score: 0.9961
+2025-10-16 13:22:39,694 - model - INFO - Model random_forest_2 evaluation completed. Test Score: 0.9985
+2025-10-16 13:22:39,694 - pipeline - INFO - Modeling pipeline completed successfully
+Pipeline phases:  40%|████      | 2/5 [01:42<03:00, 60.03s/it]2025-10-16 13:22:39,694 - pipeline - INFO - Starting phase: Qualitative
+2025-10-16 13:22:39,694 - pipeline - INFO - Running qualitative evaluation
+2025-10-16 13:22:39,694 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-16 13:22:39,745 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-16 13:22:39,745 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-16 13:22:39,745 - pipeline - INFO - Preprocessing features
+2025-10-16 13:22:39,748 - pipeline - INFO - Processed 11 features
+2025-10-16 13:22:39,748 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-16 13:22:39,749 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-16 13:22:39,750 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-16 13:22:39,752 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-10-16 13:22:39,752 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-16 13:22:39,752 - evaluation - INFO - Performing error analysis for linear
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-16 13:22:39,768 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-16 13:22:39,768 - evaluation - INFO - Checking business alignment for linear
+2025-10-16 13:22:39,768 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-16 13:22:39,769 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-16 13:22:39,769 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-16 13:22:39,769 - evaluation - INFO - Performing error analysis for decision_tree
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-16 13:22:39,778 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-16 13:22:39,779 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-16 13:22:39,779 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-16 13:22:39,800 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-16 13:23:04,289 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-10-16 13:23:04,291 - evaluation - INFO - SHAP analysis completed for random_forest
+2025-10-16 13:23:04,293 - evaluation - INFO - Performing error analysis for random_forest
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-16 13:23:04,309 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-16 13:23:04,309 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-16 13:23:04,309 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-16 13:23:04,309 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-16 13:23:04,310 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+Pipeline phases:  60%|██████    | 3/5 [02:06<01:27, 43.86s/it]2025-10-16 13:23:04,310 - pipeline - INFO - Starting phase: Learning
+2025-10-16 13:23:04,310 - pipeline - INFO - Running learning pipeline
+2025-10-16 13:23:04,310 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-16 13:23:04,360 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-16 13:23:04,360 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-16 13:23:04,361 - pipeline - INFO - Preprocessing features
+2025-10-16 13:23:04,364 - pipeline - INFO - Processed 11 features
+2025-10-16 13:23:04,364 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-16 13:23:04,365 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-16 13:23:04,365 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-16 13:23:04,365 - meta - INFO - Collected data from 4 experiments
+2025-10-16 13:23:04,365 - pipeline - INFO - Evaluating learning progress
+2025-10-16 13:23:04,365 - pipeline - INFO - Learning progress evaluation completed
+2025-10-16 13:23:04,365 - pipeline - INFO - Adapting learning strategy
+2025-10-16 13:23:04,365 - pipeline - INFO - Strategy adaptation completed
+2025-10-16 13:23:04,365 - pipeline - INFO - Updating learning system
+2025-10-16 13:23:04,365 - meta - INFO - Updating meta-learning model
+2025-10-16 13:23:04,365 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-16 13:23:04,365 - meta - INFO - Collected data from 4 experiments
+2025-10-16 13:23:04,395 - pipeline - INFO - Learning system updated successfully
+2025-10-16 13:23:04,395 - pipeline - INFO - Learning pipeline completed
+2025-10-16 13:23:04,395 - pipeline - INFO - Starting phase: Finalizing
+2025-10-16 13:23:04,395 - pipeline - INFO - Finalizing pipeline
+2025-10-16 13:23:04,425 - pipeline - INFO - Completed experiment 3c29763a
+2025-10-16 13:23:04,425 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-16 13:23:04,425 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_3c29763a.json
+Pipeline phases: 100%|██████████| 5/5 [02:06<00:00, 19.06s/it]Pipeline phases: 100%|██████████| 5/5 [02:06<00:00, 25.37s/it]
+2025-10-16 13:23:04,426 - pipeline - INFO - Pipeline run 3c29763a completed successfully
+🚀 Starting Advanced Modeling Pipeline...
+2025-10-16 13:23:04,469 - pipeline - INFO - Starting complete pipeline run: 437ce056
+Pipeline phases:   0%|          | 0/5 [00:00<?, ?it/s]2025-10-16 13:23:04,469 - pipeline - INFO - Starting phase: Data
+2025-10-16 13:23:04,469 - pipeline - INFO - Running data pipeline
+2025-10-16 13:23:04,469 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-16 13:23:04,515 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-16 13:23:04,515 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-16 13:23:04,515 - pipeline - INFO - Preprocessing features
+2025-10-16 13:23:04,518 - pipeline - INFO - Processed 11 features
+2025-10-16 13:23:04,518 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-16 13:23:04,519 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-16 13:23:04,526 - pipeline - INFO - Data quality validation completed
+2025-10-16 13:23:04,647 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-16 13:23:04,647 - pipeline - INFO - Data pipeline completed successfully
+Pipeline phases:  20%|██        | 1/5 [00:00<00:00,  5.62it/s]2025-10-16 13:23:04,647 - pipeline - INFO - Starting phase: Modeling
+2025-10-16 13:23:04,648 - pipeline - INFO - Running modeling pipeline
+
+Training models:   0%|          | 0/3 [00:00<?, ?it/s][A2025-10-16 13:23:04,648 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-16 13:23:04,648 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-16 13:23:04,648 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-16 13:23:04,648 - model - INFO - Checking cache for linear with key: linear_regression_[]
+2025-10-16 13:23:04,654 - model - INFO - Using cached results for linear
+2025-10-16 13:23:04,654 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-16 13:23:04,654 - model - INFO - Training linear model with params: {}
+2025-10-16 13:23:04,657 - model - INFO - Stored trained model with ID: linear_0
+2025-10-16 13:23:04,683 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-10-16 13:23:04,683 - model - INFO - Model linear trained successfully. CV Score: 12204820.6103
+2025-10-16 13:23:04,683 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-16 13:23:04,683 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-16 13:23:04,706 - evaluation - INFO - Performing bias-variance analysis
+2025-10-16 13:23:04,845 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+/Users/samuel/IDIS450/Project/src/evaluation_engine.py:129: RuntimeWarning: invalid value encountered in sqrt
+  'rmse_std': np.sqrt(cv_scores).std()
+2025-10-16 13:23:04,854 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8445
+2025-10-16 13:23:04,939 - pipeline - INFO - Created model version: model_linear_d98826517466
+
+Training models:  33%|███▎      | 1/3 [00:00<00:00,  3.43it/s][A2025-10-16 13:23:04,940 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-16 13:23:04,940 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-16 13:23:04,940 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-16 13:23:04,940 - model - INFO - Checking cache for decision_tree with key: decision_tree_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2)]
+2025-10-16 13:23:04,940 - model - INFO - Using cached results for decision_tree
+2025-10-16 13:23:04,940 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-16 13:23:04,940 - model - INFO - Training decision_tree model with params: {'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-16 13:23:04,969 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-10-16 13:23:05,107 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-10-16 13:23:05,107 - model - INFO - Model decision_tree trained successfully. CV Score: 410490.4941
+2025-10-16 13:23:05,107 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-16 13:23:05,107 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-16 13:23:05,234 - evaluation - INFO - Performing bias-variance analysis
+2025-10-16 13:23:06,545 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+/Users/samuel/IDIS450/Project/src/evaluation_engine.py:129: RuntimeWarning: invalid value encountered in sqrt
+  'rmse_std': np.sqrt(cv_scores).std()
+2025-10-16 13:23:06,552 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-16 13:23:06,633 - pipeline - INFO - Created model version: model_decision_tree_84d3b2a3e3a2
+
+Training models:  67%|██████▋   | 2/3 [00:01<00:01,  1.12s/it][A2025-10-16 13:23:06,633 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-16 13:23:06,633 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-16 13:23:06,633 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-16 13:23:06,634 - model - INFO - Checking cache for random_forest with key: random_forest_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]
+2025-10-16 13:23:06,634 - model - INFO - Using cached results for random_forest
+2025-10-16 13:23:06,634 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-16 13:23:06,634 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-16 13:23:08,401 - model - INFO - Stored trained model with ID: random_forest_2
+2025-10-16 13:23:15,493 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-10-16 13:23:15,493 - model - INFO - Model random_forest trained successfully. CV Score: 179276.2159
+2025-10-16 13:23:15,494 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-16 13:23:15,494 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-16 13:23:22,731 - evaluation - INFO - Performing bias-variance analysis
+2025-10-16 13:24:46,187 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+/Users/samuel/IDIS450/Project/src/evaluation_engine.py:129: RuntimeWarning: invalid value encountered in sqrt
+  'rmse_std': np.sqrt(cv_scores).std()
+2025-10-16 13:24:46,207 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-16 13:24:46,298 - pipeline - INFO - Created model version: model_random_forest_f3c8f162a40d
+
+Training models: 100%|██████████| 3/3 [01:41<00:00, 46.12s/it][A
+                                                              [A2025-10-16 13:24:46,301 - model - INFO - Model linear_0 evaluation completed. Test Score: 0.8445
+2025-10-16 13:24:46,304 - model - INFO - Model decision_tree_1 evaluation completed. Test Score: 0.9961
+2025-10-16 13:24:46,356 - model - INFO - Model random_forest_2 evaluation completed. Test Score: 0.9985
+2025-10-16 13:24:46,357 - pipeline - INFO - Modeling pipeline completed successfully
+Pipeline phases:  40%|████      | 2/5 [01:41<02:59, 59.90s/it]2025-10-16 13:24:46,357 - pipeline - INFO - Starting phase: Qualitative
+2025-10-16 13:24:46,357 - pipeline - INFO - Running qualitative evaluation
+2025-10-16 13:24:46,357 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-16 13:24:46,415 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-16 13:24:46,415 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-16 13:24:46,415 - pipeline - INFO - Preprocessing features
+2025-10-16 13:24:46,418 - pipeline - INFO - Processed 11 features
+2025-10-16 13:24:46,418 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-16 13:24:46,419 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-16 13:24:46,420 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-16 13:24:46,422 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-10-16 13:24:46,422 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-16 13:24:46,422 - evaluation - INFO - Performing error analysis for linear
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-16 13:24:46,433 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-16 13:24:46,433 - evaluation - INFO - Checking business alignment for linear
+2025-10-16 13:24:46,434 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-16 13:24:46,434 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-16 13:24:46,435 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-16 13:24:46,435 - evaluation - INFO - Performing error analysis for decision_tree
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-16 13:24:46,445 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-16 13:24:46,445 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-16 13:24:46,445 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-16 13:24:46,467 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-16 13:25:11,421 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-10-16 13:25:11,428 - evaluation - INFO - SHAP analysis completed for random_forest
+2025-10-16 13:25:11,441 - evaluation - INFO - Performing error analysis for random_forest
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:240: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:243: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-16 13:25:11,458 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-16 13:25:11,458 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-16 13:25:11,458 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-16 13:25:11,458 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-16 13:25:11,459 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+Pipeline phases:  60%|██████    | 3/5 [02:06<01:28, 44.01s/it]2025-10-16 13:25:11,459 - pipeline - INFO - Starting phase: Learning
+2025-10-16 13:25:11,459 - pipeline - INFO - Running learning pipeline
+2025-10-16 13:25:11,459 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-16 13:25:11,529 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-16 13:25:11,529 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-16 13:25:11,529 - pipeline - INFO - Preprocessing features
+2025-10-16 13:25:11,533 - pipeline - INFO - Processed 11 features
+2025-10-16 13:25:11,533 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-16 13:25:11,534 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-16 13:25:11,535 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-16 13:25:11,535 - meta - INFO - Collected data from 4 experiments
+2025-10-16 13:25:11,535 - pipeline - INFO - Evaluating learning progress
+2025-10-16 13:25:11,535 - pipeline - INFO - Learning progress evaluation completed
+2025-10-16 13:25:11,535 - pipeline - INFO - Adapting learning strategy
+2025-10-16 13:25:11,535 - pipeline - INFO - Strategy adaptation completed
+2025-10-16 13:25:11,535 - pipeline - INFO - Updating learning system
+2025-10-16 13:25:11,535 - meta - INFO - Updating meta-learning model
+2025-10-16 13:25:11,535 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-16 13:25:11,535 - meta - INFO - Collected data from 4 experiments
+2025-10-16 13:25:11,570 - pipeline - INFO - Learning system updated successfully
+2025-10-16 13:25:11,570 - pipeline - INFO - Learning pipeline completed
+Pipeline phases:  80%|████████  | 4/5 [02:07<00:26, 26.68s/it]2025-10-16 13:25:11,570 - pipeline - INFO - Starting phase: Finalizing
+2025-10-16 13:25:11,571 - pipeline - INFO - Finalizing pipeline
+2025-10-16 13:25:11,605 - pipeline - INFO - Completed experiment 437ce056
+2025-10-16 13:25:11,605 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-16 13:25:11,605 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_437ce056.json
+Pipeline phases: 100%|██████████| 5/5 [02:07<00:00, 25.43s/it]
+2025-10-16 13:25:11,605 - pipeline - INFO - Pipeline run 437ce056 completed successfully
+✅ Pipeline completed successfully!
+📊 Experiment ID: 437ce056
+🏆 Best model: random_forest_2
+
+Model Performance Summary:

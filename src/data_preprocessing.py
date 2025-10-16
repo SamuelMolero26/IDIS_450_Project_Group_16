@@ -15,6 +15,7 @@ from pathlib import Path
 import argparse
 import sys
 import subprocess
+from . import config
 
 warnings.filterwarnings('ignore')
 
@@ -657,8 +658,8 @@ def finalize_dataset(df):
     print(f"Scaled features: {len(scaled_cols)}")
     print(f"Encoded features: {len(encoded_cols)}")
 
-    # Save processed dataset
-    out_csv = Path.cwd() / 'preprocessed_sales_data.csv'
+    # Save processed dataset to project root (matching config.py expectations)
+    out_csv = config.PREPROCESSED_DATA_FILE
     df.to_csv(out_csv, index=False)
     print(f"Preprocessed dataset saved as '{out_csv}'")
 

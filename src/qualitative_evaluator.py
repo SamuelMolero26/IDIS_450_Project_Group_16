@@ -10,10 +10,11 @@ from pathlib import Path
 import json
 from datetime import datetime
 import warnings
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
 import sys
 import os
-# Ensure project root is in path for imports
+
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
@@ -77,7 +78,10 @@ class QualitativeEvaluator:
                                    random_state=42)
 
             # Choose explainer based on model type
-            if hasattr(model, 'predict_proba'):
+            if isinstance(model, (RandomForestClassifier, RandomForestRegressor)):
+                # Use general Explainer for RandomForest models
+                explainer = shap.Explainer(model)
+            elif hasattr(model, 'predict_proba'):
                 explainer = shap.TreeExplainer(model) if hasattr(model, 'feature_importances_') else shap.LinearExplainer(model, X_train)
             else:
                 explainer = shap.LinearExplainer(model, X_train)

@@ -139,7 +139,8 @@ class QualitativeEvaluator:
         return results
 
     def perform_error_analysis(self, model, X_test: pd.DataFrame, y_test: np.ndarray,
-                             y_pred: np.ndarray, model_name: str = "model") -> Dict[str, Any]:
+                             y_pred: np.ndarray, model_name: str = "model",
+                             cv_results: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Perform detailed error analysis.
 
@@ -202,12 +203,18 @@ class QualitativeEvaluator:
         # Worst prediction analysis
         worst_predictions = self._analyze_worst_predictions(error_df)
 
+        # Integrate CV stability analysis if available
+        cv_stability_analysis = {}
+        if cv_results:
+            cv_stability_analysis = self._analyze_cv_stability_impact(cv_results, error_df)
+
         results = {
             'error_statistics': error_stats,
             'error_correlations': error_correlations,
             'error_patterns': error_patterns,
             'worst_predictions': worst_predictions,
             'error_samples': error_df.nlargest(10, 'error_magnitude').to_dict('records'),
+            'cv_stability_analysis': cv_stability_analysis,
             'analysis_timestamp': datetime.now().isoformat()
         }
 
@@ -285,6 +292,48 @@ class QualitativeEvaluator:
             }
 
         return analysis
+
+    def _analyze_cv_stability_impact(self, cv_results: Dict[str, Any], error_df: pd.DataFrame) -> Dict[str, Any]:
+        """
+        Analyze how CV stability relates to prediction errors.
+
+        Args:
+            cv_results: Comprehensive CV results
+            error_df: DataFrame with error analysis
+
+        Returns:
+            Dictionary with CV stability impact analysis
+        """
+        stability_analysis = {
+            'cv_stability_score': cv_results.get('stability_analysis', {}).get('overall_stability_score', 0),
+            'cv_stability_interpretation': cv_results.get('stability_analysis', {}).get('overall_stability', 'unknown'),
+            'error_rate_vs_cv_stability': {},
+            'stability_recommendations': []
+        }
+
+        # Analyze relationship between CV stability and error patterns
+        stability_score = stability_analysis['cv_stability_score']
+
+        if stability_score < 0.5:
+            stability_analysis['stability_recommendations'].append(
+                "Low CV stability detected. Model may be overfitting or underfitting. Consider regularization or more data."
+            )
+        elif stability_score > 0.8:
+            stability_analysis['stability_recommendations'].append(
+                "High CV stability indicates robust model performance across folds."
+            )
+
+        # Analyze error patterns in relation to CV performance
+        if 'fold_results' in cv_results:
+            fold_scores = [fold.get('score', 0) for fold in cv_results['fold_results']]
+            stability_analysis['fold_score_variation'] = {
+                'min': min(fold_scores),
+                'max': max(fold_scores),
+                'range': max(fold_scores) - min(fold_scores),
+                'coefficient_of_variation': np.std(fold_scores) / np.mean(fold_scores) if np.mean(fold_scores) > 0 else 0
+            }
+
+        return stability_analysis
 
     def check_business_alignment(self, model, X_test: pd.DataFrame, y_test: np.ndarray,
                                y_pred: np.ndarray, model_name: str = "model") -> Dict[str, Any]:
@@ -490,6 +539,24 @@ class QualitativeEvaluator:
                         for feature, corr in top_correlations:
                             report_lines.append(f"- {feature}: {corr:.4f}")
                         report_lines.append("")
+
+                # CV Stability Analysis
+                if 'cv_stability_analysis' in results and results['cv_stability_analysis']:
+                    cv_stability = results['cv_stability_analysis']
+                    report_lines.append("### CV Stability Analysis")
+                    report_lines.append(f"- CV Stability Score: {cv_stability.get('cv_stability_score', 'N/A'):.3f}")
+                    report_lines.append(f"- Stability Assessment: {cv_stability.get('cv_stability_interpretation', 'unknown')}")
+
+                    if 'fold_score_variation' in cv_stability:
+                        variation = cv_stability['fold_score_variation']
+                        report_lines.append(f"- Fold Score Range: {variation['min']:.3f} - {variation['max']:.3f}")
+                        report_lines.append(f"- Coefficient of Variation: {variation['coefficient_of_variation']:.3f}")
+
+                    if cv_stability.get('stability_recommendations'):
+                        report_lines.append("Stability Recommendations:")
+                        for rec in cv_stability['stability_recommendations']:
+                            report_lines.append(f"- {rec}")
+                    report_lines.append("")
 
             # Business Alignment
             if 'business_checks' in results:

@@ -181,18 +181,25 @@ class ContinuousLearning:
             'learning_insights': []
         }
 
-        # Extract current performance
+        # Extract current performance including CV metrics
         for model_name, results in current_results.get('model_results', {}).items():
             evaluation = results.get('evaluation', {})
             if evaluation.get('evaluation_type') == 'regression':
                 progress_evaluation['current_performance'][model_name] = evaluation.get('test_r2', 0)
+                # Add CV stability metrics
+                cv_metrics = evaluation.get('cv_metrics', {})
+                progress_evaluation['current_performance'][f"{model_name}_cv_stability"] = cv_metrics.get('cv_stability_score', 0)
             else:
                 progress_evaluation['current_performance'][model_name] = evaluation.get('test_accuracy', 0)
+                # Add CV stability metrics
+                cv_metrics = evaluation.get('cv_metrics', {})
+                progress_evaluation['current_performance'][f"{model_name}_cv_stability"] = cv_metrics.get('cv_stability_score', 0)
 
-        # Compare with historical performance
+        # Compare with historical performance including CV stability
         if historical_results:
             for model_name in progress_evaluation['current_performance']:
                 historical_performances = []
+                historical_cv_stabilities = []
 
                 for hist_result in historical_results[-5:]:  # Last 5 experiments
                     hist_models = hist_result.get('model_results', {})
@@ -204,16 +211,29 @@ class ContinuousLearning:
                             perf = hist_eval.get('test_accuracy', 0)
                         historical_performances.append(perf)
 
+                        # Extract CV stability from historical data
+                        cv_metrics = hist_eval.get('cv_metrics', {})
+                        cv_stability = cv_metrics.get('cv_stability_score', 0)
+                        historical_cv_stabilities.append(cv_stability)
+
                 if historical_performances:
                     current_perf = progress_evaluation['current_performance'][model_name]
                     avg_hist_perf = np.mean(historical_performances)
                     improvement = current_perf - avg_hist_perf
 
+                    # CV stability comparison
+                    current_cv_stability = progress_evaluation['current_performance'].get(f"{model_name}_cv_stability", 0)
+                    avg_hist_cv_stability = np.mean(historical_cv_stabilities) if historical_cv_stabilities else 0
+                    cv_stability_improvement = current_cv_stability - avg_hist_cv_stability
+
                     progress_evaluation['historical_comparison'][model_name] = {
                         'current': current_perf,
                         'historical_avg': avg_hist_perf,
                         'improvement': improvement,
-                        'improvement_percentage': (improvement / avg_hist_perf * 100) if avg_hist_perf > 0 else 0
+                        'improvement_percentage': (improvement / avg_hist_perf * 100) if avg_hist_perf > 0 else 0,
+                        'cv_stability_current': current_cv_stability,
+                        'cv_stability_historical_avg': avg_hist_cv_stability,
+                        'cv_stability_improvement': cv_stability_improvement
                     }
 
                     # Check for significant improvement
@@ -227,15 +247,42 @@ class ContinuousLearning:
                                 f"Performance decline in {model_name} (-{abs(improvement):.3f})"
                             )
 
-        # Overall learning metrics
-        all_current_perfs = list(progress_evaluation['current_performance'].values())
+                    # Check for CV stability improvements
+                    if abs(cv_stability_improvement) > 0.1:
+                        if cv_stability_improvement > 0:
+                            progress_evaluation['learning_insights'].append(
+                                f"Improved CV stability for {model_name} (+{cv_stability_improvement:.2f})"
+                            )
+                        else:
+                            progress_evaluation['learning_insights'].append(
+                                f"Reduced CV stability for {model_name} ({cv_stability_improvement:.2f})"
+                            )
+
+        # Overall learning metrics including CV stability
+        all_current_perfs = []
+        all_cv_stabilities = []
+
+        for key, value in progress_evaluation['current_performance'].items():
+            if not key.endswith('_cv_stability'):
+                all_current_perfs.append(value)
+            else:
+                all_cv_stabilities.append(value)
+
         if all_current_perfs:
             progress_evaluation['improvement_metrics']['average_current_performance'] = np.mean(all_current_perfs)
             progress_evaluation['improvement_metrics']['best_current_performance'] = np.max(all_current_perfs)
 
+        if all_cv_stabilities:
+            progress_evaluation['improvement_metrics']['average_cv_stability'] = np.mean(all_cv_stabilities)
+            progress_evaluation['improvement_metrics']['best_cv_stability'] = np.max(all_cv_stabilities)
+
         # Learning stability (consistency across models)
         if len(all_current_perfs) > 1:
             progress_evaluation['improvement_metrics']['performance_consistency'] = np.std(all_current_perfs)
+
+        # CV stability consistency
+        if len(all_cv_stabilities) > 1:
+            progress_evaluation['improvement_metrics']['cv_stability_consistency'] = np.std(all_cv_stabilities)
 
         pipeline_logger.info("Learning progress evaluation completed")
 

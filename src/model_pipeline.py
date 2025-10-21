@@ -7,6 +7,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import cross_val_score, KFold
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, classification_report
 from typing import Dict, Any, List, Optional, Tuple, Union
@@ -45,6 +46,7 @@ class ModelPipeline:
         self.trained_models = {}
         self.model_configs = MODEL_CONFIGS
         self.cv = KFold(n_splits=CV_FOLDS, shuffle=True, random_state=RANDOM_STATE)
+        self.poly_features = {}  # Store polynomial feature transformers
 
     def _get_model_class(self, model_type: str, task: str = 'regression'):
         """
@@ -93,7 +95,7 @@ class ModelPipeline:
             return 'regression'
 
     def train_model(self, model_type: str, X_train: pd.DataFrame, y_train: np.ndarray,
-                   params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+                    params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Train a single model.
 
@@ -116,60 +118,124 @@ class ModelPipeline:
         if params is None:
             params = {}
 
-        # Check cache first
-        cache_key = f"{model_type}_{task_type}_{str(sorted(params.items()))}"
+        # Create consistent cache key that includes feature names for proper cache invalidation
+        feature_names = sorted(X_train.columns.tolist())
+        cache_key = f"{model_type}_{task_type}_{str(sorted(params.items()))}_{hash(str(feature_names))}"
         model_logger.info(f"Checking cache for {model_type} with key: {cache_key}")
         cached_results = get_cached_model_results(model_type, params)
 
+        # Only use cache if feature set matches (prevent stale cache issues)
+        use_cache = False
         if cached_results:
-            model_logger.info(f"Using cached results for {model_type}")
-            # Use cached results and create a dummy model for evaluation
-            # We'll create a minimal model object that can be used for prediction
-            model_id = cached_results.get('model_id', f"{model_type}_{len(self.trained_models)}")
-
-            # For cached results, we need to create a model instance for evaluation
-            # We'll retrain with the same parameters to get the model object
-            model_logger.info(f"Retraining model with cached parameters for evaluation")
+            cached_features = cached_results.get('feature_names', [])
+            if sorted(cached_features) == feature_names:
+                use_cache = True
+                model_logger.info(f"Using cached results for {model_type}")
+                model_id = cached_results.get('model_id', f"{model_type}_{len(self.trained_models)}")
+                # Load cached model object if available
+                model_cache_key = f"model_object_{model_id}"
+                try:
+                    cached_model_bytes = cache.get(model_cache_key)
+                    if cached_model_bytes:
+                        model = joblib.loads(cached_model_bytes)
+                        model_logger.info(f"Loaded cached model object for {model_id}")
+                    else:
+                        # Retrain if model object not cached
+                        use_cache = False
+                        model_logger.info(f"Model object not cached, retraining {model_type}")
+                except Exception as e:
+                    model_logger.warning(f"Failed to load cached model: {e}, retraining")
+                    use_cache = False
+            else:
+                model_logger.info(f"Cache feature mismatch, retraining {model_type}")
+                use_cache = False
         else:
             model_logger.info(f"Cache miss for {model_type} - training new model")
 
-        # Create and train model - handle random_state appropriately
-        if model_type == 'linear':
-            # LinearRegression doesn't accept random_state
-            model = model_class(**params)
-        else:
-            # Tree-based and ensemble models do accept random_state
-            model = model_class(random_state=RANDOM_STATE, **params)
-
-        model_logger.info(f"Training {model_type} model with params: {params}")
-
-        start_time = datetime.now()
-        model.fit(X_train, y_train)
-        training_time = (datetime.now() - start_time).total_seconds()
-
-        # Generate consistent model ID
-        if cached_results:
-            # Use the cached model ID for consistency
-            model_id = cached_results.get('model_id', f"{model_type}_{len(self.trained_models)}")
-        else:
-            # Generate new model ID for fresh training
+        if not use_cache:
+            # Generate consistent model ID first
             model_id = f"{model_type}_{len(self.trained_models)}"
+
+            # Apply polynomial features and scaling for linear models
+            if model_type == 'linear':
+                from sklearn.preprocessing import StandardScaler
+
+                # Get polynomial degree from params, default to 1 (no polynomial features)
+                poly_degree = params.get('polynomial_degree', 1)
+
+                if poly_degree > 1:
+                    # Create polynomial features
+                    self.poly_features[model_id] = PolynomialFeatures(degree=poly_degree, include_bias=False)
+                    X_train_poly = self.poly_features[model_id].fit_transform(X_train)
+                    poly_feature_names = self.poly_features[model_id].get_feature_names_out(X_train.columns)
+                    X_train = pd.DataFrame(X_train_poly, columns=poly_feature_names, index=X_train.index)
+                    model_logger.info(f"Applied polynomial features (degree {poly_degree}) to linear model")
+
+                # Apply scaling
+                self.scaler = StandardScaler()
+                X_train_scaled = pd.DataFrame(
+                    self.scaler.fit_transform(X_train),
+                    columns=X_train.columns,
+                    index=X_train.index
+                )
+                model_logger.info(f"Applied StandardScaler to features for linear model")
+            else:
+                X_train_scaled = X_train
+
+            # Create and train model - handle random_state appropriately
+            if model_type == 'linear':
+                # LinearRegression doesn't accept random_state or polynomial_degree
+                # Filter out polynomial_degree from params as it's handled separately
+                filtered_params = {k: v for k, v in params.items() if k != 'polynomial_degree'}
+                model = model_class(**filtered_params)
+            else:
+                # Tree-based and ensemble models do accept random_state
+                model = model_class(random_state=RANDOM_STATE, **params)
+
+            model_logger.info(f"Training {model_type} model with params: {params}")
+
+            start_time = datetime.now()
+            model.fit(X_train_scaled, y_train)
+            training_time = (datetime.now() - start_time).total_seconds()
+        else:
+            # For cached models, we still need to apply polynomial features and scaling if it's a linear model
+            if model_type == 'linear':
+                # Get polynomial degree from params, default to 1
+                poly_degree = params.get('polynomial_degree', 1)
+
+                if poly_degree > 1 and model_id in self.poly_features:
+                    # Apply polynomial features
+                    X_train_poly = self.poly_features[model_id].transform(X_train)
+                    poly_feature_names = self.poly_features[model_id].get_feature_names_out(X_train.columns)
+                    X_train = pd.DataFrame(X_train_poly, columns=poly_feature_names, index=X_train.index)
+
+                # Apply scaling if scaler exists
+                if hasattr(self, 'scaler'):
+                    X_train_scaled = pd.DataFrame(
+                        self.scaler.transform(X_train),
+                        columns=X_train.columns,
+                        index=X_train.index
+                    )
+                else:
+                    X_train_scaled = X_train
+            else:
+                X_train_scaled = X_train
+            training_time = cached_results.get('training_time', 0)
 
         # Store trained model
         self.trained_models[model_id] = model
         model_logger.info(f"Stored trained model with ID: {model_id}")
 
-        # Perform cross-validation
-        cv_scores = cross_val_score(model, X_train, y_train, cv=self.cv,
-                                  scoring='neg_mean_squared_error' if task_type == 'regression' else 'accuracy')
+        # Perform cross-validation with proper scaling and polynomial features
+        cv_scores = self._perform_cv_with_scaling(model, X_train, y_train, model_type, task_type, params)
 
         # Calculate training metrics
-        y_pred_train = model.predict(X_train)
+        y_pred_train = model.predict(X_train_scaled)
 
         if task_type == 'regression':
             train_mse = mean_squared_error(y_train, y_pred_train)
             train_r2 = r2_score(y_train, y_pred_train)
-            cv_mean = -cv_scores.mean()  # Convert back from negative MSE
+            cv_mean = -cv_scores.mean() if 'neg_mean_squared_error' in str(cv_scores) else cv_scores.mean()
             cv_std = cv_scores.std()
 
             metrics = {
@@ -198,24 +264,144 @@ class ModelPipeline:
             'parameters': params,
             'training_time': training_time,
             'metrics': metrics,
+            'feature_names': feature_names,  # Include for cache validation
             'feature_importance': self._get_feature_importance(model, X_train.columns.tolist()) if hasattr(model, 'feature_importances_') else None,
             'coefficients': self._get_coefficients(model) if hasattr(model, 'coef_') else None,
             'training_timestamp': datetime.now().isoformat()
         }
 
-        # Cache results
-        cache_model_results(model_type, params, results)
+        # Cache results only if not using cache
+        if not use_cache:
+            cache_model_results(model_type, params, results)
 
-        # Also cache the model object separately for potential future retrieval
-        model_cache_key = f"model_object_{model_id}"
-        try:
-            import joblib
-            model_bytes = joblib.dumps(model)
-            from src.config import CACHE_TTL
-            cache.set(model_cache_key, model_bytes, ttl=CACHE_TTL)
-            model_logger.info(f"Cached model object for {model_id}")
-        except Exception as e:
-            model_logger.warning(f"Failed to cache model object for {model_id}: {e}")
+            # Also cache the model object separately for potential future retrieval
+            model_cache_key = f"model_object_{model_id}"
+            try:
+                import joblib
+                model_bytes = joblib.dumps(model)
+                from src.config import CACHE_TTL
+                cache.set(model_cache_key, model_bytes, ttl=CACHE_TTL)
+                model_logger.info(f"Cached model object for {model_id}")
+            except Exception as e:
+                model_logger.warning(f"Failed to cache model object for {model_id}: {e}")
+
+        model_logger.info(f"Model {model_type} trained successfully. CV Score: {cv_mean:.4f}")
+
+        return results
+
+    def _perform_cv_with_scaling(self, model, X_train: pd.DataFrame, y_train: np.ndarray,
+                                model_type: str, task_type: str, params: Optional[Dict[str, Any]] = None) -> np.ndarray:
+        """
+        Perform cross-validation with proper scaling for linear models.
+
+        Args:
+            model: Trained model
+            X_train: Training features
+            y_train: Training targets
+            model_type: Type of model
+            task_type: Task type ('regression' or 'classification')
+
+        Returns:
+            Cross-validation scores
+        """
+        from sklearn.model_selection import cross_val_score
+
+        # For linear models, we need to apply polynomial features and scaling within each CV fold
+        if model_type == 'linear':
+            from sklearn.pipeline import Pipeline
+            from sklearn.preprocessing import StandardScaler
+
+            # Get polynomial degree from params
+            poly_degree = params.get('polynomial_degree', 1) if params else 1
+
+            if poly_degree > 1:
+                # Create pipeline with polynomial features, scaling, and model
+                pipeline = Pipeline([
+                    ('poly', PolynomialFeatures(degree=poly_degree, include_bias=False)),
+                    ('scaler', StandardScaler()),
+                    ('model', model.__class__(**model.get_params()))
+                ])
+            else:
+                # Create pipeline with just scaling and model
+                pipeline = Pipeline([
+                    ('scaler', StandardScaler()),
+                    ('model', model.__class__(**model.get_params()))
+                ])
+
+            cv_scores = cross_val_score(
+                pipeline, X_train, y_train, cv=self.cv,
+                scoring='neg_mean_squared_error' if task_type == 'regression' else 'accuracy'
+            )
+        else:
+            # For tree-based models, no scaling needed
+            cv_scores = cross_val_score(
+                model, X_train, y_train, cv=self.cv,
+                scoring='neg_mean_squared_error' if task_type == 'regression' else 'accuracy'
+            )
+
+        return cv_scores
+
+        # Calculate training metrics
+        y_pred_train = model.predict(X_train_scaled)
+
+        if task_type == 'regression':
+            train_mse = mean_squared_error(y_train, y_pred_train)
+            train_r2 = r2_score(y_train, y_pred_train)
+            cv_mean = -cv_scores.mean() if 'neg_mean_squared_error' in str(cv_scores) else cv_scores.mean()
+            cv_std = cv_scores.std()
+
+            metrics = {
+                'train_mse': train_mse,
+                'train_rmse': np.sqrt(train_mse),
+                'train_r2': train_r2,
+                'cv_mse_mean': cv_mean,
+                'cv_mse_std': cv_std,
+                'cv_rmse_mean': np.sqrt(cv_mean)
+            }
+        else:
+            train_accuracy = accuracy_score(y_train, y_pred_train)
+            cv_mean = cv_scores.mean()
+            cv_std = cv_scores.std()
+
+            metrics = {
+                'train_accuracy': train_accuracy,
+                'cv_accuracy_mean': cv_mean,
+                'cv_accuracy_std': cv_std
+            }
+
+        results = {
+            'model_id': model_id,
+            'model_type': model_type,
+            'task_type': task_type,
+            'parameters': params,
+            'training_time': training_time,
+            'metrics': metrics,
+            'feature_names': feature_names,  # Include for cache validation
+            'feature_importance': self._get_feature_importance(model, X_train.columns.tolist()) if hasattr(model, 'feature_importances_') else None,
+            'coefficients': self._get_coefficients(model) if hasattr(model, 'coef_') else None,
+            'training_timestamp': datetime.now().isoformat()
+        }
+
+        # Cache results only if not using cache
+        if not use_cache:
+            cache_model_results(model_type, params, results)
+
+            # Also cache the model object separately for potential future retrieval
+            model_cache_key = f"model_object_{model_id}"
+            try:
+                import joblib
+                model_bytes = joblib.dump(model, model_cache_key + '.pkl')
+                # Read the file and store in cache
+                with open(model_cache_key + '.pkl', 'rb') as f:
+                    model_bytes = f.read()
+                from src.config import CACHE_TTL
+                cache.set(model_cache_key, model_bytes, ttl=CACHE_TTL)
+                # Clean up temp file
+                import os
+                os.remove(model_cache_key + '.pkl')
+                model_logger.info(f"Cached model object for {model_id}")
+            except Exception as e:
+                model_logger.warning(f"Failed to cache model object for {model_id}: {e}")
 
         model_logger.info(f"Model {model_type} trained successfully. CV Score: {cv_mean:.4f}")
 
@@ -270,7 +456,25 @@ class ModelPipeline:
             raise ValueError(f"Model {model_id} not found")
 
         model = self.trained_models[model_id]
-        return model.predict(X)
+
+        # Apply polynomial features and scaling for linear models
+        if model_id in self.poly_features:
+            # Apply polynomial transformation
+            X_poly = self.poly_features[model_id].transform(X)
+            poly_feature_names = self.poly_features[model_id].get_feature_names_out(X.columns)
+            X_transformed = pd.DataFrame(X_poly, columns=poly_feature_names, index=X.index)
+        else:
+            X_transformed = X
+
+        # Apply scaling for linear models
+        if hasattr(self, 'scaler') and model_id.startswith('linear'):
+            X_transformed = pd.DataFrame(
+                self.scaler.transform(X_transformed),
+                columns=X_transformed.columns,
+                index=X_transformed.index
+            )
+
+        return model.predict(X_transformed)
 
     def evaluate_model(self, model_id: str, X_test: pd.DataFrame, y_test: np.ndarray) -> Dict[str, Any]:
         """
@@ -320,7 +524,7 @@ class ModelPipeline:
         return metrics
 
     def hyperparameter_tuning(self, model_type: str, X_train: pd.DataFrame, y_train: np.ndarray,
-                            param_grid: Optional[Dict[str, List]] = None) -> Dict[str, Any]:
+                             param_grid: Optional[Dict[str, List]] = None) -> Dict[str, Any]:
         """
         Perform hyperparameter tuning using grid search with cross-validation.
 
@@ -345,25 +549,107 @@ class ModelPipeline:
 
         scoring = 'neg_mean_squared_error' if task_type == 'regression' else 'accuracy'
 
-        grid_search = GridSearchCV(
-            model_class(random_state=RANDOM_STATE),
-            param_grid,
-            cv=self.cv,
-            scoring=scoring,
-            n_jobs=-1,
-            verbose=1
-        )
+        # For linear models, we need to handle polynomial_degree separately
+        if model_type == 'linear' and 'polynomial_degree' in param_grid:
+            # Create custom parameter grid combinations
+            poly_degrees = param_grid.pop('polynomial_degree')
+            other_params = param_grid
 
-        grid_search.fit(X_train, y_train)
+            best_score = float('-inf') if task_type == 'regression' else float('inf')
+            best_params = {}
+            all_results = []
 
-        best_score = -grid_search.best_score_ if task_type == 'regression' else grid_search.best_score_
+            for degree in poly_degrees:
+                # Create pipeline with polynomial features
+                from sklearn.pipeline import Pipeline
+                from sklearn.preprocessing import StandardScaler
 
-        results = {
-            'best_params': grid_search.best_params_,
-            'best_score': best_score,
-            'cv_results': grid_search.cv_results_,
-            'all_scores': grid_search.cv_results_['mean_test_score']
-        }
+                if degree > 1:
+                    pipeline = Pipeline([
+                        ('poly', PolynomialFeatures(degree=degree, include_bias=False)),
+                        ('scaler', StandardScaler()),
+                        ('model', model_class())
+                    ])
+                else:
+                    pipeline = Pipeline([
+                        ('scaler', StandardScaler()),
+                        ('model', model_class())
+                    ])
+
+                # Create parameter grid for other parameters
+                if other_params:
+                    grid_search = GridSearchCV(
+                        pipeline,
+                        other_params,
+                        cv=self.cv,
+                        scoring=scoring,
+                        n_jobs=-1,
+                        verbose=1
+                    )
+                    grid_search.fit(X_train, y_train)
+                    current_score = -grid_search.best_score_ if task_type == 'regression' else grid_search.best_score_
+                    current_params = {'polynomial_degree': degree, **grid_search.best_params_}
+                else:
+                    # No other parameters, just evaluate the pipeline directly
+                    from sklearn.model_selection import cross_val_score
+                    scores = cross_val_score(pipeline, X_train, y_train, cv=self.cv, scoring=scoring)
+                    current_score = -scores.mean() if task_type == 'regression' else scores.mean()
+                    current_params = {'polynomial_degree': degree}
+                    # Create a mock cv_results for consistency
+                    cv_results = {'mean_test_score': scores}
+
+                all_results.append({
+                    'params': current_params,
+                    'score': current_score,
+                    'cv_results': cv_results if 'cv_results' in locals() else grid_search.cv_results_
+                })
+
+                if task_type == 'regression':
+                    if current_score > best_score:
+                        best_score = current_score
+                        best_params = current_params
+                else:
+                    if current_score < best_score:
+                        best_score = current_score
+                        best_params = current_params
+
+            results = {
+                'best_params': best_params,
+                'best_score': best_score,
+                'cv_results': all_results,
+                'all_scores': [r['score'] for r in all_results]
+            }
+        else:
+            # Standard hyperparameter tuning for non-linear models or linear models without polynomial_degree
+            if model_type == 'linear':
+                grid_search = GridSearchCV(
+                    model_class(),
+                    param_grid,
+                    cv=self.cv,
+                    scoring=scoring,
+                    n_jobs=-1,
+                    verbose=1
+                )
+            else:
+                grid_search = GridSearchCV(
+                    model_class(random_state=RANDOM_STATE),
+                    param_grid,
+                    cv=self.cv,
+                    scoring=scoring,
+                    n_jobs=-1,
+                    verbose=1
+                )
+
+            grid_search.fit(X_train, y_train)
+
+            best_score = -grid_search.best_score_ if task_type == 'regression' else grid_search.best_score_
+
+            results = {
+                'best_params': grid_search.best_params_,
+                'best_score': best_score,
+                'cv_results': grid_search.cv_results_,
+                'all_scores': grid_search.cv_results_['mean_test_score']
+            }
 
         model_logger.info(f"Hyperparameter tuning completed. Best score: {best_score:.4f}")
 
@@ -448,16 +734,46 @@ class ModelPipeline:
                 model_logger.error(f"Error evaluating model {model_id}: {e}")
                 results[model_id] = {'error': str(e)}
 
-        # Determine best model
+        # Determine best model with CV stability consideration
         valid_results = {k: v for k, v in results.items() if 'error' not in v}
 
         if valid_results:
             task_type = self._determine_task_type(y_test)
             metric = 'test_r2' if task_type == 'regression' else 'test_accuracy'
 
-            best_model = max(valid_results.items(),
-                           key=lambda x: x[1]['evaluation'].get(metric, -np.inf))
-            results['best_model'] = best_model[0]
+            # Create stability-weighted ranking
+            model_rankings = []
+            for model_id, model_data in valid_results.items():
+                evaluation = model_data['evaluation']
+                base_score = evaluation.get(metric, -np.inf)
+
+                # Get CV stability if available (from evaluation results)
+                cv_stability = 0.5  # Default neutral stability
+                if 'cv_metrics' in evaluation and 'cv_stability_score' in evaluation['cv_metrics']:
+                    cv_stability = evaluation['cv_metrics']['cv_stability_score']
+
+                # Weighted score: 70% performance + 30% stability
+                weighted_score = base_score * 0.7 + cv_stability * 0.3
+
+                model_rankings.append({
+                    'model_id': model_id,
+                    'weighted_score': weighted_score,
+                    'base_score': base_score,
+                    'cv_stability': cv_stability
+                })
+
+            # Sort by weighted score and select best
+            model_rankings.sort(key=lambda x: x['weighted_score'], reverse=True)
+            best_model = model_rankings[0]
+
+            results['best_model'] = best_model['model_id']
+            results['model_rankings'] = model_rankings
+            results['selection_criteria'] = {
+                'primary_metric': metric,
+                'stability_weighted': True,
+                'performance_weight': 0.7,
+                'stability_weight': 0.3
+            }
 
         return results
 

@@ -4285,3 +4285,1177 @@
 2025-10-16 13:25:11,605 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
 2025-10-16 13:25:11,605 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_437ce056.json
 2025-10-16 13:25:11,605 - pipeline - INFO - Pipeline run 437ce056 completed successfully
+2025-10-20 09:15:14,708 - pipeline - INFO - Starting complete pipeline run: 391a1263
+2025-10-20 09:15:14,728 - pipeline - INFO - Starting phase: Data
+2025-10-20 09:15:14,728 - pipeline - INFO - Running data pipeline
+2025-10-20 09:15:14,728 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:15:14,776 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:15:14,776 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:15:14,777 - pipeline - INFO - Preprocessing features
+2025-10-20 09:15:14,783 - pipeline - INFO - Processed 11 features
+2025-10-20 09:15:14,783 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:15:14,784 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:15:14,793 - pipeline - INFO - Data quality validation completed
+2025-10-20 09:15:14,889 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 09:15:14,889 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 09:15:14,889 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 09:15:14,889 - pipeline - INFO - Running modeling pipeline
+2025-10-20 09:15:14,890 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 09:15:14,890 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:15:14,917 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 09:15:15,499 - pipeline - INFO - Created model version: model_linear_4e1acff1255b
+2025-10-20 09:15:15,499 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 09:15:15,499 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:15:15,633 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 09:15:16,931 - pipeline - INFO - Created model version: model_decision_tree_f75c650471c8
+2025-10-20 09:15:16,931 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 09:15:16,931 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:15:25,374 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 09:16:48,450 - pipeline - INFO - Created model version: model_random_forest_b79c924fe4b9
+2025-10-20 09:16:48,485 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 09:16:48,485 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 09:16:48,485 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 09:16:48,485 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:16:48,531 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:16:48,532 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:16:48,532 - pipeline - INFO - Preprocessing features
+2025-10-20 09:16:48,534 - pipeline - INFO - Processed 11 features
+2025-10-20 09:16:48,534 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:16:48,535 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:17:12,343 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 09:17:12,344 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 09:17:12,344 - pipeline - INFO - Starting phase: Learning
+2025-10-20 09:17:12,344 - pipeline - INFO - Running learning pipeline
+2025-10-20 09:17:12,344 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:17:12,394 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:17:12,394 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:17:12,394 - pipeline - INFO - Preprocessing features
+2025-10-20 09:17:12,397 - pipeline - INFO - Processed 11 features
+2025-10-20 09:17:12,397 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:17:12,398 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:17:12,399 - pipeline - INFO - Evaluating learning progress
+2025-10-20 09:17:12,399 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 09:17:12,399 - pipeline - INFO - Adapting learning strategy
+2025-10-20 09:17:12,399 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 09:17:12,399 - pipeline - INFO - Updating learning system
+2025-10-20 09:17:12,429 - pipeline - INFO - Learning system updated successfully
+2025-10-20 09:17:12,429 - pipeline - INFO - Learning pipeline completed
+2025-10-20 09:17:12,429 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 09:17:12,429 - pipeline - INFO - Finalizing pipeline
+2025-10-20 09:17:12,461 - pipeline - INFO - Completed experiment 391a1263
+2025-10-20 09:17:12,461 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 09:17:12,461 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_391a1263.json
+2025-10-20 09:17:12,461 - pipeline - INFO - Pipeline run 391a1263 completed successfully
+2025-10-20 09:17:12,513 - pipeline - INFO - Starting complete pipeline run: 2369131a
+2025-10-20 09:17:12,513 - pipeline - INFO - Starting phase: Data
+2025-10-20 09:17:12,513 - pipeline - INFO - Running data pipeline
+2025-10-20 09:17:12,513 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:17:12,560 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:17:12,560 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:17:12,560 - pipeline - INFO - Preprocessing features
+2025-10-20 09:17:12,563 - pipeline - INFO - Processed 11 features
+2025-10-20 09:17:12,563 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:17:12,563 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:17:12,571 - pipeline - INFO - Data quality validation completed
+2025-10-20 09:17:12,654 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 09:17:12,654 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 09:17:12,655 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 09:17:12,655 - pipeline - INFO - Running modeling pipeline
+2025-10-20 09:17:12,655 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 09:17:12,655 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:17:12,669 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 09:17:12,858 - pipeline - INFO - Created model version: model_linear_2a570151405c
+2025-10-20 09:17:12,858 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 09:17:12,858 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:17:13,019 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 09:17:14,480 - pipeline - INFO - Created model version: model_decision_tree_acb17f126391
+2025-10-20 09:17:14,480 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 09:17:14,480 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:17:23,143 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 09:18:46,627 - pipeline - INFO - Created model version: model_random_forest_bcec54a04148
+2025-10-20 09:18:46,654 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 09:18:46,654 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 09:18:46,654 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 09:18:46,654 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:18:46,698 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:18:46,698 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:18:46,698 - pipeline - INFO - Preprocessing features
+2025-10-20 09:18:46,701 - pipeline - INFO - Processed 11 features
+2025-10-20 09:18:46,701 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:18:46,702 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:19:09,907 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 09:19:09,908 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 09:19:09,908 - pipeline - INFO - Starting phase: Learning
+2025-10-20 09:19:09,908 - pipeline - INFO - Running learning pipeline
+2025-10-20 09:19:09,908 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:19:09,955 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:19:09,955 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:19:09,955 - pipeline - INFO - Preprocessing features
+2025-10-20 09:19:09,958 - pipeline - INFO - Processed 11 features
+2025-10-20 09:19:09,958 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:19:09,959 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:19:09,960 - pipeline - INFO - Evaluating learning progress
+2025-10-20 09:19:09,960 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 09:19:09,960 - pipeline - INFO - Adapting learning strategy
+2025-10-20 09:19:09,960 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 09:19:09,960 - pipeline - INFO - Updating learning system
+2025-10-20 09:19:09,990 - pipeline - INFO - Learning system updated successfully
+2025-10-20 09:19:09,990 - pipeline - INFO - Learning pipeline completed
+2025-10-20 09:19:09,990 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 09:19:09,990 - pipeline - INFO - Finalizing pipeline
+2025-10-20 09:19:10,015 - pipeline - INFO - Completed experiment 2369131a
+2025-10-20 09:19:10,015 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 09:19:10,015 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_2369131a.json
+2025-10-20 09:19:10,015 - pipeline - INFO - Pipeline run 2369131a completed successfully
+2025-10-20 09:59:21,055 - pipeline - INFO - Starting complete pipeline run: 534ee67f
+2025-10-20 09:59:21,072 - pipeline - INFO - Starting phase: Data
+2025-10-20 09:59:21,072 - pipeline - INFO - Running data pipeline
+2025-10-20 09:59:21,072 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:21,132 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:21,132 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:21,132 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:21,138 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:21,138 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:21,140 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:21,148 - pipeline - INFO - Data quality validation completed
+2025-10-20 09:59:21,240 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 09:59:21,240 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 09:59:21,241 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 09:59:21,241 - pipeline - INFO - Running modeling pipeline
+2025-10-20 09:59:21,241 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 09:59:21,241 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:21,283 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 09:59:21,297 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:21,297 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 09:59:21,297 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:21,456 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 09:59:21,577 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:21,577 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 09:59:21,577 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:30,804 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 09:59:37,736 - pipeline - ERROR - Failed to train/evaluate random_forest: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:37,741 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 09:59:37,742 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 09:59:37,742 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 09:59:37,742 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:37,794 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:37,794 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:37,794 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:37,797 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:37,798 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:37,798 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:37,799 - pipeline - INFO - Qualitative evaluation completed
+2025-10-20 09:59:37,799 - pipeline - INFO - Starting phase: Learning
+2025-10-20 09:59:37,799 - pipeline - INFO - Running learning pipeline
+2025-10-20 09:59:37,799 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:37,845 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:37,845 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:37,846 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:37,848 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:37,848 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:37,849 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:37,849 - pipeline - INFO - Evaluating learning progress
+2025-10-20 09:59:37,849 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 09:59:37,849 - pipeline - INFO - Adapting learning strategy
+2025-10-20 09:59:37,849 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 09:59:37,849 - pipeline - INFO - Updating learning system
+2025-10-20 09:59:37,850 - pipeline - INFO - Learning system updated successfully
+2025-10-20 09:59:37,850 - pipeline - INFO - Learning pipeline completed
+2025-10-20 09:59:37,850 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 09:59:37,850 - pipeline - INFO - Finalizing pipeline
+2025-10-20 09:59:37,862 - pipeline - INFO - Completed experiment 534ee67f
+2025-10-20 09:59:37,862 - pipeline - INFO - Results: {'status': 'completed', 'best_model': None, 'total_models': 0}
+2025-10-20 09:59:37,862 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_534ee67f.json
+2025-10-20 09:59:37,862 - pipeline - INFO - Pipeline run 534ee67f completed successfully
+2025-10-20 09:59:37,915 - pipeline - INFO - Starting complete pipeline run: 60fa55af
+2025-10-20 09:59:37,916 - pipeline - INFO - Starting phase: Data
+2025-10-20 09:59:37,916 - pipeline - INFO - Running data pipeline
+2025-10-20 09:59:37,916 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:37,961 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:37,961 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:37,961 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:37,966 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:37,966 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:37,966 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:37,975 - pipeline - INFO - Data quality validation completed
+2025-10-20 09:59:38,069 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 09:59:38,069 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 09:59:38,070 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 09:59:38,070 - pipeline - INFO - Running modeling pipeline
+2025-10-20 09:59:38,070 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 09:59:38,070 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:38,084 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 09:59:38,096 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:38,096 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 09:59:38,096 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:38,238 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 09:59:38,378 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:38,379 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 09:59:38,379 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:46,919 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 09:59:53,913 - pipeline - ERROR - Failed to train/evaluate random_forest: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:53,915 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 09:59:53,915 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 09:59:53,915 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 09:59:53,915 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:53,969 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:53,969 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:53,969 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:53,972 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:53,972 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:53,973 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:53,973 - pipeline - INFO - Qualitative evaluation completed
+2025-10-20 09:59:53,974 - pipeline - INFO - Starting phase: Learning
+2025-10-20 09:59:53,974 - pipeline - INFO - Running learning pipeline
+2025-10-20 09:59:53,974 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:54,017 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:54,018 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:54,018 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:54,020 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:54,020 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:54,021 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:54,021 - pipeline - INFO - Evaluating learning progress
+2025-10-20 09:59:54,021 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 09:59:54,021 - pipeline - INFO - Adapting learning strategy
+2025-10-20 09:59:54,021 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 09:59:54,021 - pipeline - INFO - Updating learning system
+2025-10-20 09:59:54,022 - pipeline - INFO - Learning system updated successfully
+2025-10-20 09:59:54,022 - pipeline - INFO - Learning pipeline completed
+2025-10-20 09:59:54,022 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 09:59:54,022 - pipeline - INFO - Finalizing pipeline
+2025-10-20 09:59:54,029 - pipeline - INFO - Completed experiment 60fa55af
+2025-10-20 09:59:54,029 - pipeline - INFO - Results: {'status': 'completed', 'best_model': None, 'total_models': 0}
+2025-10-20 09:59:54,029 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_60fa55af.json
+2025-10-20 09:59:54,029 - pipeline - INFO - Pipeline run 60fa55af completed successfully
+2025-10-20 10:07:48,822 - pipeline - INFO - Starting complete pipeline run: 7e2b1d2f
+2025-10-20 10:07:48,841 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:07:48,842 - pipeline - INFO - Running data pipeline
+2025-10-20 10:07:48,842 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:07:48,898 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:07:48,898 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:07:48,898 - pipeline - INFO - Preprocessing features
+2025-10-20 10:07:48,905 - pipeline - INFO - Processed 11 features
+2025-10-20 10:07:48,905 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:07:48,907 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:07:48,916 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:07:49,007 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:07:49,007 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:07:49,007 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:07:49,007 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:07:49,008 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:07:49,008 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:07:49,023 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:07:49,036 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:07:49,036 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:07:49,036 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:07:49,178 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:07:49,300 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:07:49,300 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:07:49,300 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:07:57,833 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:08:04,503 - pipeline - ERROR - Failed to train/evaluate random_forest: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:08:04,508 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:08:04,509 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:08:04,509 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:08:04,510 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:08:04,577 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:08:04,577 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:08:04,577 - pipeline - INFO - Preprocessing features
+2025-10-20 10:08:04,580 - pipeline - INFO - Processed 11 features
+2025-10-20 10:08:04,580 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:08:04,581 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:08:04,581 - pipeline - INFO - Qualitative evaluation completed
+2025-10-20 10:08:04,581 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:08:04,581 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:08:04,581 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:08:04,624 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:08:04,624 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:08:04,624 - pipeline - INFO - Preprocessing features
+2025-10-20 10:08:04,627 - pipeline - INFO - Processed 11 features
+2025-10-20 10:08:04,627 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:08:04,627 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:08:04,628 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:08:04,628 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:08:04,628 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:08:04,628 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:08:04,628 - pipeline - INFO - Updating learning system
+2025-10-20 10:08:04,629 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:08:04,629 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:08:04,629 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 10:08:04,629 - pipeline - INFO - Finalizing pipeline
+2025-10-20 10:08:04,638 - pipeline - INFO - Completed experiment 7e2b1d2f
+2025-10-20 10:08:04,638 - pipeline - INFO - Results: {'status': 'completed', 'best_model': None, 'total_models': 0}
+2025-10-20 10:08:04,638 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_7e2b1d2f.json
+2025-10-20 10:08:04,638 - pipeline - INFO - Pipeline run 7e2b1d2f completed successfully
+2025-10-20 10:08:04,692 - pipeline - INFO - Starting complete pipeline run: 53c6dc5c
+2025-10-20 10:08:04,693 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:08:04,693 - pipeline - INFO - Running data pipeline
+2025-10-20 10:08:04,693 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:08:04,736 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:08:04,736 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:08:04,736 - pipeline - INFO - Preprocessing features
+2025-10-20 10:08:04,739 - pipeline - INFO - Processed 11 features
+2025-10-20 10:08:04,740 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:08:04,740 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:08:04,748 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:08:04,840 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:08:04,840 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:08:04,841 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:08:04,841 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:08:04,841 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:08:04,842 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:08:04,858 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:08:04,875 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:08:04,875 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:08:04,875 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:08:05,164 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:08:05,281 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:08:05,281 - pipeline - ERROR - Modeling pipeline failed: [Errno 32] Broken pipe
+2025-10-20 10:16:46,667 - pipeline - INFO - Starting complete pipeline run: 161f7fa4
+2025-10-20 10:16:46,681 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:16:46,681 - pipeline - INFO - Running data pipeline
+2025-10-20 10:16:46,682 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:16:46,731 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:16:46,731 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:16:46,731 - pipeline - INFO - Preprocessing features
+2025-10-20 10:16:46,736 - pipeline - INFO - Processed 11 features
+2025-10-20 10:16:46,736 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:16:46,738 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:16:46,746 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:16:46,835 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:16:46,835 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:16:46,836 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:16:46,836 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:16:46,836 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:16:46,837 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:16:46,854 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:16:46,868 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:16:46,868 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:16:46,868 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:16:47,011 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:16:47,126 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:16:47,126 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:16:47,126 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:16:55,311 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:17:02,299 - pipeline - ERROR - Failed to train/evaluate random_forest: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 10:17:02,301 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:17:02,301 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:17:02,301 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:17:02,301 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:17:02,352 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:17:02,352 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:17:02,352 - pipeline - INFO - Preprocessing features
+2025-10-20 10:17:02,356 - pipeline - INFO - Processed 11 features
+2025-10-20 10:17:02,356 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:17:02,357 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:17:02,357 - pipeline - INFO - Qualitative evaluation completed
+2025-10-20 10:17:02,357 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:17:02,357 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:17:02,357 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:17:02,406 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:17:02,407 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:17:02,407 - pipeline - INFO - Preprocessing features
+2025-10-20 10:17:02,410 - pipeline - INFO - Processed 11 features
+2025-10-20 10:17:02,410 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:17:02,411 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:17:02,412 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:17:02,412 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:17:02,412 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:17:02,412 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:17:02,412 - pipeline - INFO - Updating learning system
+2025-10-20 10:17:02,413 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:17:02,413 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:17:02,413 - pipeline - ERROR - Pipeline run 161f7fa4 failed: [Errno 32] Broken pipe
+2025-10-20 10:17:02,518 - pipeline - INFO - Starting complete pipeline run: f2b7871c
+2025-10-20 10:17:02,518 - pipeline - ERROR - Pipeline run f2b7871c failed: [Errno 32] Broken pipe
+2025-10-20 10:18:49,803 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:18:49,873 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:18:49,874 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:18:49,874 - pipeline - INFO - Preprocessing features
+2025-10-20 10:18:49,882 - pipeline - INFO - Processed 11 features
+2025-10-20 10:18:49,882 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:18:49,886 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:19:13,233 - pipeline - INFO - Starting complete pipeline run: f4788fb9
+2025-10-20 10:19:13,266 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:19:13,266 - pipeline - INFO - Running data pipeline
+2025-10-20 10:19:13,267 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:19:13,338 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:19:13,338 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:19:13,338 - pipeline - INFO - Preprocessing features
+2025-10-20 10:19:13,352 - pipeline - INFO - Processed 11 features
+2025-10-20 10:19:13,352 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:19:13,356 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:19:13,367 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:19:13,470 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:19:13,470 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:19:13,470 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:19:13,470 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:19:13,470 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:19:13,471 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:19:13,498 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:19:14,155 - pipeline - INFO - Created model version: model_linear_0cccb78e8420
+2025-10-20 10:19:14,155 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:19:14,155 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:19:14,307 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:19:15,764 - pipeline - INFO - Created model version: model_decision_tree_cb561ba1d1ba
+2025-10-20 10:19:15,764 - pipeline - ERROR - Modeling pipeline failed: [Errno 32] Broken pipe
+2025-10-20 10:19:15,827 - pipeline - INFO - Starting complete pipeline run: 154c2c5a
+2025-10-20 10:19:15,827 - pipeline - ERROR - Pipeline run 154c2c5a failed: [Errno 32] Broken pipe
+2025-10-20 10:30:20,043 - pipeline - INFO - Starting complete pipeline run: 9895eba8
+2025-10-20 10:30:20,059 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:30:20,060 - pipeline - INFO - Running data pipeline
+2025-10-20 10:30:20,060 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:30:20,113 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:30:20,113 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:30:20,113 - pipeline - INFO - Preprocessing features
+2025-10-20 10:30:20,120 - pipeline - INFO - Processed 11 features
+2025-10-20 10:30:20,120 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:30:20,122 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:30:20,133 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:30:20,252 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:30:20,252 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:30:20,254 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:30:20,254 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:30:20,254 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:30:20,255 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:30:20,272 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:30:20,710 - pipeline - INFO - Starting complete pipeline run: 1002c8ab
+2025-10-20 10:30:20,721 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:30:20,722 - pipeline - INFO - Running data pipeline
+2025-10-20 10:30:20,722 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:30:20,779 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:30:20,780 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:30:20,780 - pipeline - INFO - Preprocessing features
+2025-10-20 10:30:20,786 - pipeline - INFO - Processed 11 features
+2025-10-20 10:30:20,786 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:30:20,787 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:30:20,797 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:30:20,878 - pipeline - INFO - Created model version: model_linear_80e1c3d71b73
+2025-10-20 10:30:20,878 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:30:20,878 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:30:20,926 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:30:20,926 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:30:20,926 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:30:20,926 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:30:20,926 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:30:20,927 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:30:20,946 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:30:21,034 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:30:21,891 - pipeline - INFO - Created model version: model_linear_297d22694ae3
+2025-10-20 10:30:21,891 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:30:21,891 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:30:22,035 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:30:22,555 - pipeline - INFO - Created model version: model_decision_tree_6c7e29fdf625
+2025-10-20 10:30:22,555 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:30:22,555 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:30:23,550 - pipeline - INFO - Created model version: model_decision_tree_29e570d401d9
+2025-10-20 10:30:23,551 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:30:23,551 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:30:31,150 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:30:32,438 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:31:57,507 - pipeline - INFO - Created model version: model_random_forest_099edd1c1ea3
+2025-10-20 10:31:57,546 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:31:57,546 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:31:57,546 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:31:57,546 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:31:57,595 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:31:57,596 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:31:57,596 - pipeline - INFO - Preprocessing features
+2025-10-20 10:31:57,599 - pipeline - INFO - Processed 11 features
+2025-10-20 10:31:57,599 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:31:57,600 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:31:57,810 - pipeline - INFO - Created model version: model_random_forest_fd06fc2ea34e
+2025-10-20 10:31:57,849 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:31:57,850 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:31:57,850 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:31:57,850 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:31:57,900 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:31:57,900 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:31:57,900 - pipeline - INFO - Preprocessing features
+2025-10-20 10:31:57,903 - pipeline - INFO - Processed 11 features
+2025-10-20 10:31:57,903 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:31:57,904 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:31:57,969 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:31:57,969 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:31:57,970 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:31:57,970 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:31:57,970 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:31:58,019 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:31:58,019 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:31:58,019 - pipeline - INFO - Preprocessing features
+2025-10-20 10:31:58,022 - pipeline - INFO - Processed 11 features
+2025-10-20 10:31:58,022 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:31:58,023 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:31:58,023 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:31:58,023 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:31:58,023 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:31:58,023 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:31:58,024 - pipeline - INFO - Updating learning system
+2025-10-20 10:31:58,141 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:31:58,141 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:31:58,141 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 10:31:58,142 - pipeline - INFO - Finalizing pipeline
+2025-10-20 10:31:58,228 - pipeline - INFO - Completed experiment 1002c8ab
+2025-10-20 10:31:58,228 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 10:31:58,228 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_1002c8ab.json
+2025-10-20 10:31:58,228 - pipeline - INFO - Pipeline run 1002c8ab completed successfully
+2025-10-20 10:31:58,319 - pipeline - INFO - Starting complete pipeline run: f119202f
+2025-10-20 10:31:58,320 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:31:58,320 - pipeline - INFO - Running data pipeline
+2025-10-20 10:31:58,320 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:31:58,368 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:31:58,368 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:31:58,368 - pipeline - INFO - Preprocessing features
+2025-10-20 10:31:58,371 - pipeline - INFO - Processed 11 features
+2025-10-20 10:31:58,371 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:31:58,371 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:31:58,379 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:31:58,531 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:31:58,531 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:31:58,532 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:31:58,532 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:31:58,532 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:31:58,532 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:31:58,543 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:31:58,824 - pipeline - INFO - Created model version: model_linear_9e8c37b73b64
+2025-10-20 10:31:58,824 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:31:58,824 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:31:58,973 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:32:00,505 - pipeline - INFO - Created model version: model_decision_tree_f9c4b365ad49
+2025-10-20 10:32:00,506 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:32:00,506 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:32:09,150 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:32:20,848 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:32:20,849 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:32:20,849 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:32:20,849 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:32:20,849 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:32:20,915 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:32:20,915 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:32:20,915 - pipeline - INFO - Preprocessing features
+2025-10-20 10:32:20,919 - pipeline - INFO - Processed 11 features
+2025-10-20 10:32:20,919 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:32:20,920 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:32:20,921 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:32:20,921 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:32:20,921 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:32:20,921 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:32:20,921 - pipeline - INFO - Updating learning system
+2025-10-20 10:32:21,038 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:32:21,038 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:32:21,038 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 10:32:21,038 - pipeline - INFO - Finalizing pipeline
+2025-10-20 10:32:21,119 - pipeline - INFO - Completed experiment 9895eba8
+2025-10-20 10:32:21,120 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 10:32:21,120 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_9895eba8.json
+2025-10-20 10:32:21,120 - pipeline - INFO - Pipeline run 9895eba8 completed successfully
+2025-10-20 10:33:33,817 - pipeline - INFO - Created model version: model_random_forest_fa2527468c62
+2025-10-20 10:33:33,853 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:33:33,853 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:33:33,853 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:33:33,853 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:33:33,904 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:33:33,904 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:33:33,904 - pipeline - INFO - Preprocessing features
+2025-10-20 10:33:33,907 - pipeline - INFO - Processed 11 features
+2025-10-20 10:33:33,907 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:33:33,908 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:33:33,960 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:33:33,960 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:33:33,960 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:33:33,960 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:33:33,960 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:33:34,005 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:33:34,005 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:33:34,005 - pipeline - INFO - Preprocessing features
+2025-10-20 10:33:34,007 - pipeline - INFO - Processed 11 features
+2025-10-20 10:33:34,007 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:33:34,008 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:33:34,010 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:33:34,010 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:33:34,010 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:33:34,010 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:33:34,010 - pipeline - INFO - Updating learning system
+2025-10-20 10:33:34,124 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:33:34,124 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:33:34,124 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 10:33:34,124 - pipeline - INFO - Finalizing pipeline
+2025-10-20 10:33:34,202 - pipeline - INFO - Completed experiment f119202f
+2025-10-20 10:33:34,202 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 10:33:34,202 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_f119202f.json
+2025-10-20 10:33:34,202 - pipeline - INFO - Pipeline run f119202f completed successfully
+2025-10-20 10:34:05,142 - pipeline - INFO - Starting complete pipeline run: d9765d3b
+2025-10-20 10:34:05,152 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:34:05,152 - pipeline - INFO - Running data pipeline
+2025-10-20 10:34:05,152 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:34:05,199 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:34:05,200 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:34:05,200 - pipeline - INFO - Preprocessing features
+2025-10-20 10:34:05,206 - pipeline - INFO - Processed 11 features
+2025-10-20 10:34:05,206 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:34:05,207 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:34:05,215 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:34:05,397 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:34:05,397 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:34:05,397 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:34:05,397 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:34:05,397 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:34:05,398 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:34:05,411 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:34:05,990 - pipeline - INFO - Created model version: model_linear_c880315fafb4
+2025-10-20 10:34:05,990 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:34:05,990 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:34:06,146 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:34:07,768 - pipeline - INFO - Created model version: model_decision_tree_e37cfec457cd
+2025-10-20 10:34:07,769 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:34:07,769 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:34:16,239 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:35:39,245 - pipeline - INFO - Created model version: model_random_forest_65ff1b62fe22
+2025-10-20 10:35:39,287 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:35:39,287 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:35:39,287 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:35:39,287 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:35:39,334 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:35:39,334 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:35:39,334 - pipeline - INFO - Preprocessing features
+2025-10-20 10:35:39,337 - pipeline - INFO - Processed 11 features
+2025-10-20 10:35:39,337 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:35:39,338 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:35:39,397 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:35:39,397 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:35:39,397 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:35:39,397 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:35:39,397 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:35:39,439 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:35:39,439 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:35:39,439 - pipeline - INFO - Preprocessing features
+2025-10-20 10:35:39,442 - pipeline - INFO - Processed 11 features
+2025-10-20 10:35:39,442 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:35:39,442 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:35:39,444 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:35:39,444 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:35:39,444 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:35:39,444 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:35:39,444 - pipeline - INFO - Updating learning system
+2025-10-20 10:35:39,559 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:35:39,559 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:35:39,559 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 10:35:39,559 - pipeline - INFO - Finalizing pipeline
+2025-10-20 10:35:39,641 - pipeline - INFO - Completed experiment d9765d3b
+2025-10-20 10:35:39,641 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 10:35:39,641 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_d9765d3b.json
+2025-10-20 10:35:39,641 - pipeline - INFO - Pipeline run d9765d3b completed successfully
+2025-10-20 10:35:39,780 - pipeline - INFO - Starting complete pipeline run: 11c7f1eb
+2025-10-20 10:35:39,781 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:35:39,781 - pipeline - INFO - Running data pipeline
+2025-10-20 10:35:39,781 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:35:39,827 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:35:39,827 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:35:39,827 - pipeline - INFO - Preprocessing features
+2025-10-20 10:35:39,831 - pipeline - INFO - Processed 11 features
+2025-10-20 10:35:39,831 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:35:39,832 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:35:39,842 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:35:40,057 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:35:40,057 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:35:40,058 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:35:40,058 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:35:40,058 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:35:40,058 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:35:40,070 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:35:40,406 - pipeline - INFO - Created model version: model_linear_a4e7f8b1d751
+2025-10-20 10:35:40,407 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:35:40,407 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:35:40,545 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:35:42,107 - pipeline - INFO - Created model version: model_decision_tree_2259d0536946
+2025-10-20 10:35:42,108 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:35:42,108 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:35:50,562 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 10:37:13,704 - pipeline - INFO - Created model version: model_random_forest_4d31e6f5c8c0
+2025-10-20 10:37:13,741 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 10:37:13,741 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 10:37:13,741 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 10:37:13,741 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:37:13,792 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:37:13,792 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:37:13,792 - pipeline - INFO - Preprocessing features
+2025-10-20 10:37:13,795 - pipeline - INFO - Processed 11 features
+2025-10-20 10:37:13,795 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:37:13,795 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:37:13,854 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:37:13,855 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 10:37:13,855 - pipeline - INFO - Starting phase: Learning
+2025-10-20 10:37:13,855 - pipeline - INFO - Running learning pipeline
+2025-10-20 10:37:13,855 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:37:13,903 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:37:13,903 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:37:13,903 - pipeline - INFO - Preprocessing features
+2025-10-20 10:37:13,906 - pipeline - INFO - Processed 11 features
+2025-10-20 10:37:13,906 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:37:13,907 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:37:13,908 - pipeline - INFO - Evaluating learning progress
+2025-10-20 10:37:13,908 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 10:37:13,908 - pipeline - INFO - Adapting learning strategy
+2025-10-20 10:37:13,908 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 10:37:13,908 - pipeline - INFO - Updating learning system
+2025-10-20 10:37:14,063 - pipeline - INFO - Learning system updated successfully
+2025-10-20 10:37:14,063 - pipeline - INFO - Learning pipeline completed
+2025-10-20 10:37:14,063 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 10:37:14,064 - pipeline - INFO - Finalizing pipeline
+2025-10-20 10:37:14,150 - pipeline - INFO - Completed experiment 11c7f1eb
+2025-10-20 10:37:14,150 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 10:37:14,150 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_11c7f1eb.json
+2025-10-20 10:37:14,150 - pipeline - INFO - Pipeline run 11c7f1eb completed successfully
+2025-10-20 10:59:16,799 - pipeline - INFO - Starting complete pipeline run: 28c5b021
+2025-10-20 10:59:16,816 - pipeline - INFO - Starting phase: Data
+2025-10-20 10:59:16,816 - pipeline - INFO - Running data pipeline
+2025-10-20 10:59:16,816 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 10:59:16,873 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 10:59:16,873 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 10:59:16,873 - pipeline - INFO - Preprocessing features
+2025-10-20 10:59:16,878 - pipeline - INFO - Processed 11 features
+2025-10-20 10:59:16,878 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 10:59:16,879 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 10:59:16,887 - pipeline - INFO - Data quality validation completed
+2025-10-20 10:59:17,140 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 10:59:17,140 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 10:59:17,143 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 10:59:17,143 - pipeline - INFO - Running modeling pipeline
+2025-10-20 10:59:17,143 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 10:59:17,144 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:59:17,169 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 10:59:19,036 - pipeline - INFO - Created model version: model_linear_eaf007af5847
+2025-10-20 10:59:19,037 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 10:59:19,037 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:59:19,176 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 10:59:22,305 - pipeline - INFO - Created model version: model_decision_tree_3865a0dca803
+2025-10-20 10:59:22,307 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 10:59:22,308 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 10:59:30,280 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 11:01:21,884 - pipeline - INFO - Starting complete pipeline run: 46e25d0a
+2025-10-20 11:01:21,894 - pipeline - INFO - Starting phase: Data
+2025-10-20 11:01:21,894 - pipeline - INFO - Running data pipeline
+2025-10-20 11:01:21,894 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:01:21,945 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:01:21,945 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:01:21,945 - pipeline - INFO - Preprocessing features
+2025-10-20 11:01:21,951 - pipeline - INFO - Processed 11 features
+2025-10-20 11:01:21,951 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:01:21,952 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:01:21,961 - pipeline - INFO - Data quality validation completed
+2025-10-20 11:01:22,250 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 11:01:22,250 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 11:01:22,250 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 11:01:22,250 - pipeline - INFO - Running modeling pipeline
+2025-10-20 11:01:22,251 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 11:01:22,251 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:01:22,278 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 11:01:24,082 - pipeline - INFO - Created model version: model_linear_24b6061e34ca
+2025-10-20 11:01:24,082 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 11:01:24,082 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:01:24,226 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 11:01:27,059 - pipeline - INFO - Created model version: model_decision_tree_3823cc10e095
+2025-10-20 11:01:27,060 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 11:01:27,060 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:01:32,524 - pipeline - INFO - Created model version: model_random_forest_05938fa05241
+2025-10-20 11:01:32,568 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 11:01:32,568 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 11:01:32,568 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 11:01:32,568 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:01:32,618 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:01:32,618 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:01:32,618 - pipeline - INFO - Preprocessing features
+2025-10-20 11:01:32,623 - pipeline - INFO - Processed 11 features
+2025-10-20 11:01:32,623 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:01:32,624 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:01:35,705 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 11:01:55,848 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 11:01:55,849 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 11:01:55,849 - pipeline - INFO - Starting phase: Learning
+2025-10-20 11:01:55,849 - pipeline - INFO - Running learning pipeline
+2025-10-20 11:01:55,849 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:01:55,898 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:01:55,899 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:01:55,899 - pipeline - INFO - Preprocessing features
+2025-10-20 11:01:55,902 - pipeline - INFO - Processed 11 features
+2025-10-20 11:01:55,902 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:01:55,903 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:01:55,903 - pipeline - INFO - Evaluating learning progress
+2025-10-20 11:01:55,904 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 11:01:55,904 - pipeline - INFO - Adapting learning strategy
+2025-10-20 11:01:55,904 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 11:01:55,904 - pipeline - INFO - Updating learning system
+2025-10-20 11:01:56,024 - pipeline - INFO - Learning system updated successfully
+2025-10-20 11:01:56,024 - pipeline - INFO - Learning pipeline completed
+2025-10-20 11:01:56,024 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 11:01:56,024 - pipeline - INFO - Finalizing pipeline
+2025-10-20 11:01:56,109 - pipeline - INFO - Completed experiment 28c5b021
+2025-10-20 11:01:56,109 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 11:01:56,109 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_28c5b021.json
+2025-10-20 11:01:56,109 - pipeline - INFO - Pipeline run 28c5b021 completed successfully
+2025-10-20 11:19:16,216 - pipeline - INFO - Starting complete pipeline run: b641efd8
+2025-10-20 11:19:16,225 - pipeline - INFO - Starting phase: Data
+2025-10-20 11:19:16,225 - pipeline - INFO - Running data pipeline
+2025-10-20 11:19:16,225 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:19:16,287 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:19:16,287 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:19:16,287 - pipeline - INFO - Preprocessing features
+2025-10-20 11:19:16,293 - pipeline - INFO - Processed 11 features
+2025-10-20 11:19:16,294 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:19:16,295 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:19:16,304 - pipeline - INFO - Data quality validation completed
+2025-10-20 11:19:16,584 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 11:19:16,584 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 11:19:16,584 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 11:19:16,584 - pipeline - INFO - Running modeling pipeline
+2025-10-20 11:19:16,585 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 11:19:16,587 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:19:16,611 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 11:19:18,204 - pipeline - INFO - Created model version: model_linear_647bb4de590c
+2025-10-20 11:19:18,204 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 11:19:18,204 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:19:18,388 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 11:19:21,288 - pipeline - INFO - Created model version: model_decision_tree_9eb3405aaeff
+2025-10-20 11:19:21,290 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 11:19:21,290 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:19:29,516 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 11:21:31,334 - pipeline - INFO - Created model version: model_random_forest_64ceca84b0d5
+2025-10-20 11:21:31,376 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 11:21:31,377 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 11:21:31,377 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 11:21:31,377 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:21:31,423 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:21:31,423 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:21:31,423 - pipeline - INFO - Preprocessing features
+2025-10-20 11:21:31,426 - pipeline - INFO - Processed 11 features
+2025-10-20 11:21:31,426 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:21:31,426 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:21:31,482 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 11:21:31,482 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 11:21:31,482 - pipeline - INFO - Starting phase: Learning
+2025-10-20 11:21:31,482 - pipeline - INFO - Running learning pipeline
+2025-10-20 11:21:31,482 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:21:31,529 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:21:31,529 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:21:31,529 - pipeline - INFO - Preprocessing features
+2025-10-20 11:21:31,532 - pipeline - INFO - Processed 11 features
+2025-10-20 11:21:31,532 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:21:31,532 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:21:31,533 - pipeline - INFO - Evaluating learning progress
+2025-10-20 11:21:31,533 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 11:21:31,533 - pipeline - INFO - Adapting learning strategy
+2025-10-20 11:21:31,533 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 11:21:31,533 - pipeline - INFO - Updating learning system
+2025-10-20 11:21:31,647 - pipeline - INFO - Learning system updated successfully
+2025-10-20 11:21:31,647 - pipeline - INFO - Learning pipeline completed
+2025-10-20 11:21:31,647 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 11:21:31,647 - pipeline - INFO - Finalizing pipeline
+2025-10-20 11:21:31,731 - pipeline - INFO - Completed experiment b641efd8
+2025-10-20 11:21:31,731 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 11:21:31,731 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_b641efd8.json
+2025-10-20 11:21:31,732 - pipeline - INFO - Pipeline run b641efd8 completed successfully
+2025-10-20 11:21:31,907 - pipeline - INFO - Starting complete pipeline run: 8467a237
+2025-10-20 11:21:31,907 - pipeline - INFO - Starting phase: Data
+2025-10-20 11:21:31,907 - pipeline - INFO - Running data pipeline
+2025-10-20 11:21:31,907 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:21:31,955 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:21:31,955 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:21:31,955 - pipeline - INFO - Preprocessing features
+2025-10-20 11:21:31,958 - pipeline - INFO - Processed 11 features
+2025-10-20 11:21:31,958 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:21:31,959 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:21:31,966 - pipeline - INFO - Data quality validation completed
+2025-10-20 11:21:32,292 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 11:21:32,293 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 11:21:32,293 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 11:21:32,293 - pipeline - INFO - Running modeling pipeline
+2025-10-20 11:21:32,293 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 11:21:32,294 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:21:32,311 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 11:21:33,412 - pipeline - INFO - Created model version: model_linear_bb03d9327c5b
+2025-10-20 11:21:33,412 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 11:21:33,412 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:21:33,556 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 11:21:36,394 - pipeline - INFO - Created model version: model_decision_tree_3f7ce5b0caa1
+2025-10-20 11:21:36,395 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 11:21:36,395 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 11:21:44,864 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 11:23:45,343 - pipeline - INFO - Created model version: model_random_forest_822f77b04562
+2025-10-20 11:23:45,379 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 11:23:45,380 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 11:23:45,380 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 11:23:45,380 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:23:45,426 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:23:45,426 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:23:45,426 - pipeline - INFO - Preprocessing features
+2025-10-20 11:23:45,430 - pipeline - INFO - Processed 11 features
+2025-10-20 11:23:45,430 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:23:45,431 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:23:45,485 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 11:23:45,486 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 11:23:45,486 - pipeline - INFO - Starting phase: Learning
+2025-10-20 11:23:45,486 - pipeline - INFO - Running learning pipeline
+2025-10-20 11:23:45,486 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 11:23:45,531 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 11:23:45,531 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 11:23:45,531 - pipeline - INFO - Preprocessing features
+2025-10-20 11:23:45,534 - pipeline - INFO - Processed 11 features
+2025-10-20 11:23:45,534 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 11:23:45,534 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 11:23:45,536 - pipeline - INFO - Evaluating learning progress
+2025-10-20 11:23:45,536 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 11:23:45,536 - pipeline - INFO - Adapting learning strategy
+2025-10-20 11:23:45,536 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 11:23:45,536 - pipeline - INFO - Updating learning system
+2025-10-20 11:23:45,650 - pipeline - INFO - Learning system updated successfully
+2025-10-20 11:23:45,650 - pipeline - INFO - Learning pipeline completed
+2025-10-20 11:23:45,650 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 11:23:45,650 - pipeline - INFO - Finalizing pipeline
+2025-10-20 11:23:45,726 - pipeline - INFO - Completed experiment 8467a237
+2025-10-20 11:23:45,726 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 11:23:45,726 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_8467a237.json
+2025-10-20 11:23:45,726 - pipeline - INFO - Pipeline run 8467a237 completed successfully
+2025-10-20 12:20:41,526 - pipeline - INFO - Starting complete pipeline run: 8557d6bd
+2025-10-20 12:20:41,544 - pipeline - INFO - Starting phase: Data
+2025-10-20 12:20:41,544 - pipeline - INFO - Running data pipeline
+2025-10-20 12:20:41,544 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 12:20:41,592 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 12:20:41,592 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 12:20:41,592 - pipeline - INFO - Preprocessing features
+2025-10-20 12:20:41,598 - pipeline - INFO - Processed 11 features
+2025-10-20 12:20:41,598 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 12:20:41,599 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 12:20:41,607 - pipeline - INFO - Data quality validation completed
+2025-10-20 12:20:41,959 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 12:20:41,959 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 12:20:41,960 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 12:20:41,960 - pipeline - INFO - Running modeling pipeline
+2025-10-20 12:20:41,961 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 12:20:41,962 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 12:20:41,991 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 12:20:43,452 - pipeline - INFO - Created model version: model_linear_0192b41bd788
+2025-10-20 12:20:43,453 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 12:20:43,453 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 12:20:43,586 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 12:20:46,283 - pipeline - INFO - Created model version: model_decision_tree_2c0b16e787c2
+2025-10-20 12:20:46,283 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 12:20:46,283 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 12:20:54,446 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 12:22:57,147 - pipeline - INFO - Created model version: model_random_forest_4d4a0173bfe5
+2025-10-20 12:22:57,188 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 12:22:57,188 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 12:22:57,188 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 12:22:57,188 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 12:22:57,236 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 12:22:57,236 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 12:22:57,236 - pipeline - INFO - Preprocessing features
+2025-10-20 12:22:57,239 - pipeline - INFO - Processed 11 features
+2025-10-20 12:22:57,239 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 12:22:57,239 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 12:22:57,304 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 12:22:57,304 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 12:22:57,305 - pipeline - INFO - Starting phase: Learning
+2025-10-20 12:22:57,305 - pipeline - INFO - Running learning pipeline
+2025-10-20 12:22:57,305 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 12:22:57,354 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 12:22:57,354 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 12:22:57,354 - pipeline - INFO - Preprocessing features
+2025-10-20 12:22:57,358 - pipeline - INFO - Processed 11 features
+2025-10-20 12:22:57,358 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 12:22:57,359 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 12:22:57,360 - pipeline - INFO - Evaluating learning progress
+2025-10-20 12:22:57,360 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 12:22:57,360 - pipeline - INFO - Adapting learning strategy
+2025-10-20 12:22:57,360 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 12:22:57,360 - pipeline - INFO - Updating learning system
+2025-10-20 12:22:57,482 - pipeline - INFO - Learning system updated successfully
+2025-10-20 12:22:57,482 - pipeline - INFO - Learning pipeline completed
+2025-10-20 12:22:57,482 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 12:22:57,482 - pipeline - INFO - Finalizing pipeline
+2025-10-20 12:22:57,569 - pipeline - INFO - Completed experiment 8557d6bd
+2025-10-20 12:22:57,569 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 12:22:57,569 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_8557d6bd.json
+2025-10-20 12:22:57,570 - pipeline - INFO - Pipeline run 8557d6bd completed successfully
+2025-10-20 12:22:57,793 - pipeline - INFO - Starting complete pipeline run: 0cda3dee
+2025-10-20 12:22:57,793 - pipeline - INFO - Starting phase: Data
+2025-10-20 12:22:57,793 - pipeline - INFO - Running data pipeline
+2025-10-20 12:22:57,793 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 12:22:57,837 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 12:22:57,837 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 12:22:57,837 - pipeline - INFO - Preprocessing features
+2025-10-20 12:22:57,839 - pipeline - INFO - Processed 11 features
+2025-10-20 12:22:57,840 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 12:22:57,840 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 12:22:57,847 - pipeline - INFO - Data quality validation completed
+2025-10-20 12:22:58,249 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 12:22:58,250 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 12:22:58,250 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 12:22:58,250 - pipeline - INFO - Running modeling pipeline
+2025-10-20 12:22:58,250 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 12:22:58,250 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 12:22:58,272 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 12:22:59,381 - pipeline - INFO - Created model version: model_linear_8fa9b27c8ece
+2025-10-20 12:22:59,382 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 12:22:59,382 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 12:22:59,524 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 12:23:02,454 - pipeline - INFO - Created model version: model_decision_tree_bda2ec342787
+2025-10-20 12:23:02,455 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 12:23:02,455 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 12:23:11,028 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 12:25:13,567 - pipeline - INFO - Created model version: model_random_forest_d89ff6bb1acc
+2025-10-20 12:25:13,613 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 12:25:13,613 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 12:25:13,613 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 12:25:13,614 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 12:25:13,663 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 12:25:13,663 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 12:25:13,663 - pipeline - INFO - Preprocessing features
+2025-10-20 12:25:13,666 - pipeline - INFO - Processed 11 features
+2025-10-20 12:25:13,666 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 12:25:13,666 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 12:25:13,718 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 12:25:13,718 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 12:25:13,718 - pipeline - INFO - Starting phase: Learning
+2025-10-20 12:25:13,718 - pipeline - INFO - Running learning pipeline
+2025-10-20 12:25:13,718 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 12:25:13,771 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 12:25:13,771 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 12:25:13,771 - pipeline - INFO - Preprocessing features
+2025-10-20 12:25:13,774 - pipeline - INFO - Processed 11 features
+2025-10-20 12:25:13,774 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 12:25:13,775 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 12:25:13,776 - pipeline - INFO - Evaluating learning progress
+2025-10-20 12:25:13,776 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 12:25:13,776 - pipeline - INFO - Adapting learning strategy
+2025-10-20 12:25:13,776 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 12:25:13,776 - pipeline - INFO - Updating learning system
+2025-10-20 12:25:13,897 - pipeline - INFO - Learning system updated successfully
+2025-10-20 12:25:13,897 - pipeline - INFO - Learning pipeline completed
+2025-10-20 12:25:13,897 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 12:25:13,897 - pipeline - INFO - Finalizing pipeline
+2025-10-20 12:25:13,978 - pipeline - INFO - Completed experiment 0cda3dee
+2025-10-20 12:25:13,979 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 12:25:13,979 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_0cda3dee.json
+2025-10-20 12:25:13,979 - pipeline - INFO - Pipeline run 0cda3dee completed successfully
+2025-10-20 13:46:17,636 - pipeline - INFO - Starting complete pipeline run: 1395840b
+2025-10-20 13:46:17,651 - pipeline - INFO - Starting phase: Data
+2025-10-20 13:46:17,651 - pipeline - INFO - Running data pipeline
+2025-10-20 13:46:17,651 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:46:17,701 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:46:17,701 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:46:17,701 - pipeline - INFO - Preprocessing features
+2025-10-20 13:46:17,707 - pipeline - INFO - Processed 11 features
+2025-10-20 13:46:17,707 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:46:17,708 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:46:17,718 - pipeline - INFO - Data quality validation completed
+2025-10-20 13:46:18,143 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 13:46:18,143 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 13:46:18,147 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 13:46:18,147 - pipeline - INFO - Running modeling pipeline
+2025-10-20 13:46:18,147 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 13:46:18,148 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:46:18,176 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 13:46:19,667 - pipeline - INFO - Created model version: model_linear_6be9a3bae18c
+2025-10-20 13:46:19,668 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 13:46:19,668 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:46:19,804 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 13:46:22,688 - pipeline - INFO - Created model version: model_decision_tree_01c6d63d9254
+2025-10-20 13:46:22,688 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 13:46:22,688 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:46:30,591 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 13:48:30,103 - pipeline - INFO - Created model version: model_random_forest_0e99c4be34ab
+2025-10-20 13:48:30,137 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 13:48:30,137 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 13:48:30,137 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 13:48:30,137 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:48:30,187 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:48:30,187 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:48:30,187 - pipeline - INFO - Preprocessing features
+2025-10-20 13:48:30,190 - pipeline - INFO - Processed 11 features
+2025-10-20 13:48:30,190 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:48:30,191 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:48:30,246 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:48:30,246 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:48:30,246 - pipeline - INFO - Starting phase: Learning
+2025-10-20 13:48:30,246 - pipeline - INFO - Running learning pipeline
+2025-10-20 13:48:30,246 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:48:30,289 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:48:30,289 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:48:30,289 - pipeline - INFO - Preprocessing features
+2025-10-20 13:48:30,292 - pipeline - INFO - Processed 11 features
+2025-10-20 13:48:30,292 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:48:30,292 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:48:30,293 - pipeline - INFO - Evaluating learning progress
+2025-10-20 13:48:30,293 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 13:48:30,293 - pipeline - INFO - Adapting learning strategy
+2025-10-20 13:48:30,293 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 13:48:30,294 - pipeline - INFO - Updating learning system
+2025-10-20 13:48:30,408 - pipeline - INFO - Learning system updated successfully
+2025-10-20 13:48:30,408 - pipeline - INFO - Learning pipeline completed
+2025-10-20 13:48:30,408 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 13:48:30,408 - pipeline - INFO - Finalizing pipeline
+2025-10-20 13:48:30,490 - pipeline - INFO - Completed experiment 1395840b
+2025-10-20 13:48:30,490 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 13:48:30,490 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_1395840b.json
+2025-10-20 13:48:30,490 - pipeline - INFO - Pipeline run 1395840b completed successfully
+2025-10-20 13:48:30,743 - pipeline - INFO - Starting complete pipeline run: 4574b2f4
+2025-10-20 13:48:30,743 - pipeline - INFO - Starting phase: Data
+2025-10-20 13:48:30,743 - pipeline - INFO - Running data pipeline
+2025-10-20 13:48:30,743 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:48:30,786 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:48:30,787 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:48:30,787 - pipeline - INFO - Preprocessing features
+2025-10-20 13:48:30,789 - pipeline - INFO - Processed 11 features
+2025-10-20 13:48:30,789 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:48:30,790 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:48:30,796 - pipeline - INFO - Data quality validation completed
+2025-10-20 13:48:31,251 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 13:48:31,251 - pipeline - INFO - Data pipeline completed successfully
+2025-10-20 13:48:31,251 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 13:48:31,251 - pipeline - INFO - Running modeling pipeline
+2025-10-20 13:48:31,251 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 13:48:31,251 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:48:31,269 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 13:48:32,418 - pipeline - INFO - Created model version: model_linear_023b9d95229c
+2025-10-20 13:48:32,419 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 13:48:32,419 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:48:32,559 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 13:48:35,437 - pipeline - INFO - Created model version: model_decision_tree_61e1d6b3d154
+2025-10-20 13:48:35,437 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 13:48:35,437 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:48:43,739 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 13:50:44,760 - pipeline - INFO - Created model version: model_random_forest_46a59b16aeb8
+2025-10-20 13:50:44,795 - pipeline - INFO - Modeling pipeline completed successfully
+2025-10-20 13:50:44,795 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 13:50:44,795 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 13:50:44,795 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:50:44,843 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:50:44,843 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:50:44,843 - pipeline - INFO - Preprocessing features
+2025-10-20 13:50:44,845 - pipeline - INFO - Processed 11 features
+2025-10-20 13:50:44,845 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:50:44,846 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:50:44,895 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:50:44,895 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:50:44,895 - pipeline - INFO - Starting phase: Learning
+2025-10-20 13:50:44,895 - pipeline - INFO - Running learning pipeline
+2025-10-20 13:50:44,895 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:50:44,939 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:50:44,939 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:50:44,939 - pipeline - INFO - Preprocessing features
+2025-10-20 13:50:44,941 - pipeline - INFO - Processed 11 features
+2025-10-20 13:50:44,941 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:50:44,942 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:50:44,943 - pipeline - INFO - Evaluating learning progress
+2025-10-20 13:50:44,943 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 13:50:44,943 - pipeline - INFO - Adapting learning strategy
+2025-10-20 13:50:44,943 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 13:50:44,943 - pipeline - INFO - Updating learning system
+2025-10-20 13:50:45,057 - pipeline - INFO - Learning system updated successfully
+2025-10-20 13:50:45,057 - pipeline - INFO - Learning pipeline completed
+2025-10-20 13:50:45,058 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 13:50:45,058 - pipeline - INFO - Finalizing pipeline
+2025-10-20 13:50:45,137 - pipeline - INFO - Completed experiment 4574b2f4
+2025-10-20 13:50:45,137 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 13:50:45,137 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_4574b2f4.json
+2025-10-20 13:50:45,137 - pipeline - INFO - Pipeline run 4574b2f4 completed successfully

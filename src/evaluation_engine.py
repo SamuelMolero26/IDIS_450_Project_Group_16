@@ -29,11 +29,12 @@ if project_root not in sys.path:
 try:
     from src.config import CV_FOLDS, RANDOM_STATE, REPORTS_DIR
     from src.logger import evaluation_logger
+    from src.cv_engine import create_cv_engine
 
     from redis_cache import cache_evaluation_metrics, get_cached_evaluation_metrics
 
 
-    from utils.visualization_utils import (
+    from src.utils.visualization_utils import (
          plot_residuals, plot_feature_importance, plot_bias_variance_tradeoff,
          plot_learning_curve, create_model_comparison_plot, plot_shap_summary,
          save_evaluation_report
@@ -52,6 +53,7 @@ class EvaluationEngine:
     def __init__(self, cv_folds: int = CV_FOLDS):
         self.cv_folds = cv_folds
         self.random_state = RANDOM_STATE
+        self.cv_engine = create_cv_engine(cv_folds=cv_folds)
 
     def evaluate_regression_model(self, model, X_train: pd.DataFrame, X_test: pd.DataFrame,
                                  y_train: np.ndarray, y_test: np.ndarray,
@@ -91,11 +93,15 @@ class EvaluationEngine:
         train_mape = np.mean(np.abs((y_train - y_train_pred) / (y_train + epsilon))) * 100
         test_mape = np.mean(np.abs((y_test - y_test_pred) / (y_test + epsilon))) * 100
 
-        # Cross-validation scores
-        cv_scores = cross_val_score(model, X_train, y_train, cv=self.cv_folds,
-                                  scoring='neg_mean_squared_error')
-        cv_mse = -cv_scores.mean()
-        cv_rmse = np.sqrt(cv_mse)
+        # Comprehensive K-fold CV analysis
+        cv_results = self.cv_engine.perform_comprehensive_cv(
+            model, X_train, y_train, 'regression', model_name
+        )
+
+        # Extract traditional CV metrics for backward compatibility
+        cv_summary = cv_results['cv_summary']
+        cv_mse = cv_summary['mse']['mean']
+        cv_rmse = cv_summary['rmse']['mean']
 
         # Bias-Variance analysis
         bias_var_results = self._analyze_bias_variance(model, X_train, y_train, X_test, y_test)
@@ -103,6 +109,12 @@ class EvaluationEngine:
         # Comprehensive residual analysis for linear models
         residual_analysis = self._comprehensive_residual_analysis(
             model, X_train, X_test, y_train, y_test, y_train_pred, y_test_pred, model_name
+        )
+
+        # Generate automatic visualizations
+        visualization_paths = self._generate_regression_visualizations(
+            model, X_train, X_test, y_train, y_test, y_train_pred, y_test_pred,
+            model_name, bias_var_results, residual_analysis
         )
 
         results = {
@@ -124,16 +136,20 @@ class EvaluationEngine:
             },
             'cv_metrics': {
                 'mse_mean': cv_mse,
-                'mse_std': cv_scores.std(),
+                'mse_std': cv_summary['mse']['std'],
                 'rmse_mean': cv_rmse,
-                'rmse_std': np.sqrt(cv_scores).std()
+                'rmse_std': cv_summary['rmse']['std'],
+                'cv_stability_score': cv_results['stability_analysis'].get('overall_stability_score', 0),
+                'cv_stability': cv_results['stability_analysis'].get('overall_stability', 'unknown')
             },
+            'comprehensive_cv': cv_results,
             'bias_variance': bias_var_results,
             'residual_analysis': residual_analysis,
             'predictions': {
                 'y_test_pred': y_test_pred.tolist(),
                 'residuals': (y_test - y_test_pred).tolist()
             },
+            'visualizations': visualization_paths,
             'evaluation_timestamp': datetime.now().isoformat()
         }
 
@@ -572,15 +588,26 @@ class EvaluationEngine:
         # Classification report
         class_report = classification_report(y_test, y_test_pred, output_dict=True)
 
-        # Cross-validation scores
-        cv_scores = cross_val_score(model, X_train, y_train, cv=self.cv_folds,
-                                  scoring='accuracy')
+        # Comprehensive K-fold CV analysis
+        cv_results = self.cv_engine.perform_comprehensive_cv(
+            model, X_train, y_train, 'classification', model_name
+        )
+
+        # Extract traditional CV metrics for backward compatibility
+        cv_summary = cv_results['cv_summary']
+        cv_accuracy_mean = cv_summary['accuracy']['mean']
+        cv_accuracy_std = cv_summary['accuracy']['std']
 
         # ROC-AUC if binary classification
         roc_auc = None
         if has_proba and len(np.unique(y_test)) == 2:
             fpr, tpr, _ = roc_curve(y_test, y_test_proba[:, 1])
             roc_auc = auc(fpr, tpr)
+
+        # Generate automatic visualizations
+        visualization_paths = self._generate_classification_visualizations(
+            model, X_train, X_test, y_train, y_test, model_name, cv_results
+        )
 
         results = {
             'model_name': model_name,
@@ -598,12 +625,16 @@ class EvaluationEngine:
                 'f1': test_f1
             },
             'cv_metrics': {
-                'accuracy_mean': cv_scores.mean(),
-                'accuracy_std': cv_scores.std()
+                'accuracy_mean': cv_accuracy_mean,
+                'accuracy_std': cv_accuracy_std,
+                'cv_stability_score': cv_results['stability_analysis'].get('overall_stability_score', 0),
+                'cv_stability': cv_results['stability_analysis'].get('overall_stability', 'unknown')
             },
+            'comprehensive_cv': cv_results,
             'confusion_matrix': cm.tolist(),
             'classification_report': class_report,
             'roc_auc': roc_auc,
+            'visualizations': visualization_paths,
             'evaluation_timestamp': datetime.now().isoformat()
         }
 
@@ -800,8 +831,121 @@ class EvaluationEngine:
 
         return results
 
+    def _generate_regression_visualizations(self, model, X_train: pd.DataFrame, X_test: pd.DataFrame,
+                                          y_train: np.ndarray, y_test: np.ndarray,
+                                          y_train_pred: np.ndarray, y_test_pred: np.ndarray,
+                                          model_name: str, bias_var_results: Dict[str, Any],
+                                          residual_analysis: Dict[str, Any]) -> Dict[str, str]:
+        """
+        Generate comprehensive visualizations for regression model evaluation.
+
+        Args:
+            model: Trained model
+            X_train: Training features
+            X_test: Test features
+            y_train: Training targets
+            y_test: Test targets
+            y_train_pred: Training predictions
+            y_test_pred: Test predictions
+            model_name: Name of the model
+            bias_var_results: Bias-variance analysis results
+            residual_analysis: Residual analysis results
+
+        Returns:
+            Dictionary with paths to generated visualizations
+        """
+        visualization_paths = {}
+
+        try:
+            # Residual diagnostics plot
+            fig_residuals = plot_residuals(
+                y_test, y_test_pred, f"{model_name}_test",
+                save_path=REPORTS_DIR / f"{model_name}_residual_diagnostics.png"
+            )
+            visualization_paths['residual_diagnostics'] = str(REPORTS_DIR / f"{model_name}_residual_diagnostics.png")
+            plt.close(fig_residuals)
+
+            # Learning curve with overfitting indicators
+            learning_curve_data = self.generate_learning_curves(model, X_train, y_train, model_name, save_plots=True)
+            visualization_paths['learning_curve'] = str(REPORTS_DIR / f"{model_name}_learning_curve.png")
+
+            # Bias-variance tradeoff plot
+            if bias_var_results:
+                fig_bias_var = plot_bias_variance_tradeoff(
+                    [bias_var_results['bias']], [bias_var_results['variance']],
+                    [1.0], model_name,  # Using dummy complexity for now
+                    save_path=REPORTS_DIR / f"{model_name}_bias_variance.png"
+                )
+                visualization_paths['bias_variance'] = str(REPORTS_DIR / f"{model_name}_bias_variance.png")
+                plt.close(fig_bias_var)
+
+            # Feature importance if available
+            if hasattr(model, 'feature_importances_'):
+                fig_importance = plot_feature_importance(
+                    X_train.columns.tolist(), model.feature_importances_,
+                    model_name, save_path=REPORTS_DIR / f"{model_name}_feature_importance.png"
+                )
+                visualization_paths['feature_importance'] = str(REPORTS_DIR / f"{model_name}_feature_importance.png")
+                plt.close(fig_importance)
+
+            # Model comparison plot (if multiple models evaluated)
+            # This would be handled at a higher level
+
+        except Exception as e:
+            evaluation_logger.warning(f"Could not generate some visualizations for {model_name}: {e}")
+
+        return visualization_paths
+
+    def _generate_classification_visualizations(self, model, X_train: pd.DataFrame, X_test: pd.DataFrame,
+                                              y_train: np.ndarray, y_test: np.ndarray,
+                                              model_name: str, cv_results: Dict[str, Any]) -> Dict[str, str]:
+        """
+        Generate comprehensive visualizations for classification model evaluation.
+
+        Args:
+            model: Trained model
+            X_train: Training features
+            X_test: Test features
+            y_train: Training targets
+            y_test: Test targets
+            model_name: Name of the model
+            cv_results: Cross-validation results
+
+        Returns:
+            Dictionary with paths to generated visualizations
+        """
+        visualization_paths = {}
+
+        try:
+            # Learning curve with overfitting indicators
+            learning_curve_data = self.generate_learning_curves(model, X_train, y_train, model_name, save_plots=True)
+            visualization_paths['learning_curve'] = str(REPORTS_DIR / f"{model_name}_learning_curve.png")
+
+            # Feature importance if available
+            if hasattr(model, 'feature_importances_'):
+                fig_importance = plot_feature_importance(
+                    X_train.columns.tolist(), model.feature_importances_,
+                    model_name, save_path=REPORTS_DIR / f"{model_name}_feature_importance.png"
+                )
+                visualization_paths['feature_importance'] = str(REPORTS_DIR / f"{model_name}_feature_importance.png")
+                plt.close(fig_importance)
+
+            # Logistic regression specific plots
+            if hasattr(model, 'predict_proba') and hasattr(model, 'coef_'):
+                fig_logistic_residuals = plot_logistic_residuals(
+                    model, X_test, y_test, model_name,
+                    save_path=REPORTS_DIR / f"{model_name}_logistic_residuals.png"
+                )
+                visualization_paths['logistic_residuals'] = str(REPORTS_DIR / f"{model_name}_logistic_residuals.png")
+                plt.close(fig_logistic_residuals)
+
+        except Exception as e:
+            evaluation_logger.warning(f"Could not generate some visualizations for {model_name}: {e}")
+
+        return visualization_paths
+
     def create_evaluation_report(self, evaluation_results: Dict[str, Any],
-                               save_path: Optional[Path] = None) -> str:
+                                save_path: Optional[Path] = None) -> str:
         """
         Create a comprehensive evaluation report.
 

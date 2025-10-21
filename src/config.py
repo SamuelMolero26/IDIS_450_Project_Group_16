@@ -45,7 +45,7 @@ CATEGORICAL_FEATURES = [
 MODEL_CONFIGS = {
     'linear_regression': {
         'fit_intercept': [True, False],
-        'normalize': [True, False]
+        'polynomial_degree': [1, 2, 3]
     },
     'logistic_regression': {
         'C': [0.1, 1.0, 10.0],

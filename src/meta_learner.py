@@ -73,16 +73,18 @@ class MetaLearner:
                 model_features = meta_features.copy()
                 model_features['model_type'] = model_name
 
-                # Performance metrics
+                # Performance metrics including CV stability
                 if 'evaluation' in model_data:
                     eval_data = model_data['evaluation']
                     if eval_data.get('evaluation_type') == 'regression':
                         model_features['cv_mean_score'] = eval_data.get('cv_metrics', {}).get('rmse_mean', 0)
                         model_features['cv_std_score'] = eval_data.get('cv_metrics', {}).get('rmse_std', 0)
+                        model_features['cv_stability_score'] = eval_data.get('cv_metrics', {}).get('cv_stability_score', 0)
                         model_features['test_score'] = eval_data.get('test_metrics', {}).get('r2', 0)
                     else:
                         model_features['cv_mean_score'] = eval_data.get('cv_metrics', {}).get('accuracy_mean', 0)
                         model_features['cv_std_score'] = eval_data.get('cv_metrics', {}).get('accuracy_std', 0)
+                        model_features['cv_stability_score'] = eval_data.get('cv_metrics', {}).get('cv_stability_score', 0)
                         model_features['test_score'] = eval_data.get('test_metrics', {}).get('accuracy', 0)
 
                 # Model parameters
@@ -134,8 +136,8 @@ class MetaLearner:
             features = record['features']
             performance = record['performance']
 
-            # Filter to known meta-learning features
-            filtered_features = {k: v for k, v in features.items() if k in META_LEARNER_FEATURES or k.startswith('param_')}
+            # Filter to known meta-learning features including CV stability
+            filtered_features = {k: v for k, v in features.items() if k in META_LEARNER_FEATURES or k.startswith('param_') or k == 'cv_stability_score'}
 
             X_data.append(filtered_features)
             y_data.append(performance)
@@ -459,8 +461,9 @@ class MetaLearner:
             insights['insights'].append("No experiment data available for meta-learning")
             return insights
 
-        # Analyze performance patterns
+        # Analyze performance patterns including CV stability
         performances = [exp['performance'] for exp in self.experiment_history]
+        cv_stabilities = [exp['features'].get('cv_stability_score', 0) for exp in self.experiment_history]
 
         if len(performances) > 5:
             # Performance trends
@@ -474,19 +477,48 @@ class MetaLearner:
                 insights['insights'].append("Model performance is declining")
                 insights['recommendations'].append("Review recent experiments and adjust strategy")
 
-            # Best performing model types
+            # CV stability trends
+            if cv_stabilities:
+                recent_stabilities = cv_stabilities[-10:]
+                stability_trend = np.polyfit(range(len(recent_stabilities)), recent_stabilities, 1)[0]
+
+                if stability_trend > 0.01:
+                    insights['insights'].append("CV stability is improving over time")
+                    insights['recommendations'].append("Model configurations are becoming more robust")
+                elif stability_trend < -0.01:
+                    insights['insights'].append("CV stability is declining")
+                    insights['recommendations'].append("Review model configurations for consistency issues")
+
+            # Best performing model types with stability consideration
             model_performances = {}
+            model_stabilities = {}
             for exp in self.experiment_history:
                 model_type = exp['features'].get('model_type', 'unknown')
+                performance = exp['performance']
+                stability = exp['features'].get('cv_stability_score', 0)
+
                 if model_type not in model_performances:
                     model_performances[model_type] = []
-                model_performances[model_type].append(exp['performance'])
+                    model_stabilities[model_type] = []
+                model_performances[model_type].append(performance)
+                model_stabilities[model_type].append(stability)
 
             if model_performances:
-                avg_performances = {model: np.mean(perfs) for model, perfs in model_performances.items()}
-                best_model = max(avg_performances.items(), key=lambda x: x[1])
+                # Calculate combined score (performance + stability)
+                combined_scores = {}
+                for model_type in model_performances:
+                    avg_perf = np.mean(model_performances[model_type])
+                    avg_stability = np.mean(model_stabilities[model_type])
+                    combined_scores[model_type] = avg_perf * 0.7 + avg_stability * 0.3  # Weighted combination
 
-                insights['insights'].append(f"Best performing model type: {best_model[0]} (avg performance: {best_model[1]:.4f})")
+                best_model = max(combined_scores.items(), key=lambda x: x[1])
+                best_avg_perf = np.mean(model_performances[best_model[0]])
+                best_avg_stability = np.mean(model_stabilities[best_model[0]])
+
+                insights['insights'].append(
+                    f"Best performing model type: {best_model[0]} "
+                    f"(avg performance: {best_avg_perf:.4f}, avg CV stability: {best_avg_stability:.3f})"
+                )
                 insights['recommendations'].append(f"Prioritize {best_model[0]} models for future experiments")
 
         # Meta-model effectiveness

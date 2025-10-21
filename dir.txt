@@ -1,0 +1,140 @@
+.
+├── __pycache__
+│   └── redis_cache.cpython-313.pyc
+├── architecture_diagram.dot
+├── architecture_diagram.md
+├── cache
+│   ├── cache.db
+│   ├── learning_history.json
+│   └── versions
+│       └── version_history.json
+├── correlation_heatmap.png
+├── dir.txt
+├── K_FOLD_CV_IMPACT_REPORT.md
+├── logs
+│   ├── cache.log
+│   ├── evaluation.log
+│   ├── meta.log
+│   ├── model.log
+│   └── pipeline.log
+├── main_pipeline.py
+├── output_final.txt
+├── output_ML.txt
+├── output_modle.txt
+├── output.txt
+├── pipeline_execution.log
+├── PIPELINE_IMPLEMENTATION_REPORT.md
+├── pipeline_implementation_requirements.md
+├── preprocessed_sales_data.csv
+├── Project4_USRegionalSales
+│   ├── Data-USRegionalSales.csv
+│   ├── Data-USRegionalSales.csv.gz
+│   ├── Data-USRegionalSales.yaml
+│   ├── Data-USRegionalSales.yaml.gz
+│   ├── DataDescription-USRegionalSales.docx
+│   └── README.md
+├── README.md
+├── redis_cache.py
+├── reports
+│   ├── pipeline_report_1002c8ab.json
+│   ├── pipeline_report_11c7f1eb.json
+│   ├── pipeline_report_2369131a.json
+│   ├── pipeline_report_391a1263.json
+│   ├── pipeline_report_534ee67f.json
+│   ├── pipeline_report_60fa55af.json
+│   ├── pipeline_report_7e2b1d2f.json
+│   ├── pipeline_report_9895eba8.json
+│   ├── pipeline_report_d9765d3b.json
+│   └── pipeline_report_f119202f.json
+├── requirements.txt
+├── sales_channel_distribution.png
+├── src
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-313.pyc
+│   │   ├── config.cpython-313.pyc
+│   │   ├── continuous_learning.cpython-313.pyc
+│   │   ├── cv_engine.cpython-313.pyc
+│   │   ├── data_loader.cpython-313.pyc
+│   │   ├── data_preprocessing.cpython-313.pyc
+│   │   ├── evaluation_engine.cpython-313.pyc
+│   │   ├── logger.cpython-313.pyc
+│   │   ├── main_pipeline.cpython-313.pyc
+│   │   ├── meta_learner.cpython-313.pyc
+│   │   ├── model_pipeline.cpython-313.pyc
+│   │   ├── qualitative_evaluator.cpython-313.pyc
+│   │   └── version_control.cpython-313.pyc
+│   ├── cache
+│   │   └── versions
+│   ├── config.py
+│   ├── continuous_learning.py
+│   ├── cv_engine.py
+│   ├── data
+│   │   └── __init__.py
+│   ├── data_loader.py
+│   ├── data_preprocessing.py
+│   ├── evaluation_engine.py
+│   ├── infra
+│   │   └── __init__.py
+│   ├── learning
+│   │   └── __init__.py
+│   ├── logger.py
+│   ├── logs
+│   │   ├── cache.log
+│   │   ├── evaluation.log
+│   │   ├── meta.log
+│   │   ├── model.log
+│   │   └── pipeline.log
+│   ├── main_pipeline.py
+│   ├── meta_learner.py
+│   ├── model_pipeline.py
+│   ├── models
+│   │   └── __init__.py
+│   ├── output.txt
+│   ├── pipeline
+│   │   └── __init__.py
+│   ├── qualitative_evaluator.py
+│   ├── utils
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   └── visualization_utils.cpython-313.pyc
+│   │   └── visualization_utils.py
+│   └── version_control.py
+├── TODO.txt
+├── unit_price_distribution.png
+├── versions
+│   └── version_history.json
+├── visualization_design.md
+└── visualizations
+    ├── bias_variance_analysis.png
+    ├── cv_analysis
+    ├── data_splitting_standardization.png
+    ├── feature_importance.png
+    ├── hyperparameter_tuning.png
+    ├── interactive_model_dashboard.png
+    ├── model_comparison_comprehensive.png
+    ├── model_comparison_radar.png
+    ├── model_evaluation_metrics.png
+    ├── pre-processing
+    │   ├── clustered_correlation_heatmap.png
+    │   ├── enhanced_histogram_discount_applied.png
+    │   ├── enhanced_histogram_order_quantity.png
+    │   ├── enhanced_histogram_profit_margin.png
+    │   ├── enhanced_histogram_total_lead_time.png
+    │   ├── enhanced_histogram_total_revenue.png
+    │   ├── enhanced_histogram_unit_cost.png
+    │   ├── enhanced_histogram_unit_price.png
+    │   ├── enhanced_scatter_discount_applied_vs_profit_margin.png
+    │   ├── enhanced_scatter_order_quantity_vs_total_revenue.png
+    │   ├── enhanced_scatter_total_lead_time_vs_total_revenue.png
+    │   ├── enhanced_scatter_unit_cost_vs_profit_margin.png
+    │   ├── enhanced_scatter_unit_price_vs_total_revenue.png
+    │   ├── skewness_validation_discount_applied.png
+    │   ├── skewness_validation_profit_margin.png
+    │   ├── skewness_validation_total_revenue.png
+    │   ├── skewness_validation_unit_cost.png
+    │   └── skewness_validation_unit_price.png
+    └── standardization_impact.png
+
+23 directories, 115 files

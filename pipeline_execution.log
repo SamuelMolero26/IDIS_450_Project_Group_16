@@ -1,0 +1,243 @@
+Starting Advanced Modeling Pipeline...
+2025-10-20 09:59:21,055 - pipeline - INFO - Starting complete pipeline run: 534ee67f
+Pipeline phases:   0%|          | 0/5 [00:00<?, ?it/s]2025-10-20 09:59:21,072 - pipeline - INFO - Starting phase: Data
+2025-10-20 09:59:21,072 - pipeline - INFO - Running data pipeline
+2025-10-20 09:59:21,072 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:21,132 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:21,132 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:21,132 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:21,138 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:21,138 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:21,140 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:21,148 - pipeline - INFO - Data quality validation completed
+2025-10-20 09:59:21,240 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 09:59:21,240 - pipeline - INFO - Data pipeline completed successfully
+Pipeline phases:  20%|██        | 1/5 [00:00<00:00,  5.93it/s]2025-10-20 09:59:21,241 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 09:59:21,241 - pipeline - INFO - Running modeling pipeline
+
+Training models:   0%|          | 0/3 [00:00<?, ?it/s][A2025-10-20 09:59:21,241 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 09:59:21,241 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 09:59:21,241 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:21,242 - model - INFO - Checking cache for linear with key: linear_regression_[]
+2025-10-20 09:59:21,256 - model - INFO - Using cached results for linear
+2025-10-20 09:59:21,256 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-20 09:59:21,256 - model - INFO - Training linear model with params: {}
+2025-10-20 09:59:21,266 - model - INFO - Stored trained model with ID: linear_0
+2025-10-20 09:59:21,283 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-10-20 09:59:21,283 - model - INFO - Model linear trained successfully. CV Score: 12204820.6103
+2025-10-20 09:59:21,283 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 09:59:21,283 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-20 09:59:21,285 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-10-20 09:59:21,285 - evaluation - INFO - Using KFold for regression
+2025-10-20 09:59:21,285 - evaluation - INFO - Processing fold 1/5
+2025-10-20 09:59:21,288 - evaluation - INFO - Processing fold 2/5
+2025-10-20 09:59:21,290 - evaluation - INFO - Processing fold 3/5
+2025-10-20 09:59:21,292 - evaluation - INFO - Processing fold 4/5
+2025-10-20 09:59:21,294 - evaluation - INFO - Processing fold 5/5
+2025-10-20 09:59:21,297 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:21,297 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 09:59:21,297 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 09:59:21,297 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:21,298 - model - INFO - Checking cache for decision_tree with key: decision_tree_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2)]
+2025-10-20 09:59:21,298 - model - INFO - Using cached results for decision_tree
+2025-10-20 09:59:21,298 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-20 09:59:21,298 - model - INFO - Training decision_tree model with params: {'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 09:59:21,327 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-10-20 09:59:21,456 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-10-20 09:59:21,456 - model - INFO - Model decision_tree trained successfully. CV Score: 410490.4941
+2025-10-20 09:59:21,456 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 09:59:21,456 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-20 09:59:21,459 - evaluation - INFO - Starting comprehensive CV for decision_tree_decision_tree_1
+2025-10-20 09:59:21,459 - evaluation - INFO - Using KFold for regression
+2025-10-20 09:59:21,459 - evaluation - INFO - Processing fold 1/5
+2025-10-20 09:59:21,482 - evaluation - INFO - Processing fold 2/5
+2025-10-20 09:59:21,506 - evaluation - INFO - Processing fold 3/5
+2025-10-20 09:59:21,529 - evaluation - INFO - Processing fold 4/5
+2025-10-20 09:59:21,552 - evaluation - INFO - Processing fold 5/5
+2025-10-20 09:59:21,577 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+
+Training models:  67%|██████▋   | 2/3 [00:00<00:00,  5.95it/s][A2025-10-20 09:59:21,577 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 09:59:21,577 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 09:59:21,577 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:21,577 - model - INFO - Checking cache for random_forest with key: random_forest_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]
+2025-10-20 09:59:21,578 - model - INFO - Using cached results for random_forest
+2025-10-20 09:59:21,578 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-20 09:59:21,578 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 09:59:23,420 - model - INFO - Stored trained model with ID: random_forest_2
+2025-10-20 09:59:30,803 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-10-20 09:59:30,804 - model - INFO - Model random_forest trained successfully. CV Score: 179276.2159
+2025-10-20 09:59:30,804 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 09:59:30,804 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-20 09:59:30,902 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_2
+2025-10-20 09:59:30,903 - evaluation - INFO - Using KFold for regression
+2025-10-20 09:59:30,903 - evaluation - INFO - Processing fold 1/5
+2025-10-20 09:59:32,254 - evaluation - INFO - Processing fold 2/5
+2025-10-20 09:59:33,602 - evaluation - INFO - Processing fold 3/5
+2025-10-20 09:59:34,968 - evaluation - INFO - Processing fold 4/5
+2025-10-20 09:59:36,380 - evaluation - INFO - Processing fold 5/5
+2025-10-20 09:59:37,736 - pipeline - ERROR - Failed to train/evaluate random_forest: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+
+Training models: 100%|██████████| 3/3 [00:16<00:00,  6.83s/it][A
+                                                              [A2025-10-20 09:59:37,741 - pipeline - INFO - Modeling pipeline completed successfully
+Pipeline phases:  40%|████      | 2/5 [00:16<00:29,  9.78s/it]2025-10-20 09:59:37,742 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 09:59:37,742 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 09:59:37,742 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:37,794 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:37,794 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:37,794 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:37,797 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:37,798 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:37,798 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:37,799 - pipeline - INFO - Qualitative evaluation completed
+2025-10-20 09:59:37,799 - pipeline - INFO - Starting phase: Learning
+2025-10-20 09:59:37,799 - pipeline - INFO - Running learning pipeline
+2025-10-20 09:59:37,799 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:37,845 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:37,845 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:37,846 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:37,848 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:37,848 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:37,849 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:37,849 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 09:59:37,849 - meta - INFO - Collected data from 3 experiments
+2025-10-20 09:59:37,849 - pipeline - INFO - Evaluating learning progress
+2025-10-20 09:59:37,849 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 09:59:37,849 - pipeline - INFO - Adapting learning strategy
+2025-10-20 09:59:37,849 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 09:59:37,849 - pipeline - INFO - Updating learning system
+2025-10-20 09:59:37,849 - meta - INFO - Updating meta-learning model
+2025-10-20 09:59:37,849 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 09:59:37,849 - meta - INFO - Collected data from 3 experiments
+2025-10-20 09:59:37,850 - pipeline - INFO - Learning system updated successfully
+2025-10-20 09:59:37,850 - pipeline - INFO - Learning pipeline completed
+Pipeline phases:  80%|████████  | 4/5 [00:16<00:03,  3.68s/it]2025-10-20 09:59:37,850 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 09:59:37,850 - pipeline - INFO - Finalizing pipeline
+2025-10-20 09:59:37,862 - pipeline - INFO - Completed experiment 534ee67f
+2025-10-20 09:59:37,862 - pipeline - INFO - Results: {'status': 'completed', 'best_model': None, 'total_models': 0}
+2025-10-20 09:59:37,862 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_534ee67f.json
+Pipeline phases: 100%|██████████| 5/5 [00:16<00:00,  3.36s/it]
+2025-10-20 09:59:37,862 - pipeline - INFO - Pipeline run 534ee67f completed successfully
+🚀 Starting Advanced Modeling Pipeline...
+2025-10-20 09:59:37,915 - pipeline - INFO - Starting complete pipeline run: 60fa55af
+Pipeline phases:   0%|          | 0/5 [00:00<?, ?it/s]2025-10-20 09:59:37,916 - pipeline - INFO - Starting phase: Data
+2025-10-20 09:59:37,916 - pipeline - INFO - Running data pipeline
+2025-10-20 09:59:37,916 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:37,961 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:37,961 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:37,961 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:37,966 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:37,966 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:37,966 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:37,975 - pipeline - INFO - Data quality validation completed
+2025-10-20 09:59:38,069 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 09:59:38,069 - pipeline - INFO - Data pipeline completed successfully
+Pipeline phases:  20%|██        | 1/5 [00:00<00:00,  6.50it/s]2025-10-20 09:59:38,070 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 09:59:38,070 - pipeline - INFO - Running modeling pipeline
+
+Training models:   0%|          | 0/3 [00:00<?, ?it/s][A2025-10-20 09:59:38,070 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 09:59:38,070 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 09:59:38,070 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:38,070 - model - INFO - Checking cache for linear with key: linear_regression_[]
+2025-10-20 09:59:38,071 - model - INFO - Using cached results for linear
+2025-10-20 09:59:38,071 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-20 09:59:38,071 - model - INFO - Training linear model with params: {}
+2025-10-20 09:59:38,073 - model - INFO - Stored trained model with ID: linear_0
+2025-10-20 09:59:38,084 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-10-20 09:59:38,084 - model - INFO - Model linear trained successfully. CV Score: 12204820.6103
+2025-10-20 09:59:38,084 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 09:59:38,084 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-20 09:59:38,085 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-10-20 09:59:38,085 - evaluation - INFO - Using KFold for regression
+2025-10-20 09:59:38,085 - evaluation - INFO - Processing fold 1/5
+2025-10-20 09:59:38,087 - evaluation - INFO - Processing fold 2/5
+2025-10-20 09:59:38,089 - evaluation - INFO - Processing fold 3/5
+2025-10-20 09:59:38,091 - evaluation - INFO - Processing fold 4/5
+2025-10-20 09:59:38,093 - evaluation - INFO - Processing fold 5/5
+2025-10-20 09:59:38,096 - pipeline - ERROR - Failed to train/evaluate linear: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+2025-10-20 09:59:38,096 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 09:59:38,096 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 09:59:38,096 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:38,096 - model - INFO - Checking cache for decision_tree with key: decision_tree_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2)]
+2025-10-20 09:59:38,096 - model - INFO - Using cached results for decision_tree
+2025-10-20 09:59:38,096 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-20 09:59:38,096 - model - INFO - Training decision_tree model with params: {'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 09:59:38,123 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-10-20 09:59:38,238 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-10-20 09:59:38,238 - model - INFO - Model decision_tree trained successfully. CV Score: 410490.4941
+2025-10-20 09:59:38,238 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 09:59:38,238 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-20 09:59:38,241 - evaluation - INFO - Starting comprehensive CV for decision_tree_decision_tree_1
+2025-10-20 09:59:38,241 - evaluation - INFO - Using KFold for regression
+2025-10-20 09:59:38,241 - evaluation - INFO - Processing fold 1/5
+2025-10-20 09:59:38,265 - evaluation - INFO - Processing fold 2/5
+2025-10-20 09:59:38,290 - evaluation - INFO - Processing fold 3/5
+2025-10-20 09:59:38,314 - evaluation - INFO - Processing fold 4/5
+2025-10-20 09:59:38,340 - evaluation - INFO - Processing fold 5/5
+2025-10-20 09:59:38,378 - pipeline - ERROR - Failed to train/evaluate decision_tree: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+
+Training models:  67%|██████▋   | 2/3 [00:00<00:00,  6.48it/s][A2025-10-20 09:59:38,379 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 09:59:38,379 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 09:59:38,379 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 09:59:38,379 - model - INFO - Checking cache for random_forest with key: random_forest_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]
+2025-10-20 09:59:38,379 - model - INFO - Using cached results for random_forest
+2025-10-20 09:59:38,379 - model - INFO - Retraining model with cached parameters for evaluation
+2025-10-20 09:59:38,379 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 09:59:40,116 - model - INFO - Stored trained model with ID: random_forest_2
+2025-10-20 09:59:46,918 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-10-20 09:59:46,918 - model - INFO - Model random_forest trained successfully. CV Score: 179276.2159
+2025-10-20 09:59:46,919 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 09:59:46,919 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-20 09:59:47,013 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_2
+2025-10-20 09:59:47,013 - evaluation - INFO - Using KFold for regression
+2025-10-20 09:59:47,013 - evaluation - INFO - Processing fold 1/5
+2025-10-20 09:59:48,363 - evaluation - INFO - Processing fold 2/5
+2025-10-20 09:59:49,762 - evaluation - INFO - Processing fold 3/5
+2025-10-20 09:59:51,115 - evaluation - INFO - Processing fold 4/5
+2025-10-20 09:59:52,473 - evaluation - INFO - Processing fold 5/5
+2025-10-20 09:59:53,913 - pipeline - ERROR - Failed to train/evaluate random_forest: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (5,) + inhomogeneous part.
+
+Training models: 100%|██████████| 3/3 [00:15<00:00,  6.56s/it][A
+                                                              [A2025-10-20 09:59:53,915 - pipeline - INFO - Modeling pipeline completed successfully
+Pipeline phases:  40%|████      | 2/5 [00:15<00:28,  9.38s/it]2025-10-20 09:59:53,915 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 09:59:53,915 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 09:59:53,915 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:53,969 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:53,969 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:53,969 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:53,972 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:53,972 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:53,973 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:53,973 - pipeline - INFO - Qualitative evaluation completed
+2025-10-20 09:59:53,974 - pipeline - INFO - Starting phase: Learning
+2025-10-20 09:59:53,974 - pipeline - INFO - Running learning pipeline
+2025-10-20 09:59:53,974 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 09:59:54,017 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 09:59:54,018 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 09:59:54,018 - pipeline - INFO - Preprocessing features
+2025-10-20 09:59:54,020 - pipeline - INFO - Processed 11 features
+2025-10-20 09:59:54,020 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 09:59:54,021 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 09:59:54,021 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 09:59:54,021 - meta - INFO - Collected data from 3 experiments
+2025-10-20 09:59:54,021 - pipeline - INFO - Evaluating learning progress
+2025-10-20 09:59:54,021 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 09:59:54,021 - pipeline - INFO - Adapting learning strategy
+2025-10-20 09:59:54,021 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 09:59:54,021 - pipeline - INFO - Updating learning system
+2025-10-20 09:59:54,022 - meta - INFO - Updating meta-learning model
+2025-10-20 09:59:54,022 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 09:59:54,022 - meta - INFO - Collected data from 3 experiments
+2025-10-20 09:59:54,022 - pipeline - INFO - Learning system updated successfully
+2025-10-20 09:59:54,022 - pipeline - INFO - Learning pipeline completed
+Pipeline phases:  80%|████████  | 4/5 [00:16<00:03,  3.53s/it]2025-10-20 09:59:54,022 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 09:59:54,022 - pipeline - INFO - Finalizing pipeline
+2025-10-20 09:59:54,029 - pipeline - INFO - Completed experiment 60fa55af
+2025-10-20 09:59:54,029 - pipeline - INFO - Results: {'status': 'completed', 'best_model': None, 'total_models': 0}
+2025-10-20 09:59:54,029 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_60fa55af.json
+Pipeline phases: 100%|██████████| 5/5 [00:16<00:00,  3.22s/it]
+2025-10-20 09:59:54,029 - pipeline - INFO - Pipeline run 60fa55af completed successfully
+✅ Pipeline completed successfully!
+📊 Experiment ID: 60fa55af
+🏆 Best model: None
+
+Model Performance Summary:

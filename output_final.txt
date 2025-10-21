@@ -1,0 +1,687 @@
+Starting Advanced Modeling Pipeline...
+2025-10-20 13:46:17,421 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-20 13:46:17,636 - pipeline - INFO - Starting complete pipeline run: 1395840b
+Pipeline phases:   0%|          | 0/5 [00:00<?, ?it/s]2025-10-20 13:46:17,651 - pipeline - INFO - Starting phase: Data
+2025-10-20 13:46:17,651 - pipeline - INFO - Running data pipeline
+2025-10-20 13:46:17,651 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:46:17,701 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:46:17,701 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:46:17,701 - pipeline - INFO - Preprocessing features
+2025-10-20 13:46:17,707 - pipeline - INFO - Processed 11 features
+2025-10-20 13:46:17,707 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:46:17,708 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:46:17,718 - pipeline - INFO - Data quality validation completed
+2025-10-20 13:46:18,143 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 13:46:18,143 - pipeline - INFO - Data pipeline completed successfully
+Pipeline phases:  20%|██        | 1/5 [00:00<00:01,  2.03it/s]2025-10-20 13:46:18,147 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 13:46:18,147 - pipeline - INFO - Running modeling pipeline
+
+Training models:   0%|          | 0/3 [00:00<?, ?it/s][A2025-10-20 13:46:18,147 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 13:46:18,147 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 13:46:18,148 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:46:18,149 - model - INFO - Checking cache for linear with key: linear_regression_[]_-5894487252191956419
+2025-10-20 13:46:18,152 - model - INFO - Using cached results for linear
+2025-10-20 13:46:18,152 - model - WARNING - Failed to load cached model: name 'cache' is not defined, retraining
+2025-10-20 13:46:18,153 - model - INFO - Applied StandardScaler to features for linear model
+2025-10-20 13:46:18,153 - model - INFO - Training linear model with params: {}
+2025-10-20 13:46:18,161 - model - INFO - Stored trained model with ID: linear_0
+/Users/samuel/IDIS450/Project/src/model_pipeline.py:217: RuntimeWarning: invalid value encountered in sqrt
+  'cv_rmse_mean': np.sqrt(cv_mean)
+2025-10-20 13:46:18,176 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-10-20 13:46:18,176 - model - INFO - Model linear trained successfully. CV Score: -12204820.6103
+2025-10-20 13:46:18,176 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 13:46:18,176 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-20 13:46:18,177 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-10-20 13:46:18,177 - evaluation - INFO - Using KFold for regression
+2025-10-20 13:46:18,177 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-20 13:46:18,177 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-20 13:46:18,178 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:46:18,178 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-20 13:46:18,178 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-20 13:46:18,179 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:46:18,179 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-20 13:46:18,179 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:18,180 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-10-20 13:46:18,180 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:46:18,180 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-20 13:46:18,180 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-20 13:46:18,181 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:46:18,182 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-20 13:46:18,182 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:18,182 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-10-20 13:46:18,182 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:18,182 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-20 13:46:18,182 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-20 13:46:18,183 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:18,183 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-20 13:46:18,184 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:18,184 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-10-20 13:46:18,184 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:18,184 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-20 13:46:18,184 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-20 13:46:18,185 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:18,185 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-20 13:46:18,186 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:18,186 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-10-20 13:46:18,186 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:18,186 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-20 13:46:18,186 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-20 13:46:18,188 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:18,188 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-20 13:46:18,188 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:18,188 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-10-20 13:46:18,189 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-20 13:46:18,189 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:46:18,190 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:46:18,190 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-10-20 13:46:18,190 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-10-20 13:46:18,190 - evaluation - INFO - Performing bias-variance analysis
+2025-10-20 13:46:18,267 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-20 13:46:19,163 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-10-20 13:46:19,163 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-10-20 13:46:19,237 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-10-20 13:46:19,237 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-10-20 13:46:19,667 - pipeline - INFO - Created model version: model_linear_6be9a3bae18c
+
+Training models:  33%|███▎      | 1/3 [00:01<00:03,  1.52s/it][A2025-10-20 13:46:19,668 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 13:46:19,668 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 13:46:19,668 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:46:19,668 - model - INFO - Checking cache for decision_tree with key: decision_tree_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2)]_-5894487252191956419
+2025-10-20 13:46:19,668 - model - INFO - Using cached results for decision_tree
+2025-10-20 13:46:19,668 - model - WARNING - Failed to load cached model: name 'cache' is not defined, retraining
+2025-10-20 13:46:19,668 - model - INFO - Training decision_tree model with params: {'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 13:46:19,697 - model - INFO - Stored trained model with ID: decision_tree_1
+/Users/samuel/IDIS450/Project/src/model_pipeline.py:217: RuntimeWarning: invalid value encountered in sqrt
+  'cv_rmse_mean': np.sqrt(cv_mean)
+2025-10-20 13:46:19,804 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-10-20 13:46:19,804 - model - INFO - Model decision_tree trained successfully. CV Score: -410490.4941
+2025-10-20 13:46:19,804 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 13:46:19,804 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-20 13:46:19,806 - evaluation - INFO - Starting comprehensive CV for decision_tree_decision_tree_1
+2025-10-20 13:46:19,806 - evaluation - INFO - Using KFold for regression
+2025-10-20 13:46:19,806 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-20 13:46:19,806 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-20 13:46:19,806 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:46:19,806 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-20 13:46:19,806 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-20 13:46:19,826 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:46:19,826 - evaluation - INFO - Fold 1 prediction sample: [13832.82  2814.   10615.48 38902.88  9623.88], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-20 13:46:19,826 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:19,826 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 349471.5139311082, 'rmse': 591.1611573260782, 'mae': 251.95116888193897, 'r2': 0.9954221254946756, 'mape': 3.219016113371832}
+2025-10-20 13:46:19,826 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:46:19,827 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-20 13:46:19,827 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-20 13:46:19,848 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:46:19,848 - evaluation - INFO - Fold 2 prediction sample: [ 7211.88   5354.64   3283.    10820.835 26096.5  ], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-20 13:46:19,848 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:19,848 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 307620.93444824073, 'rmse': 554.6358575211674, 'mae': 243.0214151681, 'r2': 0.9963512698376262, 'mape': 3.09636790094277}
+2025-10-20 13:46:19,849 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:19,849 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-20 13:46:19,849 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-20 13:46:19,872 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:19,872 - evaluation - INFO - Fold 3 prediction sample: [ 7994.44   16865.24    6435.015   7120.9275  2289.39  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-20 13:46:19,872 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:19,872 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 317171.2285179333, 'rmse': 563.1795704017799, 'mae': 245.91634389671356, 'r2': 0.9959334773356511, 'mape': 3.114363908361012}
+2025-10-20 13:46:19,873 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:19,873 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-20 13:46:19,873 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-20 13:46:19,897 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:19,897 - evaluation - INFO - Fold 4 prediction sample: [  935.8225  8911.      4048.14     204.5175 14328.62  ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-20 13:46:19,897 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:19,897 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 439589.1418793819, 'rmse': 663.0151897802809, 'mae': 254.3944913928012, 'r2': 0.994527335145254, 'mape': 3.116004388263586}
+2025-10-20 13:46:19,898 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:19,898 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-20 13:46:19,898 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-20 13:46:19,924 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:19,925 - evaluation - INFO - Fold 5 prediction sample: [ 1537.65 14134.32 47695.96  7238.68 30348.32], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-20 13:46:19,925 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:19,926 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 638599.6518418576, 'rmse': 799.1243031230233, 'mae': 286.526312597809, 'r2': 0.9919041766505161, 'mape': 3.058946185506464}
+2025-10-20 13:46:19,927 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-20 13:46:19,927 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:46:19,928 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:46:19,928 - evaluation - INFO - CV summary sample: {'mse': {'mean': 410490.4941237044, 'std': 123202.65153060868, 'min': 307620.93444824073, 'max': 638599.6518418576, 'cv': 0.300135212128641, 'ci_95_lower': 257538.72159692223, 'ci_95_upper': 563442.2666504865}, 'rmse': {'mean': 634.2232156304659, 'std': 90.83725490709118, 'min': 554.6358575211674, 'max': 799.1243031230233, 'cv': 0.14322600098577606, 'ci_95_lower': 521.4519483168322, 'ci_95_upper': 746.9944829440997}}
+2025-10-20 13:46:19,928 - evaluation - INFO - Comprehensive CV completed for decision_tree_decision_tree_1
+2025-10-20 13:46:19,928 - evaluation - INFO - Performing bias-variance analysis
+2025-10-20 13:46:21,175 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-20 13:46:21,633 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/decision_tree_decision_tree_1_residual_diagnostics.png
+2025-10-20 13:46:21,633 - evaluation - INFO - Generating learning curves for decision_tree_decision_tree_1
+2025-10-20 13:46:22,239 - evaluation - WARNING - Could not generate some visualizations for decision_tree_decision_tree_1: axis 1 is out of bounds for array of dimension 1
+2025-10-20 13:46:22,239 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-20 13:46:22,688 - pipeline - INFO - Created model version: model_decision_tree_01c6d63d9254
+
+Training models:  67%|██████▋   | 2/3 [00:04<00:02,  2.40s/it][A2025-10-20 13:46:22,688 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 13:46:22,688 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 13:46:22,688 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:46:22,688 - model - INFO - Checking cache for random_forest with key: random_forest_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-5894487252191956419
+2025-10-20 13:46:22,689 - model - INFO - Using cached results for random_forest
+2025-10-20 13:46:22,689 - model - WARNING - Failed to load cached model: name 'cache' is not defined, retraining
+2025-10-20 13:46:22,689 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 13:46:24,234 - model - INFO - Stored trained model with ID: random_forest_2
+/Users/samuel/IDIS450/Project/src/model_pipeline.py:217: RuntimeWarning: invalid value encountered in sqrt
+  'cv_rmse_mean': np.sqrt(cv_mean)
+2025-10-20 13:46:30,591 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-10-20 13:46:30,591 - model - INFO - Model random_forest trained successfully. CV Score: -179276.2159
+2025-10-20 13:46:30,591 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 13:46:30,591 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-20 13:46:30,677 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_2
+2025-10-20 13:46:30,677 - evaluation - INFO - Using KFold for regression
+2025-10-20 13:46:30,677 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-20 13:46:30,677 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-20 13:46:30,677 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:46:30,677 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-20 13:46:30,677 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-20 13:46:31,986 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:46:31,987 - evaluation - INFO - Fold 1 prediction sample: [13836.974   2766.8186 11964.257  39845.369   9336.1686], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-20 13:46:31,987 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:31,987 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 194187.1124648519, 'rmse': 440.6666682026812, 'mae': 187.6982147185299, 'r2': 0.9974562612516948, 'mape': 2.522920555816094}
+2025-10-20 13:46:31,993 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:46:31,993 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-20 13:46:31,993 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-20 13:46:33,279 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:46:33,280 - evaluation - INFO - Fold 2 prediction sample: [ 7374.0669    5229.1356    2999.856325 10874.97435  25903.431125], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-20 13:46:33,280 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:33,280 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 141763.8080023139, 'rmse': 376.51534895979194, 'mae': 165.96549700938263, 'r2': 0.9983185218420886, 'mape': 2.2132082758949303}
+2025-10-20 13:46:33,286 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:33,286 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-20 13:46:33,286 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-20 13:46:34,527 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:34,527 - evaluation - INFO - Fold 3 prediction sample: [ 7959.0506   19657.9541    6401.9103    7154.157825  2206.8192  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-20 13:46:34,527 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:34,528 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 163781.14758853932, 'rmse': 404.69883566491677, 'mae': 175.7304873435059, 'r2': 0.9979001255827207, 'mape': 2.356654720010114}
+2025-10-20 13:46:34,534 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:34,534 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-20 13:46:34,534 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-20 13:46:35,782 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:35,782 - evaluation - INFO - Fold 4 prediction sample: [  943.41695  8697.2097   4009.6284    189.5765  14330.1744 ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-20 13:46:35,782 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:35,783 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 163032.82172352512, 'rmse': 403.77323056825486, 'mae': 178.56108399843524, 'r2': 0.9979703229479194, 'mape': 2.244354183790952}
+2025-10-20 13:46:35,788 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:46:35,788 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-20 13:46:35,789 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-20 13:46:37,069 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:46:37,070 - evaluation - INFO - Fold 5 prediction sample: [ 1580.9454  14617.4168  47600.954    7254.89065 30257.0258 ], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-20 13:46:37,070 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:46:37,070 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 233616.189918356, 'rmse': 483.3385872433071, 'mae': 184.17122781690142, 'r2': 0.997038339435821, 'mape': 2.149948463069263}
+2025-10-20 13:46:37,076 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-20 13:46:37,077 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:46:37,077 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:46:37,077 - evaluation - INFO - CV summary sample: {'mse': {'mean': 179276.21593951722, 'std': 31894.492801469256, 'min': 141763.8080023139, 'max': 233616.189918356, 'cv': 0.17790699471384183, 'ci_95_lower': 139680.3213120754, 'ci_95_upper': 218872.11056695905}, 'rmse': {'mean': 421.7985341277903, 'std': 36.90816369266429, 'min': 376.51534895979194, 'max': 483.3385872433071, 'cv': 0.0875018775704953, 'ci_95_lower': 375.9783428626767, 'ci_95_upper': 467.61872539290385}}
+2025-10-20 13:46:37,077 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_2
+2025-10-20 13:46:37,080 - evaluation - INFO - Performing bias-variance analysis
+2025-10-20 13:47:51,756 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-20 13:47:52,361 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_2_residual_diagnostics.png
+2025-10-20 13:47:52,361 - evaluation - INFO - Generating learning curves for random_forest_random_forest_2
+2025-10-20 13:48:29,612 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_2: axis 1 is out of bounds for array of dimension 1
+2025-10-20 13:48:29,613 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-20 13:48:30,103 - pipeline - INFO - Created model version: model_random_forest_0e99c4be34ab
+
+Training models: 100%|██████████| 3/3 [02:11<00:00, 59.49s/it][A
+                                                              [A2025-10-20 13:48:30,109 - model - INFO - Model linear_0 evaluation completed. Test Score: 0.8438
+2025-10-20 13:48:30,110 - model - INFO - Model decision_tree_1 evaluation completed. Test Score: 0.9961
+2025-10-20 13:48:30,137 - model - INFO - Model random_forest_2 evaluation completed. Test Score: 0.9985
+2025-10-20 13:48:30,137 - pipeline - INFO - Modeling pipeline completed successfully
+Pipeline phases:  40%|████      | 2/5 [02:12<03:53, 77.85s/it]2025-10-20 13:48:30,137 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 13:48:30,137 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 13:48:30,137 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:48:30,187 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:48:30,187 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:48:30,187 - pipeline - INFO - Preprocessing features
+2025-10-20 13:48:30,190 - pipeline - INFO - Processed 11 features
+2025-10-20 13:48:30,190 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:48:30,191 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:48:30,191 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-20 13:48:30,191 - evaluation - INFO - Performing error analysis for linear
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-20 13:48:30,208 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-20 13:48:30,208 - evaluation - INFO - Checking business alignment for linear
+2025-10-20 13:48:30,208 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-20 13:48:30,209 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-20 13:48:30,209 - evaluation - INFO - Performing error analysis for decision_tree
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-20 13:48:30,217 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-20 13:48:30,217 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-20 13:48:30,217 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-20 13:48:30,236 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-20 13:48:30,236 - evaluation - INFO - Performing error analysis for random_forest
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-20 13:48:30,245 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-20 13:48:30,245 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-20 13:48:30,246 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-20 13:48:30,246 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:48:30,246 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+Pipeline phases:  60%|██████    | 3/5 [02:12<01:24, 42.35s/it]2025-10-20 13:48:30,246 - pipeline - INFO - Starting phase: Learning
+2025-10-20 13:48:30,246 - pipeline - INFO - Running learning pipeline
+2025-10-20 13:48:30,246 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:48:30,289 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:48:30,289 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:48:30,289 - pipeline - INFO - Preprocessing features
+2025-10-20 13:48:30,292 - pipeline - INFO - Processed 11 features
+2025-10-20 13:48:30,292 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:48:30,292 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:48:30,293 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 13:48:30,293 - meta - INFO - Collected data from 4 experiments
+2025-10-20 13:48:30,293 - pipeline - INFO - Evaluating learning progress
+2025-10-20 13:48:30,293 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 13:48:30,293 - pipeline - INFO - Adapting learning strategy
+2025-10-20 13:48:30,293 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 13:48:30,294 - pipeline - INFO - Updating learning system
+2025-10-20 13:48:30,294 - meta - INFO - Updating meta-learning model
+2025-10-20 13:48:30,294 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 13:48:30,294 - meta - INFO - Collected data from 4 experiments
+2025-10-20 13:48:30,408 - pipeline - INFO - Learning system updated successfully
+2025-10-20 13:48:30,408 - pipeline - INFO - Learning pipeline completed
+Pipeline phases:  80%|████████  | 4/5 [02:12<00:25, 25.69s/it]2025-10-20 13:48:30,408 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 13:48:30,408 - pipeline - INFO - Finalizing pipeline
+2025-10-20 13:48:30,490 - pipeline - INFO - Completed experiment 1395840b
+2025-10-20 13:48:30,490 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 13:48:30,490 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_1395840b.json
+Pipeline phases: 100%|██████████| 5/5 [02:12<00:00, 26.57s/it]
+2025-10-20 13:48:30,490 - pipeline - INFO - Pipeline run 1395840b completed successfully
+🚀 Starting Advanced Modeling Pipeline...
+2025-10-20 13:48:30,509 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-10-20 13:48:30,743 - pipeline - INFO - Starting complete pipeline run: 4574b2f4
+Pipeline phases:   0%|          | 0/5 [00:00<?, ?it/s]2025-10-20 13:48:30,743 - pipeline - INFO - Starting phase: Data
+2025-10-20 13:48:30,743 - pipeline - INFO - Running data pipeline
+2025-10-20 13:48:30,743 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:48:30,786 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:48:30,787 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:48:30,787 - pipeline - INFO - Preprocessing features
+2025-10-20 13:48:30,789 - pipeline - INFO - Processed 11 features
+2025-10-20 13:48:30,789 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:48:30,790 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:48:30,796 - pipeline - INFO - Data quality validation completed
+2025-10-20 13:48:31,251 - pipeline - INFO - Created dataset version: dataset_ce15b282d699
+2025-10-20 13:48:31,251 - pipeline - INFO - Data pipeline completed successfully
+Pipeline phases:  20%|██        | 1/5 [00:00<00:02,  1.97it/s]2025-10-20 13:48:31,251 - pipeline - INFO - Starting phase: Modeling
+2025-10-20 13:48:31,251 - pipeline - INFO - Running modeling pipeline
+
+Training models:   0%|          | 0/3 [00:00<?, ?it/s][A2025-10-20 13:48:31,251 - pipeline - INFO - Generating warm start configuration for linear
+2025-10-20 13:48:31,251 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 13:48:31,251 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:48:31,252 - model - INFO - Checking cache for linear with key: linear_regression_[]_-5894487252191956419
+2025-10-20 13:48:31,253 - model - INFO - Using cached results for linear
+2025-10-20 13:48:31,253 - model - WARNING - Failed to load cached model: name 'cache' is not defined, retraining
+2025-10-20 13:48:31,254 - model - INFO - Applied StandardScaler to features for linear model
+2025-10-20 13:48:31,254 - model - INFO - Training linear model with params: {}
+2025-10-20 13:48:31,255 - model - INFO - Stored trained model with ID: linear_0
+/Users/samuel/IDIS450/Project/src/model_pipeline.py:217: RuntimeWarning: invalid value encountered in sqrt
+  'cv_rmse_mean': np.sqrt(cv_mean)
+2025-10-20 13:48:31,269 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-10-20 13:48:31,269 - model - INFO - Model linear trained successfully. CV Score: -12204820.6103
+2025-10-20 13:48:31,269 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-10-20 13:48:31,269 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-20 13:48:31,270 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-10-20 13:48:31,270 - evaluation - INFO - Using KFold for regression
+2025-10-20 13:48:31,270 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-20 13:48:31,270 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-20 13:48:31,270 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:48:31,271 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-20 13:48:31,271 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-20 13:48:31,272 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:48:31,272 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-20 13:48:31,272 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:31,272 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-10-20 13:48:31,272 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:48:31,273 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-20 13:48:31,273 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-20 13:48:31,274 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:48:31,274 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-20 13:48:31,274 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:31,274 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-10-20 13:48:31,275 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:31,275 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-20 13:48:31,275 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-20 13:48:31,276 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:31,276 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-20 13:48:31,276 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:31,277 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-10-20 13:48:31,277 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:31,277 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-20 13:48:31,277 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-20 13:48:31,278 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:31,278 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-20 13:48:31,278 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:31,278 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-10-20 13:48:31,278 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:31,279 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-20 13:48:31,279 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-20 13:48:31,280 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:31,280 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-20 13:48:31,280 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:31,280 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-10-20 13:48:31,281 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-20 13:48:31,281 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:48:31,281 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:48:31,281 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-10-20 13:48:31,281 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-10-20 13:48:31,282 - evaluation - INFO - Performing bias-variance analysis
+2025-10-20 13:48:31,353 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-20 13:48:31,861 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-10-20 13:48:31,862 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-10-20 13:48:31,938 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-10-20 13:48:31,938 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-10-20 13:48:32,418 - pipeline - INFO - Created model version: model_linear_023b9d95229c
+
+Training models:  33%|███▎      | 1/3 [00:01<00:02,  1.17s/it][A2025-10-20 13:48:32,419 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-10-20 13:48:32,419 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 13:48:32,419 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:48:32,419 - model - INFO - Checking cache for decision_tree with key: decision_tree_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2)]_-5894487252191956419
+2025-10-20 13:48:32,419 - model - INFO - Using cached results for decision_tree
+2025-10-20 13:48:32,419 - model - WARNING - Failed to load cached model: name 'cache' is not defined, retraining
+2025-10-20 13:48:32,419 - model - INFO - Training decision_tree model with params: {'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 13:48:32,445 - model - INFO - Stored trained model with ID: decision_tree_1
+/Users/samuel/IDIS450/Project/src/model_pipeline.py:217: RuntimeWarning: invalid value encountered in sqrt
+  'cv_rmse_mean': np.sqrt(cv_mean)
+2025-10-20 13:48:32,559 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-10-20 13:48:32,559 - model - INFO - Model decision_tree trained successfully. CV Score: -410490.4941
+2025-10-20 13:48:32,559 - pipeline - INFO - Evaluating model decision_tree_1 - checking if exists in trained_models: True
+2025-10-20 13:48:32,559 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-20 13:48:32,561 - evaluation - INFO - Starting comprehensive CV for decision_tree_decision_tree_1
+2025-10-20 13:48:32,561 - evaluation - INFO - Using KFold for regression
+2025-10-20 13:48:32,561 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-20 13:48:32,561 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-20 13:48:32,561 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:48:32,561 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-20 13:48:32,561 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-20 13:48:32,583 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:48:32,583 - evaluation - INFO - Fold 1 prediction sample: [13832.82  2814.   10615.48 38902.88  9623.88], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-20 13:48:32,583 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:32,583 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 349471.5139311082, 'rmse': 591.1611573260782, 'mae': 251.95116888193897, 'r2': 0.9954221254946756, 'mape': 3.219016113371832}
+2025-10-20 13:48:32,583 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:48:32,583 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-20 13:48:32,583 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-20 13:48:32,606 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:48:32,606 - evaluation - INFO - Fold 2 prediction sample: [ 7211.88   5354.64   3283.    10820.835 26096.5  ], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-20 13:48:32,606 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:32,607 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 307620.93444824073, 'rmse': 554.6358575211674, 'mae': 243.0214151681, 'r2': 0.9963512698376262, 'mape': 3.09636790094277}
+2025-10-20 13:48:32,607 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:32,607 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-20 13:48:32,607 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-20 13:48:32,628 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:32,628 - evaluation - INFO - Fold 3 prediction sample: [ 7994.44   16865.24    6435.015   7120.9275  2289.39  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-20 13:48:32,628 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:32,629 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 317171.2285179333, 'rmse': 563.1795704017799, 'mae': 245.91634389671356, 'r2': 0.9959334773356511, 'mape': 3.114363908361012}
+2025-10-20 13:48:32,629 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:32,629 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-20 13:48:32,629 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-20 13:48:32,651 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:32,651 - evaluation - INFO - Fold 4 prediction sample: [  935.8225  8911.      4048.14     204.5175 14328.62  ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-20 13:48:32,651 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:32,652 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 439589.1418793819, 'rmse': 663.0151897802809, 'mae': 254.3944913928012, 'r2': 0.994527335145254, 'mape': 3.116004388263586}
+2025-10-20 13:48:32,652 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:32,652 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-20 13:48:32,652 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-20 13:48:32,673 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:32,673 - evaluation - INFO - Fold 5 prediction sample: [ 1537.65 14134.32 47695.96  7238.68 30348.32], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-20 13:48:32,673 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:32,674 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 638599.6518418576, 'rmse': 799.1243031230233, 'mae': 286.526312597809, 'r2': 0.9919041766505161, 'mape': 3.058946185506464}
+2025-10-20 13:48:32,674 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-20 13:48:32,674 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:48:32,674 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:48:32,674 - evaluation - INFO - CV summary sample: {'mse': {'mean': 410490.4941237044, 'std': 123202.65153060868, 'min': 307620.93444824073, 'max': 638599.6518418576, 'cv': 0.300135212128641, 'ci_95_lower': 257538.72159692223, 'ci_95_upper': 563442.2666504865}, 'rmse': {'mean': 634.2232156304659, 'std': 90.83725490709118, 'min': 554.6358575211674, 'max': 799.1243031230233, 'cv': 0.14322600098577606, 'ci_95_lower': 521.4519483168322, 'ci_95_upper': 746.9944829440997}}
+2025-10-20 13:48:32,675 - evaluation - INFO - Comprehensive CV completed for decision_tree_decision_tree_1
+2025-10-20 13:48:32,675 - evaluation - INFO - Performing bias-variance analysis
+2025-10-20 13:48:33,856 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-20 13:48:34,313 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/decision_tree_decision_tree_1_residual_diagnostics.png
+2025-10-20 13:48:34,313 - evaluation - INFO - Generating learning curves for decision_tree_decision_tree_1
+2025-10-20 13:48:34,947 - evaluation - WARNING - Could not generate some visualizations for decision_tree_decision_tree_1: axis 1 is out of bounds for array of dimension 1
+2025-10-20 13:48:34,947 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-20 13:48:35,437 - pipeline - INFO - Created model version: model_decision_tree_61e1d6b3d154
+
+Training models:  67%|██████▋   | 2/3 [00:04<00:02,  2.26s/it][A2025-10-20 13:48:35,437 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-10-20 13:48:35,437 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-10-20 13:48:35,437 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-10-20 13:48:35,438 - model - INFO - Checking cache for random_forest with key: random_forest_regression_[('max_depth', None), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-5894487252191956419
+2025-10-20 13:48:35,438 - model - INFO - Using cached results for random_forest
+2025-10-20 13:48:35,438 - model - WARNING - Failed to load cached model: name 'cache' is not defined, retraining
+2025-10-20 13:48:35,438 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+2025-10-20 13:48:37,080 - model - INFO - Stored trained model with ID: random_forest_2
+/Users/samuel/IDIS450/Project/src/model_pipeline.py:217: RuntimeWarning: invalid value encountered in sqrt
+  'cv_rmse_mean': np.sqrt(cv_mean)
+2025-10-20 13:48:43,739 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-10-20 13:48:43,739 - model - INFO - Model random_forest trained successfully. CV Score: -179276.2159
+2025-10-20 13:48:43,739 - pipeline - INFO - Evaluating model random_forest_2 - checking if exists in trained_models: True
+2025-10-20 13:48:43,739 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-20 13:48:43,822 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_2
+2025-10-20 13:48:43,822 - evaluation - INFO - Using KFold for regression
+2025-10-20 13:48:43,822 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-20 13:48:43,822 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-20 13:48:43,822 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:48:43,822 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-20 13:48:43,822 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-20 13:48:45,132 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:48:45,132 - evaluation - INFO - Fold 1 prediction sample: [13836.974   2766.8186 11964.257  39845.369   9336.1686], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-20 13:48:45,132 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:45,132 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 194187.1124648519, 'rmse': 440.6666682026812, 'mae': 187.6982147185299, 'r2': 0.9974562612516948, 'mape': 2.522920555816094}
+2025-10-20 13:48:45,138 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-20 13:48:45,138 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-20 13:48:45,138 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-20 13:48:46,444 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-20 13:48:46,444 - evaluation - INFO - Fold 2 prediction sample: [ 7374.0669    5229.1356    2999.856325 10874.97435  25903.431125], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-20 13:48:46,444 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:46,445 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 141763.8080023139, 'rmse': 376.51534895979194, 'mae': 165.96549700938263, 'r2': 0.9983185218420886, 'mape': 2.2132082758949303}
+2025-10-20 13:48:46,451 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:46,451 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-20 13:48:46,451 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-20 13:48:47,760 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:47,760 - evaluation - INFO - Fold 3 prediction sample: [ 7959.0506   19657.9541    6401.9103    7154.157825  2206.8192  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-20 13:48:47,760 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:47,761 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 163781.14758853932, 'rmse': 404.69883566491677, 'mae': 175.7304873435059, 'r2': 0.9979001255827207, 'mape': 2.356654720010114}
+2025-10-20 13:48:47,767 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:47,767 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-20 13:48:47,767 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-20 13:48:49,079 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:49,079 - evaluation - INFO - Fold 4 prediction sample: [  943.41695  8697.2097   4009.6284    189.5765  14330.1744 ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-20 13:48:49,079 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:49,079 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 163032.82172352512, 'rmse': 403.77323056825486, 'mae': 178.56108399843524, 'r2': 0.9979703229479194, 'mape': 2.244354183790952}
+2025-10-20 13:48:49,085 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-20 13:48:49,085 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-20 13:48:49,085 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-20 13:48:50,400 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-20 13:48:50,400 - evaluation - INFO - Fold 5 prediction sample: [ 1580.9454  14617.4168  47600.954    7254.89065 30257.0258 ], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-20 13:48:50,400 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-20 13:48:50,401 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 233616.189918356, 'rmse': 483.3385872433071, 'mae': 184.17122781690142, 'r2': 0.997038339435821, 'mape': 2.149948463069263}
+2025-10-20 13:48:50,407 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-20 13:48:50,407 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:48:50,407 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-20 13:48:50,407 - evaluation - INFO - CV summary sample: {'mse': {'mean': 179276.21593951722, 'std': 31894.492801469256, 'min': 141763.8080023139, 'max': 233616.189918356, 'cv': 0.17790699471384183, 'ci_95_lower': 139680.3213120754, 'ci_95_upper': 218872.11056695905}, 'rmse': {'mean': 421.7985341277903, 'std': 36.90816369266429, 'min': 376.51534895979194, 'max': 483.3385872433071, 'cv': 0.0875018775704953, 'ci_95_lower': 375.9783428626767, 'ci_95_upper': 467.61872539290385}}
+2025-10-20 13:48:50,408 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_2
+2025-10-20 13:48:50,409 - evaluation - INFO - Performing bias-variance analysis
+2025-10-20 13:50:06,669 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-20 13:50:07,180 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_2_residual_diagnostics.png
+2025-10-20 13:50:07,181 - evaluation - INFO - Generating learning curves for random_forest_random_forest_2
+2025-10-20 13:50:44,231 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_2: axis 1 is out of bounds for array of dimension 1
+2025-10-20 13:50:44,233 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-20 13:50:44,760 - pipeline - INFO - Created model version: model_random_forest_46a59b16aeb8
+
+Training models: 100%|██████████| 3/3 [02:13<00:00, 60.28s/it][A
+                                                              [A2025-10-20 13:50:44,764 - model - INFO - Model linear_0 evaluation completed. Test Score: 0.8438
+2025-10-20 13:50:44,767 - model - INFO - Model decision_tree_1 evaluation completed. Test Score: 0.9961
+2025-10-20 13:50:44,795 - model - INFO - Model random_forest_2 evaluation completed. Test Score: 0.9985
+2025-10-20 13:50:44,795 - pipeline - INFO - Modeling pipeline completed successfully
+Pipeline phases:  40%|████      | 2/5 [02:14<03:56, 78.76s/it]2025-10-20 13:50:44,795 - pipeline - INFO - Starting phase: Qualitative
+2025-10-20 13:50:44,795 - pipeline - INFO - Running qualitative evaluation
+2025-10-20 13:50:44,795 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:50:44,843 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:50:44,843 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:50:44,843 - pipeline - INFO - Preprocessing features
+2025-10-20 13:50:44,845 - pipeline - INFO - Processed 11 features
+2025-10-20 13:50:44,845 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:50:44,846 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:50:44,846 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-20 13:50:44,846 - evaluation - INFO - Performing error analysis for linear
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-20 13:50:44,856 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-20 13:50:44,856 - evaluation - INFO - Checking business alignment for linear
+2025-10-20 13:50:44,856 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-20 13:50:44,857 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-20 13:50:44,857 - evaluation - INFO - Performing error analysis for decision_tree
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-20 13:50:44,865 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-20 13:50:44,865 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-20 13:50:44,865 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-20 13:50:44,885 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-10-20 13:50:44,886 - evaluation - INFO - Performing error analysis for random_forest
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:247: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+/Users/samuel/IDIS450/Project/src/qualitative_evaluator.py:250: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+2025-10-20 13:50:44,895 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-20 13:50:44,895 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-20 13:50:44,895 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-20 13:50:44,895 - pipeline - ERROR - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:50:44,895 - pipeline - WARNING - Qualitative evaluation failed: 'model_id'
+2025-10-20 13:50:44,895 - pipeline - INFO - Starting phase: Learning
+2025-10-20 13:50:44,895 - pipeline - INFO - Running learning pipeline
+2025-10-20 13:50:44,895 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-10-20 13:50:44,939 - pipeline - INFO - Loaded 7991 rows with 28 columns
+2025-10-20 13:50:44,939 - pipeline - INFO - Data hash: ce15b282d69912ef
+2025-10-20 13:50:44,939 - pipeline - INFO - Preprocessing features
+2025-10-20 13:50:44,941 - pipeline - INFO - Processed 11 features
+2025-10-20 13:50:44,941 - pipeline - INFO - Splitting data with test_size=0.2
+2025-10-20 13:50:44,942 - pipeline - INFO - Train set: 6392 samples, Test set: 1599 samples
+2025-10-20 13:50:44,942 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 13:50:44,943 - meta - INFO - Collected data from 4 experiments
+2025-10-20 13:50:44,943 - pipeline - INFO - Evaluating learning progress
+2025-10-20 13:50:44,943 - pipeline - INFO - Learning progress evaluation completed
+2025-10-20 13:50:44,943 - pipeline - INFO - Adapting learning strategy
+2025-10-20 13:50:44,943 - pipeline - INFO - Strategy adaptation completed
+2025-10-20 13:50:44,943 - pipeline - INFO - Updating learning system
+2025-10-20 13:50:44,943 - meta - INFO - Updating meta-learning model
+2025-10-20 13:50:44,943 - meta - INFO - Collecting experiment data for meta-learning
+2025-10-20 13:50:44,943 - meta - INFO - Collected data from 4 experiments
+2025-10-20 13:50:45,057 - pipeline - INFO - Learning system updated successfully
+2025-10-20 13:50:45,057 - pipeline - INFO - Learning pipeline completed
+Pipeline phases:  80%|████████  | 4/5 [02:14<00:29, 29.46s/it]2025-10-20 13:50:45,058 - pipeline - INFO - Starting phase: Finalizing
+2025-10-20 13:50:45,058 - pipeline - INFO - Finalizing pipeline
+2025-10-20 13:50:45,137 - pipeline - INFO - Completed experiment 4574b2f4
+2025-10-20 13:50:45,137 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_2', 'total_models': 4}
+2025-10-20 13:50:45,137 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_4574b2f4.json
+Pipeline phases: 100%|██████████| 5/5 [02:14<00:00, 26.88s/it]
+2025-10-20 13:50:45,137 - pipeline - INFO - Pipeline run 4574b2f4 completed successfully
+✅ Pipeline completed successfully!
+📊 Experiment ID: 4574b2f4
+🏆 Best model: random_forest_2
+
+Model Performance Summary:

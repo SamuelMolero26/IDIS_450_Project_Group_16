@@ -554,3 +554,94 @@ def save_evaluation_report(results: Dict[str, Any], save_path: Path):
         json.dump(results, f, indent=2, default=str)
 
     evaluation_logger.info(f"Saved evaluation report to {save_path}")
+def plot_cv_fold_performance(fold_results: List[Dict[str, Any]]) -> str:
+    """
+    Plot cross-validation performance across folds, highlighting improvement trends.
+
+    Args:
+        fold_results: List of dictionaries containing fold metrics (e.g., {'fold': 1, 'r2': 0.85, 'rmse': 0.12})
+
+    Returns:
+        Path to the saved plot as string
+    """
+    # Extract fold numbers and metrics
+    folds = [d.get('fold', i + 1) for i, d in enumerate(fold_results)]
+    metrics = {}
+    for d in fold_results:
+        for k, v in d.items():
+            if k != 'fold' and isinstance(v, (int, float)):
+                if k not in metrics:
+                    metrics[k] = []
+                metrics[k].append(v)
+
+    # Define metrics where higher values indicate better performance
+    higher_better = {'r2', 'accuracy', 'f1', 'precision', 'recall', 'auc', 'roc_auc'}
+
+    fig, ax = plt.subplots(figsize=(12, 8))
+
+    colors = sns.color_palette("husl", len(metrics))
+    for i, (metric, values) in enumerate(metrics.items()):
+        # Plot the metric values
+        ax.plot(folds, values, marker='o', linewidth=2, label=metric, color=colors[i])
+
+        # Add trend line if enough data points
+        if len(values) > 1:
+            # Fit linear trend
+            coeffs = np.polyfit(folds, values, 1)
+            trend_line = np.polyval(coeffs, folds)
+            ax.plot(folds, trend_line, linestyle='--', alpha=0.7, color=colors[i],
+                   label=f'{metric} trend')
+
+            # Determine if improving based on metric type
+            slope = coeffs[0]
+            if metric in higher_better:
+                is_improving = slope > 0
+            else:  # lower better (e.g., rmse, mse)
+                is_improving = slope < 0
+
+            # Add annotation for trend
+            trend_text = f"{metric}: {'↑ Improving' if is_improving else '↓ Declining'} (slope: {slope:.4f})"
+            # Position annotation at the last point
+            ax.annotate(trend_text, xy=(folds[-1], values[-1]),
+                       xytext=(10, 10 if i % 2 == 0 else -10),
+                       textcoords='offset points',
+                       bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.8),
+                       fontsize=9)
+
+    ax.set_xlabel('Fold Number')
+    ax.set_ylabel('Metric Value')
+    ax.set_title('Cross-Validation Performance Across Folds\nwith Trend Analysis', fontsize=14, fontweight='bold')
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax.grid(True, alpha=0.3)
+
+    # Add overall improvement summary
+    improving_metrics = []
+    declining_metrics = []
+    for metric, values in metrics.items():
+        if len(values) > 1:
+            slope = np.polyfit(folds, values, 1)[0]
+            if metric in higher_better:
+                if slope > 0:
+                    improving_metrics.append(metric)
+                else:
+                    declining_metrics.append(metric)
+            else:
+                if slope < 0:
+                    improving_metrics.append(metric)
+                else:
+                    declining_metrics.append(metric)
+
+    summary_text = f"Improving: {', '.join(improving_metrics)}\nDeclining: {', '.join(declining_metrics)}"
+    ax.text(0.02, 0.98, summary_text, transform=ax.transAxes, fontsize=10,
+           verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+
+    plt.tight_layout()
+
+    # Save the plot
+    save_dir = Path('visualizations/cv_analysis')
+    save_dir.mkdir(exist_ok=True)
+    save_path = save_dir / 'cv_fold_performance.png'
+    plt.savefig(save_path, dpi=300, bbox_inches='tight')
+    evaluation_logger.info(f"Saved CV fold performance plot to {save_path}")
+
+    return str(save_path)

@@ -340,28 +340,29 @@ def convert_data_types(df):
 
 def univariate_outlier_detection(df):
     """
-    Perform univariate outlier detection using Z-score and IQR methods.
+    Perform aggressive univariate outlier detection and removal using Z-score and IQR methods.
     """
-    print("\n=== UNIVARIATE OUTLIER DETECTION ===")
+    print("\n=== AGGRESSIVE UNIVARIATE OUTLIER DETECTION AND REMOVAL ===")
 
     numeric_cols = ['Order Quantity', 'Discount Applied', 'Unit Cost', 'Unit Price',
                    'Procurement_to_Order_Days', 'Order_to_Ship_Days', 'Ship_to_Delivery_Days',
                    'Total_Lead_Time', 'Profit_Margin', 'Total_Revenue']
 
     outlier_summary = {}
+    initial_rows = len(df)
 
     for col in numeric_cols:
         if col in df.columns:
-            # Z-score method
+            # Z-score method (z < 4 for aggressive cleaning)
             z_scores = np.abs(stats.zscore(df[col].dropna()))
-            z_outliers = (z_scores > 3).sum()
+            z_outliers = (z_scores > 4).sum()
 
-            # IQR method
+            # IQR method (3×IQR for aggressive cleaning)
             Q1 = df[col].quantile(0.25)
             Q3 = df[col].quantile(0.75)
             IQR = Q3 - Q1
-            lower_bound = Q1 - 1.5 * IQR
-            upper_bound = Q3 + 1.5 * IQR
+            lower_bound = Q1 - 3 * IQR
+            upper_bound = Q3 + 3 * IQR
             iqr_outliers = ((df[col] < lower_bound) | (df[col] > upper_bound)).sum()
 
             outlier_summary[col] = {
@@ -373,16 +374,54 @@ def univariate_outlier_detection(df):
 
             print(f"{col}: {iqr_outliers} outliers ({outlier_summary[col]['Percentage']:.2f}%) - IQR bounds: [{lower_bound:.2f}, {upper_bound:.2f}]")
 
-    # Flag outliers using IQR method
+    # Remove outliers using both Z-score and IQR methods
+    print("\n=== REMOVING OUTLIERS ===")
     for col in numeric_cols:
         if col in df.columns:
+            # Remove using Z-score (z < 4)
+            z_scores = np.abs(stats.zscore(df[col].dropna()))
+            z_mask = z_scores <= 4
+            
+            # Remove using IQR (3×IQR)
             Q1 = df[col].quantile(0.25)
             Q3 = df[col].quantile(0.75)
             IQR = Q3 - Q1
-            outlier_col = f'{col}_outlier'
-            df[outlier_col] = ((df[col] < (Q1 - 1.5 * IQR)) | (df[col] > (Q3 + 1.5 * IQR))).astype(int)
+            lower_bound = Q1 - 3 * IQR
+            upper_bound = Q3 + 3 * IQR
+            iqr_mask = (df[col] >= lower_bound) & (df[col] <= upper_bound)
+            
+            # Combine masks (keep rows that pass both tests)
+            combined_mask = z_mask & iqr_mask
+            rows_before = len(df)
+            df = df[combined_mask]
+            rows_removed = rows_before - len(df)
+            
+            if rows_removed > 0:
+                print(f"  Removed {rows_removed} rows based on {col} outliers")
 
-    print("Outlier flags added to dataframe")
+    # Remove missing/infinite values
+    print("\n=== REMOVING MISSING AND INFINITE VALUES ===")
+    rows_before = len(df)
+    df = df.replace([np.inf, -np.inf], np.nan)
+    df = df.dropna()
+    rows_removed = rows_before - len(df)
+    print(f"  Removed {rows_removed} rows with missing or infinite values")
+
+    # Remove duplicates
+    print("\n=== REMOVING DUPLICATES ===")
+    rows_before = len(df)
+    df = df.drop_duplicates()
+    rows_removed = rows_before - len(df)
+    print(f"  Removed {rows_removed} duplicate rows")
+
+    final_rows = len(df)
+    total_removed = initial_rows - final_rows
+    print(f"\n=== DATA QUALITY SUMMARY ===")
+    print(f"  Initial rows: {initial_rows}")
+    print(f"  Final rows: {final_rows}")
+    print(f"  Total removed: {total_removed} ({(total_removed/initial_rows)*100:.2f}%)")
+    print(f"  Data retention: {(final_rows/initial_rows)*100:.2f}%")
+
     return df
 
 def multivariate_outlier_detection(df):
@@ -449,6 +488,63 @@ def contextual_outlier_detection(df):
 
     return df
 
+def create_interaction_features(df):
+    """
+    Create interaction features to capture relationships between variables.
+    This helps reduce bias by allowing the model to learn complex patterns.
+    """
+    print("\n=== CREATING INTERACTION FEATURES ===")
+    
+    # Key interaction features based on business logic
+    interactions = []
+    
+    # Price × Quantity interactions (revenue-related)
+    if 'Unit Price' in df.columns and 'Order Quantity' in df.columns:
+        df['Price_Quantity_Interaction'] = df['Unit Price'] * df['Order Quantity']
+        interactions.append('Price_Quantity_Interaction')
+        print("  Created: Price × Quantity interaction")
+    
+    # Cost × Quantity interactions
+    if 'Unit Cost' in df.columns and 'Order Quantity' in df.columns:
+        df['Cost_Quantity_Interaction'] = df['Unit Cost'] * df['Order Quantity']
+        interactions.append('Cost_Quantity_Interaction')
+        print("  Created: Cost × Quantity interaction")
+    
+    # Discount × Price interactions (discount impact)
+    if 'Discount Applied' in df.columns and 'Unit Price' in df.columns:
+        df['Discount_Price_Interaction'] = df['Discount Applied'] * df['Unit Price']
+        interactions.append('Discount_Price_Interaction')
+        print("  Created: Discount × Price interaction")
+    
+    # Profit Margin × Quantity (profitability)
+    if 'Profit_Margin' in df.columns and 'Order Quantity' in df.columns:
+        df['Margin_Quantity_Interaction'] = df['Profit_Margin'] * df['Order Quantity']
+        interactions.append('Margin_Quantity_Interaction')
+        print("  Created: Margin × Quantity interaction")
+    
+    # Lead Time × Quantity (operational efficiency)
+    if 'Total_Lead_Time' in df.columns and 'Order Quantity' in df.columns:
+        df['LeadTime_Quantity_Interaction'] = df['Total_Lead_Time'] * df['Order Quantity']
+        interactions.append('LeadTime_Quantity_Interaction')
+        print("  Created: Lead Time × Quantity interaction")
+    
+    # Price-Cost ratio (markup indicator)
+    if 'Unit Price' in df.columns and 'Unit Cost' in df.columns:
+        df['Price_Cost_Ratio'] = df['Unit Price'] / (df['Unit Cost'] + 1e-10)  # Avoid division by zero
+        interactions.append('Price_Cost_Ratio')
+        print("  Created: Price/Cost ratio")
+    
+    # Discount effectiveness (discount × margin)
+    if 'Discount Applied' in df.columns and 'Profit_Margin' in df.columns:
+        df['Discount_Margin_Interaction'] = df['Discount Applied'] * df['Profit_Margin']
+        interactions.append('Discount_Margin_Interaction')
+        print("  Created: Discount × Margin interaction")
+    
+    print(f"\nTotal interaction features created: {len(interactions)}")
+    print(f"New shape after interactions: {df.shape}")
+    
+    return df
+
 def assess_scales_and_encoding(df):
     """
     Assess variable types and scales, apply normalization and dummy variables.
@@ -460,14 +556,19 @@ def assess_scales_and_encoding(df):
     numerical_cols = ['Order Quantity', 'Discount Applied', 'Unit Cost', 'Unit Price',
                      'Procurement_to_Order_Days', 'Order_to_Ship_Days', 'Ship_to_Delivery_Days',
                      'Total_Lead_Time', 'Profit_Margin', 'Total_Revenue']
+    
+    # Add interaction features to numerical columns if they exist
+    interaction_cols = [col for col in df.columns if 'Interaction' in col or 'Ratio' in col]
+    if interaction_cols:
+        numerical_cols.extend(interaction_cols)
+        print(f"Including {len(interaction_cols)} interaction features in scaling")
 
     print(f"Categorical columns: {categorical_cols}")
-    print(f"Numerical columns: {numerical_cols}")
+    print(f"Numerical columns: {len(numerical_cols)} features")
 
     # Check scales of numerical variables
-    
-    print("\nNumerical variable scales:")
-    for col in numerical_cols:
+    print("\nNumerical variable scales (sample):")
+    for col in numerical_cols[:5]:  # Show first 5 to avoid clutter
         if col in df.columns:
             print(f"{col}: range = {df[col].min():.2f} to {df[col].max():.2f}, std = {df[col].std():.2f}")
 
@@ -482,7 +583,7 @@ def assess_scales_and_encoding(df):
     df_encoded = pd.DataFrame(encoded_cols, columns=encoded_col_names, index=df.index)
     df = pd.concat([df, df_encoded], axis=1)
 
-    print(f"Applied StandardScaler to numerical columns")
+    print(f"Applied StandardScaler to {len(numerical_cols)} numerical columns")
     print(f"Applied OneHotEncoder to categorical columns: {list(encoded_col_names)}")
     print(f"New shape after encoding: {df.shape}")
 
@@ -690,6 +791,10 @@ def _run_all_steps(data_path: str):
     # Execute the remaining functions
     df = check_data_consistency(df)
     df = convert_data_types(df)
+    
+    # Create interaction features before outlier detection
+    df = create_interaction_features(df)
+    
     df = univariate_outlier_detection(df)
     df = multivariate_outlier_detection(df)
     df = contextual_outlier_detection(df)

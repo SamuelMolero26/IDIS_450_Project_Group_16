@@ -37,7 +37,7 @@ try:
     from src.utils.visualization_utils import (
          plot_residuals, plot_feature_importance, plot_bias_variance_tradeoff,
          plot_learning_curve, create_model_comparison_plot, plot_shap_summary,
-         save_evaluation_report
+         save_evaluation_report, plot_cv_fold_performance
      )
 except ImportError as e:
     print(f"Import error in evaluation_engine.py: {e}")
@@ -98,6 +98,16 @@ class EvaluationEngine:
             model, X_train, y_train, 'regression', model_name
         )
 
+        # Generate CV fold performance visualization
+        fold_results = cv_results.get('fold_results', [])
+        cv_plot_path = None
+        try:
+            if fold_results:
+                cv_plot_path = plot_cv_fold_performance(fold_results)
+                evaluation_logger.info(f"Generated CV fold performance plot: {cv_plot_path}")
+        except Exception as e:
+            evaluation_logger.warning(f"Could not generate CV fold performance plot: {e}")
+
         # Extract traditional CV metrics for backward compatibility
         cv_summary = cv_results['cv_summary']
         cv_mse = cv_summary['mse']['mean']
@@ -150,6 +160,7 @@ class EvaluationEngine:
                 'residuals': (y_test - y_test_pred).tolist()
             },
             'visualizations': visualization_paths,
+            'cv_fold_performance_plot': cv_plot_path,
             'evaluation_timestamp': datetime.now().isoformat()
         }
 
@@ -593,6 +604,16 @@ class EvaluationEngine:
             model, X_train, y_train, 'classification', model_name
         )
 
+        # Generate CV fold performance visualization
+        fold_results = cv_results.get('fold_results', [])
+        cv_plot_path = None
+        try:
+            if fold_results:
+                cv_plot_path = plot_cv_fold_performance(fold_results)
+                evaluation_logger.info(f"Generated CV fold performance plot: {cv_plot_path}")
+        except Exception as e:
+            evaluation_logger.warning(f"Could not generate CV fold performance plot: {e}")
+
         # Extract traditional CV metrics for backward compatibility
         cv_summary = cv_results['cv_summary']
         cv_accuracy_mean = cv_summary['accuracy']['mean']
@@ -635,6 +656,7 @@ class EvaluationEngine:
             'classification_report': class_report,
             'roc_auc': roc_auc,
             'visualizations': visualization_paths,
+            'cv_fold_performance_plot': cv_plot_path,
             'evaluation_timestamp': datetime.now().isoformat()
         }
 
@@ -1008,6 +1030,11 @@ class EvaluationEngine:
                 report_lines.append(f"- Bias-Variance Ratio: {bv['bias_variance_ratio']:.2f}")
                 report_lines.append("")
 
+                # CV fold performance plot
+                if results.get('cv_fold_performance_plot'):
+                    report_lines.append(f"- CV Fold Performance Plot: {results['cv_fold_performance_plot']}")
+                    report_lines.append("")
+
             elif eval_type == 'classification':
                 # Training metrics
                 report_lines.append("### Training Metrics")
@@ -1035,6 +1062,11 @@ class EvaluationEngine:
 
                 if results.get('roc_auc'):
                     report_lines.append(f"- ROC-AUC: {results['roc_auc']:.4f}")
+                    report_lines.append("")
+
+                # CV fold performance plot
+                if results.get('cv_fold_performance_plot'):
+                    report_lines.append(f"- CV Fold Performance Plot: {results['cv_fold_performance_plot']}")
                     report_lines.append("")
 
         report = "\n".join(report_lines)

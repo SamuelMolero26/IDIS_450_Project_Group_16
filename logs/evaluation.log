@@ -2791,3 +2791,1064 @@
 2025-10-20 13:50:44,895 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
 2025-10-20 13:50:44,895 - evaluation - INFO - Checking business alignment for random_forest
 2025-10-20 13:50:44,895 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-10-23 17:35:41,830 - evaluation - INFO - Starting regression evaluation for test_model
+2025-10-23 17:35:41,832 - evaluation - INFO - Starting comprehensive CV for test_model
+2025-10-23 17:35:41,832 - evaluation - INFO - Using KFold for regression
+2025-10-23 17:35:41,832 - evaluation - INFO - Starting CV with 3 folds, X shape: (80, 3), y shape: (80,)
+2025-10-23 17:35:41,832 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-23 17:35:41,832 - evaluation - INFO - Fold 1: train_idx length: 53, val_idx length: 27
+2025-10-23 17:35:41,832 - evaluation - INFO - Train indices range: [1 2 3 6 7]...[75 76 77 78 79]
+2025-10-23 17:35:41,832 - evaluation - INFO - Val indices range: [ 0  4  5  9 10]...[64 67 68 70 73]
+2025-10-23 17:36:04,465 - evaluation - INFO - Starting regression evaluation for test_model
+2025-10-23 17:36:04,466 - evaluation - INFO - Starting comprehensive CV for test_model
+2025-10-23 17:36:04,467 - evaluation - INFO - Using KFold for regression
+2025-10-23 17:36:04,467 - evaluation - INFO - Starting CV with 3 folds, X shape: (80, 3), y shape: (80,)
+2025-10-23 17:36:04,467 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-23 17:36:04,467 - evaluation - INFO - Fold 1: train_idx length: 53, val_idx length: 27
+2025-10-23 17:36:04,467 - evaluation - INFO - Train indices range: [1 2 3 6 7]...[75 76 77 78 79]
+2025-10-23 17:36:04,467 - evaluation - INFO - Val indices range: [ 0  4  5  9 10]...[64 67 68 70 73]
+2025-10-23 17:36:04,468 - evaluation - INFO - Fold 1 predictions shape: (27,), true values shape: (27,)
+2025-10-23 17:36:04,469 - evaluation - INFO - Fold 1 prediction sample: [ 3.13430649  4.88203326 -0.09489529 -1.46498627 -1.42969818], true sample: 0     3.031381
+4     4.804264
+5    -0.121260
+9    -1.349893
+10   -1.346132
+dtype: float64
+2025-10-23 17:36:04,469 - evaluation - INFO - Fold 1 balance: {'train_size': 53, 'val_size': 27, 'train_ratio': 0.6625, 'val_ratio': 0.3375, 'total_samples': 80, 'fold_total': 80, 'issues': ['Unbalanced split: train_ratio=0.662'], 'balanced': False}
+2025-10-23 17:36:04,470 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 0.00886016163534369, 'rmse': 0.09412843159929782, 'mae': 0.07032469531632354, 'r2': 0.9968799568243197, 'mape': 12.483953602082849}
+2025-10-23 17:36:04,470 - evaluation - INFO - Fold 2: train_idx length: 53, val_idx length: 27
+2025-10-23 17:36:04,470 - evaluation - INFO - Train indices range: [0 1 2 4 5]...[71 73 74 75 77]
+2025-10-23 17:36:04,470 - evaluation - INFO - Val indices range: [ 3  6  7  8 13]...[66 72 76 78 79]
+2025-10-23 17:36:04,473 - evaluation - INFO - Fold 2 predictions shape: (27,), true values shape: (27,)
+2025-10-23 17:36:04,474 - evaluation - INFO - Fold 2 prediction sample: [-1.41057867  1.2976238  -0.50657572 -0.47285812 -0.36574792], true sample: 3    -1.432686
+6     1.202217
+7    -0.721143
+8    -0.536854
+13   -0.332437
+dtype: float64
+2025-10-23 17:36:04,474 - evaluation - INFO - Fold 2 balance: {'train_size': 53, 'val_size': 27, 'train_ratio': 0.6625, 'val_ratio': 0.3375, 'total_samples': 80, 'fold_total': 80, 'issues': ['Unbalanced split: train_ratio=0.662'], 'balanced': False}
+2025-10-23 17:36:04,480 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 0.010050269036214865, 'rmse': 0.1002510301005175, 'mae': 0.0820426906822005, 'r2': 0.9900790139379524, 'mape': 380.3492356421416}
+2025-10-23 17:36:04,480 - evaluation - INFO - Fold 3: train_idx length: 54, val_idx length: 26
+2025-10-23 17:36:04,481 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[72 73 76 78 79]
+2025-10-23 17:36:04,481 - evaluation - INFO - Val indices range: [ 1  2 11 14 20]...[69 71 74 75 77]
+2025-10-23 17:36:04,493 - evaluation - INFO - Fold 3 predictions shape: (26,), true values shape: (26,)
+2025-10-23 17:36:04,495 - evaluation - INFO - Fold 3 prediction sample: [ 0.12866626 -2.11649349 -0.12933442  0.39568167 -0.48448133], true sample: 1     0.227102
+2    -1.999669
+11   -0.256453
+14    0.573480
+20   -0.522875
+dtype: float64
+2025-10-23 17:36:04,495 - evaluation - INFO - Fold 3 balance: {'train_size': 54, 'val_size': 26, 'train_ratio': 0.675, 'val_ratio': 0.325, 'total_samples': 80, 'fold_total': 80, 'issues': ['Unbalanced split: train_ratio=0.675'], 'balanced': False}
+2025-10-23 17:36:04,498 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 0.009975427583938127, 'rmse': 0.09987706235136337, 'mae': 0.08257675321794475, 'r2': 0.9960823844436536, 'mape': 10.303759698038533}
+2025-10-23 17:36:04,503 - evaluation - WARNING - CV validation failed: ['High variance in mape: CV=1.294']
+2025-10-23 17:36:04,503 - evaluation - INFO - Aggregating results from 3 folds
+2025-10-23 17:36:04,503 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:36:04,504 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:36:04,504 - evaluation - INFO - CV summary sample: {'mse': {'mean': 0.009628619418498893, 'std': 0.0005442400414728667, 'min': 0.00886016163534369, 'max': 0.010050269036214865, 'cv': 0.05652316472569792, 'ci_95_lower': 0.009000185149602628, 'ci_95_upper': 0.010257053687395159}, 'rmse': {'mean': 0.09808550801705956, 'std': 0.0028022375941803425, 'min': 0.09412843159929782, 'max': 0.1002510301005175, 'cv': 0.028569333542045397, 'ci_95_lower': 0.09484976275839295, 'ci_95_upper': 0.10132125327572618}}
+2025-10-23 17:36:04,504 - evaluation - INFO - Comprehensive CV completed for test_model
+2025-10-23 17:36:05,243 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:36:05,243 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:36:05,243 - evaluation - INFO - Performing bias-variance analysis
+2025-10-23 17:36:05,288 - evaluation - INFO - Bias-variance analysis completed. Bias: 0.0048, Variance: 0.0007
+2025-10-23 17:36:06,881 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/test_model_residual_diagnostics.png
+2025-10-23 17:36:06,881 - evaluation - INFO - Generating learning curves for test_model
+2025-10-23 17:36:06,917 - evaluation - WARNING - Could not generate some visualizations for test_model: axis 1 is out of bounds for array of dimension 1
+2025-10-23 17:36:06,917 - evaluation - INFO - Regression evaluation completed for test_model. Test R²: 0.9980
+2025-10-23 17:36:48,603 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-10-23 17:36:48,604 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-10-23 17:36:48,604 - evaluation - INFO - Using KFold for regression
+2025-10-23 17:36:48,604 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-23 17:36:48,604 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-23 17:36:48,605 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-23 17:36:48,605 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-23 17:36:48,605 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-23 17:36:48,606 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-23 17:36:48,607 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-23 17:36:48,607 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:48,607 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-10-23 17:36:48,607 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-23 17:36:48,607 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-23 17:36:48,607 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-23 17:36:48,609 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-23 17:36:48,609 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-23 17:36:48,609 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:48,609 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-10-23 17:36:48,609 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:36:48,609 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-23 17:36:48,610 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-23 17:36:48,611 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:36:48,611 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-23 17:36:48,611 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:48,611 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-10-23 17:36:48,612 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:36:48,612 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-23 17:36:48,612 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-23 17:36:48,613 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:36:48,613 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-23 17:36:48,613 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:48,614 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-10-23 17:36:48,614 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:36:48,614 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-23 17:36:48,614 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-23 17:36:48,615 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:36:48,615 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-23 17:36:48,615 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:48,616 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-10-23 17:36:48,616 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-23 17:36:48,616 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:36:48,617 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:36:48,617 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-10-23 17:36:48,617 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-10-23 17:36:49,193 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:36:49,193 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:36:49,193 - evaluation - INFO - Performing bias-variance analysis
+2025-10-23 17:36:49,275 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-10-23 17:36:50,535 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-10-23 17:36:50,535 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-10-23 17:36:50,622 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-10-23 17:36:50,622 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-10-23 17:36:51,274 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-10-23 17:36:51,276 - evaluation - INFO - Starting comprehensive CV for decision_tree_decision_tree_1
+2025-10-23 17:36:51,276 - evaluation - INFO - Using KFold for regression
+2025-10-23 17:36:51,276 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-23 17:36:51,276 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-23 17:36:51,277 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-23 17:36:51,277 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-23 17:36:51,277 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-23 17:36:51,297 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-23 17:36:51,297 - evaluation - INFO - Fold 1 prediction sample: [13832.82  2814.   10615.48 38902.88  9623.88], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-23 17:36:51,297 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:51,298 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 349471.5139311082, 'rmse': 591.1611573260782, 'mae': 251.95116888193897, 'r2': 0.9954221254946756, 'mape': 3.219016113371832}
+2025-10-23 17:36:51,298 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-23 17:36:51,298 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-23 17:36:51,298 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-23 17:36:51,319 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-23 17:36:51,319 - evaluation - INFO - Fold 2 prediction sample: [ 7211.88   5354.64   3283.    10820.835 26096.5  ], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-23 17:36:51,319 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:51,319 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 307620.93444824073, 'rmse': 554.6358575211674, 'mae': 243.0214151681, 'r2': 0.9963512698376262, 'mape': 3.09636790094277}
+2025-10-23 17:36:51,319 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:36:51,320 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-23 17:36:51,320 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-23 17:36:51,340 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:36:51,340 - evaluation - INFO - Fold 3 prediction sample: [ 7994.44   16865.24    6435.015   7120.9275  2289.39  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-23 17:36:51,340 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:51,341 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 317171.2285179333, 'rmse': 563.1795704017799, 'mae': 245.91634389671356, 'r2': 0.9959334773356511, 'mape': 3.114363908361012}
+2025-10-23 17:36:51,341 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:36:51,341 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-23 17:36:51,341 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-23 17:36:51,361 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:36:51,361 - evaluation - INFO - Fold 4 prediction sample: [  935.8225  8911.      4048.14     204.5175 14328.62  ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-23 17:36:51,362 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:51,362 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 439589.1418793819, 'rmse': 663.0151897802809, 'mae': 254.3944913928012, 'r2': 0.994527335145254, 'mape': 3.116004388263586}
+2025-10-23 17:36:51,362 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:36:51,362 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-23 17:36:51,362 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-23 17:36:51,383 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:36:51,383 - evaluation - INFO - Fold 5 prediction sample: [ 1537.65 14134.32 47695.96  7238.68 30348.32], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-23 17:36:51,383 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:36:51,383 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 638599.6518418576, 'rmse': 799.1243031230233, 'mae': 286.526312597809, 'r2': 0.9919041766505161, 'mape': 3.058946185506464}
+2025-10-23 17:36:51,384 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-23 17:36:51,384 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:36:51,384 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:36:51,384 - evaluation - INFO - CV summary sample: {'mse': {'mean': 410490.4941237044, 'std': 123202.65153060868, 'min': 307620.93444824073, 'max': 638599.6518418576, 'cv': 0.300135212128641, 'ci_95_lower': 257538.72159692223, 'ci_95_upper': 563442.2666504865}, 'rmse': {'mean': 634.2232156304659, 'std': 90.83725490709118, 'min': 554.6358575211674, 'max': 799.1243031230233, 'cv': 0.14322600098577606, 'ci_95_lower': 521.4519483168322, 'ci_95_upper': 746.9944829440997}}
+2025-10-23 17:36:51,385 - evaluation - INFO - Comprehensive CV completed for decision_tree_decision_tree_1
+2025-10-23 17:36:51,824 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:36:51,824 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:36:51,824 - evaluation - INFO - Performing bias-variance analysis
+2025-10-23 17:36:52,972 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-10-23 17:36:53,865 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/decision_tree_decision_tree_1_residual_diagnostics.png
+2025-10-23 17:36:53,865 - evaluation - INFO - Generating learning curves for decision_tree_decision_tree_1
+2025-10-23 17:36:54,489 - evaluation - WARNING - Could not generate some visualizations for decision_tree_decision_tree_1: axis 1 is out of bounds for array of dimension 1
+2025-10-23 17:36:54,489 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-10-23 17:37:03,480 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-10-23 17:37:03,565 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_2
+2025-10-23 17:37:03,566 - evaluation - INFO - Using KFold for regression
+2025-10-23 17:37:03,566 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-10-23 17:37:03,566 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-10-23 17:37:03,566 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-10-23 17:37:03,566 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-10-23 17:37:03,566 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-10-23 17:37:04,844 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-10-23 17:37:04,844 - evaluation - INFO - Fold 1 prediction sample: [13836.974   2766.8186 11964.257  39845.369   9336.1686], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-10-23 17:37:04,844 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:37:04,844 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 194187.1124648519, 'rmse': 440.6666682026812, 'mae': 187.6982147185299, 'r2': 0.9974562612516948, 'mape': 2.522920555816094}
+2025-10-23 17:37:04,852 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-10-23 17:37:04,852 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-10-23 17:37:04,852 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-10-23 17:37:06,185 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-10-23 17:37:06,185 - evaluation - INFO - Fold 2 prediction sample: [ 7374.0669    5229.1356    2999.856325 10874.97435  25903.431125], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-10-23 17:37:06,185 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:37:06,186 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 141763.8080023139, 'rmse': 376.51534895979194, 'mae': 165.96549700938263, 'r2': 0.9983185218420886, 'mape': 2.2132082758949303}
+2025-10-23 17:37:06,194 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:37:06,194 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-10-23 17:37:06,194 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-10-23 17:37:07,543 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:37:07,544 - evaluation - INFO - Fold 3 prediction sample: [ 7959.0506   19657.9541    6401.9103    7154.157825  2206.8192  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-10-23 17:37:07,544 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:37:07,544 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 163781.14758853932, 'rmse': 404.69883566491677, 'mae': 175.7304873435059, 'r2': 0.9979001255827207, 'mape': 2.356654720010114}
+2025-10-23 17:37:07,552 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:37:07,552 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-10-23 17:37:07,552 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-10-23 17:37:08,869 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:37:08,869 - evaluation - INFO - Fold 4 prediction sample: [  943.41695  8697.2097   4009.6284    189.5765  14330.1744 ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-10-23 17:37:08,869 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:37:08,870 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 163032.82172352512, 'rmse': 403.77323056825486, 'mae': 178.56108399843524, 'r2': 0.9979703229479194, 'mape': 2.244354183790952}
+2025-10-23 17:37:08,877 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-10-23 17:37:08,877 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-10-23 17:37:08,877 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-10-23 17:37:10,236 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-10-23 17:37:10,236 - evaluation - INFO - Fold 5 prediction sample: [ 1580.9454  14617.4168  47600.954    7254.89065 30257.0258 ], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-10-23 17:37:10,236 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-10-23 17:37:10,237 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 233616.189918356, 'rmse': 483.3385872433071, 'mae': 184.17122781690142, 'r2': 0.997038339435821, 'mape': 2.149948463069263}
+2025-10-23 17:37:10,245 - evaluation - INFO - Aggregating results from 5 folds
+2025-10-23 17:37:10,245 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:37:10,246 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-10-23 17:37:10,246 - evaluation - INFO - CV summary sample: {'mse': {'mean': 179276.21593951722, 'std': 31894.492801469256, 'min': 141763.8080023139, 'max': 233616.189918356, 'cv': 0.17790699471384183, 'ci_95_lower': 139680.3213120754, 'ci_95_upper': 218872.11056695905}, 'rmse': {'mean': 421.7985341277903, 'std': 36.90816369266429, 'min': 376.51534895979194, 'max': 483.3385872433071, 'cv': 0.0875018775704953, 'ci_95_lower': 375.9783428626767, 'ci_95_upper': 467.61872539290385}}
+2025-10-23 17:37:10,246 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_2
+2025-10-23 17:37:10,753 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:37:10,753 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-10-23 17:37:10,753 - evaluation - INFO - Performing bias-variance analysis
+2025-10-23 17:38:27,253 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-10-23 17:38:28,259 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_2_residual_diagnostics.png
+2025-10-23 17:38:28,259 - evaluation - INFO - Generating learning curves for random_forest_random_forest_2
+2025-10-23 17:39:07,335 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_2: axis 1 is out of bounds for array of dimension 1
+2025-10-23 17:39:07,336 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-10-23 17:39:08,100 - evaluation - INFO - Performing SHAP analysis for linear
+2025-10-23 17:39:08,106 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-10-23 17:39:08,107 - evaluation - INFO - SHAP analysis completed for linear
+2025-10-23 17:39:08,107 - evaluation - INFO - Performing error analysis for linear
+2025-10-23 17:39:08,136 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-10-23 17:39:08,137 - evaluation - INFO - Checking business alignment for linear
+2025-10-23 17:39:08,137 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-10-23 17:39:08,138 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-10-23 17:39:08,139 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-10-23 17:39:08,139 - evaluation - INFO - Performing error analysis for decision_tree
+2025-10-23 17:39:08,148 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-10-23 17:39:08,148 - evaluation - INFO - Checking business alignment for decision_tree
+2025-10-23 17:39:08,149 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-10-23 17:39:08,172 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-10-23 17:42:19,581 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-10-23 17:42:19,582 - evaluation - INFO - SHAP analysis completed for random_forest
+2025-10-23 17:42:19,585 - evaluation - INFO - Performing error analysis for random_forest
+2025-10-23 17:42:19,597 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-10-23 17:42:19,597 - evaluation - INFO - Checking business alignment for random_forest
+2025-10-23 17:42:19,598 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-11-04 08:19:34,866 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 08:19:34,868 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 08:19:34,868 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:19:34,868 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:19:34,868 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:19:34,868 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:19:34,868 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:19:34,869 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:19:34,870 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:19:34,870 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:19:34,870 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:34,871 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 08:19:34,871 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:19:34,871 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:19:34,871 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:19:34,873 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:19:34,873 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:19:34,873 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:34,874 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 08:19:34,874 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:34,874 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:19:34,874 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:19:34,876 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:34,876 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:19:34,876 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:34,876 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 08:19:34,876 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:34,876 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:19:34,876 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:19:34,878 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:34,878 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:19:34,878 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:34,878 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 08:19:34,879 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:34,879 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:19:34,879 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:19:34,880 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:34,881 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:19:34,881 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:34,881 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 08:19:34,882 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:19:34,882 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:19:34,882 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:19:34,882 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 08:19:34,883 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 08:19:35,569 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:19:35,570 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:19:35,570 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:19:35,661 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 08:19:37,330 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 08:19:37,331 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 08:19:37,444 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:19:37,444 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-11-04 08:19:38,175 - evaluation - INFO - Starting regression evaluation for decision_tree_decision_tree_1
+2025-11-04 08:19:38,177 - evaluation - INFO - Starting comprehensive CV for decision_tree_decision_tree_1
+2025-11-04 08:19:38,177 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:19:38,177 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:19:38,177 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:19:38,178 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:19:38,178 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:19:38,178 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:19:38,200 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:19:38,200 - evaluation - INFO - Fold 1 prediction sample: [13832.82  2814.   10615.48 38902.88  9623.88], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:19:38,200 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:38,200 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 349471.5139311082, 'rmse': 591.1611573260782, 'mae': 251.95116888193897, 'r2': 0.9954221254946756, 'mape': 3.219016113371832}
+2025-11-04 08:19:38,201 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:19:38,201 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:19:38,201 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:19:38,224 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:19:38,224 - evaluation - INFO - Fold 2 prediction sample: [ 7211.88   5354.64   3283.    10820.835 26096.5  ], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:19:38,224 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:38,224 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 307620.93444824073, 'rmse': 554.6358575211674, 'mae': 243.0214151681, 'r2': 0.9963512698376262, 'mape': 3.09636790094277}
+2025-11-04 08:19:38,225 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:38,225 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:19:38,225 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:19:38,248 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:38,248 - evaluation - INFO - Fold 3 prediction sample: [ 7994.44   16865.24    6435.015   7120.9275  2289.39  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:19:38,248 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:38,248 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 317171.2285179333, 'rmse': 563.1795704017799, 'mae': 245.91634389671356, 'r2': 0.9959334773356511, 'mape': 3.114363908361012}
+2025-11-04 08:19:38,249 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:38,249 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:19:38,249 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:19:38,271 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:38,271 - evaluation - INFO - Fold 4 prediction sample: [  935.8225  8911.      4048.14     204.5175 14328.62  ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:19:38,271 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:38,272 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 439589.1418793819, 'rmse': 663.0151897802809, 'mae': 254.3944913928012, 'r2': 0.994527335145254, 'mape': 3.116004388263586}
+2025-11-04 08:19:38,272 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:38,272 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:19:38,272 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:19:38,296 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:38,296 - evaluation - INFO - Fold 5 prediction sample: [ 1537.65 14134.32 47695.96  7238.68 30348.32], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:19:38,296 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:38,296 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 638599.6518418576, 'rmse': 799.1243031230233, 'mae': 286.526312597809, 'r2': 0.9919041766505161, 'mape': 3.058946185506464}
+2025-11-04 08:19:38,301 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:19:38,301 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:19:38,302 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:19:38,302 - evaluation - INFO - CV summary sample: {'mse': {'mean': 410490.4941237044, 'std': 123202.65153060868, 'min': 307620.93444824073, 'max': 638599.6518418576, 'cv': 0.300135212128641, 'ci_95_lower': 257538.72159692223, 'ci_95_upper': 563442.2666504865}, 'rmse': {'mean': 634.2232156304659, 'std': 90.83725490709118, 'min': 554.6358575211674, 'max': 799.1243031230233, 'cv': 0.14322600098577606, 'ci_95_lower': 521.4519483168322, 'ci_95_upper': 746.9944829440997}}
+2025-11-04 08:19:38,302 - evaluation - INFO - Comprehensive CV completed for decision_tree_decision_tree_1
+2025-11-04 08:19:38,783 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:19:38,783 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:19:38,783 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:19:40,030 - evaluation - INFO - Bias-variance analysis completed. Bias: 125519.9032, Variance: 310704.0950
+2025-11-04 08:19:41,014 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/decision_tree_decision_tree_1_residual_diagnostics.png
+2025-11-04 08:19:41,014 - evaluation - INFO - Generating learning curves for decision_tree_decision_tree_1
+2025-11-04 08:19:41,691 - evaluation - WARNING - Could not generate some visualizations for decision_tree_decision_tree_1: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:19:41,691 - evaluation - INFO - Regression evaluation completed for decision_tree_decision_tree_1. Test R²: 0.9961
+2025-11-04 08:19:51,157 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_2
+2025-11-04 08:19:51,245 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_2
+2025-11-04 08:19:51,245 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:19:51,245 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:19:51,245 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:19:51,246 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:19:51,246 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:19:51,246 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:19:52,617 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:19:52,617 - evaluation - INFO - Fold 1 prediction sample: [13836.974   2766.8186 11964.257  39845.369   9336.1686], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:19:52,617 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:52,618 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 194187.1124648519, 'rmse': 440.6666682026812, 'mae': 187.6982147185299, 'r2': 0.9974562612516948, 'mape': 2.522920555816094}
+2025-11-04 08:19:52,625 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:19:52,625 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:19:52,625 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:19:53,979 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:19:53,979 - evaluation - INFO - Fold 2 prediction sample: [ 7374.0669    5229.1356    2999.856325 10874.97435  25903.431125], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:19:53,979 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:53,979 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 141763.8080023139, 'rmse': 376.51534895979194, 'mae': 165.96549700938263, 'r2': 0.9983185218420886, 'mape': 2.2132082758949303}
+2025-11-04 08:19:53,987 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:53,987 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:19:53,987 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:19:55,362 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:55,362 - evaluation - INFO - Fold 3 prediction sample: [ 7959.0506   19657.9541    6401.9103    7154.157825  2206.8192  ], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:19:55,362 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:55,362 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 163781.14758853932, 'rmse': 404.69883566491677, 'mae': 175.7304873435059, 'r2': 0.9979001255827207, 'mape': 2.356654720010114}
+2025-11-04 08:19:55,370 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:55,370 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:19:55,370 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:19:56,731 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:56,731 - evaluation - INFO - Fold 4 prediction sample: [  943.41695  8697.2097   4009.6284    189.5765  14330.1744 ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:19:56,731 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:56,732 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 163032.82172352512, 'rmse': 403.77323056825486, 'mae': 178.56108399843524, 'r2': 0.9979703229479194, 'mape': 2.244354183790952}
+2025-11-04 08:19:56,739 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:19:56,739 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:19:56,739 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:19:58,096 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:19:58,097 - evaluation - INFO - Fold 5 prediction sample: [ 1580.9454  14617.4168  47600.954    7254.89065 30257.0258 ], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:19:58,097 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:19:58,098 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 233616.189918356, 'rmse': 483.3385872433071, 'mae': 184.17122781690142, 'r2': 0.997038339435821, 'mape': 2.149948463069263}
+2025-11-04 08:19:58,106 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:19:58,106 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:19:58,106 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:19:58,106 - evaluation - INFO - CV summary sample: {'mse': {'mean': 179276.21593951722, 'std': 31894.492801469256, 'min': 141763.8080023139, 'max': 233616.189918356, 'cv': 0.17790699471384183, 'ci_95_lower': 139680.3213120754, 'ci_95_upper': 218872.11056695905}, 'rmse': {'mean': 421.7985341277903, 'std': 36.90816369266429, 'min': 376.51534895979194, 'max': 483.3385872433071, 'cv': 0.0875018775704953, 'ci_95_lower': 375.9783428626767, 'ci_95_upper': 467.61872539290385}}
+2025-11-04 08:19:58,106 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_2
+2025-11-04 08:19:58,604 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:19:58,604 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:19:58,604 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:21:17,746 - evaluation - INFO - Bias-variance analysis completed. Bias: 132987.1960, Variance: 62616.9225
+2025-11-04 08:21:18,773 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_2_residual_diagnostics.png
+2025-11-04 08:21:18,774 - evaluation - INFO - Generating learning curves for random_forest_random_forest_2
+2025-11-04 08:21:57,268 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_2: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:21:57,270 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_2. Test R²: 0.9985
+2025-11-04 08:21:57,999 - evaluation - INFO - Performing SHAP analysis for linear
+2025-11-04 08:21:58,003 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 08:21:58,003 - evaluation - INFO - SHAP analysis completed for linear
+2025-11-04 08:21:58,003 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 08:21:58,022 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 08:21:58,022 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 08:21:58,022 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 08:21:58,023 - evaluation - INFO - Performing SHAP analysis for decision_tree
+2025-11-04 08:21:58,024 - evaluation - ERROR - SHAP analysis failed: An unknown model type was passed: <class 'sklearn.tree._classes.DecisionTreeRegressor'>
+2025-11-04 08:21:58,024 - evaluation - INFO - Performing error analysis for decision_tree
+2025-11-04 08:21:58,033 - evaluation - INFO - Error analysis completed for decision_tree. Error rate: 0.8230
+2025-11-04 08:21:58,033 - evaluation - INFO - Checking business alignment for decision_tree
+2025-11-04 08:21:58,033 - evaluation - INFO - Business alignment check completed for decision_tree. Score: 71.99
+2025-11-04 08:21:58,056 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-11-04 08:22:21,521 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 08:22:21,521 - evaluation - INFO - SHAP analysis completed for random_forest
+2025-11-04 08:22:21,524 - evaluation - INFO - Performing error analysis for random_forest
+2025-11-04 08:22:21,536 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-11-04 08:22:21,536 - evaluation - INFO - Checking business alignment for random_forest
+2025-11-04 08:22:21,537 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-11-04 08:28:41,221 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 08:28:41,223 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 08:28:41,223 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:28:41,223 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:28:41,223 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:28:41,223 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:28:41,223 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:28:41,223 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:28:41,225 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:28:41,225 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:28:41,225 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:28:41,226 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 08:28:41,226 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:28:41,226 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:28:41,226 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:28:41,227 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:28:41,227 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:28:41,227 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:28:41,228 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 08:28:41,228 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:28:41,228 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:28:41,228 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:28:41,230 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:28:41,230 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:28:41,230 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:28:41,230 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 08:28:41,230 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:28:41,231 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:28:41,231 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:28:41,232 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:28:41,232 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:28:41,232 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:28:41,233 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 08:28:41,233 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:28:41,233 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:28:41,233 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:28:41,234 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:28:41,234 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:28:41,234 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:28:41,235 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 08:28:41,236 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:28:41,236 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:28:41,236 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:28:41,236 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 08:28:41,237 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 08:28:41,865 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:28:41,865 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:28:41,865 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:28:41,952 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 08:28:43,318 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 08:28:43,318 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 08:28:43,408 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:28:43,408 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-11-04 08:28:44,055 - evaluation - INFO - Performing SHAP analysis for linear
+2025-11-04 08:28:44,056 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 08:28:44,056 - evaluation - INFO - SHAP analysis completed for linear
+2025-11-04 08:28:44,056 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 08:28:44,069 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 08:28:44,069 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 08:28:44,069 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 08:29:01,936 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 08:29:01,937 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 08:29:01,937 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:29:01,937 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:29:01,937 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:29:01,938 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:29:01,938 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:29:01,938 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:29:01,940 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:29:01,940 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:29:01,940 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:29:01,940 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 08:29:01,940 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:29:01,941 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:29:01,941 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:29:01,942 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:29:01,943 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:29:01,943 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:29:01,943 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 08:29:01,943 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:29:01,943 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:29:01,943 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:29:01,945 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:29:01,945 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:29:01,945 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:29:01,946 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 08:29:01,946 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:29:01,946 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:29:01,946 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:29:01,948 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:29:01,948 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:29:01,948 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:29:01,949 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 08:29:01,949 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:29:01,949 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:29:01,949 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:29:01,952 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:29:01,952 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:29:01,952 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:29:01,958 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 08:29:01,967 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:29:01,967 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:29:01,968 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:29:01,968 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 08:29:01,969 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 08:29:02,570 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:29:02,571 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:29:02,571 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:29:02,661 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 08:29:03,990 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 08:29:03,991 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 08:29:04,089 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:29:04,089 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-11-04 08:29:04,946 - evaluation - INFO - Performing SHAP analysis for linear
+2025-11-04 08:29:04,948 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 08:29:04,948 - evaluation - INFO - SHAP analysis completed for linear
+2025-11-04 08:29:04,948 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 08:29:04,961 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 08:29:04,961 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 08:29:04,961 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 08:40:34,970 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 08:40:34,971 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 08:40:34,971 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:40:34,971 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:40:34,971 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:40:34,972 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:40:34,972 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:40:34,972 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:40:34,974 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:40:34,974 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:40:34,974 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:34,974 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 08:40:34,974 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:40:34,974 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:40:34,975 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:40:34,976 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:40:34,976 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:40:34,976 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:34,977 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 08:40:34,977 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:40:34,977 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:40:34,977 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:40:34,979 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:40:34,979 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:40:34,979 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:34,980 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 08:40:34,980 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:40:34,980 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:40:34,980 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:40:34,982 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:40:34,982 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:40:34,982 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:34,982 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 08:40:34,982 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:40:34,982 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:40:34,982 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:40:34,984 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:40:34,984 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:40:34,984 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:34,985 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 08:40:34,986 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:40:34,986 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:40:34,987 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:40:34,987 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 08:40:34,987 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 08:40:35,612 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:40:35,612 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:40:35,612 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:40:35,701 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 08:40:37,029 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 08:40:37,030 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 08:40:37,125 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:40:37,125 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-11-04 08:40:38,915 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_1
+2025-11-04 08:40:38,962 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_1
+2025-11-04 08:40:38,962 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:40:38,962 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:40:38,962 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:40:38,962 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:40:38,963 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:40:38,963 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:40:39,161 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:40:39,161 - evaluation - INFO - Fold 1 prediction sample: [12578.56325  4825.4874  11037.1043  33562.6718  10147.72285], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:40:39,161 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:39,162 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 1775143.8582015838, 'rmse': 1332.3452473745624, 'mae': 745.8802947224394, 'r2': 0.9767466431803473, 'mape': 16.00720032333883}
+2025-11-04 08:40:39,165 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:40:39,165 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:40:39,165 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:40:39,359 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:40:39,359 - evaluation - INFO - Fold 2 prediction sample: [ 8738.676    5608.9854   2866.80605 10428.4093  27012.4503 ], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:40:39,359 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:39,360 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 1785548.452792255, 'rmse': 1336.244159123719, 'mae': 791.1692380766223, 'r2': 0.9788213877323778, 'mape': 15.697193126470443}
+2025-11-04 08:40:39,363 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:40:39,363 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:40:39,363 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:40:39,553 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:40:39,553 - evaluation - INFO - Fold 3 prediction sample: [ 7219.2433  16003.5865   7324.63095  7323.13015  2332.70885], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:40:39,553 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:39,554 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 1614722.3965297705, 'rmse': 1270.7172763954106, 'mae': 776.6744484350546, 'r2': 0.9792972860344145, 'mape': 15.771963704784758}
+2025-11-04 08:40:39,558 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:40:39,558 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:40:39,558 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:40:39,749 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:40:39,749 - evaluation - INFO - Fold 4 prediction sample: [ 1216.26775  8091.68045  3447.6927    271.79555 13093.0529 ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:40:39,749 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:39,750 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 2051017.3588463778, 'rmse': 1432.1373393799834, 'mae': 832.7981884976526, 'r2': 0.9744658601706039, 'mape': 16.90673539693054}
+2025-11-04 08:40:39,753 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:40:39,753 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:40:39,753 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:40:39,937 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:40:39,937 - evaluation - INFO - Fold 5 prediction sample: [ 3273.4525  15208.68845 39499.89355  7224.10415 27532.76895], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:40:39,937 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:40:39,937 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 1665445.3573867292, 'rmse': 1290.5213509999473, 'mae': 752.1423486306727, 'r2': 0.9788863783863133, 'mape': 15.807256108809922}
+2025-11-04 08:40:39,941 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:40:39,941 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:40:39,942 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:40:39,942 - evaluation - INFO - CV summary sample: {'mse': {'mean': 1778375.4847513433, 'std': 150951.00751023265, 'min': 1614722.3965297705, 'max': 2051017.3588463778, 'cv': 0.08488140373310363, 'ci_95_lower': 1590975.1011024767, 'ci_95_upper': 1965775.8684002098}, 'rmse': {'mean': 1332.3930746547244, 'std': 55.71516277884179, 'min': 1270.7172763954106, 'max': 1432.1373393799834, 'cv': 0.04181586037834952, 'ci_95_lower': 1263.2246533766734, 'ci_95_upper': 1401.5614959327754}}
+2025-11-04 08:40:39,942 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_1
+2025-11-04 08:40:40,385 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:40:40,385 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 08:40:40,385 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:40:49,885 - evaluation - INFO - Bias-variance analysis completed. Bias: 1341859.4605, Variance: 274274.1625
+2025-11-04 08:40:50,902 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_1_residual_diagnostics.png
+2025-11-04 08:40:50,902 - evaluation - INFO - Generating learning curves for random_forest_random_forest_1
+2025-11-04 08:40:54,954 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_1: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:40:54,954 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_1. Test R²: 0.9833
+2025-11-04 08:40:55,685 - evaluation - INFO - Performing SHAP analysis for linear
+2025-11-04 08:40:55,688 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 08:40:55,688 - evaluation - INFO - SHAP analysis completed for linear
+2025-11-04 08:40:55,688 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 08:40:55,704 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 08:40:55,704 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 08:40:55,705 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 08:40:55,715 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-11-04 08:41:10,005 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 08:41:10,008 - evaluation - INFO - SHAP analysis completed for random_forest
+2025-11-04 08:41:10,009 - evaluation - INFO - Performing error analysis for random_forest
+2025-11-04 08:41:10,023 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-11-04 08:41:10,023 - evaluation - INFO - Checking business alignment for random_forest
+2025-11-04 08:41:10,024 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-11-04 08:58:49,766 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-11-04 08:58:50,801 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 08:58:50,802 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 08:58:50,802 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:58:50,802 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:58:50,802 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:58:50,803 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:58:50,803 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:58:50,803 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:58:50,804 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:58:50,805 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:58:50,805 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:50,805 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 08:58:50,805 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:58:50,805 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:58:50,805 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:58:50,807 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:58:50,807 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:58:50,807 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:50,807 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 08:58:50,807 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:58:50,807 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:58:50,807 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:58:50,809 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:58:50,809 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:58:50,809 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:50,809 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 08:58:50,809 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:58:50,810 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:58:50,810 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:58:50,811 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:58:50,811 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:58:50,811 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:50,812 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 08:58:50,812 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:58:50,812 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:58:50,812 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:58:50,813 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:58:50,813 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:58:50,813 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:50,814 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 08:58:50,814 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:58:50,814 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:58:50,815 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:58:50,815 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 08:58:50,815 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 08:58:50,987 - evaluation - WARNING - Could not generate CV fold performance plot: [Errno 2] No such file or directory: 'visualizations/cv_analysis'
+2025-11-04 08:58:50,988 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:58:51,065 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 08:58:51,985 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 08:58:51,986 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 08:58:52,063 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:58:52,063 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.8438
+2025-11-04 08:58:53,903 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_1
+2025-11-04 08:58:53,944 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_1
+2025-11-04 08:58:53,944 - evaluation - INFO - Using KFold for regression
+2025-11-04 08:58:53,944 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 08:58:53,944 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 08:58:53,944 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:58:53,944 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 08:58:53,944 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 08:58:54,139 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:58:54,139 - evaluation - INFO - Fold 1 prediction sample: [12578.56325  4825.4874  11037.1043  33562.6718  10147.72285], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 08:58:54,139 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:54,139 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 1775143.8582015838, 'rmse': 1332.3452473745624, 'mae': 745.8802947224394, 'r2': 0.9767466431803473, 'mape': 16.00720032333883}
+2025-11-04 08:58:54,142 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 08:58:54,142 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 08:58:54,142 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 08:58:54,332 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 08:58:54,332 - evaluation - INFO - Fold 2 prediction sample: [ 8738.676    5608.9854   2866.80605 10428.4093  27012.4503 ], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 08:58:54,332 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:54,333 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 1785548.452792255, 'rmse': 1336.244159123719, 'mae': 791.1692380766223, 'r2': 0.9788213877323778, 'mape': 15.697193126470443}
+2025-11-04 08:58:54,335 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:58:54,336 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 08:58:54,336 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 08:58:54,526 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:58:54,526 - evaluation - INFO - Fold 3 prediction sample: [ 7219.2433  16003.5865   7324.63095  7323.13015  2332.70885], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 08:58:54,526 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:54,527 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 1614722.3965297705, 'rmse': 1270.7172763954106, 'mae': 776.6744484350546, 'r2': 0.9792972860344145, 'mape': 15.771963704784758}
+2025-11-04 08:58:54,529 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:58:54,529 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 08:58:54,529 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 08:58:54,723 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:58:54,723 - evaluation - INFO - Fold 4 prediction sample: [ 1216.26775  8091.68045  3447.6927    271.79555 13093.0529 ], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 08:58:54,723 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:54,724 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 2051017.3588463778, 'rmse': 1432.1373393799834, 'mae': 832.7981884976526, 'r2': 0.9744658601706039, 'mape': 16.90673539693054}
+2025-11-04 08:58:54,727 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 08:58:54,727 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 08:58:54,727 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 08:58:54,918 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 08:58:54,918 - evaluation - INFO - Fold 5 prediction sample: [ 3273.4525  15208.68845 39499.89355  7224.10415 27532.76895], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 08:58:54,918 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 08:58:54,919 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 1665445.3573867292, 'rmse': 1290.5213509999473, 'mae': 752.1423486306727, 'r2': 0.9788863783863133, 'mape': 15.807256108809922}
+2025-11-04 08:58:54,922 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 08:58:54,922 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:58:54,922 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 08:58:54,922 - evaluation - INFO - CV summary sample: {'mse': {'mean': 1778375.4847513433, 'std': 150951.00751023265, 'min': 1614722.3965297705, 'max': 2051017.3588463778, 'cv': 0.08488140373310363, 'ci_95_lower': 1590975.1011024767, 'ci_95_upper': 1965775.8684002098}, 'rmse': {'mean': 1332.3930746547244, 'std': 55.71516277884179, 'min': 1270.7172763954106, 'max': 1432.1373393799834, 'cv': 0.04181586037834952, 'ci_95_lower': 1263.2246533766734, 'ci_95_upper': 1401.5614959327754}}
+2025-11-04 08:58:54,923 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_1
+2025-11-04 08:58:54,950 - evaluation - WARNING - Could not generate CV fold performance plot: [Errno 2] No such file or directory: 'visualizations/cv_analysis'
+2025-11-04 08:58:54,950 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 08:59:04,497 - evaluation - INFO - Bias-variance analysis completed. Bias: 1341859.4605, Variance: 274274.1625
+2025-11-04 08:59:05,038 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_1_residual_diagnostics.png
+2025-11-04 08:59:05,038 - evaluation - INFO - Generating learning curves for random_forest_random_forest_1
+2025-11-04 08:59:09,132 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_1: axis 1 is out of bounds for array of dimension 1
+2025-11-04 08:59:09,132 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_1. Test R²: 0.9833
+2025-11-04 08:59:09,857 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-11-04 08:59:09,857 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 08:59:09,872 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 08:59:09,872 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 08:59:09,872 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 08:59:09,881 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-11-04 08:59:09,882 - evaluation - INFO - Performing error analysis for random_forest
+2025-11-04 08:59:09,891 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-11-04 08:59:09,891 - evaluation - INFO - Checking business alignment for random_forest
+2025-11-04 08:59:09,891 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-11-04 09:35:15,725 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 09:35:15,727 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 09:35:15,727 - evaluation - INFO - Using KFold for regression
+2025-11-04 09:35:15,727 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 09:35:15,727 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 09:35:15,728 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 09:35:15,728 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 09:35:15,728 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 09:35:15,731 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 09:35:15,731 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 09:35:15,731 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:15,732 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 09:35:15,732 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 09:35:15,732 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 09:35:15,732 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 09:35:15,734 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 09:35:15,734 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 09:35:15,734 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:15,735 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 09:35:15,735 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 09:35:15,735 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 09:35:15,735 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 09:35:15,737 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 09:35:15,737 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 09:35:15,737 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:15,738 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 09:35:15,738 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 09:35:15,738 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 09:35:15,738 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 09:35:15,740 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 09:35:15,740 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 09:35:15,740 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:15,741 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 09:35:15,741 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 09:35:15,741 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 09:35:15,741 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 09:35:15,743 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 09:35:15,743 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 09:35:15,743 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:15,744 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 09:35:15,745 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 09:35:15,745 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 09:35:15,746 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 09:35:15,746 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 09:35:15,746 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 09:35:16,375 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 09:35:16,375 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 09:35:16,375 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 09:35:16,478 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 09:35:17,967 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 09:35:17,967 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 09:35:18,058 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 09:35:18,058 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.5098
+2025-11-04 09:35:20,287 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_1
+2025-11-04 09:35:20,332 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_1
+2025-11-04 09:35:20,332 - evaluation - INFO - Using KFold for regression
+2025-11-04 09:35:20,332 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 09:35:20,332 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 09:35:20,332 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 09:35:20,332 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 09:35:20,332 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 09:35:20,587 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 09:35:20,587 - evaluation - INFO - Fold 1 prediction sample: [12183.18121982  5553.98159707 11083.21789172 36274.23686654
+ 10159.16603134], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 09:35:20,587 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:20,587 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 1921130.108290061, 'rmse': 1386.048378769681, 'mae': 883.5841297069444, 'r2': 0.9748343078231952, 'mape': 21.41599627711248}
+2025-11-04 09:35:20,591 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 09:35:20,591 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 09:35:20,591 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 09:35:20,857 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 09:35:20,857 - evaluation - INFO - Fold 2 prediction sample: [ 9205.03343714  5001.62372052  3283.3174473  10943.29279438
+ 28600.83195055], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 09:35:20,857 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:20,858 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 2280193.2792655635, 'rmse': 1510.0308868581342, 'mae': 959.5544219267002, 'r2': 0.9729543439264922, 'mape': 22.837479211803824}
+2025-11-04 09:35:20,862 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 09:35:20,862 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 09:35:20,862 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 09:35:21,121 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 09:35:21,121 - evaluation - INFO - Fold 3 prediction sample: [ 6835.27645647 17664.82101287  6816.50679861  7402.84298357
+  2535.25687177], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 09:35:21,121 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:21,122 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 1929502.4224424004, 'rmse': 1389.065305319516, 'mae': 896.0512730960318, 'r2': 0.9752614215089987, 'mape': 19.948053456284377}
+2025-11-04 09:35:21,125 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 09:35:21,126 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 09:35:21,126 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 09:35:21,385 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 09:35:21,385 - evaluation - INFO - Fold 4 prediction sample: [ 1831.88707386  8408.55749214  3399.31399609   476.31038389
+ 12897.52719342], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 09:35:21,385 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:21,386 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 2435250.5187162054, 'rmse': 1560.5289227426083, 'mae': 992.5138739688415, 'r2': 0.9696823495928459, 'mape': 23.45901327157782}
+2025-11-04 09:35:21,390 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 09:35:21,390 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 09:35:21,390 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 09:35:21,648 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 09:35:21,648 - evaluation - INFO - Fold 5 prediction sample: [ 2746.01170189 14571.90304818 39712.1346531   7257.22982052
+ 27259.20764334], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 09:35:21,648 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 09:35:21,649 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 2163044.864443388, 'rmse': 1470.7293647858494, 'mae': 916.3871184385091, 'r2': 0.9725780791313702, 'mape': 21.672005764046048}
+2025-11-04 09:35:21,653 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 09:35:21,653 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 09:35:21,653 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 09:35:21,653 - evaluation - INFO - CV summary sample: {'mse': {'mean': 2145824.238631523, 'std': 199700.64647225768, 'min': 1921130.108290061, 'max': 2435250.5187162054, 'cv': 0.09306477337566783, 'ci_95_lower': 1897902.8873196356, 'ci_95_upper': 2393745.589943411}, 'rmse': {'mean': 1463.280571695158, 'std': 68.07501106144494, 'min': 1386.048378769681, 'max': 1560.5289227426083, 'cv': 0.04652218609216036, 'ci_95_lower': 1378.7678320968428, 'ci_95_upper': 1547.7933112934732}}
+2025-11-04 09:35:21,653 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_1
+2025-11-04 09:35:22,077 - evaluation - INFO - Saved CV fold performance plot to visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 09:35:22,077 - evaluation - INFO - Generated CV fold performance plot: visualizations/cv_analysis/cv_fold_performance.png
+2025-11-04 09:35:22,077 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 09:35:36,069 - evaluation - INFO - Bias-variance analysis completed. Bias: 1958388.5589, Variance: 179126.8556
+2025-11-04 09:35:37,110 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_1_residual_diagnostics.png
+2025-11-04 09:35:37,110 - evaluation - INFO - Generating learning curves for random_forest_random_forest_1
+2025-11-04 09:35:42,775 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_1: axis 1 is out of bounds for array of dimension 1
+2025-11-04 09:35:42,775 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_1. Test R²: 0.9747
+2025-11-04 09:35:43,489 - evaluation - INFO - Performing SHAP analysis for linear
+2025-11-04 09:35:43,491 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 09:35:43,491 - evaluation - INFO - SHAP analysis completed for linear
+2025-11-04 09:35:43,491 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 09:35:43,503 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 09:35:43,504 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 09:35:43,504 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 09:35:43,515 - evaluation - INFO - Performing SHAP analysis for random_forest
+2025-11-04 09:35:48,176 - evaluation - WARNING - Failed to generate SHAP plot: name 'plot_shap_summary' is not defined
+2025-11-04 09:35:48,177 - evaluation - INFO - SHAP analysis completed for random_forest
+2025-11-04 09:35:48,177 - evaluation - INFO - Performing error analysis for random_forest
+2025-11-04 09:35:48,188 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-11-04 09:35:48,188 - evaluation - INFO - Checking business alignment for random_forest
+2025-11-04 09:35:48,188 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67
+2025-11-04 10:06:11,362 - evaluation - WARNING - SHAP not available. Interpretability features will be limited.
+2025-11-04 10:06:12,466 - evaluation - INFO - Starting regression evaluation for linear_linear_0
+2025-11-04 10:06:12,467 - evaluation - INFO - Starting comprehensive CV for linear_linear_0
+2025-11-04 10:06:12,467 - evaluation - INFO - Using KFold for regression
+2025-11-04 10:06:12,467 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 10:06:12,467 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 10:06:12,467 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 10:06:12,468 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 10:06:12,468 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 10:06:12,469 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 10:06:12,469 - evaluation - INFO - Fold 1 prediction sample: [15190.23673369  6191.97575463 11920.1252787  28977.02137714
+ 11057.03989732], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 10:06:12,469 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:12,469 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 11888318.447781263, 'rmse': 3447.9440900022237, 'mae': 2480.782776589305, 'r2': 0.8442699110978058, 'mape': 133.9617524622741}
+2025-11-04 10:06:12,470 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 10:06:12,470 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 10:06:12,470 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 10:06:12,471 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 10:06:12,471 - evaluation - INFO - Fold 2 prediction sample: [14593.89841529  5012.34188294  1655.53437366 12887.77117609
+ 23987.44387471], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 10:06:12,471 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:12,472 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 13525699.271524834, 'rmse': 3677.7301792715616, 'mae': 2608.4247486319255, 'r2': 0.8395699987462545, 'mape': 141.661833013737}
+2025-11-04 10:06:12,472 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 10:06:12,472 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 10:06:12,472 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 10:06:12,473 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 10:06:12,473 - evaluation - INFO - Fold 3 prediction sample: [11929.76759915 22512.72359517  6615.1499452   8063.92070876
+    90.69775371], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 10:06:12,473 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:12,474 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 11464066.093446366, 'rmse': 3385.8626808313365, 'mae': 2456.8518573732385, 'r2': 0.8530166660688836, 'mape': 127.42406194337863}
+2025-11-04 10:06:12,474 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 10:06:12,474 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 10:06:12,474 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 10:06:12,475 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 10:06:12,475 - evaluation - INFO - Fold 4 prediction sample: [-2720.35866315  8458.40155531  3885.13109138 -5810.55447588
+ 14728.78364841], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 10:06:12,475 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:12,475 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 12382393.297970895, 'rmse': 3518.862500577551, 'mae': 2476.8545510823515, 'r2': 0.8458453993432791, 'mape': 129.7429229601355}
+2025-11-04 10:06:12,476 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 10:06:12,476 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 10:06:12,476 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 10:06:12,477 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 10:06:12,477 - evaluation - INFO - Fold 5 prediction sample: [   38.0568689  19213.73584304 32326.73105309 10826.18494144
+ 23808.37540892], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 10:06:12,477 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:12,477 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 11763625.940994695, 'rmse': 3429.8142720845244, 'mae': 2468.0699876390195, 'r2': 0.8508670693868725, 'mape': 158.85067504180572}
+2025-11-04 10:06:12,478 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 10:06:12,478 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 10:06:12,478 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 10:06:12,478 - evaluation - INFO - CV summary sample: {'mse': {'mean': 12204820.61034361, 'std': 723850.2754613399, 'min': 11464066.093446366, 'max': 13525699.271524834, 'cv': 0.0593085550841997, 'ci_95_lower': 11306185.870747074, 'ci_95_upper': 13103455.349940147}, 'rmse': {'mean': 3492.042744553439, 'std': 102.26475715168112, 'min': 3385.8626808313365, 'max': 3677.7301792715616, 'cv': 0.02928508172220518, 'ci_95_lower': 3365.0846338387155, 'ci_95_upper': 3619.000855268163}}
+2025-11-04 10:06:12,478 - evaluation - INFO - Comprehensive CV completed for linear_linear_0
+2025-11-04 10:06:12,640 - evaluation - WARNING - Could not generate CV fold performance plot: [Errno 2] No such file or directory: 'visualizations/cv_analysis'
+2025-11-04 10:06:12,640 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 10:06:12,713 - evaluation - INFO - Bias-variance analysis completed. Bias: 12369263.5507, Variance: 28495.1349
+2025-11-04 10:06:13,479 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png
+2025-11-04 10:06:13,480 - evaluation - INFO - Generating learning curves for linear_linear_0
+2025-11-04 10:06:13,554 - evaluation - WARNING - Could not generate some visualizations for linear_linear_0: axis 1 is out of bounds for array of dimension 1
+2025-11-04 10:06:13,555 - evaluation - INFO - Regression evaluation completed for linear_linear_0. Test R²: 0.5098
+2025-11-04 10:06:15,836 - evaluation - INFO - Starting regression evaluation for random_forest_random_forest_1
+2025-11-04 10:06:15,878 - evaluation - INFO - Starting comprehensive CV for random_forest_random_forest_1
+2025-11-04 10:06:15,879 - evaluation - INFO - Using KFold for regression
+2025-11-04 10:06:15,879 - evaluation - INFO - Starting CV with 5 folds, X shape: (6392, 11), y shape: (6392,)
+2025-11-04 10:06:15,879 - evaluation - INFO - Task type: regression, CV strategy: KFold
+2025-11-04 10:06:15,879 - evaluation - INFO - Fold 1: train_idx length: 5113, val_idx length: 1279
+2025-11-04 10:06:15,879 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6386 6387 6389 6390 6391]
+2025-11-04 10:06:15,879 - evaluation - INFO - Val indices range: [ 8 14 15 17 19]...[6377 6380 6381 6383 6388]
+2025-11-04 10:06:16,132 - evaluation - INFO - Fold 1 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 10:06:16,132 - evaluation - INFO - Fold 1 prediction sample: [12183.18121982  5553.98159707 11083.21789172 36274.23686654
+ 10159.16603134], true sample: [13832.82  2696.75 11435.56 40308.54  9123.39]
+2025-11-04 10:06:16,132 - evaluation - INFO - Fold 1 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:16,132 - evaluation - INFO - Fold 1 metrics: {'fold': 0, 'mse': 1921130.108290061, 'rmse': 1386.048378769681, 'mae': 883.5841297069444, 'r2': 0.9748343078231952, 'mape': 21.41599627711248}
+2025-11-04 10:06:16,135 - evaluation - INFO - Fold 2: train_idx length: 5113, val_idx length: 1279
+2025-11-04 10:06:16,135 - evaluation - INFO - Train indices range: [0 1 2 3 4]...[6383 6385 6387 6388 6390]
+2025-11-04 10:06:16,135 - evaluation - INFO - Val indices range: [12 26 30 43 47]...[6379 6384 6386 6389 6391]
+2025-11-04 10:06:16,383 - evaluation - INFO - Fold 2 predictions shape: (1279,), true values shape: (1279,)
+2025-11-04 10:06:16,383 - evaluation - INFO - Fold 2 prediction sample: [ 9205.03343714  5001.62372052  3283.3174473  10943.29279438
+ 28600.83195055], true sample: [ 6769.68    5264.19    2673.3    10802.2425 26446.575 ]
+2025-11-04 10:06:16,383 - evaluation - INFO - Fold 2 balance: {'train_size': 5113, 'val_size': 1279, 'train_ratio': 0.7999061326658323, 'val_ratio': 0.2000938673341677, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:16,384 - evaluation - INFO - Fold 2 metrics: {'fold': 1, 'mse': 2280193.2792655635, 'rmse': 1510.0308868581342, 'mae': 959.5544219267002, 'r2': 0.9729543439264922, 'mape': 22.837479211803824}
+2025-11-04 10:06:16,386 - evaluation - INFO - Fold 3: train_idx length: 5114, val_idx length: 1278
+2025-11-04 10:06:16,386 - evaluation - INFO - Train indices range: [1 2 3 4 5]...[6386 6388 6389 6390 6391]
+2025-11-04 10:06:16,386 - evaluation - INFO - Val indices range: [ 0  6  7 18 24]...[6357 6359 6364 6385 6387]
+2025-11-04 10:06:16,642 - evaluation - INFO - Fold 3 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 10:06:16,642 - evaluation - INFO - Fold 3 prediction sample: [ 6835.27645647 17664.82101287  6816.50679861  7402.84298357
+  2535.25687177], true sample: [ 8045.36  19596.16   6473.205  7198.815  2255.22 ]
+2025-11-04 10:06:16,642 - evaluation - INFO - Fold 3 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:16,642 - evaluation - INFO - Fold 3 metrics: {'fold': 2, 'mse': 1929502.4224424004, 'rmse': 1389.065305319516, 'mae': 896.0512730960318, 'r2': 0.9752614215089987, 'mape': 19.948053456284377}
+2025-11-04 10:06:16,645 - evaluation - INFO - Fold 4: train_idx length: 5114, val_idx length: 1278
+2025-11-04 10:06:16,645 - evaluation - INFO - Train indices range: [0 3 4 5 6]...[6386 6387 6388 6389 6391]
+2025-11-04 10:06:16,645 - evaluation - INFO - Val indices range: [ 1  2 10 11 13]...[6365 6370 6373 6375 6390]
+2025-11-04 10:06:16,898 - evaluation - INFO - Fold 4 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 10:06:16,898 - evaluation - INFO - Fold 4 prediction sample: [ 1831.88707386  8408.55749214  3399.31399609   476.31038389
+ 12897.52719342], true sample: [  948.2175  8676.5     4073.6      197.315  14328.62  ]
+2025-11-04 10:06:16,898 - evaluation - INFO - Fold 4 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:16,899 - evaluation - INFO - Fold 4 metrics: {'fold': 3, 'mse': 2435250.5187162054, 'rmse': 1560.5289227426083, 'mae': 992.5138739688415, 'r2': 0.9696823495928459, 'mape': 23.45901327157782}
+2025-11-04 10:06:16,901 - evaluation - INFO - Fold 5: train_idx length: 5114, val_idx length: 1278
+2025-11-04 10:06:16,901 - evaluation - INFO - Train indices range: [0 1 2 6 7]...[6387 6388 6389 6390 6391]
+2025-11-04 10:06:16,901 - evaluation - INFO - Val indices range: [ 3  4  5  9 16]...[6367 6369 6376 6378 6382]
+2025-11-04 10:06:17,152 - evaluation - INFO - Fold 5 predictions shape: (1278,), true values shape: (1278,)
+2025-11-04 10:06:17,152 - evaluation - INFO - Fold 5 prediction sample: [ 2746.01170189 14571.90304818 39712.1346531   7257.22982052
+ 27259.20764334], true sample: [ 1580.3625 18114.12   46406.88    7238.68   30246.48  ]
+2025-11-04 10:06:17,152 - evaluation - INFO - Fold 5 balance: {'train_size': 5114, 'val_size': 1278, 'train_ratio': 0.8000625782227785, 'val_ratio': 0.1999374217772215, 'total_samples': 6392, 'fold_total': 6392, 'issues': [], 'balanced': True}
+2025-11-04 10:06:17,153 - evaluation - INFO - Fold 5 metrics: {'fold': 4, 'mse': 2163044.864443388, 'rmse': 1470.7293647858494, 'mae': 916.3871184385091, 'r2': 0.9725780791313702, 'mape': 21.672005764046048}
+2025-11-04 10:06:17,156 - evaluation - INFO - Aggregating results from 5 folds
+2025-11-04 10:06:17,156 - evaluation - INFO - Fold results keys: ['fold', 'mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 10:06:17,156 - evaluation - INFO - CV summary keys: ['mse', 'rmse', 'mae', 'r2', 'mape']
+2025-11-04 10:06:17,156 - evaluation - INFO - CV summary sample: {'mse': {'mean': 2145824.238631523, 'std': 199700.64647225768, 'min': 1921130.108290061, 'max': 2435250.5187162054, 'cv': 0.09306477337566783, 'ci_95_lower': 1897902.8873196356, 'ci_95_upper': 2393745.589943411}, 'rmse': {'mean': 1463.280571695158, 'std': 68.07501106144494, 'min': 1386.048378769681, 'max': 1560.5289227426083, 'cv': 0.04652218609216036, 'ci_95_lower': 1378.7678320968428, 'ci_95_upper': 1547.7933112934732}}
+2025-11-04 10:06:17,157 - evaluation - INFO - Comprehensive CV completed for random_forest_random_forest_1
+2025-11-04 10:06:17,185 - evaluation - WARNING - Could not generate CV fold performance plot: [Errno 2] No such file or directory: 'visualizations/cv_analysis'
+2025-11-04 10:06:17,186 - evaluation - INFO - Performing bias-variance analysis
+2025-11-04 10:06:30,094 - evaluation - INFO - Bias-variance analysis completed. Bias: 1958388.5589, Variance: 179126.8556
+2025-11-04 10:06:30,611 - evaluation - INFO - Saved comprehensive residual diagnostics plot to /Users/samuel/IDIS450/Project/reports/random_forest_random_forest_1_residual_diagnostics.png
+2025-11-04 10:06:30,612 - evaluation - INFO - Generating learning curves for random_forest_random_forest_1
+2025-11-04 10:06:35,999 - evaluation - WARNING - Could not generate some visualizations for random_forest_random_forest_1: axis 1 is out of bounds for array of dimension 1
+2025-11-04 10:06:36,000 - evaluation - INFO - Regression evaluation completed for random_forest_random_forest_1. Test R²: 0.9747
+2025-11-04 10:06:37,016 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-11-04 10:06:37,016 - evaluation - INFO - Performing error analysis for linear
+2025-11-04 10:06:37,029 - evaluation - INFO - Error analysis completed for linear. Error rate: 1.0000
+2025-11-04 10:06:37,029 - evaluation - INFO - Checking business alignment for linear
+2025-11-04 10:06:37,030 - evaluation - INFO - Business alignment check completed for linear. Score: 66.67
+2025-11-04 10:06:37,039 - evaluation - WARNING - SHAP not available, skipping SHAP analysis
+2025-11-04 10:06:37,039 - evaluation - INFO - Performing error analysis for random_forest
+2025-11-04 10:06:37,048 - evaluation - INFO - Error analysis completed for random_forest. Error rate: 1.0000
+2025-11-04 10:06:37,048 - evaluation - INFO - Checking business alignment for random_forest
+2025-11-04 10:06:37,048 - evaluation - INFO - Business alignment check completed for random_forest. Score: 66.67

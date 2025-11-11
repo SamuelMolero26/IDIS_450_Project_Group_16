@@ -2,12 +2,41 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+
+## FOCUS / Requirements:
+
+**Model 1- Linear/Logistic Regression**:
+
+1. Split the data into training and validation sets. Choose an appropriate split ratio based on the dataset size and modeling objectives. Use the same training and validation sets for the second model . 
+
+2. Standardization: Decide whether to standardize the data based on feature scale, distribution, and model requirements. Explain the impact of standardization on model performance and justify your decision .
+
+4. Model Fitting: Fit the Linear Regression or Logistic Regression model on the training data. Present and explain your findings based on the relevant lab sessions .
+
+5. Model Evaluation: Report the model’s accuracy for both training and validation sets. Use appropriate metrics such as accuracy, precision, recall, and F1-score for classification, and MSE, MAE, and R-squared for regression. Provide visualizations such as a confusion matrix or ROC curve, and explain your model’s performance across different classes or target ranges .
+
+6. Hyperparameter Tuning and Variable Reduction: Perform hyperparameter tuning (only for Logistic Regression) and variable reduction to find the best model with the fewest predictors and highest accuracy. Present the best Linear/Logistic model for comparison with the Decision Tree/Random Forest model . 
+
+**Model 2- Decision Tree and Random Forest**:
+
+1. Use the same training and validation sets from the Linear/Logistic Regression model . 
+
+2. Model Fitting: Fit a Decision Tree or Random Forest model on the training data. Present and explain your findings . 
+
+5. Model Evaluation: Report the model’s accuracy for both training and validation sets. Use appropriate metrics such as accuracy, precision, recall, and F1-score for classification, and MSE, MAE, and R-squared for regression. Provide visualizations such as a confusion matrix or ROC curve, and explain your model’s performance across different classes or target ranges.
+
+6. Hyperparameter Tuning. Perform hyperparameter tuning using techniques like GridSearchCV or manually change parameters in the model. Explain the tuning process and how it impacted model performance .
+
+7. Compare the best version of the Decision Tree/Random Forest model after hyperparameter tuning (model 2) with the best Linear/Logistic model (model 1). Select the best model based on the evaluation metrics discussed earlier.
+
+
+
 ## Project Overview
 
 This is an advanced machine learning pipeline for US Regional Sales data analysis, featuring meta-learning, continuous learning, and comprehensive model evaluation. The system is designed to be self-improving, learning from historical experiments to optimize future model configurations.
 
 **Key Capabilities:**
-- Multi-model training pipeline (Linear, Ridge, Lasso, ElasticNet, Decision Tree, Random Forest, Gradient Boosting)
+- Multi-model training pipeline (Linear Regression, Logistic Regression, Decision Tree, Random Forest)
 - Quantitative evaluation with K-fold CV and bias-variance decomposition
 - Qualitative evaluation using SHAP interpretability and business rule validation
 - Meta-learning system that predicts optimal configurations from historical data

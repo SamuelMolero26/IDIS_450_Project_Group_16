@@ -827,3 +827,19 @@
 2025-11-04 10:06:37,093 - meta - INFO - Updating meta-learning model
 2025-11-04 10:06:37,093 - meta - INFO - Collecting experiment data for meta-learning
 2025-11-04 10:06:37,093 - meta - INFO - Collected data from 4 experiments
+2025-11-11 08:58:02,227 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-11 08:58:04,660 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-11 08:58:20,555 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-11 08:58:48,554 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-11 08:58:48,555 - meta - INFO - Collected data from 4 experiments
+2025-11-11 08:58:48,555 - meta - INFO - Updating meta-learning model
+2025-11-11 08:58:48,555 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-11 08:58:48,555 - meta - INFO - Collected data from 4 experiments
+2025-11-11 09:30:22,715 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-11 09:30:24,782 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-11 09:30:39,586 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-11 09:31:07,215 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-11 09:31:07,215 - meta - INFO - Collected data from 4 experiments
+2025-11-11 09:31:07,215 - meta - INFO - Updating meta-learning model
+2025-11-11 09:31:07,215 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-11 09:31:07,215 - meta - INFO - Collected data from 4 experiments

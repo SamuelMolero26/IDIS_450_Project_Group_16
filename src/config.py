@@ -41,41 +41,20 @@ CATEGORICAL_FEATURES = [
     'Sales Channel', 'WarehouseCode'
 ]
 
-# Model hyperparameters with enhanced regularization and complexity control
+# Model hyperparameters for the four supported model types
 MODEL_CONFIGS = {
-    'linear_regression': {
+    'linear': {
         'fit_intercept': [True, False],
         'polynomial_degree': [1, 2]  # Degree 2 for interaction features
     },
-    'ridge': {
-        'alpha': [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0],
-        'fit_intercept': [True, False],
-        'polynomial_degree': [1, 2],
-        'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']
-    },
-    'lasso': {
-        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
-        'fit_intercept': [True, False],
-        'polynomial_degree': [1, 2],
-        'max_iter': [1000, 5000, 10000],
-        'selection': ['cyclic', 'random']
-    },
-    'elasticnet': {
-        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0],
-        'l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9],
-        'fit_intercept': [True, False],
-        'polynomial_degree': [1, 2],
-        'max_iter': [1000, 5000, 10000],
-        'selection': ['cyclic', 'random']
-    },
-    'logistic_regression': {
+    'logistic': {
         'C': [0.01, 0.1, 1.0, 10.0, 100.0],
-        'penalty': ['l1', 'l2', 'elasticnet'],
+        'penalty': ['l1', 'l2', None],
         'solver': ['liblinear', 'saga', 'lbfgs'],
-        'l1_ratio': [0.1, 0.5, 0.9]  # For elasticnet
+        'max_iter': [100, 200, 500, 1000]
     },
     'decision_tree': {
-        'max_depth': [10, 15, 20, 30],  # Increased depth options
+        'max_depth': [10, 15, 20, 30],
         'min_samples_split': [2, 5, 10, 20],
         'min_samples_leaf': [1, 2, 4, 8],
         'max_features': ['sqrt', 'log2', None],
@@ -84,8 +63,8 @@ MODEL_CONFIGS = {
         'splitter': ['best', 'random']
     },
     'random_forest': {
-        'n_estimators': [100, 150, 200, 250],  # Increased estimators
-        'max_depth': [10, 15, 20, 30],  # Increased depth options
+        'n_estimators': [100, 150, 200, 250],
+        'max_depth': [10, 15, 20, 30],
         'min_samples_split': [2, 5, 10, 15],
         'min_samples_leaf': [1, 2, 4, 6],
         'max_features': ['sqrt', 'log2', None, 0.5, 0.75],
@@ -94,17 +73,6 @@ MODEL_CONFIGS = {
         'ccp_alpha': [0.0, 0.001, 0.01],
         'max_samples': [0.5, 0.75, 1.0],  # For bootstrap sampling
         'min_impurity_decrease': [0.0, 0.001, 0.01]
-    },
-    'gradient_boosting': {
-        'n_estimators': [100, 150, 200, 250],
-        'learning_rate': [0.01, 0.05, 0.1, 0.2],
-        'max_depth': [3, 5, 7, 10],
-        'min_samples_split': [2, 5, 10],
-        'min_samples_leaf': [1, 2, 4],
-        'subsample': [0.6, 0.8, 1.0],
-        'max_features': ['sqrt', 'log2', None],
-        'loss': ['squared_error', 'absolute_error', 'huber'],
-        'criterion': ['friedman_mse', 'squared_error']
     }
 }
 

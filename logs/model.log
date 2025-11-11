@@ -1521,3 +1521,55 @@
 2025-11-04 10:22:38,355 - model - INFO - Checking cache for gradient_boosting with key: gradient_boosting_regression_[('criterion', 'friedman_mse'), ('learning_rate', 0.01), ('loss', 'squared_error'), ('max_depth', 3), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100), ('subsample', 0.6)]_4267540659713794658
 2025-11-04 10:22:38,356 - model - INFO - Cache miss for gradient_boosting - training new model
 2025-11-04 10:22:38,356 - model - INFO - Training gradient_boosting model with params: {'n_estimators': 100, 'learning_rate': 0.01, 'max_depth': 3, 'min_samples_split': 2, 'min_samples_leaf': 1, 'subsample': 0.6, 'max_features': 'sqrt', 'loss': 'squared_error', 'criterion': 'friedman_mse'}
+2025-11-11 08:58:02,228 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_2405892715929904715
+2025-11-11 08:58:02,231 - model - INFO - Cache miss for linear - training new model
+2025-11-11 08:58:02,234 - model - INFO - Applied RobustScaler to features for linear
+2025-11-11 08:58:02,234 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-11 08:58:02,236 - model - INFO - Stored trained model with ID: linear_0
+2025-11-11 08:58:02,256 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-11 08:58:02,256 - model - INFO - Model linear trained successfully. CV Score: 12204820.6103
+2025-11-11 08:58:04,660 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_2405892715929904715
+2025-11-11 08:58:04,660 - model - INFO - Cache miss for decision_tree - training new model
+2025-11-11 08:58:04,661 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-11 08:58:18,172 - model - INFO - Applied cost complexity pruning with alpha=0.12641113892373032
+2025-11-11 08:58:18,173 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-11-11 08:58:18,208 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-11-11 08:58:18,208 - model - INFO - Model decision_tree trained successfully. CV Score: 8498638.1822
+2025-11-11 08:58:20,556 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_2405892715929904715
+2025-11-11 08:58:20,556 - model - INFO - Using cached results for random_forest
+2025-11-11 08:58:20,556 - model - INFO - Model object not cached, retraining random_forest
+2025-11-11 08:58:20,556 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': 0.5, 'min_impurity_decrease': 0.0}
+2025-11-11 08:58:20,846 - model - INFO - Applied bootstrap sampling with max_samples=3196
+2025-11-11 08:58:20,846 - model - INFO - Stored trained model with ID: random_forest_2
+2025-11-11 08:58:22,293 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-11-11 08:58:22,293 - model - INFO - Model random_forest trained successfully. CV Score: 2145824.2386
+2025-11-11 08:58:43,948 - model - INFO - Model linear_0 evaluation completed. Score: 0.8445
+2025-11-11 08:58:43,949 - model - INFO - Model decision_tree_1 evaluation completed. Score: 0.8522
+2025-11-11 08:58:43,959 - model - INFO - Model random_forest_2 evaluation completed. Score: 0.9747
+2025-11-11 09:30:22,715 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-3734521091510860349
+2025-11-11 09:30:22,719 - model - INFO - Using cached results for linear
+2025-11-11 09:30:22,719 - model - INFO - Model object not cached, retraining linear
+2025-11-11 09:30:22,722 - model - INFO - Applied RobustScaler to features for linear
+2025-11-11 09:30:22,723 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-11 09:30:22,727 - model - INFO - Stored trained model with ID: linear_0
+2025-11-11 09:30:22,750 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-11 09:30:22,750 - model - INFO - Model linear trained successfully. CV Score: 12204820.6103
+2025-11-11 09:30:24,782 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-3734521091510860349
+2025-11-11 09:30:24,782 - model - INFO - Using cached results for decision_tree
+2025-11-11 09:30:24,783 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-11 09:30:24,783 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-11 09:30:37,451 - model - INFO - Applied cost complexity pruning with alpha=0.12641113892373032
+2025-11-11 09:30:37,452 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-11-11 09:30:37,482 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-11-11 09:30:37,482 - model - INFO - Model decision_tree trained successfully. CV Score: 8498638.1822
+2025-11-11 09:30:39,587 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-3734521091510860349
+2025-11-11 09:30:39,587 - model - INFO - Using cached results for random_forest
+2025-11-11 09:30:39,587 - model - INFO - Model object not cached, retraining random_forest
+2025-11-11 09:30:39,587 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': 0.5, 'min_impurity_decrease': 0.0}
+2025-11-11 09:30:39,847 - model - INFO - Applied bootstrap sampling with max_samples=3196
+2025-11-11 09:30:39,847 - model - INFO - Stored trained model with ID: random_forest_2
+2025-11-11 09:30:41,174 - model - WARNING - Failed to cache model object for random_forest_2: module 'joblib' has no attribute 'dumps'
+2025-11-11 09:30:41,174 - model - INFO - Model random_forest trained successfully. CV Score: 2145824.2386
+2025-11-11 09:31:02,716 - model - INFO - Model linear_0 evaluation completed. Score: 0.8445
+2025-11-11 09:31:02,717 - model - INFO - Model decision_tree_1 evaluation completed. Score: 0.8522
+2025-11-11 09:31:02,727 - model - INFO - Model random_forest_2 evaluation completed. Score: 0.9747

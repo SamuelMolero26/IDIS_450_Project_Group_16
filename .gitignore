@@ -1,9 +1,19 @@
+# Ignore all generated and temporary files
+
+# Generated visualizations
 /Users/samuel/IDIS450/Project/unit_price_distribution.png
-
 /Users/samuel/IDIS450/Project/sales_channel_distribution.png
-
 /Users/samuel/IDIS450/Project/correlation_heatmap.png
 
+# Output files
 output.txt
 
-/Users/samuel/IDIS450/Project/visualization_design.md
+# Architecture files
+architecture_diagram.dot
+
+# Ignore all Markdown files
+*.md
+
+# Keep specific important documentation if needed
+!README.md
+!IMPORTANT.md

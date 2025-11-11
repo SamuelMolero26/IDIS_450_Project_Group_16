@@ -15,7 +15,8 @@ import json
 import sys
 import os
 # Ensure project root is in path for imports
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# __file__ is in src/utils/, so we need to go up 2 levels to get to project root
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 

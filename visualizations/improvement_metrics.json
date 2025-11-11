@@ -1,37 +1,19 @@
 {
-  "timestamp": "2025-11-04T10:12:01.885373",
+  "timestamp": "2025-11-11T12:22:10.512507",
   "original_bias": {
     "Linear": 12369264,
     "Decision Tree": 125520,
     "Random Forest": 132987
   },
   "improved_metrics": {
-    "Ridge (\u03b1=10)": {
-      "train_r2": 0.8471474039745364,
-      "test_r2": 0.8452927193860061,
-      "train_rmse": 3488.4827808140885,
-      "test_rmse": 3505.282190002246,
-      "bias_squared": 1346.7114423882354,
-      "variance": 68022302.53505108,
-      "overfitting_gap": 0.0018546845885302199
-    },
-    "Lasso (\u03b1=1)": {
-      "train_r2": 0.8472936269322668,
-      "test_r2": 0.844449341432066,
-      "train_rmse": 3486.813792733897,
-      "test_rmse": 3514.823627416467,
-      "bias_squared": 1115.2477102596301,
-      "variance": 68474493.4348086,
-      "overfitting_gap": 0.0028442855002008827
-    },
-    "ElasticNet": {
-      "train_r2": 0.6708833189471796,
-      "test_r2": 0.6842008625375462,
-      "train_rmse": 5118.882036727427,
-      "test_rmse": 5008.101011304634,
-      "bias_squared": 2154.58725899975,
-      "variance": 23226564.941019524,
-      "overfitting_gap": -0.013317543590366632
+    "Linear Regression": {
+      "train_r2": 0.8472971703790475,
+      "test_r2": 0.8442828379752804,
+      "train_rmse": 3486.7733379364468,
+      "test_rmse": 3516.7042808433644,
+      "bias_squared": 1067.4607114922017,
+      "variance": 68509009.6188812,
+      "overfitting_gap": 0.0030143324037671393
     },
     "Decision Tree": {
       "train_r2": 0.9981661648154534,
@@ -45,22 +27,13 @@
     "Random Forest": {
       "train_r2": 0.9987820423983662,
       "test_r2": 0.9977597870365975,
-      "train_rmse": 311.39831571825636,
-      "test_rmse": 421.8055240970527,
+      "train_rmse": 311.3983157182563,
+      "test_rmse": 421.80552409705274,
       "bias_squared": 65.00399885374806,
       "variance": 79142544.40935364,
       "overfitting_gap": 0.001022255361768698
-    },
-    "Gradient Boosting": {
-      "train_r2": 0.9997806692498884,
-      "test_r2": 0.9995569586553956,
-      "train_rmse": 132.14475681031948,
-      "test_rmse": 187.58138507854562,
-      "bias_squared": 5.64493500684539,
-      "variance": 79312646.81739627,
-      "overfitting_gap": 0.00022371059449277642
     }
   },
-  "best_model": "Gradient Boosting",
-  "average_bias_reduction": 99.98070433218267
+  "best_model": "Random Forest",
+  "average_bias_reduction": 99.98955876809435
 }

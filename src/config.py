@@ -102,6 +102,19 @@ MODEL_CONFIGS = {
         'penalty': ['l1', 'l2', None],
         'solver': ['liblinear', 'saga', 'lbfgs'],
         'max_iter': [100, 200, 500, 1000]
+    },
+    'ann': {
+        'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 50), (100, 50, 25)],
+        'activation': ['relu', 'tanh'],
+        'solver': ['adam', 'lbfgs'],
+        'alpha': [0.0001, 0.001, 0.01],  # L2 regularization
+        'learning_rate': ['constant', 'adaptive'],
+        'learning_rate_init': [0.001, 0.01, 0.1],
+        'max_iter': [500, 1000, 2000],
+        'batch_size': ['auto', 32, 64, 128],
+        'early_stopping': [True],
+        'validation_fraction': [0.1],
+        'n_iter_no_change': [10, 20]
     }
 }
 

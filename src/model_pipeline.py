@@ -28,8 +28,10 @@ from pathlib import Path
 import json
 from datetime import datetime
 from sklearn.neighbors import KNeighborsRegressor , KNeighborsClassifier
+from sklearn.neural_network import MLPRegressor, MLPClassifier
+from sklearn.preprocessing import StandardScaler
 from scipy import stats
-
+import pickle 
 import sys
 import os
 # Ensure project root is in path for imports
@@ -121,6 +123,10 @@ class ModelPipeline:
             'KNN': {
                 'regression': KNeighborsRegressor,
                 'classification': KNeighborsClassifier
+            },
+            'ann': {
+                'regression': MLPRegressor,
+                'classification': MLPClassifier
             }
         }
 
@@ -151,6 +157,10 @@ class ModelPipeline:
     def _is_tree_model(self, model_type: str) -> bool:
         """Check if model type is tree-based."""
         return model_type in ['decision_tree', 'random_forest']
+
+    def _is_ann_model(self, model_type: str) -> bool:
+        """Check if model type is ANN-based."""
+        return model_type in ['ann']
     
     def _is_distance_based_model(self, model_type: str) -> bool:
         """Check if model type is distance-based (KNN)."""
@@ -507,11 +517,27 @@ class ModelPipeline:
                         f"Applied polynomial features (degree {poly_degree}) to {model_type}"
                     )
 
-            # Apply RobustScaler
+            # Apply RobustScaler for linear and distance-based models
             if fit:
                 self.scaler = RobustScaler()
                 X_scaled = self.scaler.fit_transform(X_transformed)
                 model_logger.info(f"Applied RobustScaler to features for {model_type}")
+            else:
+                if self.scaler is not None:
+                    X_scaled = self.scaler.transform(X_transformed)
+                else:
+                    X_scaled = X_transformed
+
+            X_transformed = pd.DataFrame(
+                X_scaled, columns=X_transformed.columns, index=X_transformed.index
+            )
+
+        elif self._is_ann_model(model_type):
+            # ANN requires StandardScaler (mean=0, std=1) for optimal performance
+            if fit:
+                self.scaler = StandardScaler()
+                X_scaled = self.scaler.fit_transform(X_transformed)
+                model_logger.info(f"Applied StandardScaler to features for {model_type} (ANN)")
             else:
                 if self.scaler is not None:
                     X_scaled = self.scaler.transform(X_transformed)
@@ -592,7 +618,7 @@ class ModelPipeline:
         # Cache model object
         model_cache_key = f"model_object_{model_id}"
         try:
-            model_bytes = joblib.dumps(model)
+            model_bytes = pickle.dumps(model)
             cache.set(model_cache_key, model_bytes, ttl=CACHE_TTL)
             model_logger.info(f"Cached model object for {model_id}")
         except Exception as e:
@@ -625,6 +651,14 @@ class ModelPipeline:
         elif model_type == 'KNN':
             # KNN doesn't accept random_state
             return model_class(**filtered_params)
+        elif self._is_ann_model(model_type):
+            # ANN models (MLPRegressor/MLPClassifier) have specific parameter handling
+            # They accept random_state but it affects weight initialization
+            # Don't override if random_state is already specified in params
+            if 'random_state' not in filtered_params:
+                return model_class(random_state=RANDOM_STATE, **filtered_params)
+            else:
+                return model_class(**filtered_params)
         else:
             # Tree-based models (decision_tree, random_forest) accept random_state
             return model_class(random_state=RANDOM_STATE, **filtered_params)
@@ -665,6 +699,17 @@ class ModelPipeline:
                     ('scaler', RobustScaler()),
                     ('model', model.__class__(**model.get_params()))
                 ])
+
+            cv_scores = cross_val_score(
+                pipeline, X_train, y_train, cv=self.cv,
+                scoring='neg_mean_squared_error' if task_type == 'regression' else 'accuracy'
+            )
+        elif self._is_ann_model(model_type):
+            # ANN models require StandardScaler for optimal performance
+            pipeline = Pipeline([
+                ('scaler', StandardScaler()),
+                ('model', model.__class__(**model.get_params()))
+            ])
 
             cv_scores = cross_val_score(
                 pipeline, X_train, y_train, cv=self.cv,
@@ -1444,7 +1489,7 @@ class ModelPipeline:
             X_transformed = pd.DataFrame(X_poly, columns=poly_feature_names, index=X.index)
 
         # Apply scaling if needed
-        if self._is_linear_model(model_type) and self.scaler is not None:
+        if (self._is_linear_model(model_type) or self._is_ann_model(model_type)) and self.scaler is not None:
             X_transformed = pd.DataFrame(
                 self.scaler.transform(X_transformed),
                 columns=X_transformed.columns,

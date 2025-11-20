@@ -3118,3 +3118,677 @@
 2025-11-19 20:58:29,427 - model - INFO - Generated model comparison visualizations: ['model_comparison', 'knn_comparison']
 2025-11-19 20:58:29,428 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_205829.json
 2025-11-19 20:58:29,428 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-19 22:53:06,378 - model - INFO - Checking cache for ann with key: ann_[]_-2982616858656758741
+2025-11-19 22:53:06,378 - model - INFO - Cache miss for ann - training new model
+2025-11-19 22:54:46,388 - model - INFO - Checking cache for ann with key: ann_[]_-4233785248743241304
+2025-11-19 22:54:46,388 - model - INFO - Cache miss for ann - training new model
+2025-11-19 22:54:46,389 - model - INFO - Applied StandardScaler to features for ann (ANN)
+2025-11-19 22:54:46,390 - model - INFO - Training ann model with params: {}
+2025-11-19 22:54:47,710 - model - INFO - Stored trained model with ID: ann_0
+2025-11-19 22:54:52,258 - model - WARNING - Failed to cache model object for ann_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:54:52,259 - model - INFO - Model ann trained successfully. CV Score: 27369610.5717
+2025-11-19 22:54:52,261 - model - INFO - Model ann_0 evaluation completed. Score: 0.8100
+2025-11-19 22:54:52,342 - model - INFO - Starting hyperparameter tuning for ann
+2025-11-19 22:55:47,147 - model - INFO - Tuning completed. Best score: 68766.7374, Overfitting risk: low
+2025-11-19 22:55:47,148 - model - INFO - Checking cache for ann with key: ann_[('activation', 'relu'), ('alpha', 0.001), ('hidden_layer_sizes', (100,)), ('learning_rate_init', 0.01), ('max_iter', 500)]_-4233785248743241304
+2025-11-19 22:55:47,148 - model - INFO - Cache miss for ann - training new model
+2025-11-19 22:55:47,149 - model - INFO - Applied StandardScaler to features for ann (ANN)
+2025-11-19 22:55:47,149 - model - INFO - Training ann model with params: {'activation': 'relu', 'alpha': 0.001, 'hidden_layer_sizes': (100,), 'learning_rate_init': 0.01, 'max_iter': 500}
+2025-11-19 22:55:49,737 - model - INFO - Stored trained model with ID: ann_0
+2025-11-19 22:56:00,249 - model - WARNING - Failed to cache model object for ann_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:56:00,249 - model - INFO - Model ann trained successfully. CV Score: 108607.4004
+2025-11-19 22:56:00,321 - model - INFO - Checking cache for linear with key: linear_[]_-4233785248743241304
+2025-11-19 22:56:00,321 - model - INFO - Using cached results for linear
+2025-11-19 22:56:00,321 - model - INFO - Model object not cached, retraining linear
+2025-11-19 22:56:00,325 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 22:56:00,325 - model - INFO - Training linear model with params: {}
+2025-11-19 22:56:00,333 - model - INFO - Stored trained model with ID: linear_0
+2025-11-19 22:56:00,388 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:56:00,388 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-19 22:56:00,388 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-4233785248743241304
+2025-11-19 22:56:00,388 - model - INFO - Using cached results for decision_tree
+2025-11-19 22:56:00,388 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 22:56:00,388 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-19 22:56:10,952 - model - INFO - Stored trained model with ID: decision_tree_1
+2025-11-19 22:56:11,024 - model - WARNING - Failed to cache model object for decision_tree_1: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:56:11,024 - model - INFO - Model decision_tree trained successfully. CV Score: 8350075.4020
+2025-11-19 22:56:11,024 - model - INFO - Checking cache for KNN with key: KNN_[]_-4233785248743241304
+2025-11-19 22:56:11,024 - model - INFO - Cache feature mismatch, retraining KNN
+2025-11-19 22:56:11,027 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 22:56:11,027 - model - INFO - Training KNN model with params: {}
+2025-11-19 22:56:11,030 - model - INFO - Stored trained model with ID: KNN_2
+2025-11-19 22:56:11,241 - model - INFO - KNN Validation: Optimal K=5, CV Score=7046778.3854
+2025-11-19 22:56:11,274 - model - WARNING - Failed to cache model object for KNN_2: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:56:11,274 - model - INFO - Model KNN trained successfully. CV Score: 7046778.3854
+2025-11-19 22:56:11,274 - model - INFO - Checking cache for ann with key: ann_[]_-4233785248743241304
+2025-11-19 22:56:11,274 - model - INFO - Using cached results for ann
+2025-11-19 22:56:11,274 - model - INFO - Model object not cached, retraining ann
+2025-11-19 22:56:11,275 - model - INFO - Applied StandardScaler to features for ann (ANN)
+2025-11-19 22:56:11,275 - model - INFO - Training ann model with params: {}
+2025-11-19 22:56:12,346 - model - INFO - Stored trained model with ID: ann_3
+2025-11-19 22:56:17,099 - model - WARNING - Failed to cache model object for ann_3: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:56:17,099 - model - INFO - Model ann trained successfully. CV Score: 27369610.5717
+2025-11-19 22:56:17,101 - model - INFO - Model linear_0 evaluation completed. Score: 0.3482
+2025-11-19 22:56:17,102 - model - INFO - Model decision_tree_1 evaluation completed. Score: 0.7893
+2025-11-19 22:56:17,133 - model - INFO - Model KNN_2 evaluation completed. Score: 0.8204
+2025-11-19 22:56:17,136 - model - INFO - Model ann_3 evaluation completed. Score: 0.8100
+2025-11-19 22:56:17,216 - model - INFO - Checking cache for ann with key: ann_[]_-4233785248743241304
+2025-11-19 22:56:17,216 - model - INFO - Using cached results for ann
+2025-11-19 22:56:17,216 - model - INFO - Model object not cached, retraining ann
+2025-11-19 22:56:17,217 - model - INFO - Applied StandardScaler to features for ann (ANN)
+2025-11-19 22:56:17,217 - model - INFO - Training ann model with params: {}
+2025-11-19 22:56:18,302 - model - INFO - Stored trained model with ID: ann_0
+2025-11-19 22:56:22,748 - model - WARNING - Failed to cache model object for ann_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:56:22,748 - model - INFO - Model ann trained successfully. CV Score: 27369610.5717
+2025-11-19 22:56:22,748 - model - ERROR - Model ann_0 is not a KNN model
+2025-11-19 22:56:44,827 - model - INFO - Checking cache for ann with key: ann_[('hidden_layer_sizes', (50,)), ('max_iter', 100), ('random_state', 42)]_6310525284196770421
+2025-11-19 22:56:44,827 - model - INFO - Cache miss for ann - training new model
+2025-11-19 22:56:44,828 - model - INFO - Applied StandardScaler to features for ann (ANN)
+2025-11-19 22:57:05,831 - model - INFO - Checking cache for ann with key: ann_[('hidden_layer_sizes', (50,)), ('max_iter', 100), ('random_state', 42)]_4188169356695573542
+2025-11-19 22:57:05,832 - model - INFO - Cache miss for ann - training new model
+2025-11-19 22:57:05,833 - model - INFO - Applied StandardScaler to features for ann (ANN)
+2025-11-19 22:57:05,833 - model - INFO - Training ann model with params: {'hidden_layer_sizes': (50,), 'max_iter': 100, 'random_state': 42}
+2025-11-19 22:57:06,228 - model - INFO - Stored trained model with ID: ann_0
+2025-11-19 22:57:07,890 - model - WARNING - Failed to cache model object for ann_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 22:57:07,890 - model - INFO - Model ann trained successfully. CV Score: 121201866.5299
+2025-11-19 22:57:07,893 - model - INFO - Model ann_0 evaluation completed. Score: -0.5899
+2025-11-19 23:09:31,146 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_1564307033289975236
+2025-11-19 23:09:31,149 - model - INFO - Using cached results for linear
+2025-11-19 23:09:31,150 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:09:31,153 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:09:31,153 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-19 23:09:31,158 - model - INFO - Stored trained model with ID: linear_0
+2025-11-19 23:09:31,180 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:09:31,181 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-19 23:09:32,845 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_1564307033289975236
+2025-11-19 23:09:32,845 - model - INFO - Using cached results for ridge
+2025-11-19 23:09:32,846 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:09:32,848 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:09:32,848 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-19 23:09:32,851 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-19 23:09:32,870 - model - WARNING - Failed to cache model object for ridge_1: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:09:32,870 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-19 23:09:34,006 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_1564307033289975236
+2025-11-19 23:09:34,007 - model - INFO - Using cached results for lasso
+2025-11-19 23:09:34,007 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:09:34,010 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:09:34,010 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-19 23:09:34,042 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-19 23:09:34,172 - model - WARNING - Failed to cache model object for lasso_2: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:09:34,172 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-19 23:09:37,481 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_1564307033289975236
+2025-11-19 23:09:37,481 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:09:37,481 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:09:37,482 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-19 23:09:50,531 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-19 23:09:50,581 - model - WARNING - Failed to cache model object for decision_tree_3: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:09:50,581 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-19 23:09:52,347 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_1564307033289975236
+2025-11-19 23:09:52,348 - model - INFO - Using cached results for random_forest
+2025-11-19 23:09:52,348 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:09:52,348 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-19 23:09:52,776 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-19 23:09:52,777 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-19 23:09:54,646 - model - WARNING - Failed to cache model object for random_forest_4: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:09:54,646 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-19 23:10:29,532 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_1564307033289975236
+2025-11-19 23:10:29,534 - model - INFO - Using cached results for KNN
+2025-11-19 23:10:29,535 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:10:29,538 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:10:29,539 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-19 23:10:29,542 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-19 23:10:29,735 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-19 23:10:29,736 - model - WARNING - Failed to cache model object for KNN_5: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:29,736 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-19 23:10:34,771 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-19 23:10:34,773 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-19 23:10:34,774 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-19 23:10:34,775 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-19 23:10:34,790 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-19 23:10:34,817 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-19 23:10:34,817 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-19 23:10:34,817 - model - INFO - Training and evaluating linear
+2025-11-19 23:10:34,817 - model - INFO - Checking cache for linear with key: linear_[]_1564307033289975236
+2025-11-19 23:10:34,818 - model - INFO - Using cached results for linear
+2025-11-19 23:10:34,818 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:10:34,819 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:10:34,819 - model - INFO - Training linear model with params: {}
+2025-11-19 23:10:34,820 - model - INFO - Stored trained model with ID: linear_6
+2025-11-19 23:10:34,833 - model - WARNING - Failed to cache model object for linear_6: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:34,833 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-19 23:10:35,774 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-19 23:10:35,774 - model - INFO - Training and evaluating ridge
+2025-11-19 23:10:35,774 - model - INFO - Checking cache for ridge with key: ridge_[]_1564307033289975236
+2025-11-19 23:10:35,775 - model - INFO - Using cached results for ridge
+2025-11-19 23:10:35,775 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:10:35,776 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:10:35,776 - model - INFO - Training ridge model with params: {}
+2025-11-19 23:10:35,777 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-19 23:10:35,790 - model - WARNING - Failed to cache model object for ridge_7: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:35,790 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-19 23:10:36,611 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-19 23:10:36,611 - model - INFO - Training and evaluating lasso
+2025-11-19 23:10:36,611 - model - INFO - Checking cache for lasso with key: lasso_[]_1564307033289975236
+2025-11-19 23:10:36,611 - model - INFO - Using cached results for lasso
+2025-11-19 23:10:36,611 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:10:36,613 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:10:36,613 - model - INFO - Training lasso model with params: {}
+2025-11-19 23:10:36,616 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-19 23:10:36,632 - model - WARNING - Failed to cache model object for lasso_8: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:36,632 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-19 23:10:37,572 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-19 23:10:37,572 - model - INFO - Training and evaluating decision_tree
+2025-11-19 23:10:37,572 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_1564307033289975236
+2025-11-19 23:10:37,572 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:10:37,572 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:10:37,573 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-19 23:10:38,331 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-19 23:10:38,343 - model - WARNING - Failed to cache model object for decision_tree_9: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:38,343 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-19 23:10:39,235 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-19 23:10:39,235 - model - INFO - Training and evaluating random_forest
+2025-11-19 23:10:39,235 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_1564307033289975236
+2025-11-19 23:10:39,235 - model - INFO - Using cached results for random_forest
+2025-11-19 23:10:39,236 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:10:39,236 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-19 23:10:39,322 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-19 23:10:39,322 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-19 23:10:39,765 - model - WARNING - Failed to cache model object for random_forest_10: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:39,765 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-19 23:10:47,315 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-19 23:10:47,316 - model - INFO - Training and evaluating KNN
+2025-11-19 23:10:47,316 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-19 23:10:52,032 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-19 23:10:52,032 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_1564307033289975236
+2025-11-19 23:10:52,034 - model - INFO - Using cached results for KNN
+2025-11-19 23:10:52,034 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:10:52,036 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:10:52,036 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-19 23:10:52,036 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-19 23:10:52,078 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-19 23:10:52,101 - model - WARNING - Failed to cache model object for KNN_11: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:10:52,101 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-19 23:10:54,542 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-19 23:10:55,020 - model - INFO - Generated model comparison visualizations: ['model_comparison', 'knn_comparison']
+2025-11-19 23:10:55,022 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_231055.json
+2025-11-19 23:10:55,022 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-19 23:13:08,526 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_4596605613666988001
+2025-11-19 23:13:08,527 - model - INFO - Using cached results for linear
+2025-11-19 23:13:08,527 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:13:08,530 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:13:08,530 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-19 23:13:08,532 - model - INFO - Stored trained model with ID: linear_0
+2025-11-19 23:13:08,552 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:13:08,552 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-19 23:13:10,109 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_4596605613666988001
+2025-11-19 23:13:10,110 - model - INFO - Using cached results for ridge
+2025-11-19 23:13:10,110 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:13:10,113 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:13:10,113 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-19 23:13:10,114 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-19 23:13:10,134 - model - WARNING - Failed to cache model object for ridge_1: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:13:10,134 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-19 23:13:11,225 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_4596605613666988001
+2025-11-19 23:13:11,225 - model - INFO - Using cached results for lasso
+2025-11-19 23:13:11,225 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:13:11,228 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:13:11,228 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-19 23:13:11,258 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-19 23:13:11,390 - model - WARNING - Failed to cache model object for lasso_2: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:13:11,390 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-19 23:13:14,666 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_4596605613666988001
+2025-11-19 23:13:14,666 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:13:14,667 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:13:14,667 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-19 23:13:28,002 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-19 23:13:28,059 - model - WARNING - Failed to cache model object for decision_tree_3: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:13:28,060 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-19 23:13:29,551 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_4596605613666988001
+2025-11-19 23:13:29,554 - model - INFO - Using cached results for random_forest
+2025-11-19 23:13:29,554 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:13:29,554 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-19 23:13:29,978 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-19 23:13:29,979 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-19 23:13:31,833 - model - WARNING - Failed to cache model object for random_forest_4: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:13:31,833 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-19 23:14:08,398 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_4596605613666988001
+2025-11-19 23:14:08,398 - model - INFO - Using cached results for KNN
+2025-11-19 23:14:08,399 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:14:08,403 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:14:08,403 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-19 23:14:08,407 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-19 23:14:08,607 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-19 23:14:08,608 - model - WARNING - Failed to cache model object for KNN_5: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:08,608 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-19 23:14:14,851 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-19 23:14:14,852 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-19 23:14:14,853 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-19 23:14:14,854 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-19 23:14:14,866 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-19 23:14:14,893 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-19 23:14:14,893 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-19 23:14:14,893 - model - INFO - Training and evaluating linear
+2025-11-19 23:14:14,893 - model - INFO - Checking cache for linear with key: linear_[]_4596605613666988001
+2025-11-19 23:14:14,893 - model - INFO - Using cached results for linear
+2025-11-19 23:14:14,893 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:14:14,895 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:14:14,895 - model - INFO - Training linear model with params: {}
+2025-11-19 23:14:14,896 - model - INFO - Stored trained model with ID: linear_6
+2025-11-19 23:14:14,910 - model - WARNING - Failed to cache model object for linear_6: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:14,910 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-19 23:14:15,704 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-19 23:14:15,704 - model - INFO - Training and evaluating ridge
+2025-11-19 23:14:15,704 - model - INFO - Checking cache for ridge with key: ridge_[]_4596605613666988001
+2025-11-19 23:14:15,704 - model - INFO - Using cached results for ridge
+2025-11-19 23:14:15,705 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:14:15,706 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:14:15,706 - model - INFO - Training ridge model with params: {}
+2025-11-19 23:14:15,707 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-19 23:14:15,722 - model - WARNING - Failed to cache model object for ridge_7: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:15,722 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-19 23:14:16,390 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-19 23:14:16,390 - model - INFO - Training and evaluating lasso
+2025-11-19 23:14:16,390 - model - INFO - Checking cache for lasso with key: lasso_[]_4596605613666988001
+2025-11-19 23:14:16,390 - model - INFO - Using cached results for lasso
+2025-11-19 23:14:16,390 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:14:16,392 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:14:16,392 - model - INFO - Training lasso model with params: {}
+2025-11-19 23:14:16,394 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-19 23:14:16,411 - model - WARNING - Failed to cache model object for lasso_8: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:16,411 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-19 23:14:17,186 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-19 23:14:17,186 - model - INFO - Training and evaluating decision_tree
+2025-11-19 23:14:17,186 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_4596605613666988001
+2025-11-19 23:14:17,186 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:14:17,186 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:14:17,186 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-19 23:14:17,985 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-19 23:14:17,999 - model - WARNING - Failed to cache model object for decision_tree_9: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:17,999 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-19 23:14:18,749 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-19 23:14:18,749 - model - INFO - Training and evaluating random_forest
+2025-11-19 23:14:18,749 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_4596605613666988001
+2025-11-19 23:14:18,749 - model - INFO - Using cached results for random_forest
+2025-11-19 23:14:18,749 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:14:18,750 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-19 23:14:18,834 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-19 23:14:18,834 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-19 23:14:19,273 - model - WARNING - Failed to cache model object for random_forest_10: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:19,273 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-19 23:14:26,986 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-19 23:14:26,986 - model - INFO - Training and evaluating KNN
+2025-11-19 23:14:26,986 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-19 23:14:33,089 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-19 23:14:33,090 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_4596605613666988001
+2025-11-19 23:14:33,091 - model - INFO - Using cached results for KNN
+2025-11-19 23:14:33,091 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:14:33,094 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:14:33,095 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-19 23:14:33,095 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-19 23:14:33,146 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-19 23:14:33,147 - model - WARNING - Failed to cache model object for KNN_11: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:33,147 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-19 23:14:35,373 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-19 23:14:35,577 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-19 23:14:35,581 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_231435.json
+2025-11-19 23:14:35,581 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-19 23:14:42,211 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_4596605613666988001
+2025-11-19 23:14:42,212 - model - INFO - Using cached results for linear
+2025-11-19 23:14:42,212 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:14:42,215 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:14:42,215 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-19 23:14:42,217 - model - INFO - Stored trained model with ID: linear_0
+2025-11-19 23:14:42,239 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:42,239 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-19 23:14:43,589 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_4596605613666988001
+2025-11-19 23:14:43,589 - model - INFO - Using cached results for ridge
+2025-11-19 23:14:43,590 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:14:43,593 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:14:43,593 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-19 23:14:43,594 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-19 23:14:43,615 - model - WARNING - Failed to cache model object for ridge_1: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:43,615 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-19 23:14:44,788 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_4596605613666988001
+2025-11-19 23:14:44,788 - model - INFO - Using cached results for lasso
+2025-11-19 23:14:44,788 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:14:44,791 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:14:44,791 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-19 23:14:44,822 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-19 23:14:44,950 - model - WARNING - Failed to cache model object for lasso_2: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:14:44,950 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-19 23:14:48,402 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_4596605613666988001
+2025-11-19 23:14:48,403 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:14:48,403 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:14:48,403 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-19 23:15:01,931 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-19 23:15:02,006 - model - WARNING - Failed to cache model object for decision_tree_3: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:02,006 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-19 23:15:03,694 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_4596605613666988001
+2025-11-19 23:15:03,694 - model - INFO - Using cached results for random_forest
+2025-11-19 23:15:03,694 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:15:03,695 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-19 23:15:04,113 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-19 23:15:04,113 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-19 23:15:06,000 - model - WARNING - Failed to cache model object for random_forest_4: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:06,000 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-19 23:15:45,130 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_4596605613666988001
+2025-11-19 23:15:45,131 - model - INFO - Using cached results for KNN
+2025-11-19 23:15:45,131 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:15:45,136 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:15:45,136 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-19 23:15:45,138 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-19 23:15:45,344 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-19 23:15:45,345 - model - WARNING - Failed to cache model object for KNN_5: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:45,345 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-19 23:15:50,335 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-19 23:15:50,336 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-19 23:15:50,337 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-19 23:15:50,338 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-19 23:15:50,351 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-19 23:15:50,378 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-19 23:15:50,378 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-19 23:15:50,378 - model - INFO - Training and evaluating linear
+2025-11-19 23:15:50,378 - model - INFO - Checking cache for linear with key: linear_[]_4596605613666988001
+2025-11-19 23:15:50,379 - model - INFO - Using cached results for linear
+2025-11-19 23:15:50,379 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:15:50,380 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:15:50,380 - model - INFO - Training linear model with params: {}
+2025-11-19 23:15:50,381 - model - INFO - Stored trained model with ID: linear_6
+2025-11-19 23:15:50,394 - model - WARNING - Failed to cache model object for linear_6: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:50,394 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-19 23:15:51,056 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-19 23:15:51,056 - model - INFO - Training and evaluating ridge
+2025-11-19 23:15:51,056 - model - INFO - Checking cache for ridge with key: ridge_[]_4596605613666988001
+2025-11-19 23:15:51,056 - model - INFO - Using cached results for ridge
+2025-11-19 23:15:51,056 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:15:51,058 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:15:51,058 - model - INFO - Training ridge model with params: {}
+2025-11-19 23:15:51,058 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-19 23:15:51,071 - model - WARNING - Failed to cache model object for ridge_7: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:51,071 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-19 23:15:51,719 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-19 23:15:51,719 - model - INFO - Training and evaluating lasso
+2025-11-19 23:15:51,719 - model - INFO - Checking cache for lasso with key: lasso_[]_4596605613666988001
+2025-11-19 23:15:51,720 - model - INFO - Using cached results for lasso
+2025-11-19 23:15:51,720 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:15:51,721 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:15:51,721 - model - INFO - Training lasso model with params: {}
+2025-11-19 23:15:51,724 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-19 23:15:51,739 - model - WARNING - Failed to cache model object for lasso_8: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:51,739 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-19 23:15:52,545 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-19 23:15:52,545 - model - INFO - Training and evaluating decision_tree
+2025-11-19 23:15:52,545 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_4596605613666988001
+2025-11-19 23:15:52,545 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:15:52,545 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:15:52,545 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-19 23:15:53,332 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-19 23:15:53,348 - model - WARNING - Failed to cache model object for decision_tree_9: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:53,349 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-19 23:15:54,236 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-19 23:15:54,236 - model - INFO - Training and evaluating random_forest
+2025-11-19 23:15:54,236 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_4596605613666988001
+2025-11-19 23:15:54,236 - model - INFO - Using cached results for random_forest
+2025-11-19 23:15:54,237 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:15:54,237 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-19 23:15:54,322 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-19 23:15:54,322 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-19 23:15:54,772 - model - WARNING - Failed to cache model object for random_forest_10: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:15:54,772 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-19 23:16:02,636 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-19 23:16:02,636 - model - INFO - Training and evaluating KNN
+2025-11-19 23:16:02,636 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-19 23:16:05,988 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-19 23:16:05,988 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_4596605613666988001
+2025-11-19 23:16:05,989 - model - INFO - Using cached results for KNN
+2025-11-19 23:16:05,989 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:16:05,991 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:16:05,991 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-19 23:16:05,992 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-19 23:16:06,037 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-19 23:16:06,058 - model - WARNING - Failed to cache model object for KNN_11: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:16:06,059 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-19 23:16:08,192 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-19 23:16:08,424 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-19 23:16:08,427 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_231608.json
+2025-11-19 23:16:08,427 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-19 23:17:20,234 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-4555916324410982067
+2025-11-19 23:17:20,235 - model - INFO - Using cached results for linear
+2025-11-19 23:17:20,235 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:17:20,238 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:17:20,239 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-19 23:17:20,240 - model - INFO - Stored trained model with ID: linear_0
+2025-11-19 23:17:20,260 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:17:20,260 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-19 23:17:21,926 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-4555916324410982067
+2025-11-19 23:17:21,926 - model - INFO - Using cached results for ridge
+2025-11-19 23:17:21,927 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:17:21,929 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:17:21,929 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-19 23:17:21,931 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-19 23:17:21,949 - model - WARNING - Failed to cache model object for ridge_1: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:17:21,949 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-19 23:17:23,165 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-4555916324410982067
+2025-11-19 23:17:23,166 - model - INFO - Using cached results for lasso
+2025-11-19 23:17:23,166 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:17:23,169 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:17:23,169 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-19 23:17:23,199 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-19 23:17:23,326 - model - WARNING - Failed to cache model object for lasso_2: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:17:23,327 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-19 23:17:26,690 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-4555916324410982067
+2025-11-19 23:17:26,691 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:17:26,691 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:17:26,691 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-19 23:17:39,646 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-19 23:17:39,677 - model - WARNING - Failed to cache model object for decision_tree_3: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:17:39,677 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-19 23:17:41,333 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-4555916324410982067
+2025-11-19 23:17:41,333 - model - INFO - Using cached results for random_forest
+2025-11-19 23:17:41,333 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:17:41,334 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-19 23:17:41,737 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-19 23:17:41,737 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-19 23:17:43,534 - model - WARNING - Failed to cache model object for random_forest_4: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:17:43,535 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-19 23:18:19,624 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-4555916324410982067
+2025-11-19 23:18:19,624 - model - INFO - Using cached results for KNN
+2025-11-19 23:18:19,625 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:18:19,627 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:18:19,628 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-19 23:18:19,631 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-19 23:18:19,811 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-19 23:18:19,812 - model - WARNING - Failed to cache model object for KNN_5: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:19,812 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-19 23:18:25,983 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-19 23:18:25,984 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-19 23:18:25,985 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-19 23:18:25,985 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-19 23:18:25,997 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-19 23:18:26,023 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-19 23:18:26,023 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-19 23:18:26,023 - model - INFO - Training and evaluating linear
+2025-11-19 23:18:26,023 - model - INFO - Checking cache for linear with key: linear_[]_-4555916324410982067
+2025-11-19 23:18:26,023 - model - INFO - Using cached results for linear
+2025-11-19 23:18:26,024 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:18:26,025 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:18:26,025 - model - INFO - Training linear model with params: {}
+2025-11-19 23:18:26,026 - model - INFO - Stored trained model with ID: linear_6
+2025-11-19 23:18:26,039 - model - WARNING - Failed to cache model object for linear_6: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:26,039 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-19 23:18:26,816 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-19 23:18:26,816 - model - INFO - Training and evaluating ridge
+2025-11-19 23:18:26,816 - model - INFO - Checking cache for ridge with key: ridge_[]_-4555916324410982067
+2025-11-19 23:18:26,817 - model - INFO - Using cached results for ridge
+2025-11-19 23:18:26,817 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:18:26,818 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:18:26,818 - model - INFO - Training ridge model with params: {}
+2025-11-19 23:18:26,819 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-19 23:18:26,832 - model - WARNING - Failed to cache model object for ridge_7: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:26,832 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-19 23:18:27,489 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-19 23:18:27,489 - model - INFO - Training and evaluating lasso
+2025-11-19 23:18:27,489 - model - INFO - Checking cache for lasso with key: lasso_[]_-4555916324410982067
+2025-11-19 23:18:27,489 - model - INFO - Using cached results for lasso
+2025-11-19 23:18:27,489 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:18:27,491 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:18:27,491 - model - INFO - Training lasso model with params: {}
+2025-11-19 23:18:27,493 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-19 23:18:27,508 - model - WARNING - Failed to cache model object for lasso_8: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:27,508 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-19 23:18:28,281 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-19 23:18:28,281 - model - INFO - Training and evaluating decision_tree
+2025-11-19 23:18:28,281 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-4555916324410982067
+2025-11-19 23:18:28,281 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:18:28,281 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:18:28,282 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-19 23:18:29,067 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-19 23:18:29,080 - model - WARNING - Failed to cache model object for decision_tree_9: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:29,080 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-19 23:18:29,877 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-19 23:18:29,877 - model - INFO - Training and evaluating random_forest
+2025-11-19 23:18:29,877 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-4555916324410982067
+2025-11-19 23:18:29,878 - model - INFO - Using cached results for random_forest
+2025-11-19 23:18:29,878 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:18:29,878 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-19 23:18:29,965 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-19 23:18:29,965 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-19 23:18:30,403 - model - WARNING - Failed to cache model object for random_forest_10: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:30,403 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-19 23:18:37,839 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-19 23:18:37,840 - model - INFO - Training and evaluating KNN
+2025-11-19 23:18:37,840 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-19 23:18:42,445 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-19 23:18:42,446 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-4555916324410982067
+2025-11-19 23:18:42,447 - model - INFO - Using cached results for KNN
+2025-11-19 23:18:42,447 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:18:42,449 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:18:42,450 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-19 23:18:42,450 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-19 23:18:42,501 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-19 23:18:42,502 - model - WARNING - Failed to cache model object for KNN_11: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:42,502 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-19 23:18:44,640 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-19 23:18:44,812 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-19 23:18:44,814 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_231844.json
+2025-11-19 23:18:44,815 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-19 23:18:51,544 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-4555916324410982067
+2025-11-19 23:18:51,545 - model - INFO - Using cached results for linear
+2025-11-19 23:18:51,545 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:18:51,548 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:18:51,548 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-19 23:18:51,550 - model - INFO - Stored trained model with ID: linear_0
+2025-11-19 23:18:51,574 - model - WARNING - Failed to cache model object for linear_0: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:51,574 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-19 23:18:52,955 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-4555916324410982067
+2025-11-19 23:18:52,955 - model - INFO - Using cached results for ridge
+2025-11-19 23:18:52,955 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:18:52,958 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:18:52,959 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-19 23:18:52,959 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-19 23:18:52,979 - model - WARNING - Failed to cache model object for ridge_1: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:52,979 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-19 23:18:54,402 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-4555916324410982067
+2025-11-19 23:18:54,403 - model - INFO - Using cached results for lasso
+2025-11-19 23:18:54,403 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:18:54,406 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:18:54,406 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-19 23:18:54,437 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-19 23:18:54,562 - model - WARNING - Failed to cache model object for lasso_2: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:18:54,562 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-19 23:18:58,019 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-4555916324410982067
+2025-11-19 23:18:58,019 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:18:58,019 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:18:58,019 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-19 23:19:10,996 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-19 23:19:11,029 - model - WARNING - Failed to cache model object for decision_tree_3: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:11,030 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-19 23:19:12,805 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-4555916324410982067
+2025-11-19 23:19:12,805 - model - INFO - Using cached results for random_forest
+2025-11-19 23:19:12,805 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:19:12,806 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-19 23:19:13,218 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-19 23:19:13,218 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-19 23:19:14,992 - model - WARNING - Failed to cache model object for random_forest_4: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:14,992 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-19 23:19:50,894 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-4555916324410982067
+2025-11-19 23:19:50,895 - model - INFO - Using cached results for KNN
+2025-11-19 23:19:50,895 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:19:50,898 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:19:50,898 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-19 23:19:50,900 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-19 23:19:51,093 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-19 23:19:51,093 - model - WARNING - Failed to cache model object for KNN_5: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:51,094 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-19 23:19:56,447 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-19 23:19:56,449 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-19 23:19:56,450 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-19 23:19:56,451 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-19 23:19:56,464 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-19 23:19:56,491 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-19 23:19:56,492 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-19 23:19:56,492 - model - INFO - Training and evaluating linear
+2025-11-19 23:19:56,492 - model - INFO - Checking cache for linear with key: linear_[]_-4555916324410982067
+2025-11-19 23:19:56,492 - model - INFO - Using cached results for linear
+2025-11-19 23:19:56,493 - model - INFO - Model object not cached, retraining linear
+2025-11-19 23:19:56,494 - model - INFO - Applied RobustScaler to features for linear
+2025-11-19 23:19:56,494 - model - INFO - Training linear model with params: {}
+2025-11-19 23:19:56,495 - model - INFO - Stored trained model with ID: linear_6
+2025-11-19 23:19:56,509 - model - WARNING - Failed to cache model object for linear_6: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:56,509 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-19 23:19:57,182 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-19 23:19:57,182 - model - INFO - Training and evaluating ridge
+2025-11-19 23:19:57,182 - model - INFO - Checking cache for ridge with key: ridge_[]_-4555916324410982067
+2025-11-19 23:19:57,183 - model - INFO - Using cached results for ridge
+2025-11-19 23:19:57,183 - model - INFO - Model object not cached, retraining ridge
+2025-11-19 23:19:57,185 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-19 23:19:57,185 - model - INFO - Training ridge model with params: {}
+2025-11-19 23:19:57,186 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-19 23:19:57,199 - model - WARNING - Failed to cache model object for ridge_7: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:57,199 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-19 23:19:57,883 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-19 23:19:57,883 - model - INFO - Training and evaluating lasso
+2025-11-19 23:19:57,883 - model - INFO - Checking cache for lasso with key: lasso_[]_-4555916324410982067
+2025-11-19 23:19:57,883 - model - INFO - Using cached results for lasso
+2025-11-19 23:19:57,883 - model - INFO - Model object not cached, retraining lasso
+2025-11-19 23:19:57,885 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-19 23:19:57,885 - model - INFO - Training lasso model with params: {}
+2025-11-19 23:19:57,888 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-19 23:19:57,907 - model - WARNING - Failed to cache model object for lasso_8: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:57,907 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-19 23:19:58,762 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-19 23:19:58,762 - model - INFO - Training and evaluating decision_tree
+2025-11-19 23:19:58,762 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-4555916324410982067
+2025-11-19 23:19:58,763 - model - INFO - Using cached results for decision_tree
+2025-11-19 23:19:58,763 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-19 23:19:58,763 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-19 23:19:59,596 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-19 23:19:59,610 - model - WARNING - Failed to cache model object for decision_tree_9: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:19:59,610 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-19 23:20:00,395 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-19 23:20:00,395 - model - INFO - Training and evaluating random_forest
+2025-11-19 23:20:00,395 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-4555916324410982067
+2025-11-19 23:20:00,395 - model - INFO - Using cached results for random_forest
+2025-11-19 23:20:00,395 - model - INFO - Model object not cached, retraining random_forest
+2025-11-19 23:20:00,396 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-19 23:20:00,479 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-19 23:20:00,479 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-19 23:20:00,935 - model - WARNING - Failed to cache model object for random_forest_10: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:20:00,935 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-19 23:20:09,081 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-19 23:20:09,082 - model - INFO - Training and evaluating KNN
+2025-11-19 23:20:09,082 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-19 23:20:12,457 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-19 23:20:12,457 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-4555916324410982067
+2025-11-19 23:20:12,458 - model - INFO - Using cached results for KNN
+2025-11-19 23:20:12,458 - model - INFO - Model object not cached, retraining KNN
+2025-11-19 23:20:12,460 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-19 23:20:12,461 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-19 23:20:12,461 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-19 23:20:12,505 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-19 23:20:12,505 - model - WARNING - Failed to cache model object for KNN_11: module 'joblib' has no attribute 'dumps'
+2025-11-19 23:20:12,505 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-19 23:20:14,704 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-19 23:20:14,924 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-19 23:20:14,928 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_232014.json
+2025-11-19 23:20:14,928 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)

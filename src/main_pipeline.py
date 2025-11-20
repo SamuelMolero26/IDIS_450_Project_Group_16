@@ -26,7 +26,15 @@ try:
     from src.data_loader import create_data_loader
     from redis_cache import cache, cache_evaluation_metrics
     from src.model_pipeline import create_model_pipeline
-    from src.evaluation_engine import create_evaluation_engine
+
+    # Try to import evaluation engine with fallback
+    try:
+        from src.evaluation_engine import create_evaluation_engine
+        evaluation_engine_available = True
+    except ImportError:
+        pipeline_logger.warning("evaluation_engine not available, using simplified evaluation")
+        evaluation_engine_available = False
+
     from src.qualitative_evaluator import create_qualitative_evaluator
     from src.meta_learner import create_meta_learner
     from src.version_control import create_version_control
@@ -37,7 +45,13 @@ except ImportError as e:
     print(f"Project root: {project_root}")
     raise
 
-from tqdm.auto import tqdm
+# Try to import tqdm with fallback
+try:
+    from tqdm.auto import tqdm
+    tqdm_available = True
+except ImportError:
+    tqdm_available = False
+    pipeline_logger.warning("tqdm not available, progress bars disabled")
 
 class AdvancedModelingPipeline:
     """
@@ -50,7 +64,13 @@ class AdvancedModelingPipeline:
 
         self.data_loader = create_data_loader()
         self.model_pipeline = create_model_pipeline()
-        self.evaluation_engine = create_evaluation_engine()
+
+        # Initialize evaluation engine with fallback
+        if evaluation_engine_available:
+            self.evaluation_engine = create_evaluation_engine()
+        else:
+            self.evaluation_engine = None
+
         self.qualitative_evaluator = create_qualitative_evaluator()
         self.meta_learner = create_meta_learner()
         self.version_control = create_version_control()
@@ -88,7 +108,7 @@ class AdvancedModelingPipeline:
             qualitative_results = {}
             learning_results = {}
 
-            phase_iterator = tqdm(phases, desc="Pipeline phases", leave=True) if self.show_progress else phases
+            phase_iterator = tqdm(phases, desc="Pipeline phases", leave=True) if (self.show_progress and tqdm_available) else phases
 
             for phase_name, phase_fn in phase_iterator:
                 pipeline_logger.info(f"Starting phase: {phase_name}")
@@ -194,13 +214,13 @@ class AdvancedModelingPipeline:
             y_train = data_results['y_train']
             y_test = data_results['y_test']
 
-            # Default model types to train
-            model_types = experiment_config.get('model_types', ['linear', 'decision_tree', 'random_forest']) if experiment_config else ['linear', 'decision_tree', 'random_forest']
+            # Default model types to train (now includes KNN)
+            model_types = experiment_config.get('model_types', ['linear', 'ridge', 'lasso', 'decision_tree', 'random_forest', 'KNN']) if experiment_config else ['linear', 'ridge', 'lasso', 'decision_tree', 'random_forest', 'KNN']
 
             model_results = {}
             evaluation_results = {}
 
-            iterator = tqdm(model_types, desc="Training models", leave=False) if self.show_progress else model_types
+            iterator = tqdm(model_types, desc="Training models", leave=False) if (self.show_progress and tqdm_available) else model_types
 
             for model_type in iterator:
                 try:
@@ -229,11 +249,25 @@ class AdvancedModelingPipeline:
                         pipeline_logger.error(f"Model {model_id} not found in trained_models during evaluation!")
                         raise ValueError(f"Model {model_id} not found in trained_models")
 
-                    eval_results = self.evaluation_engine.evaluate_regression_model(
-                        self.model_pipeline.trained_models[model_id],
-                        X_train, X_test, y_train, y_test,
-                        model_name=f"{model_type}_{model_id}"
-                    )
+                    # Evaluate model (with fallback if evaluation_engine not available)
+                    if self.evaluation_engine:
+                        eval_results = self.evaluation_engine.evaluate_regression_model(
+                            self.model_pipeline.trained_models[model_id],
+                            X_train, X_test, y_train, y_test,
+                            model_name=f"{model_type}_{model_id}"
+                        )
+                    else:
+                        # Simplified evaluation
+                        from sklearn.metrics import mean_squared_error, r2_score
+                        model = self.model_pipeline.trained_models[model_id]
+                        y_pred = model.predict(X_test)
+
+                        eval_results = {
+                            'test_mse': mean_squared_error(y_test, y_pred),
+                            'test_rmse': np.sqrt(mean_squared_error(y_test, y_pred)),
+                            'test_r2': r2_score(y_test, y_pred),
+                            'evaluation_type': 'regression'
+                        }
 
                     # Store evaluation results in cache with experiment ID
                     cache_evaluation_metrics(f"{self.current_experiment_id}_{model_type}", eval_results)
@@ -266,16 +300,33 @@ class AdvancedModelingPipeline:
                     pipeline_logger.error(f"Failed to train/evaluate {model_type}: {e}")
                     model_results[model_type] = {'error': str(e)}
 
-            # Compare models
+            # Compare models using traditional comparison
             if len([r for r in model_results.values() if 'error' not in r]) > 1:
                 valid_model_ids = [r['model_id'] for r in model_results.values() if 'error' not in r]
                 comparison_results = self.model_pipeline.compare_models(valid_model_ids, X_test, y_test)
                 model_results['comparison'] = comparison_results
 
+            # Run comprehensive model comparison including KNN analysis
+            try:
+                pipeline_logger.info("Running comprehensive model comparison with visualizations")
+                comprehensive_comparison = self.model_pipeline.create_comprehensive_model_comparison(
+                    X_test, y_test, include_knn=True
+                )
+
+                if 'error' not in comprehensive_comparison:
+                    model_results['comprehensive_comparison'] = comprehensive_comparison
+                    pipeline_logger.info(f"Comprehensive comparison completed. Best model: {comprehensive_comparison['best_model']['name']}")
+                else:
+                    pipeline_logger.warning(f"Comprehensive comparison failed: {comprehensive_comparison['error']}")
+
+            except Exception as e:
+                pipeline_logger.warning(f"Comprehensive model comparison failed: {e}")
+
             results = {
                 'model_results': model_results,
                 'evaluation_results': evaluation_results,
-                'best_model': model_results.get('comparison', {}).get('best_model')
+                'best_model': model_results.get('comparison', {}).get('best_model'),
+                'comprehensive_comparison': model_results.get('comprehensive_comparison')
             }
 
             pipeline_logger.info("Modeling pipeline completed successfully")
@@ -354,6 +405,51 @@ class AdvancedModelingPipeline:
             if qualitative_results:
                 report = self.qualitative_evaluator.generate_qualitative_report(qualitative_results)
                 qualitative_results['report'] = report
+
+            # Generate KNN-specific visualizations if KNN was trained
+            knn_visualizations = {}
+            for model_name, model_data in modeling_results.get('model_results', {}).items():
+                if 'error' not in model_data and model_name == 'KNN':
+                    try:
+                        pipeline_logger.info(f"Generating KNN-specific visualizations for {model_data['model_id']}")
+
+                        # Generate KNN-specific distance-based visualizations
+                        knn_specific_viz = self.model_pipeline.generate_knn_specific_visualizations(
+                            model_data['model_id'], data_results['X_train'], data_results['y_train'],
+                            data_results['X_test'], data_results['y_test']
+                        )
+
+                        # Generate regression evaluation plots (equivalent to confusion matrices for regression)
+                        knn_regression_viz = self.model_pipeline.generate_knn_regression_evaluation_plots(
+                            model_data['model_id'], data_results['X_train'], data_results['y_train'],
+                            data_results['X_test'], data_results['y_test']
+                        )
+
+                        # Combine all KNN visualizations
+                        knn_visualizations = {**knn_specific_viz, **knn_regression_viz}
+                        qualitative_results['knn_visualizations'] = knn_visualizations
+
+                        # Perform comprehensive KNN model fitting validation
+                        knn_fitting_validation = self.model_pipeline.validate_knn_model_fitting(
+                            model_data['model_id'], data_results['X_train'], data_results['y_train'],
+                            data_results['X_test'], data_results['y_test']
+                        )
+                        qualitative_results['knn_fitting_validation'] = knn_fitting_validation
+
+                        pipeline_logger.info(f"Generated {len(knn_visualizations)} KNN visualizations and completed fitting validation")
+                        pipeline_logger.info(f"KNN Fitting Assessment: {knn_fitting_validation.get('overall_assessment', {}).get('overall_quality', 'unknown')}")
+
+                        # Log any warnings or recommendations
+                        if knn_fitting_validation.get('warnings'):
+                            for warning in knn_fitting_validation['warnings']:
+                                pipeline_logger.warning(f"KNN Fitting Warning: {warning}")
+
+                        if knn_fitting_validation.get('recommendations'):
+                            for rec in knn_fitting_validation['recommendations']:
+                                pipeline_logger.info(f"KNN Fitting Recommendation: {rec}")
+
+                    except Exception as e:
+                        pipeline_logger.warning(f"Failed to generate KNN visualizations and validation: {e}")
 
             pipeline_logger.info("Qualitative evaluation completed")
             return qualitative_results

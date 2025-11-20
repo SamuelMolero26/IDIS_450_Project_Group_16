@@ -1,0 +1,1115 @@
+{
+  "experiment_id": "815b0d12",
+  "timestamp": "2025-11-19T19:51:01.706718",
+  "data_results": {
+    "dataset_version": "dataset_f8964de85981",
+    "data_hash": "f8964de859813923",
+    "X_train": "      Order Quantity  Discount Applied  ...  Sales Channel  WarehouseCode\n4296        0.214124         -0.754305  ...              1              4\n1372       -1.087490         -0.170959  ...              1              3\n5978       -0.219747         -0.462632  ...              1              4\n1317       -0.219747          0.995733  ...              1              4\n622         1.081867         -0.462632  ...              2              2\n...              ...               ...  ...            ...            ...\n5226       -1.521361         -0.754305  ...              1              2\n5390        1.081867         -0.462632  ...              2              2\n860         0.647995         -0.754305  ...              0              3\n7603       -0.653619         -0.170959  ...              1              5\n7270        0.214124         -0.754305  ...              3              2\n\n[6357 rows x 11 columns]",
+    "X_test": "      Order Quantity  Discount Applied  ...  Sales Channel  WarehouseCode\n1163        0.214124          0.412387  ...              1              1\n2283        1.515738         -0.754305  ...              1              5\n5196       -1.521361         -0.170959  ...              1              1\n1421        1.515738          0.995733  ...              1              5\n3297        0.214124         -0.754305  ...              0              2\n...              ...               ...  ...            ...            ...\n339        -1.521361         -0.754305  ...              1              2\n121        -0.219747         -0.462632  ...              1              5\n5153        0.214124         -0.462632  ...              1              3\n6782       -1.087490          3.329116  ...              3              0\n1090        1.515738         -0.462632  ...              1              4\n\n[1590 rows x 11 columns]",
+    "y_train": "[ 4296.375   325.62  20674.86  ... 17758.35    578.88   5187.475]",
+    "y_test": "[ 4328.2    15174.16    1676.34   ...  5360.8375  1222.08   29549.68  ]",
+    "feature_columns": [
+      "Order Quantity",
+      "Discount Applied",
+      "Unit Cost",
+      "Unit Price",
+      "Procurement_to_Order_Days",
+      "Order_to_Ship_Days",
+      "Ship_to_Delivery_Days",
+      "Total_Lead_Time",
+      "Profit_Margin",
+      "Sales Channel",
+      "WarehouseCode"
+    ],
+    "data_quality": {
+      "total_rows": 7947,
+      "total_columns": 25,
+      "missing_values": {
+        "OrderNumber": 0,
+        "Sales Channel": 0,
+        "WarehouseCode": 0,
+        "ProcuredDate": 0,
+        "OrderDate": 0,
+        "ShipDate": 0,
+        "DeliveryDate": 0,
+        "Order Quantity": 0,
+        "Discount Applied": 0,
+        "Unit Cost": 0,
+        "Unit Price": 0,
+        "Procurement_to_Order_Days": 0,
+        "Order_to_Ship_Days": 0,
+        "Ship_to_Delivery_Days": 0,
+        "Total_Lead_Time": 0,
+        "Profit_Margin": 0,
+        "Total_Revenue": 0,
+        "Price_Quantity_Interaction": 0,
+        "Cost_Quantity_Interaction": 0,
+        "Discount_Price_Interaction": 0,
+        "Margin_Quantity_Interaction": 0,
+        "LeadTime_Quantity_Interaction": 0,
+        "Price_Cost_Ratio": 0,
+        "Discount_Margin_Interaction": 0,
+        "iso_forest_outlier": 0
+      },
+      "missing_percentage": {
+        "OrderNumber": 0.0,
+        "Sales Channel": 0.0,
+        "WarehouseCode": 0.0,
+        "ProcuredDate": 0.0,
+        "OrderDate": 0.0,
+        "ShipDate": 0.0,
+        "DeliveryDate": 0.0,
+        "Order Quantity": 0.0,
+        "Discount Applied": 0.0,
+        "Unit Cost": 0.0,
+        "Unit Price": 0.0,
+        "Procurement_to_Order_Days": 0.0,
+        "Order_to_Ship_Days": 0.0,
+        "Ship_to_Delivery_Days": 0.0,
+        "Total_Lead_Time": 0.0,
+        "Profit_Margin": 0.0,
+        "Total_Revenue": 0.0,
+        "Price_Quantity_Interaction": 0.0,
+        "Cost_Quantity_Interaction": 0.0,
+        "Discount_Price_Interaction": 0.0,
+        "Margin_Quantity_Interaction": 0.0,
+        "LeadTime_Quantity_Interaction": 0.0,
+        "Price_Cost_Ratio": 0.0,
+        "Discount_Margin_Interaction": 0.0,
+        "iso_forest_outlier": 0.0
+      },
+      "duplicate_rows": "0",
+      "data_types": {
+        "OrderNumber": "object",
+        "Sales Channel": "object",
+        "WarehouseCode": "object",
+        "ProcuredDate": "object",
+        "OrderDate": "object",
+        "ShipDate": "object",
+        "DeliveryDate": "object",
+        "Order Quantity": "int64",
+        "Discount Applied": "float64",
+        "Unit Cost": "float64",
+        "Unit Price": "float64",
+        "Procurement_to_Order_Days": "int64",
+        "Order_to_Ship_Days": "int64",
+        "Ship_to_Delivery_Days": "int64",
+        "Total_Lead_Time": "int64",
+        "Profit_Margin": "float64",
+        "Total_Revenue": "float64",
+        "Price_Quantity_Interaction": "float64",
+        "Cost_Quantity_Interaction": "float64",
+        "Discount_Price_Interaction": "float64",
+        "Margin_Quantity_Interaction": "float64",
+        "LeadTime_Quantity_Interaction": "int64",
+        "Price_Cost_Ratio": "float64",
+        "Discount_Margin_Interaction": "float64",
+        "iso_forest_outlier": "int64"
+      },
+      "numeric_stats": {
+        "Order Quantity": {
+          "mean": 4.506480432867749,
+          "std": 2.304975965836571,
+          "min": "1",
+          "max": "8",
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Discount Applied": {
+          "mean": 0.11465332829998741,
+          "std": 0.08571784202787797,
+          "min": 0.05,
+          "max": 0.4,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Unit Cost": {
+          "mean": 1419.7410142192023,
+          "std": 1101.9166870117972,
+          "min": 68.68,
+          "max": 5498.56,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Unit Price": {
+          "mean": 2262.929847741286,
+          "std": 1652.151557523842,
+          "min": 167.5,
+          "max": 6566.0,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Procurement_to_Order_Days": {
+          "mean": 109.23467975336605,
+          "std": 34.372768348052524,
+          "min": "31",
+          "max": "189",
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Order_to_Ship_Days": {
+          "mean": 15.175286271549012,
+          "std": 7.800308052670308,
+          "min": "2",
+          "max": "28",
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Ship_to_Delivery_Days": {
+          "mean": 5.500314584119794,
+          "std": 2.8555885129938408,
+          "min": "1",
+          "max": "10",
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Total_Lead_Time": {
+          "mean": 129.91028060903486,
+          "std": 35.294790748403685,
+          "min": "40",
+          "max": "219",
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Profit_Margin": {
+          "mean": 0.482139971200698,
+          "std": 0.36523459449160267,
+          "min": -0.2941232302459858,
+          "max": 1.3750000000000002,
+          "zeros": "28",
+          "negatives": "374"
+        },
+        "Total_Revenue": {
+          "mean": 8950.781239461432,
+          "std": 8518.465447484816,
+          "min": 100.5,
+          "max": 42823.719999999994,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Price_Quantity_Interaction": {
+          "mean": 10133.929998741663,
+          "std": 9623.795178822911,
+          "min": 167.5,
+          "max": 52045.6,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Cost_Quantity_Interaction": {
+          "mean": 6361.159602365672,
+          "std": 6345.236524091536,
+          "min": 73.7,
+          "max": 42308.08,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Discount_Price_Interaction": {
+          "mean": 262.53804989304143,
+          "std": 317.5135576551328,
+          "min": 8.375,
+          "max": 2604.96,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Margin_Quantity_Interaction": {
+          "mean": 2.1748901690382083,
+          "std": 2.1615214781378387,
+          "min": -2.3529411764705883,
+          "max": 11.0,
+          "zeros": "28",
+          "negatives": "374"
+        },
+        "LeadTime_Quantity_Interaction": {
+          "mean": 584.9320498301246,
+          "std": 349.5491114813352,
+          "min": "40",
+          "max": "1728",
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Price_Cost_Ratio": {
+          "mean": 1.6741148066811917,
+          "std": 0.37701066092529,
+          "min": 1.1764292737735804,
+          "max": 2.4999999999999027,
+          "zeros": "0",
+          "negatives": "0"
+        },
+        "Discount_Margin_Interaction": {
+          "mean": 0.04292649151360255,
+          "std": 0.043020863760954584,
+          "min": -0.1176492920983943,
+          "max": 0.2249999999999999,
+          "zeros": "28",
+          "negatives": "374"
+        },
+        "iso_forest_outlier": {
+          "mean": 0.05008179187114634,
+          "std": 0.21812746986083326,
+          "min": "0",
+          "max": "1",
+          "zeros": "7549",
+          "negatives": "0"
+        }
+      },
+      "outlier_summary": {
+        "iso_forest_outlier": {
+          "outlier_count": 398,
+          "outlier_percentage": 5.008179187114634
+        }
+      }
+    },
+    "data_info": {
+      "data_hash": "f8964de859813923",
+      "feature_columns": [
+        "Order Quantity",
+        "Discount Applied",
+        "Unit Cost",
+        "Unit Price",
+        "Procurement_to_Order_Days",
+        "Order_to_Ship_Days",
+        "Ship_to_Delivery_Days",
+        "Total_Lead_Time",
+        "Profit_Margin",
+        "Sales Channel",
+        "WarehouseCode"
+      ],
+      "target_column": "Total_Revenue",
+      "scaler_params": {
+        "mean": [
+          4.506480432867749,
+          0.11465332829998741,
+          1419.7410142192023,
+          2262.929847741286,
+          109.23467975336605,
+          15.175286271549012,
+          5.500314584119794,
+          129.91028060903486,
+          0.482139971200698
+        ],
+        "scale": [
+          2.3048309395070574,
+          0.08571244876383212,
+          1101.8473557324626,
+          1652.0476061248953,
+          34.370605654600354,
+          7.7998172666219,
+          2.8554088427817526,
+          35.29257004240542,
+          0.36521161436797644
+        ]
+      },
+      "label_encoders": {
+        "Sales Channel": [
+          "Distributor",
+          "In-Store",
+          "Online",
+          "Wholesale"
+        ],
+        "WarehouseCode": [
+          "WARE-MKL1006",
+          "WARE-NBV1002",
+          "WARE-NMK1003",
+          "WARE-PUJ1005",
+          "WARE-UHY1004",
+          "WARE-XYS1001"
+        ]
+      }
+    }
+  },
+  "modeling_results": {
+    "model_results": {
+      "linear": {
+        "model_id": "linear_0",
+        "version": "model_linear_dae1155e8a67",
+        "training": {
+          "model_id": "linear_0",
+          "model_type": "linear",
+          "task_type": "regression",
+          "parameters": {
+            "fit_intercept": true,
+            "polynomial_degree": 1
+          },
+          "training_time": 0.003229,
+          "metrics": {
+            "train_mse": 11158547.880238915,
+            "train_rmse": 3340.4412702873424,
+            "train_r2": 0.8428458595168257,
+            "cv_mse_mean": 11212237.028951354,
+            "cv_mse_std": 427386.9134830236,
+            "cv_rmse_mean": 3348.467862911537
+          },
+          "overfitting_indicators": {
+            "mse_train_cv_ratio": 1.0048114816810096,
+            "overfitting_risk": "low",
+            "cv_stability_score": 2.3397947589355994e-06
+          },
+          "feature_names": [
+            "Discount Applied",
+            "Order Quantity",
+            "Order_to_Ship_Days",
+            "Procurement_to_Order_Days",
+            "Profit_Margin",
+            "Sales Channel",
+            "Ship_to_Delivery_Days",
+            "Total_Lead_Time",
+            "Unit Cost",
+            "Unit Price",
+            "WarehouseCode"
+          ],
+          "feature_importance": null,
+          "coefficients": {
+            "Order Quantity": 9744.256301662508,
+            "Discount Applied": -912.0362298784186,
+            "Unit Cost": 562.4878088833509,
+            "Unit Price": 8926.728139234978,
+            "Procurement_to_Order_Days": 52.22271748994548,
+            "Order_to_Ship_Days": -32.302392573461674,
+            "Ship_to_Delivery_Days": 83.3233703876099,
+            "Total_Lead_Time": 51.537782026664445,
+            "Profit_Margin": 116.34019167564098,
+            "Sales Channel": -126.02882956799905,
+            "WarehouseCode": 14.320125301786742
+          },
+          "training_timestamp": "2025-11-19T19:50:32.063217"
+        },
+        "evaluation": {
+          "test_mse": 52201409.513366945,
+          "test_rmse": 7225.054291378505,
+          "test_r2": 0.3341259742910192,
+          "evaluation_type": "regression"
+        },
+        "warm_start": {
+          "model_type": "linear",
+          "recommended_config": {
+            "fit_intercept": true,
+            "polynomial_degree": 1
+          },
+          "confidence": 0.5,
+          "inspired_by_experiments": 0,
+          "performance_expectation": 0.5
+        }
+      },
+      "decision_tree": {
+        "model_id": "decision_tree_1",
+        "version": "model_decision_tree_d6aaeaa7e7da",
+        "training": {
+          "model_id": "decision_tree_1",
+          "model_type": "decision_tree",
+          "task_type": "regression",
+          "parameters": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_features": "sqrt",
+            "criterion": "squared_error",
+            "ccp_alpha": 0.0,
+            "splitter": "best"
+          },
+          "training_time": 0.006731,
+          "metrics": {
+            "train_mse": 3177446.29529616,
+            "train_rmse": 1782.5392829601708,
+            "train_r2": 0.9552496573184912,
+            "cv_mse_mean": 8854333.744327523,
+            "cv_mse_std": 3529637.2933768905,
+            "cv_rmse_mean": 2975.623253089598
+          },
+          "overfitting_indicators": {
+            "mse_train_cv_ratio": 2.7866194803781057,
+            "overfitting_risk": "high",
+            "cv_stability_score": 2.8331514928213106e-07
+          },
+          "feature_names": [
+            "Discount Applied",
+            "Order Quantity",
+            "Order_to_Ship_Days",
+            "Procurement_to_Order_Days",
+            "Profit_Margin",
+            "Sales Channel",
+            "Ship_to_Delivery_Days",
+            "Total_Lead_Time",
+            "Unit Cost",
+            "Unit Price",
+            "WarehouseCode"
+          ],
+          "feature_importance": {
+            "Order Quantity": 0.3753561478995637,
+            "Discount Applied": 0.011652365786363148,
+            "Unit Cost": 0.10562550111058298,
+            "Unit Price": 0.48100550196034264,
+            "Procurement_to_Order_Days": 0.002617031591131367,
+            "Order_to_Ship_Days": 0.003042680812681935,
+            "Ship_to_Delivery_Days": 0.0020211042902915357,
+            "Total_Lead_Time": 0.004740141238790011,
+            "Profit_Margin": 0.012202765401320814,
+            "Sales Channel": 0.000631794853728638,
+            "WarehouseCode": 0.0011049650552033307
+          },
+          "coefficients": null,
+          "training_timestamp": "2025-11-19T19:50:46.541562"
+        },
+        "evaluation": {
+          "test_mse": 6568420.782996537,
+          "test_rmse": 2562.8930494651036,
+          "test_r2": 0.9162141246740765,
+          "evaluation_type": "regression"
+        },
+        "warm_start": {
+          "model_type": "decision_tree",
+          "recommended_config": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_features": "sqrt",
+            "criterion": "squared_error",
+            "ccp_alpha": 0.0,
+            "splitter": "best"
+          },
+          "confidence": 0.5,
+          "inspired_by_experiments": 0,
+          "performance_expectation": 0.5
+        }
+      },
+      "random_forest": {
+        "model_id": "random_forest_2",
+        "version": "model_random_forest_51b14408a044",
+        "training": {
+          "model_id": "random_forest_2",
+          "model_type": "random_forest",
+          "task_type": "regression",
+          "parameters": {
+            "n_estimators": 100,
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_features": "sqrt",
+            "bootstrap": true,
+            "criterion": "squared_error",
+            "ccp_alpha": 0.0,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0
+          },
+          "training_time": 0.476382,
+          "metrics": {
+            "train_mse": 974095.2765443969,
+            "train_rmse": 986.9626520514324,
+            "train_r2": 0.9862810907317828,
+            "cv_mse_mean": 2036000.2734560235,
+            "cv_mse_std": 259407.01691365207,
+            "cv_rmse_mean": 1426.8848143617001
+          },
+          "overfitting_indicators": {
+            "mse_train_cv_ratio": 2.0901448990480014,
+            "overfitting_risk": "high",
+            "cv_stability_score": 3.85493097668167e-06
+          },
+          "feature_names": [
+            "Discount Applied",
+            "Order Quantity",
+            "Order_to_Ship_Days",
+            "Procurement_to_Order_Days",
+            "Profit_Margin",
+            "Sales Channel",
+            "Ship_to_Delivery_Days",
+            "Total_Lead_Time",
+            "Unit Cost",
+            "Unit Price",
+            "WarehouseCode"
+          ],
+          "feature_importance": {
+            "Order Quantity": 0.32317106694101616,
+            "Discount Applied": 0.010392493812087117,
+            "Unit Cost": 0.23221315169004084,
+            "Unit Price": 0.38557516336511344,
+            "Procurement_to_Order_Days": 0.007115804968810875,
+            "Order_to_Ship_Days": 0.005497031195578159,
+            "Ship_to_Delivery_Days": 0.0044264231067781675,
+            "Total_Lead_Time": 0.006331304378741356,
+            "Profit_Margin": 0.01948711014278972,
+            "Sales Channel": 0.0026098254664014596,
+            "WarehouseCode": 0.0031806249326427373
+          },
+          "coefficients": null,
+          "training_timestamp": "2025-11-19T19:50:50.251238"
+        },
+        "evaluation": {
+          "test_mse": 2032922.6562717294,
+          "test_rmse": 1425.805967259125,
+          "test_r2": 0.9740683172024307,
+          "evaluation_type": "regression"
+        },
+        "warm_start": {
+          "model_type": "random_forest",
+          "recommended_config": {
+            "n_estimators": 100,
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_features": "sqrt",
+            "bootstrap": true,
+            "criterion": "squared_error",
+            "ccp_alpha": 0.0,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0
+          },
+          "confidence": 0.5,
+          "inspired_by_experiments": 0,
+          "performance_expectation": 0.5
+        }
+      },
+      "KNN": {
+        "model_id": "KNN_3",
+        "version": "model_KNN_db5487553fb0",
+        "training": {
+          "model_id": "KNN_3",
+          "model_type": "KNN",
+          "task_type": "regression",
+          "parameters": {
+            "n_neighbors": 3,
+            "metric": "euclidean",
+            "weights": "uniform",
+            "algorithm": "auto",
+            "p": 1
+          },
+          "training_time": 0.004302,
+          "metrics": {
+            "train_mse": 6024031.076466182,
+            "train_rmse": 2454.390163862743,
+            "train_r2": 0.915159083760126,
+            "cv_mse_mean": 8040551.035204413,
+            "cv_mse_std": 223243.82622012572,
+            "cv_rmse_mean": 2835.5865416531396
+          },
+          "overfitting_indicators": {
+            "mse_train_cv_ratio": 1.3347459422339438,
+            "overfitting_risk": "low",
+            "cv_stability_score": 4.479387123686224e-06
+          },
+          "feature_names": [
+            "Discount Applied",
+            "Order Quantity",
+            "Order_to_Ship_Days",
+            "Procurement_to_Order_Days",
+            "Profit_Margin",
+            "Sales Channel",
+            "Ship_to_Delivery_Days",
+            "Total_Lead_Time",
+            "Unit Cost",
+            "Unit Price",
+            "WarehouseCode"
+          ],
+          "feature_importance": null,
+          "coefficients": null,
+          "training_timestamp": "2025-11-19T19:50:52.018412",
+          "knn_validation": {
+            "optimal_k": 3,
+            "cv_score": 8040551.035204413,
+            "k_in_expected_range": true,
+            "k_in_reasonable_range": false,
+            "validation_warnings": [
+              "Optimal K is at minimum boundary (3) - may indicate complex local patterns or potential overfitting"
+            ]
+          },
+          "knn_optimal_k_analysis": {
+            "optimal_k_value": 3,
+            "cv_score_at_optimal_k": 8040551.035204413,
+            "k_validation_status": "REVIEW",
+            "validation_warnings": [
+              "Optimal K is at minimum boundary (3) - may indicate complex local patterns or potential overfitting"
+            ],
+            "k_interpretation": "Very low K suggests complex local patterns in the data. The model captures fine-grained relationships but may be sensitive to noise.",
+            "bias_variance_assessment": {
+              "bias": "Low",
+              "variance": "High",
+              "tradeoff": "High variance, low bias - may overfit to training noise"
+            },
+            "recommendations": [
+              "Consider expanding K search range - optimal K (3) is at boundary",
+              "Monitor for overfitting - consider cross-validation stability",
+              "Evaluate model performance on held-out test set carefully",
+              "Optimal K is at minimum boundary (3) - may indicate complex local patterns or potential overfitting"
+            ]
+          }
+        },
+        "evaluation": {
+          "test_mse": 15605184.070581663,
+          "test_rmse": 3950.339741159191,
+          "test_r2": 0.8009424106384124,
+          "evaluation_type": "regression"
+        },
+        "warm_start": {
+          "model_type": "KNN",
+          "recommended_config": {
+            "n_neighbors": 3,
+            "metric": "euclidean",
+            "weights": "uniform",
+            "algorithm": "auto",
+            "p": 1
+          },
+          "confidence": 0.5,
+          "inspired_by_experiments": 0,
+          "performance_expectation": 0.5
+        }
+      },
+      "comparison": {
+        "linear_0": {
+          "info": {
+            "model_id": "linear_0",
+            "model_type": "LinearRegression",
+            "parameters": {
+              "copy_X": true,
+              "fit_intercept": true,
+              "n_jobs": null,
+              "positive": false,
+              "tol": 1e-06
+            },
+            "n_features": 11,
+            "feature_names": "['Order Quantity' 'Discount Applied' 'Unit Cost' 'Unit Price'\n 'Procurement_to_Order_Days' 'Order_to_Ship_Days' 'Ship_to_Delivery_Days'\n 'Total_Lead_Time' 'Profit_Margin' 'Sales Channel' 'WarehouseCode']"
+          },
+          "evaluation": {
+            "test_mse": 11196968.131895088,
+            "test_rmse": 3346.187103539652,
+            "test_r2": 0.8571730090197854,
+            "test_mape": 117.64846662863124
+          }
+        },
+        "decision_tree_1": {
+          "info": {
+            "model_id": "decision_tree_1",
+            "model_type": "DecisionTreeRegressor",
+            "parameters": {
+              "ccp_alpha": 0.0,
+              "criterion": "squared_error",
+              "max_depth": 10,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 1,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "random_state": 42,
+              "splitter": "best"
+            },
+            "n_features": 11,
+            "feature_names": "['Order Quantity' 'Discount Applied' 'Unit Cost' 'Unit Price'\n 'Procurement_to_Order_Days' 'Order_to_Ship_Days' 'Ship_to_Delivery_Days'\n 'Total_Lead_Time' 'Profit_Margin' 'Sales Channel' 'WarehouseCode']"
+          },
+          "evaluation": {
+            "test_mse": 6568420.782996537,
+            "test_rmse": 2562.8930494651036,
+            "test_r2": 0.9162141246740765,
+            "test_mape": 33.82203663264972
+          }
+        },
+        "random_forest_2": {
+          "info": {
+            "model_id": "random_forest_2",
+            "model_type": "RandomForestRegressor",
+            "parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "criterion": "squared_error",
+              "max_depth": 10,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 1,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 100,
+              "n_jobs": null,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "n_features": 11,
+            "feature_names": "['Order Quantity' 'Discount Applied' 'Unit Cost' 'Unit Price'\n 'Procurement_to_Order_Days' 'Order_to_Ship_Days' 'Ship_to_Delivery_Days'\n 'Total_Lead_Time' 'Profit_Margin' 'Sales Channel' 'WarehouseCode']"
+          },
+          "evaluation": {
+            "test_mse": 2032922.6562717294,
+            "test_rmse": 1425.805967259125,
+            "test_r2": 0.9740683172024307,
+            "test_mape": 19.428965185673206
+          }
+        },
+        "KNN_3": {
+          "info": {
+            "model_id": "KNN_3",
+            "model_type": "KNeighborsRegressor",
+            "parameters": {
+              "algorithm": "auto",
+              "leaf_size": 30,
+              "metric": "euclidean",
+              "metric_params": null,
+              "n_jobs": null,
+              "n_neighbors": 3,
+              "p": 1,
+              "weights": "uniform"
+            },
+            "n_features": 11,
+            "feature_names": "['Order Quantity' 'Discount Applied' 'Unit Cost' 'Unit Price'\n 'Procurement_to_Order_Days' 'Order_to_Ship_Days' 'Ship_to_Delivery_Days'\n 'Total_Lead_Time' 'Profit_Margin' 'Sales Channel' 'WarehouseCode']"
+          },
+          "evaluation": {
+            "test_mse": 15605184.070581663,
+            "test_rmse": 3950.339741159191,
+            "test_r2": 0.8009424106384124,
+            "test_mape": 51.90538072481833
+          }
+        },
+        "best_model": "random_forest_2",
+        "model_rankings": [
+          {
+            "model_id": "random_forest_2",
+            "score": 0.9740683172024307
+          },
+          {
+            "model_id": "decision_tree_1",
+            "score": 0.9162141246740765
+          },
+          {
+            "model_id": "linear_0",
+            "score": 0.8571730090197854
+          },
+          {
+            "model_id": "KNN_3",
+            "score": 0.8009424106384124
+          }
+        ],
+        "selection_criteria": {
+          "primary_metric": "test_r2",
+          "multi_criteria_scoring": false
+        }
+      },
+      "comprehensive_comparison": {
+        "comparison_timestamp": "2025-11-19T19:51:01.473266",
+        "models_compared": [
+          "linear",
+          "ridge",
+          "lasso",
+          "decision_tree",
+          "random_forest",
+          "KNN"
+        ],
+        "total_models": 6,
+        "valid_models": 6,
+        "best_model": {
+          "name": "random_forest",
+          "r2_score": 0.9717619369254519,
+          "rmse_score": 1487.8615808288403,
+          "rank": 1,
+          "is_knn": false
+        },
+        "model_rankings": [
+          {
+            "model_name": "random_forest",
+            "r2_score": 0.9717619369254519,
+            "rmse_score": 1487.8615808288403,
+            "rank_by_r2": 1,
+            "rank_by_rmse": 1,
+            "training_time": 0.090642,
+            "is_knn": false
+          },
+          {
+            "model_name": "decision_tree",
+            "r2_score": 0.958713475824069,
+            "rmse_score": 1799.074876189803,
+            "rank_by_r2": 2,
+            "rank_by_rmse": 2,
+            "training_time": 0.001946,
+            "is_knn": false
+          },
+          {
+            "model_name": "KNN",
+            "r2_score": 0.8474979657346007,
+            "rmse_score": 3457.664859127549,
+            "rank_by_r2": 3,
+            "rank_by_rmse": 3,
+            "training_time": 0.000586,
+            "is_knn": true
+          },
+          {
+            "model_name": "ridge",
+            "r2_score": 0.45376330831035405,
+            "rmse_score": 6543.882795085581,
+            "rank_by_r2": 4,
+            "rank_by_rmse": 4,
+            "training_time": 0.001525,
+            "is_knn": false
+          },
+          {
+            "model_name": "lasso",
+            "r2_score": 0.4456612097750645,
+            "rmse_score": 6592.235483490262,
+            "rank_by_r2": 5,
+            "rank_by_rmse": 5,
+            "training_time": 0.002479,
+            "is_knn": false
+          },
+          {
+            "model_name": "linear",
+            "r2_score": 0.44464721906770843,
+            "rmse_score": 6598.26195290097,
+            "rank_by_r2": 6,
+            "rank_by_rmse": 6,
+            "training_time": 0.000597,
+            "is_knn": false
+          }
+        ],
+        "performance_summary": {
+          "r2_range": {
+            "min": 0.44464721906770843,
+            "max": 0.9717619369254519,
+            "mean": 0.6870075192728747
+          },
+          "rmse_range": {
+            "min": 1487.8615808288403,
+            "max": 6598.26195290097,
+            "mean": 4413.1635912705015
+          }
+        },
+        "knn_specific_analysis": {
+          "knn_r2_score": 0.8474979657346007,
+          "knn_rmse_score": 3457.664859127549,
+          "knn_rank": 3,
+          "knn_training_time": 0.000586,
+          "performance_vs_best": {
+            "r2_difference": -0.1242639711908512,
+            "percentage_of_best": 87.21250890068727,
+            "better_than_best": false
+          },
+          "speed_advantage": 27.808589306029575,
+          "knn_strengths": [
+            "Competitive predictive performance",
+            "Fast training time"
+          ],
+          "knn_weaknesses": []
+        },
+        "visualizations": {
+          "model_comparison": "visualizations/model_comparison_with_knn.png",
+          "knn_comparison": "visualizations/knn_relative_performance.png"
+        },
+        "recommendations": [
+          "Use random_forest as the primary model (R\u00b2 = 0.9718)",
+          "KNN shows competitive performance and may be suitable for production use",
+          "KNN offers excellent training speed for rapid prototyping",
+          "Consider ensemble methods combining tree-based and linear models for potentially better performance",
+          "Fast models available with good performance - suitable for real-time applications"
+        ]
+      }
+    },
+    "evaluation_results": {
+      "linear": {
+        "test_mse": 52201409.513366945,
+        "test_rmse": 7225.054291378505,
+        "test_r2": 0.3341259742910192,
+        "evaluation_type": "regression"
+      },
+      "decision_tree": {
+        "test_mse": 6568420.782996537,
+        "test_rmse": 2562.8930494651036,
+        "test_r2": 0.9162141246740765,
+        "evaluation_type": "regression"
+      },
+      "random_forest": {
+        "test_mse": 2032922.6562717294,
+        "test_rmse": 1425.805967259125,
+        "test_r2": 0.9740683172024307,
+        "evaluation_type": "regression"
+      },
+      "KNN": {
+        "test_mse": 15605184.070581663,
+        "test_rmse": 3950.339741159191,
+        "test_r2": 0.8009424106384124,
+        "evaluation_type": "regression"
+      }
+    },
+    "best_model": "random_forest_2",
+    "comprehensive_comparison": {
+      "comparison_timestamp": "2025-11-19T19:51:01.473266",
+      "models_compared": [
+        "linear",
+        "ridge",
+        "lasso",
+        "decision_tree",
+        "random_forest",
+        "KNN"
+      ],
+      "total_models": 6,
+      "valid_models": 6,
+      "best_model": {
+        "name": "random_forest",
+        "r2_score": 0.9717619369254519,
+        "rmse_score": 1487.8615808288403,
+        "rank": 1,
+        "is_knn": false
+      },
+      "model_rankings": [
+        {
+          "model_name": "random_forest",
+          "r2_score": 0.9717619369254519,
+          "rmse_score": 1487.8615808288403,
+          "rank_by_r2": 1,
+          "rank_by_rmse": 1,
+          "training_time": 0.090642,
+          "is_knn": false
+        },
+        {
+          "model_name": "decision_tree",
+          "r2_score": 0.958713475824069,
+          "rmse_score": 1799.074876189803,
+          "rank_by_r2": 2,
+          "rank_by_rmse": 2,
+          "training_time": 0.001946,
+          "is_knn": false
+        },
+        {
+          "model_name": "KNN",
+          "r2_score": 0.8474979657346007,
+          "rmse_score": 3457.664859127549,
+          "rank_by_r2": 3,
+          "rank_by_rmse": 3,
+          "training_time": 0.000586,
+          "is_knn": true
+        },
+        {
+          "model_name": "ridge",
+          "r2_score": 0.45376330831035405,
+          "rmse_score": 6543.882795085581,
+          "rank_by_r2": 4,
+          "rank_by_rmse": 4,
+          "training_time": 0.001525,
+          "is_knn": false
+        },
+        {
+          "model_name": "lasso",
+          "r2_score": 0.4456612097750645,
+          "rmse_score": 6592.235483490262,
+          "rank_by_r2": 5,
+          "rank_by_rmse": 5,
+          "training_time": 0.002479,
+          "is_knn": false
+        },
+        {
+          "model_name": "linear",
+          "r2_score": 0.44464721906770843,
+          "rmse_score": 6598.26195290097,
+          "rank_by_r2": 6,
+          "rank_by_rmse": 6,
+          "training_time": 0.000597,
+          "is_knn": false
+        }
+      ],
+      "performance_summary": {
+        "r2_range": {
+          "min": 0.44464721906770843,
+          "max": 0.9717619369254519,
+          "mean": 0.6870075192728747
+        },
+        "rmse_range": {
+          "min": 1487.8615808288403,
+          "max": 6598.26195290097,
+          "mean": 4413.1635912705015
+        }
+      },
+      "knn_specific_analysis": {
+        "knn_r2_score": 0.8474979657346007,
+        "knn_rmse_score": 3457.664859127549,
+        "knn_rank": 3,
+        "knn_training_time": 0.000586,
+        "performance_vs_best": {
+          "r2_difference": -0.1242639711908512,
+          "percentage_of_best": 87.21250890068727,
+          "better_than_best": false
+        },
+        "speed_advantage": 27.808589306029575,
+        "knn_strengths": [
+          "Competitive predictive performance",
+          "Fast training time"
+        ],
+        "knn_weaknesses": []
+      },
+      "visualizations": {
+        "model_comparison": "visualizations/model_comparison_with_knn.png",
+        "knn_comparison": "visualizations/knn_relative_performance.png"
+      },
+      "recommendations": [
+        "Use random_forest as the primary model (R\u00b2 = 0.9718)",
+        "KNN shows competitive performance and may be suitable for production use",
+        "KNN offers excellent training speed for rapid prototyping",
+        "Consider ensemble methods combining tree-based and linear models for potentially better performance",
+        "Fast models available with good performance - suitable for real-time applications"
+      ]
+    }
+  },
+  "qualitative_results": {
+    "error": "'model_id'"
+  },
+  "learning_results": {
+    "meta_update": null,
+    "progress_evaluation": {
+      "current_performance": {
+        "linear": 0.3341259742910192,
+        "linear_cv_stability": 0,
+        "decision_tree": 0.9162141246740765,
+        "decision_tree_cv_stability": 0,
+        "random_forest": 0.9740683172024307,
+        "random_forest_cv_stability": 0,
+        "KNN": 0.8009424106384124,
+        "KNN_cv_stability": 0,
+        "comparison": 0,
+        "comparison_cv_stability": 0,
+        "comprehensive_comparison": 0,
+        "comprehensive_comparison_cv_stability": 0
+      },
+      "historical_comparison": {},
+      "improvement_metrics": {
+        "average_current_performance": 0.5042251378009898,
+        "best_current_performance": 0.9740683172024307,
+        "average_cv_stability": 0.0,
+        "best_cv_stability": "0",
+        "performance_consistency": 0.41149086323240325,
+        "cv_stability_consistency": 0.0
+      },
+      "learning_insights": []
+    },
+    "strategy_adaptation": {
+      "strategy_changes": [],
+      "model_priorities": {},
+      "exploration_suggestions": [],
+      "risk_assessment": "low",
+      "meta_insights": [
+        "No experiment data available for meta-learning"
+      ],
+      "meta_recommendations": []
+    },
+    "learning_report": {
+      "learning_system_status": {
+        "total_learning_events": 1,
+        "meta_learner_status": "not_trained",
+        "experiment_history_size": 6
+      },
+      "current_insights": {
+        "insights": [
+          "Best performing model type: linear (avg performance: 0.0000, avg CV stability: 0.000)"
+        ],
+        "recommendations": [
+          "Prioritize linear models for future experiments",
+          "Train meta-learning model with more experiment data"
+        ]
+      },
+      "learning_trends": {
+        "overall_trend": "stable",
+        "performance_trend": [],
+        "consistency_trend": []
+      },
+      "recommendations": [
+        "Train meta-learner with more experiment data"
+      ]
+    }
+  },
+  "pipeline_version": "1.0.0"
+}

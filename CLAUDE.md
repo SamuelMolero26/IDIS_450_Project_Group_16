@@ -118,6 +118,25 @@ This is an advanced machine learning pipeline for US Regional Sales data analysi
 - Version control for datasets and models
 - Continuous learning loop for self-improvement
 
+## Quick Start
+
+**Get running in 3 steps:**
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Preprocess the data (first time only)
+python src/data_preprocessing.py
+
+# 3. Run the complete pipeline
+python main_pipeline.py
+```
+
+**Expected output:** Pipeline report in `reports/pipeline_report_<id>.json`, visualizations in `visualizations/`, and logs in `logs/`.
+
+**Note:** Redis is optional - the system automatically falls back to SQLite if Redis is unavailable.
+
 ## Development Commands
 
 ### Running the Pipeline
@@ -190,6 +209,44 @@ pip install -r requirements.txt
 # Verify installation
 python -c "import pandas, numpy, sklearn, redis; print('Dependencies OK')"
 ```
+
+### Environment Variables
+
+The pipeline supports optional environment variables for Redis configuration:
+
+```bash
+# Redis connection settings (all optional, defaults shown)
+export REDIS_HOST=localhost        # Redis server host
+export REDIS_PORT=6379            # Redis server port
+export REDIS_DB=0                 # Redis database number
+export REDIS_PASSWORD=            # Redis password (if required)
+```
+
+**Example with custom Redis:**
+```bash
+export REDIS_HOST=my-redis-server.com
+export REDIS_PORT=6380
+export REDIS_PASSWORD=mysecretpassword
+python main_pipeline.py
+```
+
+**Note:** If Redis environment variables are not set or Redis is unavailable, the system automatically uses SQLite as a fallback cache (`cache/cache.db`).
+
+### Entry Points
+
+The pipeline has two main entry points:
+
+1. **`main_pipeline.py`** (project root): Launcher script that wraps the core pipeline
+   - Use this for standard pipeline execution
+   - Provides user-friendly output with emoji indicators
+   - Usage: `python main_pipeline.py`
+
+2. **`src/main_pipeline.py`**: Core pipeline implementation module
+   - Contains `AdvancedModelingPipeline` class and execution functions
+   - Use for programmatic access and custom workflows
+   - Usage: `from src.main_pipeline import run_standard_pipeline; run_standard_pipeline()`
+
+Both execute the same underlying pipeline. Use the root `main_pipeline.py` for standard runs, and import from `src/main_pipeline.py` for custom scripts.
 
 ## Architecture
 
@@ -409,6 +466,109 @@ Default TTL: 3600 seconds (1 hour), configurable in `src/config.py:CACHE_TTL`
 4. **Regression Only:** Current implementation focused on regression (`Total_Revenue` prediction). Classification models defined but not fully integrated.
 
 5. **SHAP Limitations:** SHAP analysis may not work with all model types (especially custom ensembles). Gracefully handles failures but may skip qualitative evaluation.
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+**Issue: `ModuleNotFoundError: No module named 'src'`**
+```bash
+# Solution: Ensure you're running from project root
+cd /path/to/Project
+python main_pipeline.py
+
+# Or add project root to PYTHONPATH
+export PYTHONPATH="${PYTHONPATH}:/path/to/Project"
+```
+
+**Issue: `FileNotFoundError: preprocessed_sales_data.csv not found`**
+```bash
+# Solution: Run preprocessing first
+python src/data_preprocessing.py
+```
+
+**Issue: `redis.exceptions.ConnectionError`**
+```
+# Solution: The system automatically falls back to SQLite
+# This warning is informational only. To resolve:
+brew services start redis  # macOS
+# OR
+sudo systemctl start redis-server  # Linux
+```
+
+**Issue: `MemoryError during SHAP analysis`**
+```python
+# Solution: Reduce SHAP sample size in src/config.py
+SHAP_SAMPLE_SIZE = 500  # Default is 1000
+```
+
+**Issue: Pipeline runs slowly on first execution**
+```
+# This is normal - first run has no cache
+# Subsequent runs will be faster due to Redis/SQLite caching
+# Expected first run: 10-15 minutes
+# Expected cached runs: 2-5 minutes
+```
+
+**Issue: `ValueError: could not convert string to float`**
+```bash
+# Solution: Check data preprocessing completed successfully
+# Verify preprocessed_sales_data.csv has proper numeric columns
+python src/data_preprocessing.py
+```
+
+**Issue: Experiment ID not found in reports**
+```bash
+# Solution: Check reports directory for JSON files
+ls -lt reports/pipeline_report_*.json | head -5
+# View most recent report
+cat reports/pipeline_report_<id>.json | python -m json.tool
+```
+
+### Debugging Tips
+
+**Enable verbose logging:**
+```python
+# In src/config.py, change:
+LOG_LEVEL = 'DEBUG'  # Default is 'INFO'
+```
+
+**Check logs for errors:**
+```bash
+# View recent errors in pipeline log
+tail -50 logs/pipeline.log
+
+# View all ERROR level messages
+grep ERROR logs/*.log
+```
+
+**Inspect cached results:**
+```python
+from redis_cache import cache
+
+# List all cached keys (if using Redis)
+keys = cache.redis_client.keys('*') if cache.redis_client else []
+print(keys)
+
+# Get specific cached result
+result = cache.get('experiment:<experiment_id>')
+```
+
+**Validate data quality:**
+```python
+import pandas as pd
+df = pd.read_csv('preprocessed_sales_data.csv')
+
+# Check for missing values
+print(df.isnull().sum())
+
+# Check data types
+print(df.dtypes)
+
+# Verify target column exists
+from src.config import TARGET_COLUMN
+assert TARGET_COLUMN in df.columns
+```
 
 ## References
 

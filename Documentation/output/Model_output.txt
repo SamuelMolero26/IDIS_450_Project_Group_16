@@ -1,0 +1,509 @@
+================================================================================
+COMPREHENSIVE MACHINE LEARNING PIPELINE ANALYSIS
+================================================================================
+Analysis started at: 2025-11-12 17:28:56
+
+
+================================================================================
+1. DATA LOADING
+================================================================================
+Dataset loaded successfully: 7947 rows, 25 columns
+
+Target variable: Total_Revenue
+Number of features: 24
+
+Features used (24):
+  1. OrderNumber
+  2. Sales Channel
+  3. WarehouseCode
+  4. ProcuredDate
+  5. OrderDate
+  6. ShipDate
+  7. DeliveryDate
+  8. Order Quantity
+  9. Discount Applied
+  10. Unit Cost
+  11. Unit Price
+  12. Procurement_to_Order_Days
+  13. Order_to_Ship_Days
+  14. Ship_to_Delivery_Days
+  15. Total_Lead_Time
+  16. Profit_Margin
+  17. Price_Quantity_Interaction
+  18. Cost_Quantity_Interaction
+  19. Discount_Price_Interaction
+  20. Margin_Quantity_Interaction
+  21. LeadTime_Quantity_Interaction
+  22. Price_Cost_Ratio
+  23. Discount_Margin_Interaction
+  24. iso_forest_outlier
+
+Target variable statistics:
+  Mean: $8,950.78
+  Median: $6,078.24
+  Std Dev: $8,518.47
+  Min: $100.50
+  Max: $42,823.72
+
+================================================================================
+2. TRAIN/VALIDATION SPLIT
+================================================================================
+
+Split Ratio: 80/20 (Train/Validation)
+Random State: 42 (for reproducibility)
+
+Justification for 80/20 split:
+  - Dataset size: 7,947 samples
+  - Training set: 6,357 samples (80.0%)
+  - Validation set: 1,590 samples (20.0%)
+  - With ~8,000 samples, 80/20 provides:
+    * Sufficient training data (~6,400 samples) for model learning
+    * Adequate validation data (~1,600 samples) for reliable evaluation
+    * Standard practice for datasets of this size
+    * Balances model performance and evaluation reliability
+
+================================================================================
+3. DATA STANDARDIZATION ANALYSIS
+================================================================================
+
+Feature scales BEFORE standardization:
+------------------------------------------------------------
+
+Note: Removed 0 zero-variance features
+Using 17 features with non-zero variance
+                      Feature        Mean         Std        Min       Max        Range
+               Order Quantity    4.486236    2.302830   1.000000     8.000     7.000000
+             Discount Applied    0.114744    0.085379   0.050000     0.400     0.350000
+                    Unit Cost 1407.383900 1093.084814  68.680000  5498.560  5429.880000
+                   Unit Price 2247.856851 1649.367025 167.500000  6566.000  6398.500000
+    Procurement_to_Order_Days  109.200252   34.315917  31.000000   189.000   158.000000
+           Order_to_Ship_Days   15.197263    7.776805   2.000000    28.000    26.000000
+        Ship_to_Delivery_Days    5.514708    2.848710   1.000000    10.000     9.000000
+              Total_Lead_Time  129.912223   35.237772  40.000000   219.000   179.000000
+                Profit_Margin    0.482575    0.363649  -0.294123     1.375     1.669123
+   Price_Quantity_Interaction 9981.799544 9525.458476 167.500000 52045.600 51878.100000
+    Cost_Quantity_Interaction 6256.329544 6250.419111  73.700000 41754.400 41680.700000
+   Discount_Price_Interaction  260.794338  315.805618   8.375000  2604.960  2596.585000
+  Margin_Quantity_Interaction    2.160779    2.137952  -2.352941    11.000    13.352941
+LeadTime_Quantity_Interaction  582.517540  348.817796  40.000000  1728.000  1688.000000
+             Price_Cost_Ratio    1.674755    0.375334   1.176429     2.500     1.323571
+  Discount_Margin_Interaction    0.043101    0.042962  -0.117649     0.225     0.342649
+           iso_forest_outlier    0.048293    0.214402   0.000000     1.000     1.000000
+
+Linear Regression WITHOUT standardization:
+  Validation MSE: 288,180.86
+  Validation R²: 0.9963
+
+------------------------------------------------------------
+Feature scales AFTER standardization:
+------------------------------------------------------------
+                      Feature          Mean      Std       Min      Max
+               Order Quantity -6.594623e-17 1.000079 -1.514011 1.525966
+             Discount Applied  8.327109e-17 1.000079 -0.758368 3.341323
+                    Unit Cost  1.564826e-16 1.000079 -1.224799 3.743075
+                   Unit Price -6.818170e-17 1.000079 -1.261405 2.618267
+    Procurement_to_Order_Days  1.553649e-16 1.000079 -2.279013 2.325627
+           Order_to_Ship_Days -5.868097e-17 1.000079 -1.697137 1.646402
+        Ship_to_Delivery_Days -1.615124e-16 1.000079 -1.584950 1.574623
+              Total_Lead_Time -9.668389e-17 1.000079 -2.551787 2.528389
+                Profit_Margin -1.788372e-17 1.000079 -2.136015 2.454281
+   Price_Quantity_Interaction -1.676599e-17 1.000079 -1.030404 4.416282
+    Cost_Quantity_Interaction  1.564826e-17 1.000079 -0.989232 5.679757
+   Discount_Price_Interaction -1.900146e-17 1.000079 -0.799350 7.423396
+  Margin_Quantity_Interaction  1.050669e-16 1.000079 -2.111402 4.134759
+LeadTime_Quantity_Interaction  4.359158e-17 1.000079 -1.555426 3.284157
+             Price_Cost_Ratio -2.554019e-16 1.000079 -1.327789 2.198866
+  Discount_Margin_Interaction  1.140087e-16 1.000079 -3.742003 4.234301
+           iso_forest_outlier -1.956032e-17 1.000079 -0.225264 4.439239
+
+Linear Regression WITH standardization:
+  Validation MSE: 288,180.86
+  Validation R²: 0.9963
+
+============================================================
+STANDARDIZATION IMPACT ANALYSIS
+============================================================
+MSE Change: -0.00%
+R² Change: -0.00%
+
+Key Findings:
+  - Standardization ensures all features contribute equally
+  - Prevents features with larger scales from dominating
+  - Essential for regularization techniques (Ridge/Lasso)
+  - Improves numerical stability and convergence
+
+✓ Standardization impact visualization saved
+
+================================================================================
+4. MODEL 1: LINEAR REGRESSION
+================================================================================
+
+4.1 Baseline Linear Regression Model
+------------------------------------------------------------
+
+4.2 Coefficient Analysis and Interpretation
+------------------------------------------------------------
+
+Model Coefficients (sorted by absolute value):
+                      Feature  Coefficient  Abs_Coefficient
+   Price_Quantity_Interaction  6406.530205      6406.530205
+                   Unit Price  2274.851302      2274.851302
+    Cost_Quantity_Interaction  1991.506436      1991.506436
+                    Unit Cost -1443.004226      1443.004226
+   Discount_Price_Interaction -1385.969835      1385.969835
+  Margin_Quantity_Interaction   991.888617       991.888617
+               Order Quantity  -495.519401       495.519401
+             Price_Cost_Ratio  -463.820767       463.820767
+                Profit_Margin  -273.220859       273.220859
+             Discount Applied   173.519571       173.519571
+  Discount_Margin_Interaction    43.397209        43.397209
+LeadTime_Quantity_Interaction    27.598169        27.598169
+           iso_forest_outlier   -10.075186        10.075186
+        Ship_to_Delivery_Days    -8.291392         8.291392
+           Order_to_Ship_Days     4.438608         4.438608
+              Total_Lead_Time     0.578969         0.578969
+    Procurement_to_Order_Days     0.276932         0.276932
+
+Intercept: $8,816.19
+
+Coefficient Interpretation:
+  - Coefficients represent the change in Total_Revenue for a 1-unit
+    change in the standardized feature, holding all else constant
+  - Top 3 most influential features:
+    10. Price_Quantity_Interaction: $6,406.53 increases per std unit
+    4. Unit Price: $2,274.85 increases per std unit
+    11. Cost_Quantity_Interaction: $1,991.51 increases per std unit
+
+4.3 Statistical Significance of Coefficients
+------------------------------------------------------------
+
+Statistical Significance (*** p<0.001, ** p<0.01, * p<0.05):
+                      Feature  Coefficient  Std_Error  t_statistic  p_value Significant
+               Order Quantity  -495.519401  30.738549   -16.120455 0.000000         ***
+                    Unit Cost -1443.004226  65.909535   -21.893710 0.000000         ***
+                   Unit Price  2274.851302  63.527358    35.809002 0.000000         ***
+   Price_Quantity_Interaction  6406.530205  71.257209    89.907117 0.000000         ***
+    Cost_Quantity_Interaction  1991.506436  73.086336    27.248683 0.000000         ***
+   Discount_Price_Interaction -1385.969835  15.197469   -91.197413 0.000000         ***
+  Margin_Quantity_Interaction   991.888617  24.965826    39.729854 0.000000         ***
+             Price_Cost_Ratio  -463.820767 124.254666    -3.732824 0.000191         ***
+             Discount Applied   173.519571  48.707741     3.562464 0.000370         ***
+  Discount_Margin_Interaction    43.397209  18.891527     2.297178 0.021641           *
+                Profit_Margin  -273.220859 124.039730    -2.202688 0.027653           *
+           iso_forest_outlier   -10.075186   8.489210    -1.186823 0.235342            
+LeadTime_Quantity_Interaction    27.598169  28.817891     0.957675 0.338263            
+    Procurement_to_Order_Days     0.276932        NaN          NaN      NaN            
+           Order_to_Ship_Days     4.438608        NaN          NaN      NaN            
+        Ship_to_Delivery_Days    -8.291392        NaN          NaN      NaN            
+              Total_Lead_Time     0.578969        NaN          NaN      NaN            
+
+4.4 Comprehensive Model Evaluation
+------------------------------------------------------------
+
+Training Set Performance:
+  MSE:  287,310.72
+  RMSE: 536.01
+  MAE:  303.12
+  R²:   0.9960
+
+Validation Set Performance:
+  MSE:  288,180.86
+  RMSE: 536.82
+  MAE:  321.99
+  R²:   0.9963
+
+5-Fold Cross-Validation R² Scores:
+  Fold scores: ['0.9961', '0.9948', '0.9959', '0.9964', '0.9956']
+  Mean: 0.9958 (+/- 0.0011)
+
+✓ Linear regression evaluation plots saved
+
+4.5 Hyperparameter Tuning: Ridge and Lasso Regularization
+------------------------------------------------------------
+
+Ridge Regression:
+  Best alpha: 3.5565
+  Validation R²: 0.9963
+  Validation RMSE: 537.90
+
+Lasso Regression:
+  Best alpha: 0.0687
+  Validation R²: 0.9963
+  Validation RMSE: 537.04
+  Non-zero coefficients: 16/17
+
+✓ Regularization analysis plots saved
+
+4.6 Feature Selection using Recursive Feature Elimination (RFE)
+------------------------------------------------------------
+
+Optimal number of features: 9
+Best R² score: 0.9963
+
+Selected features (9):
+  1. Order Quantity
+  2. Unit Cost
+  3. Unit Price
+  4. Profit_Margin
+  5. Price_Quantity_Interaction
+  6. Cost_Quantity_Interaction
+  7. Discount_Price_Interaction
+  8. Margin_Quantity_Interaction
+  9. Price_Cost_Ratio
+
+RFE Model Performance:
+  Validation R²: 0.9963
+  Validation RMSE: 535.56
+  Validation MAE: 321.84
+
+✓ RFE feature selection plots saved
+
+============================================================
+LINEAR REGRESSION MODEL SUMMARY
+============================================================
+   Model       R²       RMSE        MAE  Features
+Baseline 0.996324 536.824798 321.990469        17
+   Ridge 0.996309 537.904821 322.439978        17
+   Lasso 0.996321 537.043846 321.889477        16
+     RFE 0.996341 535.564905 321.843872         9
+
+Best Linear Regression variant: RFE
+  R²: 0.9963
+  RMSE: 535.56
+
+================================================================================
+5. MODEL 2: RANDOM FOREST
+================================================================================
+
+5.1 Baseline Random Forest Model
+------------------------------------------------------------
+Model trained with 100 trees
+Using same train/validation split as Linear Regression (80/20)
+
+5.2 Feature Importance Analysis
+------------------------------------------------------------
+
+Feature Importances (sorted):
+                      Feature  Importance
+   Price_Quantity_Interaction    0.982993
+             Discount Applied    0.012352
+   Discount_Price_Interaction    0.003972
+                   Unit Price    0.000147
+    Cost_Quantity_Interaction    0.000064
+           Order_to_Ship_Days    0.000063
+    Procurement_to_Order_Days    0.000058
+LeadTime_Quantity_Interaction    0.000053
+                    Unit Cost    0.000047
+        Ship_to_Delivery_Days    0.000043
+  Discount_Margin_Interaction    0.000041
+  Margin_Quantity_Interaction    0.000040
+              Total_Lead_Time    0.000035
+                Profit_Margin    0.000035
+               Order Quantity    0.000027
+             Price_Cost_Ratio    0.000021
+           iso_forest_outlier    0.000010
+
+Top 5 Most Important Features:
+  10. Price_Quantity_Interaction: 0.9830 (98.30%)
+  2. Discount Applied: 0.0124 (1.24%)
+  12. Discount_Price_Interaction: 0.0040 (0.40%)
+  4. Unit Price: 0.0001 (0.01%)
+  11. Cost_Quantity_Interaction: 0.0001 (0.01%)
+
+5.3 Tree Structure Analysis
+------------------------------------------------------------
+Sample tree (first tree in forest):
+  Max depth: 20
+  Number of leaves: 3300
+  Number of nodes: 6599
+
+Forest statistics (across 100 trees):
+  Average depth: 19.69 (±1.13)
+  Average leaves: 3313.15 (±29.35)
+  Min/Max depth: 18/24
+
+5.4 Comprehensive Model Evaluation
+------------------------------------------------------------
+
+Training Set Performance:
+  MSE:  6,112.90
+  RMSE: 78.19
+  MAE:  20.20
+  R²:   0.9999
+
+Validation Set Performance:
+  MSE:  56,935.29
+  RMSE: 238.61
+  MAE:  63.16
+  R²:   0.9993
+
+5-Fold Cross-Validation R² Scores:
+  Fold scores: ['0.9994', '0.9996', '0.9993', '0.9994', '0.9982']
+  Mean: 0.9992 (+/- 0.0010)
+
+✓ Random Forest evaluation plots saved
+
+5.5 Hyperparameter Tuning with GridSearchCV
+------------------------------------------------------------
+Parameter grid:
+  max_depth: [10, 20, 30, None]
+  min_samples_split: [2, 5, 10]
+  min_samples_leaf: [1, 2, 4]
+  n_estimators: [50, 100, 200]
+
+Total combinations: 108
+Performing GridSearchCV with 3-fold cross-validation...
+Fitting 3 folds for each of 108 candidates, totalling 324 fits
+
+Best parameters found:
+  max_depth: 20
+  min_samples_leaf: 1
+  min_samples_split: 2
+  n_estimators: 200
+
+Best cross-validation R² score: 0.9988
+
+Optimized Model Performance:
+  Validation MSE:  51,048.43
+  Validation RMSE: 225.94
+  Validation MAE:  60.72
+  Validation R²:   0.9993
+
+Improvement over baseline:
+  R² improvement: +0.01%
+  RMSE improvement: +5.31%
+
+✓ Hyperparameter tuning plots saved
+
+============================================================
+RANDOM FOREST MODEL SUMMARY
+============================================================
+    Model       R²       RMSE       MAE  n_estimators  max_depth
+ Baseline 0.999274 238.611161 63.162573           100        NaN
+Optimized 0.999349 225.939001 60.724554           200       20.0
+
+================================================================================
+6. COMPREHENSIVE MODEL COMPARISON
+================================================================================
+
+6.1 Performance Metrics Comparison
+------------------------------------------------------------
+
+Model Performance Comparison:
+                    Model       R²       RMSE        MAE Training_Time Interpretability
+ Linear Regression (Best) 0.996341 535.564905 321.843872          Fast             High
+ Random Forest (Baseline) 0.999274 238.611161  63.162573        Medium           Medium
+Random Forest (Optimized) 0.999349 225.939001  60.724554          Slow           Medium
+
+6.2 Statistical Comparison
+------------------------------------------------------------
+
+Residual Statistics:
+  Linear Regression:
+    Mean: -6.11
+    Std: 535.70
+    Median: 2.56
+  Random Forest (Baseline):
+    Mean: -2.84
+    Std: 238.67
+    Median: 1.39
+  Random Forest (Optimized):
+    Mean: -3.21
+    Std: 225.99
+    Median: 1.33
+
+6.3 Computational Efficiency
+------------------------------------------------------------
+Training Time Comparison (relative):
+  Linear Regression: ~1x (fastest)
+  Random Forest Baseline: ~10-20x
+  Random Forest Optimized: ~20-50x (depends on hyperparameters)
+
+Prediction Time Comparison (relative):
+  Linear Regression: ~1x (fastest)
+  Random Forest: ~100-200x (depends on n_estimators)
+
+6.4 Interpretability Assessment
+------------------------------------------------------------
+Linear Regression:
+  ✓ Direct coefficient interpretation
+  ✓ Clear feature relationships
+  ✓ Statistical significance testing
+  ✓ Easy to explain to stakeholders
+
+Random Forest:
+  ✓ Feature importance rankings
+  ✓ Captures non-linear relationships
+  ✗ Less transparent decision process
+  ✗ Harder to explain individual predictions
+
+✓ Comprehensive comparison plots saved
+
+================================================================================
+7. FINAL MODEL SELECTION AND JUSTIFICATION
+================================================================================
+
+7.1 Model Selection Criteria
+------------------------------------------------------------
+
+Evaluation Criteria:
+1. Predictive Performance (R²):
+   - Linear Regression: 0.9963
+   - Random Forest (Optimized): 0.9993
+   Winner: Random Forest
+
+2. Prediction Error (RMSE):
+   - Linear Regression: $535.56
+   - Random Forest (Optimized): $225.94
+   Winner: Random Forest
+
+3. Interpretability:
+   - Linear Regression: High (clear coefficients)
+   - Random Forest: Medium (feature importance)
+   Winner: Linear Regression
+
+4. Computational Efficiency:
+   - Linear Regression: High (fast training & prediction)
+   - Random Forest: Low (slower, especially with many trees)
+   Winner: Linear Regression
+
+5. Robustness to Non-linearity:
+   - Linear Regression: Low (assumes linear relationships)
+   - Random Forest: High (captures non-linear patterns)
+   Winner: Random Forest
+
+7.2 Final Model Selection
+------------------------------------------------------------
+
+Weighted Scoring (Performance: 40%, Interpretability: 20%, Efficiency: 20%, Robustness: 20%):
+  Linear Regression: 0.939
+  Random Forest: 0.760
+
+============================================================
+SELECTED MODEL: Linear Regression
+============================================================
+
+Justification:
+  ✓ Excellent interpretability with clear coefficient meanings
+  ✓ Fast training and prediction times
+  ✓ Statistical significance testing available
+  ✓ Easy to explain to stakeholders
+  ✓ Competitive performance (R²: 0.9963)
+  - Trade-off: Assumes linear relationships
+
+7.3 Practical Recommendations
+------------------------------------------------------------
+For Production Deployment:
+  1. Use Linear Regression for predictions
+  2. Regularly validate coefficient stability
+  3. Monitor for non-linear patterns in residuals
+  4. Consider Random Forest for complex scenarios
+  5. Implement automated model monitoring
+
+For Business Stakeholders:
+  1. Focus on top 5 most important features
+  2. Provide confidence intervals for predictions
+  3. Explain model limitations and assumptions
+  4. Regular model performance reports
+  5. Clear documentation of model decisions
+

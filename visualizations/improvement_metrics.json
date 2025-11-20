@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-11T12:22:10.512507",
+  "timestamp": "2025-11-12T20:09:49.584294",
   "original_bias": {
     "Linear": 12369264,
     "Decision Tree": 125520,
@@ -7,33 +7,33 @@
   },
   "improved_metrics": {
     "Linear Regression": {
-      "train_r2": 0.8472971703790475,
-      "test_r2": 0.8442828379752804,
-      "train_rmse": 3486.7733379364468,
-      "test_rmse": 3516.7042808433644,
-      "bias_squared": 1067.4607114922017,
-      "variance": 68509009.6188812,
-      "overfitting_gap": 0.0030143324037671393
+      "train_r2": 0.8426678464837734,
+      "test_r2": 0.8574716189584723,
+      "train_rmse": 3342.332641980346,
+      "test_rmse": 3342.6873184931974,
+      "bias_squared": 30706.355538922722,
+      "variance": 63551392.43399492,
+      "overfitting_gap": -0.014803772474698995
     },
     "Decision Tree": {
-      "train_r2": 0.9981661648154534,
-      "test_r2": 0.9962233694253771,
-      "train_rmse": 382.102891870486,
-      "test_rmse": 547.6711481295381,
-      "bias_squared": 186.03014427819275,
-      "variance": 79526800.17876816,
-      "overfitting_gap": 0.0019427953900762462
+      "train_r2": 0.9982129760128896,
+      "test_r2": 0.9947463548680714,
+      "train_rmse": 356.21000855172315,
+      "test_rmse": 641.7641377864117,
+      "bias_squared": 1841.5385951128462,
+      "variance": 76714990.4641981,
+      "overfitting_gap": 0.003466621144818216
     },
     "Random Forest": {
-      "train_r2": 0.9987820423983662,
-      "test_r2": 0.9977597870365975,
-      "train_rmse": 311.3983157182563,
-      "test_rmse": 421.80552409705274,
-      "bias_squared": 65.00399885374806,
-      "variance": 79142544.40935364,
-      "overfitting_gap": 0.001022255361768698
+      "train_r2": 0.9985096703051262,
+      "test_r2": 0.9968340915616811,
+      "train_rmse": 325.2985326098468,
+      "test_rmse": 498.18913628926833,
+      "bias_squared": 128.2508484697325,
+      "variance": 77173668.16397008,
+      "overfitting_gap": 0.0016755787434450387
     }
   },
   "best_model": "Random Forest",
-  "average_bias_reduction": 99.98955876809435
+  "average_bias_reduction": 99.74123584453261
 }

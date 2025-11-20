@@ -17,3 +17,4 @@ architecture_diagram.dot
 # Keep specific important documentation if needed
 !README.md
 !IMPORTANT.md
+Claude.md

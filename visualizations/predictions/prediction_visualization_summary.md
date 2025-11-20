@@ -1,7 +1,7 @@
 # Prediction and Feature Visualization Summary
 
-**Generated:** 2025-11-11 15:26:55
-**Dataset:** 7840 samples (6272 train, 1568 test)
+**Generated:** 2025-11-12 20:11:14
+**Dataset:** 7809 samples (6247 train, 1562 test)
 **Features:** 9
 **Models Evaluated:** 3
 
@@ -48,17 +48,17 @@
 
 | Model | Test R² | Test RMSE | Test MAE |
 |-------|---------|-----------|----------|
-| Linear Regression | 0.8369 | 3095.35 | 2267.48 |
-| Decision Tree | 0.9049 | 2363.91 | 1280.08 |
-| Random Forest | 0.9856 | 919.82 | 593.98 |
+| Linear Regression | 0.8375 | 3135.59 | 2276.35 |
+| Decision Tree | 0.9038 | 2413.19 | 1395.35 |
+| Random Forest | 0.9835 | 998.30 | 625.98 |
 
 
 ## Best Performing Model
 
 **🏆 Winner:** Random Forest
-- **Test R²:** 0.9856
-- **Test RMSE:** 919.82
-- **Test MAE:** 593.98
+- **Test R²:** 0.9835
+- **Test RMSE:** 998.30
+- **Test MAE:** 625.98
 
 ## Key Insights
 

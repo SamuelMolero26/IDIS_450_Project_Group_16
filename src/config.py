@@ -41,17 +41,32 @@ CATEGORICAL_FEATURES = [
     'Sales Channel', 'WarehouseCode'
 ]
 
-# Model hyperparameters for the four supported model types
+# Model hyperparameters for the supported model types
 MODEL_CONFIGS = {
     'linear': {
         'fit_intercept': [True, False],
         'polynomial_degree': [1, 2]  # Degree 2 for interaction features
     },
-    'logistic': {
-        'C': [0.01, 0.1, 1.0, 10.0, 100.0],
-        'penalty': ['l1', 'l2', None],
-        'solver': ['liblinear', 'saga', 'lbfgs'],
-        'max_iter': [100, 200, 500, 1000]
+    'ridge': {
+        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0],
+        'fit_intercept': [True],
+        'polynomial_degree': [1, 2, 3],
+        'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sag', 'saga']
+    },
+    'lasso': {
+        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
+        'fit_intercept': [True],
+        'polynomial_degree': [1, 2, 3],
+        'selection': ['cyclic', 'random'],
+        'max_iter': [1000, 5000, 10000]
+    },
+    'elastic_net': {
+        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0],
+        'l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9, 0.95, 0.99],
+        'fit_intercept': [True],
+        'polynomial_degree': [1, 2, 3],
+        'selection': ['cyclic', 'random'],
+        'max_iter': [1000, 5000]
     },
     'decision_tree': {
         'max_depth': [10, 15, 20, 30],
@@ -71,8 +86,22 @@ MODEL_CONFIGS = {
         'bootstrap': [True, False],
         'criterion': ['squared_error', 'absolute_error', 'friedman_mse'],
         'ccp_alpha': [0.0, 0.001, 0.01],
-        'max_samples': [0.5, 0.75, 1.0],  # For bootstrap sampling
+        'max_samples': [None, 0.5, 0.6, 0.7, 0.8, 0.9],  # Only proportions, None when bootstrap=False
         'min_impurity_decrease': [0.0, 0.001, 0.01]
+    },
+    
+    'KNN': {
+        'n_neighbors': [3, 5, 7, 10, 15, 20, 30],
+        'metric': ['euclidean', 'manhattan', 'minkowski'],
+        'weights': ['uniform', 'distance'],
+        'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'], #optimization algorithms
+        'p': [1, 2, 3]  
+    },
+    'logistic': {
+        'C': [0.01, 0.1, 1.0, 10.0, 100.0],
+        'penalty': ['l1', 'l2', None],
+        'solver': ['liblinear', 'saga', 'lbfgs'],
+        'max_iter': [100, 200, 500, 1000]
     }
 }
 

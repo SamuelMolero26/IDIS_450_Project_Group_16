@@ -25,6 +25,7 @@ try:
         BUSINESS_RULES, REPORTS_DIR, SHAP_MAX_EVALS, SHAP_SAMPLE_SIZE
     )
     from src.logger import evaluation_logger
+    from src.utils.visualization_utils import plot_shap_summary
 except ImportError as e:
     print(f"Import error in qualitative_evaluator.py: {e}")
     print(f"Current sys.path: {sys.path}")
@@ -81,8 +82,15 @@ class QualitativeEvaluator:
             if isinstance(model, (RandomForestClassifier, RandomForestRegressor)):
                 # Use general Explainer for RandomForest models
                 explainer = shap.Explainer(model)
+            elif hasattr(model, 'feature_importances_'):
+                # Tree-based models (DecisionTree, etc.)
+                try:
+                    explainer = shap.TreeExplainer(model)
+                except Exception as e:
+                    evaluation_logger.warning(f"TreeExplainer failed for {type(model).__name__}: {e}, falling back to general Explainer")
+                    explainer = shap.Explainer(model)
             elif hasattr(model, 'predict_proba'):
-                explainer = shap.TreeExplainer(model) if hasattr(model, 'feature_importances_') else shap.LinearExplainer(model, X_train)
+                explainer = shap.LinearExplainer(model, X_train)
             else:
                 explainer = shap.LinearExplainer(model, X_train)
 
@@ -244,10 +252,10 @@ class QualitativeEvaluator:
                 error_df[f'{col}_bin'] = pd.qcut(error_df[col], q=4, duplicates='drop')
 
                 # Error rate by bin
-                bin_errors = error_df.groupby(f'{col}_bin')['is_error'].mean()
+                bin_errors = error_df.groupby(f'{col}_bin', observed=False)['is_error'].mean()
                 patterns[col] = {
                     'error_rate_by_bin': bin_errors.to_dict(),
-                    'bin_counts': error_df.groupby(f'{col}_bin').size().to_dict()
+                    'bin_counts': error_df.groupby(f'{col}_bin', observed=False).size().to_dict()
                 }
             except Exception as e:
                 evaluation_logger.warning(f"Could not analyze error patterns for {col}: {e}")

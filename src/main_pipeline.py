@@ -365,6 +365,10 @@ class AdvancedModelingPipeline:
                 if 'error' in model_data:
                     continue
 
+                # Skip non-model entries like 'comparison'
+                if 'model_id' not in model_data:
+                    continue
+
                 model_id = model_data['model_id']
                 model = self.model_pipeline.trained_models.get(model_id)
 

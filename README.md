@@ -26,9 +26,12 @@ This project analyzes a dataset of 7,992 US regional sales transactions across m
 ### Advanced Machine Learning Pipeline
 - **Meta-Learning System**: Predicts optimal model configurations from historical experiment data using gradient boosting
 - **Continuous Learning Loop**: Self-improving system that adapts strategies and uses warm starts for faster convergence
-- **Multiple Model Support**: Linear/Logistic Regression, Decision Trees, and Random Forest implementations with automated hyperparameter tuning
+- **Multiple Model Support**: Linear/Logistic Regression, Ridge/Lasso/ElasticNet, Decision Trees, Random Forest, KNN (K-Nearest Neighbors), and ANN (Artificial Neural Networks) with automated hyperparameter tuning
+- **KNN Optimal K Validation**: Comprehensive K value selection with GridSearchCV, K vs accuracy visualization, and validation range checking
+- **ANN Integration**: MLPRegressor with StandardScaler preprocessing, automatic parameter handling, and cross-validation compatibility
+- **Adaptive Preprocessing**: Model-specific scaling (RobustScaler for linear/distance-based models, StandardScaler for ANN)
 - **Cross-Validation**: K-fold CV with comprehensive bias-variance decomposition using bootstrapping
-- **Qualitative Evaluation**: SHAP-based interpretability, error pattern analysis, and business rule validation
+- **Qualitative Evaluation**: SHAP-based interpretability, error pattern analysis, business rule validation, and KNN-specific visualizations
 
 ### Infrastructure & Optimization
 - **Redis Cache Layer**: High-performance caching with automatic SQLite fallback for resilient operation
@@ -119,17 +122,21 @@ python main_pipeline.py
 
 **What it does:**
 - Loads and versions preprocessed data
-- Trains multiple models (Linear Regression, Decision Trees, Random Forest)
+- Trains multiple models (Linear/Logistic Regression, Ridge/Lasso/ElasticNet, Decision Trees, Random Forest, KNN, ANN)
+- Performs KNN optimal K validation with GridSearchCV and visualization
+- Applies ANN with StandardScaler preprocessing and automatic parameter handling
 - Performs quantitative evaluation with bias-variance analysis
 - Conducts qualitative evaluation using SHAP for interpretability
+- Generates KNN-specific visualizations (K vs accuracy plots, distance analysis, prediction stability)
 - Applies meta-learning to optimize configurations
 - Executes continuous learning loop for self-improvement
 - Generates comprehensive reports and visualizations
 
 **Output:**
 - Pipeline reports: `reports/pipeline_report_<experiment_id>.json`
-- ML visualizations: `visualizations/ml_analysis/`
+- ML visualizations: `visualizations/ml_analysis/` and `visualizations/knn_analysis/`
   - Model comparison charts (comprehensive, radar plots)
+  - KNN-specific visualizations: K vs accuracy plots, distance analysis, prediction stability, feature importance
   - Feature importance plots
   - Bias-variance analysis
   - Hyperparameter tuning curves
@@ -300,7 +307,10 @@ IDIS_450_Project_Group_16/
 - **Scaling & Encoding**: StandardScaler, MinMaxScaler, and One-Hot Encoding for categorical variables
 
 ### Machine Learning Pipeline Features
-- **Model Training**: Linear Regression, Decision Trees, Random Forest with automated hyperparameter tuning
+- **Model Training**: Linear/Logistic Regression, Ridge/Lasso/ElasticNet, Decision Trees, Random Forest, KNN, ANN with automated hyperparameter tuning
+- **KNN Implementation**: K-Nearest Neighbors with optimal K validation, distance-based metrics, and comprehensive visualization suite
+- **ANN Integration**: Multi-layer Perceptron with StandardScaler preprocessing, automatic parameter handling, and cross-validation support
+- **Adaptive Preprocessing**: Model-specific scaling strategies (RobustScaler for linear/distance models, StandardScaler for ANN)
 - **Cross-Validation**: K-fold CV with stratified splitting and reproducible random seeds
 - **Bias-Variance Analysis**: Bootstrapping-based decomposition to understand model behavior
 - **Meta-Learning**: Gradient boosting models predict optimal configurations from historical experiments
@@ -309,11 +319,13 @@ IDIS_450_Project_Group_16/
 
 ### Evaluation Framework
 - **Quantitative Metrics**: MSE, RMSE, MAE, R² for regression tasks
-- **Qualitative Evaluation**: 
+- **Qualitative Evaluation**:
   - SHAP-based feature importance and interpretability
+  - KNN-specific analysis: distance distributions, prediction stability, feature importance via permutation
   - Error pattern analysis (systematic failure detection)
   - Business rule validation (domain-specific constraints)
   - Actionable recommendations from qualitative assessment
+- **KNN Optimal K Validation**: GridSearchCV results analysis, K vs accuracy visualization, validation range checking
 - **Model Comparison**: Comprehensive comparison across multiple metrics with radar plots
 
 ### Visualization Features
@@ -322,6 +334,7 @@ IDIS_450_Project_Group_16/
 - **Relationship Analysis**: Scatter plots with regression lines, correlation coefficients, and R² values
 - **Correlation Networks**: Hierarchical clustering to identify variable groupings
 - **ML Visualizations**: Feature importance, bias-variance decomposition, hyperparameter tuning curves
+- **KNN-Specific Visualizations**: K vs accuracy plots, neighbor distance analysis, prediction stability, decision boundaries, timing analysis
 - **Interactive Dashboards**: Plotly-based interactive model performance exploration
 
 ### Infrastructure Features
@@ -344,15 +357,44 @@ IDIS_450_Project_Group_16/
 The advanced modeling pipeline follows a modular architecture with these key components:
 
 1. **Data Pipeline**: Loading, versioning, and preprocessing with hash-based change tracking
-2. **Core Modeling**: Multiple model types with automated hyperparameter tuning and caching
-3. **Enhanced Evaluation**: 
+2. **Core Modeling**: Multiple model types (Linear, Tree-based, KNN, ANN) with automated hyperparameter tuning and caching
+3. **KNN Integration**: Optimal K validation with GridSearchCV, distance-based metrics, and comprehensive visualization suite
+4. **ANN Integration**: MLPRegressor with StandardScaler preprocessing and automatic parameter handling
+5. **Adaptive Preprocessing**: Model-specific scaling strategies and feature transformations
+6. **Enhanced Evaluation**:
    - Quantitative: Cross-validation, bias-variance decomposition, learning curves
-   - Qualitative: SHAP interpretability, error analysis, business alignment
-4. **Meta-Learning**: Configuration optimization using gradient boosting on historical data
-5. **Continuous Learning**: Self-improvement cycle with warm starts and adaptive strategies
-6. **Infrastructure**: Redis caching with SQLite fallback, comprehensive logging, version control
+   - Qualitative: SHAP interpretability, error analysis, business alignment, KNN-specific analysis
+7. **Meta-Learning**: Configuration optimization using gradient boosting on historical data
+8. **Continuous Learning**: Self-improvement cycle with warm starts and adaptive strategies
+9. **Infrastructure**: Redis caching with SQLite fallback, comprehensive logging, version control
 
 See [architecture_diagram.md](architecture_diagram.md) for detailed component diagrams and data flow.
+
+## 🤖 KNN & ANN Implementation Details
+
+### K-Nearest Neighbors (KNN)
+- **Optimal K Validation**: GridSearchCV with K values from 1-30, automatic selection based on CV performance
+- **Distance Metrics**: Euclidean, Manhattan, and Minkowski distance support
+- **Visualization Suite**:
+  - K vs Accuracy plots with optimal K marking
+  - Neighbor distance distribution analysis
+  - Prediction stability across K values
+  - Feature importance via permutation importance
+  - Decision boundary visualization (PCA projection)
+  - Timing analysis for training vs prediction
+- **Validation Logic**: Range checking (5-15 expected, 3-30 acceptable) with anomaly detection
+
+### Artificial Neural Networks (ANN)
+- **Architecture**: MLPRegressor with configurable hidden layers (50-1000 neurons)
+- **Preprocessing**: StandardScaler (mean=0, std=1) for optimal ANN performance
+- **Parameter Handling**: Automatic random_state management to avoid conflicts
+- **Hyperparameter Tuning**: GridSearchCV for hidden layers, activation functions, solvers, and learning rates
+- **Cross-Validation**: Pipeline-based CV with proper scaling for each fold
+- **Supported Configurations**:
+  - Hidden layers: (50,), (100,), (50,50), (100,50), (100,50,25)
+  - Activation: relu, tanh
+  - Solvers: adam, lbfgs
+  - Learning rates: constant, adaptive
 
 ## 🚀 Performance Characteristics
 
@@ -376,10 +418,12 @@ See [architecture_diagram.md](architecture_diagram.md) for detailed component di
 
 ## 🤝 Contributing
 
-This project implements an advanced machine learning pipeline with meta-learning and continuous improvement. Contributions are welcome in the following areas:
+This project implements an advanced machine learning pipeline with meta-learning, continuous improvement, and specialized KNN/ANN support. Contributions are welcome in the following areas:
 
-- Additional model types (e.g., XGBoost, neural networks)
-- Enhanced meta-learning strategies
+- Additional model types (e.g., XGBoost, SVM, ensemble methods)
+- Enhanced KNN algorithms and distance metrics
+- Advanced ANN architectures and optimization techniques
+- Improved meta-learning strategies
 - Distributed computing support (Dask/Ray)
 - Advanced interpretability methods
 - Business-specific validation rules

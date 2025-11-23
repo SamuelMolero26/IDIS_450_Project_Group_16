@@ -605,22 +605,65 @@ class ContinuousLearning:
         Returns:
             Serializable version of the object
         """
+        # Handle None early
+        if obj is None:
+            return None
+
+        # Handle pandas Interval types first (before dict/list checks)
+        if hasattr(pd, 'Interval') and isinstance(obj, pd.Interval):
+            return str(obj)
+
+        # Handle pandas IntervalIndex
+        if hasattr(pd, 'IntervalIndex') and isinstance(obj, pd.IntervalIndex):
+            return [str(interval) for interval in obj]
+
+        # Handle pandas Series with Interval dtype
+        if isinstance(obj, pd.Series):
+            if hasattr(obj.dtype, 'name') and 'interval' in str(obj.dtype).lower():
+                return obj.astype(str).tolist()
+            return obj.tolist()
+
+        # Handle pandas Categorical
+        if isinstance(obj, pd.Categorical):
+            return obj.tolist()
+
+        # Handle pandas Timestamp
+        if isinstance(obj, pd.Timestamp):
+            return obj.isoformat()
+
+        # Handle pandas Index types
+        if isinstance(obj, pd.Index):
+            return obj.tolist()
+
+        # Handle dicts and lists recursively
         if isinstance(obj, dict):
             return {k: self._make_serializable(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
+        elif isinstance(obj, (list, tuple)):
             return [self._make_serializable(item) for item in obj]
+
+        # Handle numpy types
         elif isinstance(obj, np.ndarray):
             return obj.tolist()
-        elif isinstance(obj, (np.int64, np.int32, np.float64, np.float32)):
-            return obj.item()
+        elif isinstance(obj, (np.int64, np.int32, np.int16, np.int8)):
+            return int(obj)
+        elif isinstance(obj, (np.float64, np.float32, np.float16)):
+            return float(obj)
+        elif isinstance(obj, np.bool_):
+            return bool(obj)
+
+        # Handle datetime types
+        elif isinstance(obj, (datetime)):
+            return obj.isoformat()
+
+        # For custom objects with __dict__
         elif hasattr(obj, '__dict__'):
-            # For custom objects, try to serialize their __dict__
             try:
                 return self._make_serializable(obj.__dict__)
             except:
                 return str(obj)
+
+        # Final attempt: try direct JSON serialization
         else:
-            # For other types, try to convert or return string representation
             try:
                 json.dumps(obj)
                 return obj

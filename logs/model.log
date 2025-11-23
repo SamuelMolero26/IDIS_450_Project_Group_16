@@ -3792,3 +3792,1739 @@
 2025-11-19 23:20:14,924 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
 2025-11-19 23:20:14,928 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251119_232014.json
 2025-11-19 23:20:14,928 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:10:47,353 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-2078400276298110
+2025-11-20 16:10:47,363 - model - INFO - Using cached results for linear
+2025-11-20 16:10:47,363 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:10:47,367 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:10:47,367 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:10:47,371 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:10:47,395 - model - INFO - Cached model object for linear_0
+2025-11-20 16:10:47,395 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:10:49,219 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-2078400276298110
+2025-11-20 16:10:49,219 - model - INFO - Using cached results for ridge
+2025-11-20 16:10:49,219 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:10:49,222 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:10:49,222 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:10:49,225 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:10:49,244 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:10:49,244 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:10:50,551 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-2078400276298110
+2025-11-20 16:10:50,552 - model - INFO - Using cached results for lasso
+2025-11-20 16:10:50,552 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:10:50,555 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:10:50,555 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:10:50,587 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:10:50,716 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:10:50,716 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:10:54,255 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-2078400276298110
+2025-11-20 16:10:54,255 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:10:54,255 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:10:54,256 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:11:06,539 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:11:06,571 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:11:06,571 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:11:08,381 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-2078400276298110
+2025-11-20 16:11:08,382 - model - INFO - Using cached results for random_forest
+2025-11-20 16:11:08,382 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:11:08,382 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:11:08,801 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:11:08,801 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:11:10,520 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:11:10,520 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:11:45,307 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-2078400276298110
+2025-11-20 16:11:45,307 - model - INFO - Using cached results for KNN
+2025-11-20 16:11:45,307 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:11:45,313 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:11:45,314 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:11:45,318 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:11:45,496 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:11:45,497 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:11:45,497 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:11:50,867 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:11:50,868 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:11:50,869 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:11:50,870 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:11:50,881 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:11:50,907 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:11:50,907 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:11:50,907 - model - INFO - Training and evaluating linear
+2025-11-20 16:11:50,907 - model - INFO - Checking cache for linear with key: linear_[]_-2078400276298110
+2025-11-20 16:11:50,908 - model - INFO - Using cached results for linear
+2025-11-20 16:11:50,908 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:11:50,909 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:11:50,909 - model - INFO - Training linear model with params: {}
+2025-11-20 16:11:50,910 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:11:50,923 - model - INFO - Cached model object for linear_6
+2025-11-20 16:11:50,923 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:11:51,726 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:11:51,726 - model - INFO - Training and evaluating ridge
+2025-11-20 16:11:51,726 - model - INFO - Checking cache for ridge with key: ridge_[]_-2078400276298110
+2025-11-20 16:11:51,726 - model - INFO - Using cached results for ridge
+2025-11-20 16:11:51,727 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:11:51,728 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:11:51,728 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:11:51,728 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:11:51,762 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:11:51,763 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:11:52,389 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:11:52,389 - model - INFO - Training and evaluating lasso
+2025-11-20 16:11:52,389 - model - INFO - Checking cache for lasso with key: lasso_[]_-2078400276298110
+2025-11-20 16:11:52,389 - model - INFO - Using cached results for lasso
+2025-11-20 16:11:52,389 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:11:52,391 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:11:52,391 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:11:52,393 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:11:52,408 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:11:52,408 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:11:53,178 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:11:53,179 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:11:53,179 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-2078400276298110
+2025-11-20 16:11:53,179 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:11:53,179 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:11:53,179 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:11:53,937 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:11:53,949 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:11:53,949 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:11:54,671 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:11:54,671 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:11:54,671 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-2078400276298110
+2025-11-20 16:11:54,672 - model - INFO - Using cached results for random_forest
+2025-11-20 16:11:54,672 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:11:54,672 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:11:54,760 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:11:54,760 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:11:55,209 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:11:55,209 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:12:02,736 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:12:02,736 - model - INFO - Training and evaluating KNN
+2025-11-20 16:12:02,737 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:12:07,734 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:12:07,736 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-2078400276298110
+2025-11-20 16:12:07,737 - model - INFO - Using cached results for KNN
+2025-11-20 16:12:07,738 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:12:07,740 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:12:07,740 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:12:07,741 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:12:07,802 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:12:07,803 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:12:07,803 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:12:10,044 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:12:10,241 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:12:10,243 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_161210.json
+2025-11-20 16:12:10,243 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:12:17,299 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-2078400276298110
+2025-11-20 16:12:17,301 - model - INFO - Using cached results for linear
+2025-11-20 16:12:17,301 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:12:17,304 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:12:17,305 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:12:17,306 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:12:17,328 - model - INFO - Cached model object for linear_0
+2025-11-20 16:12:17,328 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:12:18,839 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-2078400276298110
+2025-11-20 16:12:18,840 - model - INFO - Using cached results for ridge
+2025-11-20 16:12:18,840 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:12:18,843 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:12:18,843 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:12:18,844 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:12:18,865 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:12:18,865 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:12:20,330 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-2078400276298110
+2025-11-20 16:12:20,330 - model - INFO - Using cached results for lasso
+2025-11-20 16:12:20,330 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:12:20,333 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:12:20,333 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:12:20,364 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:12:20,496 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:12:20,496 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:12:24,249 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-2078400276298110
+2025-11-20 16:12:24,250 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:12:24,250 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:12:24,251 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:12:37,136 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:12:37,212 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:12:37,212 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:12:39,143 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-2078400276298110
+2025-11-20 16:12:39,143 - model - INFO - Using cached results for random_forest
+2025-11-20 16:12:39,143 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:12:39,144 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:12:39,553 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:12:39,553 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:12:41,354 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:12:41,354 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:13:17,012 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-2078400276298110
+2025-11-20 16:13:17,013 - model - INFO - Using cached results for KNN
+2025-11-20 16:13:17,013 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:13:17,016 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:13:17,016 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:13:17,018 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:13:17,200 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:13:17,200 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:13:17,200 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:13:22,457 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:13:22,458 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:13:22,459 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:13:22,460 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:13:22,472 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:13:22,498 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:13:22,499 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:13:22,499 - model - INFO - Training and evaluating linear
+2025-11-20 16:13:22,499 - model - INFO - Checking cache for linear with key: linear_[]_-2078400276298110
+2025-11-20 16:13:22,499 - model - INFO - Using cached results for linear
+2025-11-20 16:13:22,500 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:13:22,501 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:13:22,501 - model - INFO - Training linear model with params: {}
+2025-11-20 16:13:22,502 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:13:22,515 - model - INFO - Cached model object for linear_6
+2025-11-20 16:13:22,515 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:13:23,185 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:13:23,185 - model - INFO - Training and evaluating ridge
+2025-11-20 16:13:23,185 - model - INFO - Checking cache for ridge with key: ridge_[]_-2078400276298110
+2025-11-20 16:13:23,185 - model - INFO - Using cached results for ridge
+2025-11-20 16:13:23,185 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:13:23,186 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:13:23,187 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:13:23,187 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:13:23,199 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:13:23,199 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:13:23,855 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:13:23,855 - model - INFO - Training and evaluating lasso
+2025-11-20 16:13:23,855 - model - INFO - Checking cache for lasso with key: lasso_[]_-2078400276298110
+2025-11-20 16:13:23,856 - model - INFO - Using cached results for lasso
+2025-11-20 16:13:23,856 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:13:23,857 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:13:23,857 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:13:23,859 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:13:23,875 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:13:23,875 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:13:24,655 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:13:24,655 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:13:24,655 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-2078400276298110
+2025-11-20 16:13:24,655 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:13:24,655 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:13:24,656 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:13:25,428 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:13:25,440 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:13:25,440 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:13:26,169 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:13:26,169 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:13:26,169 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-2078400276298110
+2025-11-20 16:13:26,169 - model - INFO - Using cached results for random_forest
+2025-11-20 16:13:26,169 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:13:26,169 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:13:26,253 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:13:26,253 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:13:26,690 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:13:26,690 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:13:34,375 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:13:34,375 - model - INFO - Training and evaluating KNN
+2025-11-20 16:13:34,375 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:13:37,249 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:13:37,249 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-2078400276298110
+2025-11-20 16:13:37,250 - model - INFO - Using cached results for KNN
+2025-11-20 16:13:37,250 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:13:37,251 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:13:37,251 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:13:37,252 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:13:37,293 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:13:37,320 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:13:37,320 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:13:39,311 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:13:39,503 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:13:39,505 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_161339.json
+2025-11-20 16:13:39,505 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:15:07,336 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-5994766213179548540
+2025-11-20 16:15:07,337 - model - INFO - Using cached results for linear
+2025-11-20 16:15:07,337 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:15:07,340 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:15:07,340 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:15:07,341 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:15:07,361 - model - INFO - Cached model object for linear_0
+2025-11-20 16:15:07,361 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:15:09,317 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-5994766213179548540
+2025-11-20 16:15:09,318 - model - INFO - Using cached results for ridge
+2025-11-20 16:15:09,318 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:15:09,320 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:15:09,320 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:15:09,322 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:15:09,340 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:15:09,340 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:15:10,820 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-5994766213179548540
+2025-11-20 16:15:10,820 - model - INFO - Using cached results for lasso
+2025-11-20 16:15:10,821 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:15:10,823 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:15:10,823 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:15:10,854 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:15:10,984 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:15:10,984 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:15:14,761 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-5994766213179548540
+2025-11-20 16:15:14,761 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:15:14,762 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:15:14,762 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:15:27,515 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:15:27,548 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:15:27,548 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:15:29,471 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-5994766213179548540
+2025-11-20 16:15:29,471 - model - INFO - Using cached results for random_forest
+2025-11-20 16:15:29,472 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:15:29,472 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:15:29,874 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:15:29,874 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:15:31,616 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:15:31,616 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:16:05,938 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-5994766213179548540
+2025-11-20 16:16:05,939 - model - INFO - Using cached results for KNN
+2025-11-20 16:16:05,939 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:16:05,942 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:16:05,942 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:16:05,945 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:16:06,123 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:16:06,123 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:16:06,123 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:16:11,239 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:16:11,240 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:16:11,241 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:16:11,242 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:16:11,253 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:16:11,278 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:16:11,278 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:16:11,278 - model - INFO - Training and evaluating linear
+2025-11-20 16:16:11,278 - model - INFO - Checking cache for linear with key: linear_[]_-5994766213179548540
+2025-11-20 16:16:11,279 - model - INFO - Using cached results for linear
+2025-11-20 16:16:11,279 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:16:11,280 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:16:11,280 - model - INFO - Training linear model with params: {}
+2025-11-20 16:16:11,281 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:16:11,294 - model - INFO - Cached model object for linear_6
+2025-11-20 16:16:11,294 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:16:12,101 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:16:12,101 - model - INFO - Training and evaluating ridge
+2025-11-20 16:16:12,101 - model - INFO - Checking cache for ridge with key: ridge_[]_-5994766213179548540
+2025-11-20 16:16:12,102 - model - INFO - Using cached results for ridge
+2025-11-20 16:16:12,102 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:16:12,103 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:16:12,103 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:16:12,104 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:16:12,116 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:16:12,116 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:16:12,744 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:16:12,744 - model - INFO - Training and evaluating lasso
+2025-11-20 16:16:12,744 - model - INFO - Checking cache for lasso with key: lasso_[]_-5994766213179548540
+2025-11-20 16:16:12,744 - model - INFO - Using cached results for lasso
+2025-11-20 16:16:12,745 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:16:12,746 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:16:12,746 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:16:12,749 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:16:12,765 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:16:12,765 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:16:13,531 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:16:13,531 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:16:13,531 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-5994766213179548540
+2025-11-20 16:16:13,532 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:16:13,532 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:16:13,532 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:16:14,300 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:16:14,311 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:16:14,311 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:16:15,036 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:16:15,036 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:16:15,036 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-5994766213179548540
+2025-11-20 16:16:15,036 - model - INFO - Using cached results for random_forest
+2025-11-20 16:16:15,037 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:16:15,037 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:16:15,124 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:16:15,124 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:16:15,572 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:16:15,572 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:16:22,943 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:16:22,943 - model - INFO - Training and evaluating KNN
+2025-11-20 16:16:22,943 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:16:27,992 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:16:27,993 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-5994766213179548540
+2025-11-20 16:16:27,994 - model - INFO - Using cached results for KNN
+2025-11-20 16:16:27,994 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:16:28,003 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:16:28,003 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:16:28,004 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:16:28,045 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:16:28,046 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:16:28,046 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:16:30,256 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:16:30,454 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:16:30,456 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_161630.json
+2025-11-20 16:16:30,456 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:16:37,743 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-5994766213179548540
+2025-11-20 16:16:37,744 - model - INFO - Using cached results for linear
+2025-11-20 16:16:37,744 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:16:37,747 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:16:37,747 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:16:37,748 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:16:37,771 - model - INFO - Cached model object for linear_0
+2025-11-20 16:16:37,771 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:16:39,367 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-5994766213179548540
+2025-11-20 16:16:39,367 - model - INFO - Using cached results for ridge
+2025-11-20 16:16:39,368 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:16:39,370 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:16:39,371 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:16:39,371 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:16:39,391 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:16:39,392 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:16:40,969 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-5994766213179548540
+2025-11-20 16:16:40,969 - model - INFO - Using cached results for lasso
+2025-11-20 16:16:40,969 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:16:40,972 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:16:40,972 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:16:41,003 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:16:41,131 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:16:41,131 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:16:44,890 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-5994766213179548540
+2025-11-20 16:16:44,891 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:16:44,891 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:16:44,891 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:16:57,809 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:16:57,842 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:16:57,842 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:16:59,855 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-5994766213179548540
+2025-11-20 16:16:59,857 - model - INFO - Using cached results for random_forest
+2025-11-20 16:16:59,857 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:16:59,857 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:17:00,270 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:17:00,270 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:17:02,057 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:17:02,057 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:17:36,922 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-5994766213179548540
+2025-11-20 16:17:36,923 - model - INFO - Using cached results for KNN
+2025-11-20 16:17:36,923 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:17:36,926 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:17:36,926 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:17:36,928 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:17:37,105 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:17:37,106 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:17:37,106 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:17:42,368 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:17:42,369 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:17:42,369 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:17:42,370 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:17:42,382 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:17:42,407 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:17:42,407 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:17:42,407 - model - INFO - Training and evaluating linear
+2025-11-20 16:17:42,407 - model - INFO - Checking cache for linear with key: linear_[]_-5994766213179548540
+2025-11-20 16:17:42,408 - model - INFO - Using cached results for linear
+2025-11-20 16:17:42,408 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:17:42,409 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:17:42,409 - model - INFO - Training linear model with params: {}
+2025-11-20 16:17:42,410 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:17:42,423 - model - INFO - Cached model object for linear_6
+2025-11-20 16:17:42,423 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:17:43,092 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:17:43,094 - model - INFO - Training and evaluating ridge
+2025-11-20 16:17:43,094 - model - INFO - Checking cache for ridge with key: ridge_[]_-5994766213179548540
+2025-11-20 16:17:43,094 - model - INFO - Using cached results for ridge
+2025-11-20 16:17:43,094 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:17:43,096 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:17:43,096 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:17:43,096 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:17:43,109 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:17:43,109 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:17:43,759 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:17:43,759 - model - INFO - Training and evaluating lasso
+2025-11-20 16:17:43,759 - model - INFO - Checking cache for lasso with key: lasso_[]_-5994766213179548540
+2025-11-20 16:17:43,760 - model - INFO - Using cached results for lasso
+2025-11-20 16:17:43,760 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:17:43,761 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:17:43,761 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:17:43,764 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:17:43,780 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:17:43,780 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:17:44,552 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:17:44,552 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:17:44,552 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-5994766213179548540
+2025-11-20 16:17:44,552 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:17:44,552 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:17:44,552 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:17:45,320 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:17:45,332 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:17:45,332 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:17:46,054 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:17:46,054 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:17:46,054 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-5994766213179548540
+2025-11-20 16:17:46,054 - model - INFO - Using cached results for random_forest
+2025-11-20 16:17:46,055 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:17:46,055 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:17:46,137 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:17:46,137 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:17:46,580 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:17:46,580 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:17:54,211 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:17:54,212 - model - INFO - Training and evaluating KNN
+2025-11-20 16:17:54,212 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:17:57,099 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:17:57,100 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-5994766213179548540
+2025-11-20 16:17:57,100 - model - INFO - Using cached results for KNN
+2025-11-20 16:17:57,100 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:17:57,102 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:17:57,102 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:17:57,102 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:17:57,142 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:17:57,143 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:17:57,143 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:17:59,077 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:17:59,260 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:17:59,262 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_161759.json
+2025-11-20 16:17:59,262 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:22:46,177 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-2032449351608246482
+2025-11-20 16:22:46,177 - model - INFO - Using cached results for linear
+2025-11-20 16:22:46,178 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:22:46,180 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:22:46,181 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:22:46,183 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:22:46,203 - model - INFO - Cached model object for linear_0
+2025-11-20 16:22:46,203 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:22:48,474 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-2032449351608246482
+2025-11-20 16:22:48,474 - model - INFO - Using cached results for ridge
+2025-11-20 16:22:48,475 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:22:48,477 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:22:48,477 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:22:48,479 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:22:48,499 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:22:48,499 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:22:50,313 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-2032449351608246482
+2025-11-20 16:22:50,314 - model - INFO - Using cached results for lasso
+2025-11-20 16:22:50,314 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:22:50,317 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:22:50,317 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:22:50,349 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:22:50,484 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:22:50,485 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:22:54,424 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-2032449351608246482
+2025-11-20 16:22:54,424 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:22:54,424 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:22:54,425 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:23:07,669 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:23:07,751 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:23:07,751 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:23:10,016 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-2032449351608246482
+2025-11-20 16:23:10,017 - model - INFO - Using cached results for random_forest
+2025-11-20 16:23:10,017 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:23:10,017 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:23:10,436 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:23:10,436 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:23:12,252 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:23:12,252 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:23:47,668 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-2032449351608246482
+2025-11-20 16:23:47,669 - model - INFO - Using cached results for KNN
+2025-11-20 16:23:47,669 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:23:47,672 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:23:47,672 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:23:47,675 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:23:47,856 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:23:47,857 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:23:47,857 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:23:53,410 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:23:53,411 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:23:53,412 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:23:53,413 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:23:53,428 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:23:53,456 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:23:53,456 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:23:53,456 - model - INFO - Training and evaluating linear
+2025-11-20 16:23:53,456 - model - INFO - Checking cache for linear with key: linear_[]_-2032449351608246482
+2025-11-20 16:23:53,457 - model - INFO - Using cached results for linear
+2025-11-20 16:23:53,457 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:23:53,460 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:23:53,460 - model - INFO - Training linear model with params: {}
+2025-11-20 16:23:53,461 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:23:53,476 - model - INFO - Cached model object for linear_6
+2025-11-20 16:23:53,476 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:23:54,349 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:23:54,349 - model - INFO - Training and evaluating ridge
+2025-11-20 16:23:54,349 - model - INFO - Checking cache for ridge with key: ridge_[]_-2032449351608246482
+2025-11-20 16:23:54,349 - model - INFO - Using cached results for ridge
+2025-11-20 16:23:54,349 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:23:54,351 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:23:54,351 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:23:54,351 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:23:54,365 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:23:54,365 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:23:55,013 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:23:55,013 - model - INFO - Training and evaluating lasso
+2025-11-20 16:23:55,013 - model - INFO - Checking cache for lasso with key: lasso_[]_-2032449351608246482
+2025-11-20 16:23:55,014 - model - INFO - Using cached results for lasso
+2025-11-20 16:23:55,014 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:23:55,015 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:23:55,015 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:23:55,018 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:23:55,033 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:23:55,033 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:23:55,959 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:23:55,959 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:23:55,959 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-2032449351608246482
+2025-11-20 16:23:55,960 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:23:55,960 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:23:55,961 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:23:56,821 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:23:56,833 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:23:56,833 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:23:57,568 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:23:57,568 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:23:57,568 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-2032449351608246482
+2025-11-20 16:23:57,568 - model - INFO - Using cached results for random_forest
+2025-11-20 16:23:57,568 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:23:57,569 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:23:57,654 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:23:57,654 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:23:58,096 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:23:58,096 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:24:05,507 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:24:05,507 - model - INFO - Training and evaluating KNN
+2025-11-20 16:24:05,507 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:24:10,348 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:24:10,348 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-2032449351608246482
+2025-11-20 16:24:10,351 - model - INFO - Using cached results for KNN
+2025-11-20 16:24:10,351 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:24:10,355 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:24:10,355 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:24:10,356 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:24:10,400 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:24:10,401 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:24:10,401 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:24:12,654 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:24:12,849 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:24:12,850 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_162412.json
+2025-11-20 16:24:12,850 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:24:20,392 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-2032449351608246482
+2025-11-20 16:24:20,393 - model - INFO - Using cached results for linear
+2025-11-20 16:24:20,393 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:24:20,396 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:24:20,396 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:24:20,397 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:24:20,419 - model - INFO - Cached model object for linear_0
+2025-11-20 16:24:20,419 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:24:22,176 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-2032449351608246482
+2025-11-20 16:24:22,177 - model - INFO - Using cached results for ridge
+2025-11-20 16:24:22,177 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:24:22,180 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:24:22,180 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:24:22,181 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:24:22,201 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:24:22,201 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:24:23,921 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-2032449351608246482
+2025-11-20 16:24:23,921 - model - INFO - Using cached results for lasso
+2025-11-20 16:24:23,921 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:24:23,924 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:24:23,924 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:24:23,956 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:24:24,088 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:24:24,088 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:24:28,010 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-2032449351608246482
+2025-11-20 16:24:28,011 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:24:28,011 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:24:28,011 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:24:40,972 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:24:41,006 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:24:41,006 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:24:43,254 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-2032449351608246482
+2025-11-20 16:24:43,254 - model - INFO - Using cached results for random_forest
+2025-11-20 16:24:43,255 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:24:43,255 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:24:43,663 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:24:43,663 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:24:45,432 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:24:45,432 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:25:20,799 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-2032449351608246482
+2025-11-20 16:25:20,800 - model - INFO - Using cached results for KNN
+2025-11-20 16:25:20,800 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:25:20,804 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:25:20,805 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:25:20,806 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:25:20,985 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:25:20,985 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:25:20,986 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:25:26,414 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:25:26,416 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:25:26,417 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:25:26,418 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:25:26,430 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:25:26,456 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:25:26,456 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:25:26,456 - model - INFO - Training and evaluating linear
+2025-11-20 16:25:26,456 - model - INFO - Checking cache for linear with key: linear_[]_-2032449351608246482
+2025-11-20 16:25:26,457 - model - INFO - Using cached results for linear
+2025-11-20 16:25:26,457 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:25:26,458 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:25:26,458 - model - INFO - Training linear model with params: {}
+2025-11-20 16:25:26,459 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:25:26,472 - model - INFO - Cached model object for linear_6
+2025-11-20 16:25:26,472 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:25:27,141 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:25:27,141 - model - INFO - Training and evaluating ridge
+2025-11-20 16:25:27,141 - model - INFO - Checking cache for ridge with key: ridge_[]_-2032449351608246482
+2025-11-20 16:25:27,141 - model - INFO - Using cached results for ridge
+2025-11-20 16:25:27,141 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:25:27,143 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:25:27,143 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:25:27,144 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:25:27,156 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:25:27,156 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:25:27,806 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:25:27,806 - model - INFO - Training and evaluating lasso
+2025-11-20 16:25:27,806 - model - INFO - Checking cache for lasso with key: lasso_[]_-2032449351608246482
+2025-11-20 16:25:27,806 - model - INFO - Using cached results for lasso
+2025-11-20 16:25:27,807 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:25:27,808 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:25:27,808 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:25:27,810 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:25:27,827 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:25:27,827 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:25:28,605 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:25:28,605 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:25:28,605 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-2032449351608246482
+2025-11-20 16:25:28,606 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:25:28,606 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:25:28,606 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:25:29,389 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:25:29,401 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:25:29,401 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:25:30,155 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:25:30,155 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:25:30,155 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-2032449351608246482
+2025-11-20 16:25:30,156 - model - INFO - Using cached results for random_forest
+2025-11-20 16:25:30,156 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:25:30,156 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:25:30,240 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:25:30,240 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:25:30,688 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:25:30,688 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:25:38,469 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:25:38,470 - model - INFO - Training and evaluating KNN
+2025-11-20 16:25:38,470 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:25:41,351 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:25:41,351 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-2032449351608246482
+2025-11-20 16:25:41,352 - model - INFO - Using cached results for KNN
+2025-11-20 16:25:41,352 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:25:41,354 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:25:41,354 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:25:41,354 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:25:41,397 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:25:41,416 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:25:41,416 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:25:43,409 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:25:43,580 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:25:43,582 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_162543.json
+2025-11-20 16:25:43,582 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:28:40,565 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_3140508627739443187
+2025-11-20 16:28:40,565 - model - INFO - Using cached results for linear
+2025-11-20 16:28:40,566 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:28:40,569 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:28:40,569 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:28:40,570 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:28:40,593 - model - INFO - Cached model object for linear_0
+2025-11-20 16:28:40,593 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:28:43,016 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_3140508627739443187
+2025-11-20 16:28:43,017 - model - INFO - Using cached results for ridge
+2025-11-20 16:28:43,017 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:28:43,020 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:28:43,020 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:28:43,022 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:28:43,042 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:28:43,042 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:28:44,912 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_3140508627739443187
+2025-11-20 16:28:44,912 - model - INFO - Using cached results for lasso
+2025-11-20 16:28:44,912 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:28:44,916 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:28:44,916 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:28:44,947 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:28:45,089 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:28:45,089 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:28:49,155 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_3140508627739443187
+2025-11-20 16:28:49,157 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:28:49,158 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:28:49,158 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:29:02,397 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:29:02,455 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:29:02,455 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:29:04,836 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_3140508627739443187
+2025-11-20 16:29:04,836 - model - INFO - Using cached results for random_forest
+2025-11-20 16:29:04,836 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:29:04,836 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:29:05,257 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:29:05,257 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:29:07,095 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:29:07,095 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:29:42,736 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_3140508627739443187
+2025-11-20 16:29:42,737 - model - INFO - Using cached results for KNN
+2025-11-20 16:29:42,737 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:29:42,740 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:29:42,740 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:29:42,743 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:29:42,928 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:29:42,929 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:29:42,929 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:29:48,490 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:29:48,491 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:29:48,492 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:29:48,493 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:29:48,505 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:29:48,532 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:29:48,532 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:29:48,532 - model - INFO - Training and evaluating linear
+2025-11-20 16:29:48,532 - model - INFO - Checking cache for linear with key: linear_[]_3140508627739443187
+2025-11-20 16:29:48,532 - model - INFO - Using cached results for linear
+2025-11-20 16:29:48,532 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:29:48,534 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:29:48,534 - model - INFO - Training linear model with params: {}
+2025-11-20 16:29:48,535 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:29:48,548 - model - INFO - Cached model object for linear_6
+2025-11-20 16:29:48,548 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:29:49,383 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:29:49,383 - model - INFO - Training and evaluating ridge
+2025-11-20 16:29:49,384 - model - INFO - Checking cache for ridge with key: ridge_[]_3140508627739443187
+2025-11-20 16:29:49,384 - model - INFO - Using cached results for ridge
+2025-11-20 16:29:49,384 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:29:49,386 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:29:49,386 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:29:49,386 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:29:49,400 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:29:49,400 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:29:50,053 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:29:50,053 - model - INFO - Training and evaluating lasso
+2025-11-20 16:29:50,053 - model - INFO - Checking cache for lasso with key: lasso_[]_3140508627739443187
+2025-11-20 16:29:50,054 - model - INFO - Using cached results for lasso
+2025-11-20 16:29:50,054 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:29:50,056 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:29:50,056 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:29:50,058 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:29:50,073 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:29:50,074 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:29:50,847 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:29:50,847 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:29:50,847 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_3140508627739443187
+2025-11-20 16:29:50,847 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:29:50,847 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:29:50,847 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:29:51,627 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:29:51,639 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:29:51,639 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:29:52,369 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:29:52,369 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:29:52,370 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_3140508627739443187
+2025-11-20 16:29:52,370 - model - INFO - Using cached results for random_forest
+2025-11-20 16:29:52,370 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:29:52,370 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:29:52,455 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:29:52,455 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:29:52,901 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:29:52,901 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:30:00,432 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:30:00,432 - model - INFO - Training and evaluating KNN
+2025-11-20 16:30:00,432 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:30:05,741 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:30:05,741 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_3140508627739443187
+2025-11-20 16:30:05,742 - model - INFO - Using cached results for KNN
+2025-11-20 16:30:05,743 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:30:05,746 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:30:05,746 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:30:05,746 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:30:05,788 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:30:05,788 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:30:05,788 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:30:07,988 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:30:08,183 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:30:08,185 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_163008.json
+2025-11-20 16:30:08,185 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:30:16,213 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_3140508627739443187
+2025-11-20 16:30:16,214 - model - INFO - Using cached results for linear
+2025-11-20 16:30:16,215 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:30:16,218 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:30:16,218 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:30:16,219 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:30:16,241 - model - INFO - Cached model object for linear_0
+2025-11-20 16:30:16,241 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:30:18,228 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_3140508627739443187
+2025-11-20 16:30:18,229 - model - INFO - Using cached results for ridge
+2025-11-20 16:30:18,229 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:30:18,232 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:30:18,232 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:30:18,233 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:30:18,253 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:30:18,253 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:30:20,196 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_3140508627739443187
+2025-11-20 16:30:20,196 - model - INFO - Using cached results for lasso
+2025-11-20 16:30:20,196 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:30:20,199 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:30:20,200 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:30:20,230 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:30:20,361 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:30:20,361 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:30:24,483 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_3140508627739443187
+2025-11-20 16:30:24,485 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:30:24,485 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:30:24,485 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:30:37,802 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:30:37,836 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:30:37,836 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:30:40,224 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_3140508627739443187
+2025-11-20 16:30:40,224 - model - INFO - Using cached results for random_forest
+2025-11-20 16:30:40,224 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:30:40,225 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:30:40,640 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:30:40,640 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:30:42,470 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:30:42,470 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:31:18,432 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_3140508627739443187
+2025-11-20 16:31:18,433 - model - INFO - Using cached results for KNN
+2025-11-20 16:31:18,433 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:31:18,436 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:31:18,436 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:31:18,438 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:31:18,620 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:31:18,620 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:31:18,621 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:31:24,431 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:31:24,432 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:31:24,433 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:31:24,434 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:31:24,447 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:31:24,474 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:31:24,474 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:31:24,474 - model - INFO - Training and evaluating linear
+2025-11-20 16:31:24,474 - model - INFO - Checking cache for linear with key: linear_[]_3140508627739443187
+2025-11-20 16:31:24,474 - model - INFO - Using cached results for linear
+2025-11-20 16:31:24,475 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:31:24,476 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:31:24,476 - model - INFO - Training linear model with params: {}
+2025-11-20 16:31:24,477 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:31:24,490 - model - INFO - Cached model object for linear_6
+2025-11-20 16:31:24,490 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:31:25,180 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:31:25,180 - model - INFO - Training and evaluating ridge
+2025-11-20 16:31:25,180 - model - INFO - Checking cache for ridge with key: ridge_[]_3140508627739443187
+2025-11-20 16:31:25,181 - model - INFO - Using cached results for ridge
+2025-11-20 16:31:25,181 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:31:25,182 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:31:25,183 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:31:25,183 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:31:25,196 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:31:25,196 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:31:25,865 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:31:25,865 - model - INFO - Training and evaluating lasso
+2025-11-20 16:31:25,865 - model - INFO - Checking cache for lasso with key: lasso_[]_3140508627739443187
+2025-11-20 16:31:25,865 - model - INFO - Using cached results for lasso
+2025-11-20 16:31:25,865 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:31:25,867 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:31:25,867 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:31:25,869 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:31:25,896 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:31:25,896 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:31:26,680 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:31:26,680 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:31:26,680 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_3140508627739443187
+2025-11-20 16:31:26,681 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:31:26,681 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:31:26,681 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:31:27,488 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:31:27,501 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:31:27,501 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:31:28,271 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:31:28,271 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:31:28,271 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_3140508627739443187
+2025-11-20 16:31:28,271 - model - INFO - Using cached results for random_forest
+2025-11-20 16:31:28,271 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:31:28,272 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:31:28,359 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:31:28,359 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:31:28,820 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:31:28,820 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:31:36,721 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:31:36,721 - model - INFO - Training and evaluating KNN
+2025-11-20 16:31:36,722 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:31:40,129 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:31:40,130 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_3140508627739443187
+2025-11-20 16:31:40,130 - model - INFO - Using cached results for KNN
+2025-11-20 16:31:40,130 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:31:40,132 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:31:40,132 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:31:40,133 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:31:40,175 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:31:40,186 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:31:40,186 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:31:42,185 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:31:42,366 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:31:42,369 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_163142.json
+2025-11-20 16:31:42,369 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:39:30,373 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-7554066464069773914
+2025-11-20 16:39:30,374 - model - INFO - Using cached results for linear
+2025-11-20 16:39:30,374 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:39:30,378 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:39:30,378 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:39:30,379 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:39:30,401 - model - INFO - Cached model object for linear_0
+2025-11-20 16:39:30,401 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:39:32,965 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-7554066464069773914
+2025-11-20 16:39:32,966 - model - INFO - Using cached results for ridge
+2025-11-20 16:39:32,966 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:39:32,969 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:39:32,969 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:39:32,971 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:39:32,991 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:39:32,991 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:39:34,950 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-7554066464069773914
+2025-11-20 16:39:34,950 - model - INFO - Using cached results for lasso
+2025-11-20 16:39:34,950 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:39:34,953 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:39:34,953 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:39:34,986 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:39:35,119 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:39:35,119 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:39:39,322 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-7554066464069773914
+2025-11-20 16:39:39,322 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:39:39,323 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:39:39,323 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:39:52,569 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:39:52,631 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:39:52,631 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:39:55,163 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-7554066464069773914
+2025-11-20 16:39:55,163 - model - INFO - Using cached results for random_forest
+2025-11-20 16:39:55,164 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:39:55,164 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:39:55,590 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:39:55,590 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:39:57,482 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:39:57,483 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:40:34,339 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-7554066464069773914
+2025-11-20 16:40:34,339 - model - INFO - Using cached results for KNN
+2025-11-20 16:40:34,339 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:40:34,343 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:40:34,343 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:40:34,346 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:40:34,535 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:40:34,536 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:40:34,536 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:40:40,498 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:40:40,500 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:40:40,501 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:40:40,501 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:40:40,516 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:40:40,545 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:40:40,545 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:40:40,545 - model - INFO - Training and evaluating linear
+2025-11-20 16:40:40,545 - model - INFO - Checking cache for linear with key: linear_[]_-7554066464069773914
+2025-11-20 16:40:40,545 - model - INFO - Using cached results for linear
+2025-11-20 16:40:40,546 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:40:40,547 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:40:40,547 - model - INFO - Training linear model with params: {}
+2025-11-20 16:40:40,548 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:40:40,564 - model - INFO - Cached model object for linear_6
+2025-11-20 16:40:40,564 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:40:41,503 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:40:41,503 - model - INFO - Training and evaluating ridge
+2025-11-20 16:40:41,503 - model - INFO - Checking cache for ridge with key: ridge_[]_-7554066464069773914
+2025-11-20 16:40:41,503 - model - INFO - Using cached results for ridge
+2025-11-20 16:40:41,503 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:40:41,505 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:40:41,505 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:40:41,506 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:40:41,519 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:40:41,519 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:40:42,278 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:40:42,278 - model - INFO - Training and evaluating lasso
+2025-11-20 16:40:42,278 - model - INFO - Checking cache for lasso with key: lasso_[]_-7554066464069773914
+2025-11-20 16:40:42,278 - model - INFO - Using cached results for lasso
+2025-11-20 16:40:42,278 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:40:42,280 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:40:42,280 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:40:42,282 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:40:42,300 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:40:42,300 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:40:43,128 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:40:43,129 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:40:43,129 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-7554066464069773914
+2025-11-20 16:40:43,129 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:40:43,129 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:40:43,129 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:40:43,940 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:40:43,953 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:40:43,953 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:40:44,765 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:40:44,765 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:40:44,765 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-7554066464069773914
+2025-11-20 16:40:44,765 - model - INFO - Using cached results for random_forest
+2025-11-20 16:40:44,766 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:40:44,766 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:40:44,860 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:40:44,860 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:40:45,373 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:40:45,373 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:40:53,116 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:40:53,117 - model - INFO - Training and evaluating KNN
+2025-11-20 16:40:53,117 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:40:58,378 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:40:58,379 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-7554066464069773914
+2025-11-20 16:40:58,382 - model - INFO - Using cached results for KNN
+2025-11-20 16:40:58,382 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:40:58,387 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:40:58,387 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:40:58,387 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:40:58,430 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:40:58,431 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:40:58,431 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:41:00,705 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:41:00,891 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:41:00,892 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_164100.json
+2025-11-20 16:41:00,892 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:41:08,973 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-7554066464069773914
+2025-11-20 16:41:08,974 - model - INFO - Using cached results for linear
+2025-11-20 16:41:08,974 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:41:08,977 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:41:08,977 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:41:08,978 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:41:09,004 - model - INFO - Cached model object for linear_0
+2025-11-20 16:41:09,004 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:41:11,054 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-7554066464069773914
+2025-11-20 16:41:11,055 - model - INFO - Using cached results for ridge
+2025-11-20 16:41:11,055 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:41:11,058 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:41:11,058 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:41:11,058 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:41:11,078 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:41:11,078 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:41:13,119 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-7554066464069773914
+2025-11-20 16:41:13,119 - model - INFO - Using cached results for lasso
+2025-11-20 16:41:13,119 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:41:13,122 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:41:13,122 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:41:13,153 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:41:13,282 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:41:13,282 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:41:17,618 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-7554066464069773914
+2025-11-20 16:41:17,619 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:41:17,619 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:41:17,619 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:41:30,782 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:41:30,816 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:41:30,816 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:41:33,376 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-7554066464069773914
+2025-11-20 16:41:33,377 - model - INFO - Using cached results for random_forest
+2025-11-20 16:41:33,377 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:41:33,377 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:41:33,797 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:41:33,798 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:41:35,625 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:41:35,625 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:42:11,925 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-7554066464069773914
+2025-11-20 16:42:11,926 - model - INFO - Using cached results for KNN
+2025-11-20 16:42:11,926 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:42:11,929 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:42:11,929 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:42:11,931 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:42:12,117 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:42:12,118 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:42:12,118 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:42:17,948 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:42:17,949 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:42:17,950 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:42:17,951 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:42:17,963 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:42:17,990 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:42:17,990 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:42:17,990 - model - INFO - Training and evaluating linear
+2025-11-20 16:42:17,990 - model - INFO - Checking cache for linear with key: linear_[]_-7554066464069773914
+2025-11-20 16:42:18,002 - model - INFO - Using cached results for linear
+2025-11-20 16:42:18,002 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:42:18,004 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:42:18,004 - model - INFO - Training linear model with params: {}
+2025-11-20 16:42:18,005 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:42:18,018 - model - INFO - Cached model object for linear_6
+2025-11-20 16:42:18,018 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:42:18,693 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:42:18,693 - model - INFO - Training and evaluating ridge
+2025-11-20 16:42:18,693 - model - INFO - Checking cache for ridge with key: ridge_[]_-7554066464069773914
+2025-11-20 16:42:18,694 - model - INFO - Using cached results for ridge
+2025-11-20 16:42:18,694 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:42:18,695 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:42:18,695 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:42:18,696 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:42:18,709 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:42:18,709 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:42:19,354 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:42:19,355 - model - INFO - Training and evaluating lasso
+2025-11-20 16:42:19,355 - model - INFO - Checking cache for lasso with key: lasso_[]_-7554066464069773914
+2025-11-20 16:42:19,355 - model - INFO - Using cached results for lasso
+2025-11-20 16:42:19,355 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:42:19,357 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:42:19,357 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:42:19,359 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:42:19,374 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:42:19,374 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:42:20,145 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:42:20,145 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:42:20,145 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-7554066464069773914
+2025-11-20 16:42:20,145 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:42:20,145 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:42:20,146 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:42:20,944 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:42:20,957 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:42:20,957 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:42:21,708 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:42:21,708 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:42:21,708 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-7554066464069773914
+2025-11-20 16:42:21,709 - model - INFO - Using cached results for random_forest
+2025-11-20 16:42:21,709 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:42:21,709 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:42:21,796 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:42:21,796 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:42:22,249 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:42:22,249 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:42:30,144 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:42:30,145 - model - INFO - Training and evaluating KNN
+2025-11-20 16:42:30,145 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:42:33,610 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:42:33,610 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-7554066464069773914
+2025-11-20 16:42:33,611 - model - INFO - Using cached results for KNN
+2025-11-20 16:42:33,611 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:42:33,613 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:42:33,613 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:42:33,613 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:42:33,654 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:42:33,654 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:42:33,654 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:42:35,668 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:42:35,843 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:42:35,845 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_164235.json
+2025-11-20 16:42:35,845 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:46:01,805 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-20 16:46:01,809 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_8138545178411690064
+2025-11-20 16:46:01,810 - model - INFO - Using cached results for linear
+2025-11-20 16:46:01,810 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:46:01,815 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:46:01,815 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:46:01,817 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:46:01,838 - model - INFO - Cached model object for linear_0
+2025-11-20 16:46:01,838 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:46:04,508 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-20 16:46:04,508 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_8138545178411690064
+2025-11-20 16:46:04,508 - model - INFO - Using cached results for ridge
+2025-11-20 16:46:04,509 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:46:04,511 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:46:04,512 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:46:04,513 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:46:04,533 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:46:04,533 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:46:06,641 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-20 16:46:06,641 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_8138545178411690064
+2025-11-20 16:46:06,641 - model - INFO - Using cached results for lasso
+2025-11-20 16:46:06,641 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:46:06,644 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:46:06,644 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:46:06,675 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:46:06,807 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:46:06,807 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:46:11,111 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-20 16:46:11,111 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_8138545178411690064
+2025-11-20 16:46:11,112 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:46:11,112 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:46:11,112 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:46:24,176 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:46:24,209 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:46:24,209 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:46:26,801 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-20 16:46:26,801 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_8138545178411690064
+2025-11-20 16:46:26,801 - model - INFO - Using cached results for random_forest
+2025-11-20 16:46:26,802 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:46:26,802 - model - INFO - RandomForest max_samples set to: None
+2025-11-20 16:46:26,802 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:46:27,228 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:46:27,228 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:46:29,091 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:46:29,091 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:47:05,269 - model - INFO - Training KNN with dataset size: 6357 samples, 11 features
+2025-11-20 16:47:05,270 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_8138545178411690064
+2025-11-20 16:47:05,270 - model - INFO - Using cached results for KNN
+2025-11-20 16:47:05,270 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:47:05,273 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:47:05,274 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:47:05,277 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:47:05,462 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:47:05,464 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:47:05,464 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:47:11,351 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:47:11,352 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:47:11,353 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:47:11,354 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:47:11,367 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:47:11,394 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:47:11,394 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:47:11,394 - model - INFO - Training and evaluating linear
+2025-11-20 16:47:11,394 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-20 16:47:11,394 - model - INFO - Checking cache for linear with key: linear_[]_8138545178411690064
+2025-11-20 16:47:11,395 - model - INFO - Using cached results for linear
+2025-11-20 16:47:11,395 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:47:11,396 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:47:11,397 - model - INFO - Training linear model with params: {}
+2025-11-20 16:47:11,397 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:47:11,411 - model - INFO - Cached model object for linear_6
+2025-11-20 16:47:11,411 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:47:12,230 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:47:12,231 - model - INFO - Training and evaluating ridge
+2025-11-20 16:47:12,231 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-20 16:47:12,231 - model - INFO - Checking cache for ridge with key: ridge_[]_8138545178411690064
+2025-11-20 16:47:12,254 - model - INFO - Using cached results for ridge
+2025-11-20 16:47:12,254 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:47:12,256 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:47:12,256 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:47:12,257 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:47:12,270 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:47:12,270 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:47:12,929 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:47:12,929 - model - INFO - Training and evaluating lasso
+2025-11-20 16:47:12,929 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-20 16:47:12,929 - model - INFO - Checking cache for lasso with key: lasso_[]_8138545178411690064
+2025-11-20 16:47:12,929 - model - INFO - Using cached results for lasso
+2025-11-20 16:47:12,929 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:47:12,931 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:47:12,931 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:47:12,933 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:47:12,948 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:47:12,948 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:47:13,723 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:47:13,723 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:47:13,723 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-20 16:47:13,723 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_8138545178411690064
+2025-11-20 16:47:13,723 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:47:13,723 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:47:13,724 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:47:14,507 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:47:14,519 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:47:14,519 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:47:15,248 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:47:15,248 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:47:15,248 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-20 16:47:15,248 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_8138545178411690064
+2025-11-20 16:47:15,248 - model - INFO - Using cached results for random_forest
+2025-11-20 16:47:15,248 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:47:15,249 - model - INFO - RandomForest max_samples set to: 0.5
+2025-11-20 16:47:15,249 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:47:15,335 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:47:15,335 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:47:15,783 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:47:15,783 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:47:23,278 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:47:23,278 - model - INFO - Training and evaluating KNN
+2025-11-20 16:47:23,279 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:47:28,998 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:47:28,998 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-20 16:47:28,998 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_8138545178411690064
+2025-11-20 16:47:28,999 - model - INFO - Using cached results for KNN
+2025-11-20 16:47:29,000 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:47:29,003 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:47:29,003 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:47:29,004 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:47:29,045 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:47:29,045 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:47:29,045 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:47:31,235 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:47:31,426 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:47:31,427 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_164731.json
+2025-11-20 16:47:31,427 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 16:47:39,758 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-20 16:47:39,758 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_8138545178411690064
+2025-11-20 16:47:39,759 - model - INFO - Using cached results for linear
+2025-11-20 16:47:39,759 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:47:39,762 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:47:39,762 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 16:47:39,763 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 16:47:39,786 - model - INFO - Cached model object for linear_0
+2025-11-20 16:47:39,786 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 16:47:42,013 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-20 16:47:42,013 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_8138545178411690064
+2025-11-20 16:47:42,013 - model - INFO - Using cached results for ridge
+2025-11-20 16:47:42,013 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:47:42,016 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:47:42,016 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 16:47:42,017 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 16:47:42,038 - model - INFO - Cached model object for ridge_1
+2025-11-20 16:47:42,038 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 16:47:44,323 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-20 16:47:44,323 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_8138545178411690064
+2025-11-20 16:47:44,323 - model - INFO - Using cached results for lasso
+2025-11-20 16:47:44,323 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:47:44,326 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:47:44,326 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 16:47:44,358 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 16:47:44,485 - model - INFO - Cached model object for lasso_2
+2025-11-20 16:47:44,485 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 16:47:48,874 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-20 16:47:48,874 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_8138545178411690064
+2025-11-20 16:47:48,875 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:47:48,875 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:47:48,875 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 16:48:02,174 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 16:48:02,220 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 16:48:02,220 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 16:48:04,980 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-20 16:48:04,980 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_8138545178411690064
+2025-11-20 16:48:04,980 - model - INFO - Using cached results for random_forest
+2025-11-20 16:48:04,980 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:48:04,981 - model - INFO - RandomForest max_samples set to: None
+2025-11-20 16:48:04,981 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 16:48:05,400 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 16:48:05,400 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 16:48:07,260 - model - INFO - Cached model object for random_forest_4
+2025-11-20 16:48:07,260 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 16:48:43,904 - model - INFO - Training KNN with dataset size: 6357 samples, 11 features
+2025-11-20 16:48:43,904 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_8138545178411690064
+2025-11-20 16:48:43,905 - model - INFO - Using cached results for KNN
+2025-11-20 16:48:43,905 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:48:43,908 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:48:43,909 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 16:48:43,910 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 16:48:44,099 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 16:48:44,099 - model - INFO - Cached model object for KNN_5
+2025-11-20 16:48:44,100 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 16:48:50,128 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 16:48:50,129 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 16:48:50,130 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 16:48:50,131 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 16:48:50,143 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 16:48:50,170 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 16:48:50,170 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 16:48:50,170 - model - INFO - Training and evaluating linear
+2025-11-20 16:48:50,170 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-20 16:48:50,170 - model - INFO - Checking cache for linear with key: linear_[]_8138545178411690064
+2025-11-20 16:48:50,170 - model - INFO - Using cached results for linear
+2025-11-20 16:48:50,171 - model - INFO - Model object not cached, retraining linear
+2025-11-20 16:48:50,172 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 16:48:50,172 - model - INFO - Training linear model with params: {}
+2025-11-20 16:48:50,173 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 16:48:50,186 - model - INFO - Cached model object for linear_6
+2025-11-20 16:48:50,186 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 16:48:50,840 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 16:48:50,840 - model - INFO - Training and evaluating ridge
+2025-11-20 16:48:50,841 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-20 16:48:50,841 - model - INFO - Checking cache for ridge with key: ridge_[]_8138545178411690064
+2025-11-20 16:48:50,841 - model - INFO - Using cached results for ridge
+2025-11-20 16:48:50,841 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 16:48:50,843 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 16:48:50,843 - model - INFO - Training ridge model with params: {}
+2025-11-20 16:48:50,843 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 16:48:50,856 - model - INFO - Cached model object for ridge_7
+2025-11-20 16:48:50,856 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 16:48:51,519 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 16:48:51,519 - model - INFO - Training and evaluating lasso
+2025-11-20 16:48:51,519 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-20 16:48:51,520 - model - INFO - Checking cache for lasso with key: lasso_[]_8138545178411690064
+2025-11-20 16:48:51,520 - model - INFO - Using cached results for lasso
+2025-11-20 16:48:51,520 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 16:48:51,522 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 16:48:51,522 - model - INFO - Training lasso model with params: {}
+2025-11-20 16:48:51,524 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 16:48:51,543 - model - INFO - Cached model object for lasso_8
+2025-11-20 16:48:51,543 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 16:48:52,329 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 16:48:52,329 - model - INFO - Training and evaluating decision_tree
+2025-11-20 16:48:52,329 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-20 16:48:52,329 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_8138545178411690064
+2025-11-20 16:48:52,329 - model - INFO - Using cached results for decision_tree
+2025-11-20 16:48:52,329 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 16:48:52,330 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 16:48:53,113 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 16:48:53,125 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 16:48:53,125 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 16:48:53,871 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 16:48:53,872 - model - INFO - Training and evaluating random_forest
+2025-11-20 16:48:53,872 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-20 16:48:53,872 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_8138545178411690064
+2025-11-20 16:48:53,872 - model - INFO - Using cached results for random_forest
+2025-11-20 16:48:53,872 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 16:48:53,872 - model - INFO - RandomForest max_samples set to: 0.5
+2025-11-20 16:48:53,872 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 16:48:53,958 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 16:48:53,958 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 16:48:54,402 - model - INFO - Cached model object for random_forest_10
+2025-11-20 16:48:54,403 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 16:49:02,347 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 16:49:02,347 - model - INFO - Training and evaluating KNN
+2025-11-20 16:49:02,347 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 16:49:06,207 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 16:49:06,207 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-20 16:49:06,208 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_8138545178411690064
+2025-11-20 16:49:06,211 - model - INFO - Using cached results for KNN
+2025-11-20 16:49:06,212 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 16:49:06,216 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 16:49:06,216 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 16:49:06,217 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 16:49:06,260 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 16:49:06,260 - model - INFO - Cached model object for KNN_11
+2025-11-20 16:49:06,260 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 16:49:08,334 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 16:49:08,518 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 16:49:08,519 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_164908.json
+2025-11-20 16:49:08,519 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 17:12:55,784 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-20 17:12:55,784 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-8158932413647881925
+2025-11-20 17:12:55,784 - model - INFO - Using cached results for linear
+2025-11-20 17:12:55,784 - model - INFO - Model object not cached, retraining linear
+2025-11-20 17:12:55,788 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 17:12:55,788 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 17:12:55,790 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 17:12:55,825 - model - INFO - Cached model object for linear_0
+2025-11-20 17:12:55,825 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 17:12:58,596 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-20 17:12:58,596 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-8158932413647881925
+2025-11-20 17:12:58,597 - model - INFO - Using cached results for ridge
+2025-11-20 17:12:58,597 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 17:12:58,600 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 17:12:58,600 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 17:12:58,601 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 17:12:58,621 - model - INFO - Cached model object for ridge_1
+2025-11-20 17:12:58,621 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 17:13:00,875 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-20 17:13:00,875 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-8158932413647881925
+2025-11-20 17:13:00,875 - model - INFO - Using cached results for lasso
+2025-11-20 17:13:00,875 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 17:13:00,878 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 17:13:00,878 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 17:13:00,911 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 17:13:01,044 - model - INFO - Cached model object for lasso_2
+2025-11-20 17:13:01,044 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 17:13:05,643 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-20 17:13:05,644 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-8158932413647881925
+2025-11-20 17:13:05,646 - model - INFO - Using cached results for decision_tree
+2025-11-20 17:13:05,647 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 17:13:05,649 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 17:13:18,788 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 17:13:18,822 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 17:13:18,822 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 17:13:21,585 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-20 17:13:21,585 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-8158932413647881925
+2025-11-20 17:13:21,585 - model - INFO - Using cached results for random_forest
+2025-11-20 17:13:21,585 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 17:13:21,586 - model - INFO - RandomForest max_samples set to: None
+2025-11-20 17:13:21,586 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 17:13:22,008 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 17:13:22,008 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 17:13:23,876 - model - INFO - Cached model object for random_forest_4
+2025-11-20 17:13:23,876 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 17:14:00,716 - model - INFO - Training KNN with dataset size: 6357 samples, 11 features
+2025-11-20 17:14:00,717 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-8158932413647881925
+2025-11-20 17:14:00,728 - model - INFO - Using cached results for KNN
+2025-11-20 17:14:00,729 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 17:14:00,736 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 17:14:00,737 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 17:14:00,740 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 17:14:00,933 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 17:14:00,934 - model - INFO - Cached model object for KNN_5
+2025-11-20 17:14:00,934 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 17:14:07,362 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 17:14:07,363 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 17:14:07,364 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 17:14:07,365 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 17:14:07,383 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 17:14:07,411 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 17:14:07,411 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 17:14:07,411 - model - INFO - Training and evaluating linear
+2025-11-20 17:14:07,411 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-20 17:14:07,411 - model - INFO - Checking cache for linear with key: linear_[]_-8158932413647881925
+2025-11-20 17:14:07,412 - model - INFO - Using cached results for linear
+2025-11-20 17:14:07,412 - model - INFO - Model object not cached, retraining linear
+2025-11-20 17:14:07,414 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 17:14:07,415 - model - INFO - Training linear model with params: {}
+2025-11-20 17:14:07,415 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 17:14:07,429 - model - INFO - Cached model object for linear_6
+2025-11-20 17:14:07,429 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 17:14:08,433 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 17:14:08,433 - model - INFO - Training and evaluating ridge
+2025-11-20 17:14:08,433 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-20 17:14:08,433 - model - INFO - Checking cache for ridge with key: ridge_[]_-8158932413647881925
+2025-11-20 17:14:08,434 - model - INFO - Using cached results for ridge
+2025-11-20 17:14:08,434 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 17:14:08,436 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 17:14:08,436 - model - INFO - Training ridge model with params: {}
+2025-11-20 17:14:08,436 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 17:14:08,450 - model - INFO - Cached model object for ridge_7
+2025-11-20 17:14:08,450 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 17:14:09,162 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 17:14:09,162 - model - INFO - Training and evaluating lasso
+2025-11-20 17:14:09,162 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-20 17:14:09,162 - model - INFO - Checking cache for lasso with key: lasso_[]_-8158932413647881925
+2025-11-20 17:14:09,162 - model - INFO - Using cached results for lasso
+2025-11-20 17:14:09,163 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 17:14:09,164 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 17:14:09,164 - model - INFO - Training lasso model with params: {}
+2025-11-20 17:14:09,166 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 17:14:09,182 - model - INFO - Cached model object for lasso_8
+2025-11-20 17:14:09,182 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 17:14:10,011 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 17:14:10,011 - model - INFO - Training and evaluating decision_tree
+2025-11-20 17:14:10,011 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-20 17:14:10,011 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-8158932413647881925
+2025-11-20 17:14:10,011 - model - INFO - Using cached results for decision_tree
+2025-11-20 17:14:10,011 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 17:14:10,011 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 17:14:10,894 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 17:14:10,907 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 17:14:10,907 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 17:14:11,704 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 17:14:11,704 - model - INFO - Training and evaluating random_forest
+2025-11-20 17:14:11,705 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-20 17:14:11,705 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-8158932413647881925
+2025-11-20 17:14:11,705 - model - INFO - Using cached results for random_forest
+2025-11-20 17:14:11,705 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 17:14:11,705 - model - INFO - RandomForest max_samples set to: 0.5
+2025-11-20 17:14:11,705 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 17:14:11,791 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 17:14:11,791 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 17:14:12,258 - model - INFO - Cached model object for random_forest_10
+2025-11-20 17:14:12,258 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 17:14:19,789 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 17:14:19,790 - model - INFO - Training and evaluating KNN
+2025-11-20 17:14:19,790 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 17:14:27,418 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 17:14:27,419 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-20 17:14:27,419 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-8158932413647881925
+2025-11-20 17:14:27,421 - model - INFO - Using cached results for KNN
+2025-11-20 17:14:27,421 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 17:14:27,424 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 17:14:27,425 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 17:14:27,425 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 17:14:27,479 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 17:14:27,480 - model - INFO - Cached model object for KNN_11
+2025-11-20 17:14:27,480 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 17:14:29,755 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 17:14:29,943 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 17:14:29,944 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_171429.json
+2025-11-20 17:14:29,945 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)
+2025-11-20 17:14:38,670 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-20 17:14:38,671 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-8158932413647881925
+2025-11-20 17:14:38,672 - model - INFO - Using cached results for linear
+2025-11-20 17:14:38,672 - model - INFO - Model object not cached, retraining linear
+2025-11-20 17:14:38,675 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 17:14:38,675 - model - INFO - Training linear model with params: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-20 17:14:38,676 - model - INFO - Stored trained model with ID: linear_0
+2025-11-20 17:14:38,699 - model - INFO - Cached model object for linear_0
+2025-11-20 17:14:38,699 - model - INFO - Model linear trained successfully. CV Score: 11212237.0290
+2025-11-20 17:14:41,144 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-20 17:14:41,144 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.001), ('fit_intercept', True), ('polynomial_degree', 1), ('solver', 'auto')]_-8158932413647881925
+2025-11-20 17:14:41,145 - model - INFO - Using cached results for ridge
+2025-11-20 17:14:41,145 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 17:14:41,148 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 17:14:41,148 - model - INFO - Training ridge model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto'}
+2025-11-20 17:14:41,149 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-20 17:14:41,181 - model - INFO - Cached model object for ridge_1
+2025-11-20 17:14:41,181 - model - INFO - Model ridge trained successfully. CV Score: 11212236.7833
+2025-11-20 17:14:43,552 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-20 17:14:43,552 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-8158932413647881925
+2025-11-20 17:14:43,552 - model - INFO - Using cached results for lasso
+2025-11-20 17:14:43,552 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 17:14:43,555 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 17:14:43,555 - model - INFO - Training lasso model with params: {'alpha': 0.001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000}
+2025-11-20 17:14:43,588 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-20 17:14:43,716 - model - INFO - Cached model object for lasso_2
+2025-11-20 17:14:43,716 - model - INFO - Model lasso trained successfully. CV Score: 11212236.7357
+2025-11-20 17:14:48,371 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-20 17:14:48,372 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-8158932413647881925
+2025-11-20 17:14:48,372 - model - INFO - Using cached results for decision_tree
+2025-11-20 17:14:48,372 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 17:14:48,373 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-20 17:15:01,528 - model - INFO - Stored trained model with ID: decision_tree_3
+2025-11-20 17:15:01,594 - model - INFO - Cached model object for decision_tree_3
+2025-11-20 17:15:01,594 - model - INFO - Model decision_tree trained successfully. CV Score: 8854333.7443
+2025-11-20 17:15:04,431 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-20 17:15:04,431 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)]_-8158932413647881925
+2025-11-20 17:15:04,432 - model - INFO - Using cached results for random_forest
+2025-11-20 17:15:04,432 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 17:15:04,432 - model - INFO - RandomForest max_samples set to: None
+2025-11-20 17:15:04,432 - model - INFO - Training random_forest model with params: {'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'max_samples': None, 'min_impurity_decrease': 0.0}
+2025-11-20 17:15:04,855 - model - INFO - Applied bootstrap sampling with max_samples=None
+2025-11-20 17:15:04,855 - model - INFO - Stored trained model with ID: random_forest_4
+2025-11-20 17:15:06,691 - model - INFO - Cached model object for random_forest_4
+2025-11-20 17:15:06,691 - model - INFO - Model random_forest trained successfully. CV Score: 2036000.2735
+2025-11-20 17:15:43,104 - model - INFO - Training KNN with dataset size: 6357 samples, 11 features
+2025-11-20 17:15:43,105 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'euclidean'), ('n_neighbors', 3), ('p', 1), ('weights', 'uniform')]_-8158932413647881925
+2025-11-20 17:15:43,105 - model - INFO - Using cached results for KNN
+2025-11-20 17:15:43,105 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 17:15:43,108 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 17:15:43,108 - model - INFO - Training KNN model with params: {'n_neighbors': 3, 'metric': 'euclidean', 'weights': 'uniform', 'algorithm': 'auto', 'p': 1}
+2025-11-20 17:15:43,110 - model - INFO - Stored trained model with ID: KNN_5
+2025-11-20 17:15:43,295 - model - INFO - KNN Validation: Optimal K=3, CV Score=8040551.0352
+2025-11-20 17:15:43,296 - model - INFO - Cached model object for KNN_5
+2025-11-20 17:15:43,296 - model - INFO - Model KNN trained successfully. CV Score: 8040551.0352
+2025-11-20 17:15:49,415 - model - INFO - Model linear_0 evaluation completed. Score: 0.8572
+2025-11-20 17:15:49,417 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8572
+2025-11-20 17:15:49,418 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8572
+2025-11-20 17:15:49,419 - model - INFO - Model decision_tree_3 evaluation completed. Score: 0.9162
+2025-11-20 17:15:49,439 - model - INFO - Model random_forest_4 evaluation completed. Score: 0.9741
+2025-11-20 17:15:49,466 - model - INFO - Model KNN_5 evaluation completed. Score: 0.8009
+2025-11-20 17:15:49,466 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-20 17:15:49,466 - model - INFO - Training and evaluating linear
+2025-11-20 17:15:49,466 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-20 17:15:49,466 - model - INFO - Checking cache for linear with key: linear_[]_-8158932413647881925
+2025-11-20 17:15:49,467 - model - INFO - Using cached results for linear
+2025-11-20 17:15:49,467 - model - INFO - Model object not cached, retraining linear
+2025-11-20 17:15:49,469 - model - INFO - Applied RobustScaler to features for linear
+2025-11-20 17:15:49,469 - model - INFO - Training linear model with params: {}
+2025-11-20 17:15:49,470 - model - INFO - Stored trained model with ID: linear_6
+2025-11-20 17:15:49,482 - model - INFO - Cached model object for linear_6
+2025-11-20 17:15:49,482 - model - INFO - Model linear trained successfully. CV Score: 11334988.6883
+2025-11-20 17:15:50,135 - model - INFO - Completed evaluation for linear: R² = 0.4446
+2025-11-20 17:15:50,135 - model - INFO - Training and evaluating ridge
+2025-11-20 17:15:50,135 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-20 17:15:50,135 - model - INFO - Checking cache for ridge with key: ridge_[]_-8158932413647881925
+2025-11-20 17:15:50,135 - model - INFO - Using cached results for ridge
+2025-11-20 17:15:50,136 - model - INFO - Model object not cached, retraining ridge
+2025-11-20 17:15:50,137 - model - INFO - Applied RobustScaler to features for ridge
+2025-11-20 17:15:50,137 - model - INFO - Training ridge model with params: {}
+2025-11-20 17:15:50,138 - model - INFO - Stored trained model with ID: ridge_7
+2025-11-20 17:15:50,151 - model - INFO - Cached model object for ridge_7
+2025-11-20 17:15:50,151 - model - INFO - Model ridge trained successfully. CV Score: 11330376.8985
+2025-11-20 17:15:50,811 - model - INFO - Completed evaluation for ridge: R² = 0.4538
+2025-11-20 17:15:50,811 - model - INFO - Training and evaluating lasso
+2025-11-20 17:15:50,811 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-20 17:15:50,811 - model - INFO - Checking cache for lasso with key: lasso_[]_-8158932413647881925
+2025-11-20 17:15:50,812 - model - INFO - Using cached results for lasso
+2025-11-20 17:15:50,812 - model - INFO - Model object not cached, retraining lasso
+2025-11-20 17:15:50,813 - model - INFO - Applied RobustScaler to features for lasso
+2025-11-20 17:15:50,813 - model - INFO - Training lasso model with params: {}
+2025-11-20 17:15:50,816 - model - INFO - Stored trained model with ID: lasso_8
+2025-11-20 17:15:50,832 - model - INFO - Cached model object for lasso_8
+2025-11-20 17:15:50,832 - model - INFO - Model lasso trained successfully. CV Score: 11334116.2622
+2025-11-20 17:15:51,620 - model - INFO - Completed evaluation for lasso: R² = 0.4457
+2025-11-20 17:15:51,620 - model - INFO - Training and evaluating decision_tree
+2025-11-20 17:15:51,620 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-20 17:15:51,621 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-8158932413647881925
+2025-11-20 17:15:51,621 - model - INFO - Using cached results for decision_tree
+2025-11-20 17:15:51,621 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-20 17:15:51,621 - model - INFO - Training decision_tree model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-20 17:15:52,399 - model - INFO - Stored trained model with ID: decision_tree_9
+2025-11-20 17:15:52,411 - model - INFO - Cached model object for decision_tree_9
+2025-11-20 17:15:52,411 - model - INFO - Model decision_tree trained successfully. CV Score: 11583431.5800
+2025-11-20 17:15:53,166 - model - INFO - Completed evaluation for decision_tree: R² = 0.9587
+2025-11-20 17:15:53,167 - model - INFO - Training and evaluating random_forest
+2025-11-20 17:15:53,167 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-20 17:15:53,167 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('max_samples', 0.5), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-8158932413647881925
+2025-11-20 17:15:53,167 - model - INFO - Using cached results for random_forest
+2025-11-20 17:15:53,167 - model - INFO - Model object not cached, retraining random_forest
+2025-11-20 17:15:53,167 - model - INFO - RandomForest max_samples set to: 0.5
+2025-11-20 17:15:53,167 - model - INFO - Training random_forest model with params: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True, 'max_samples': 0.5}
+2025-11-20 17:15:53,252 - model - INFO - Applied bootstrap sampling with max_samples=795
+2025-11-20 17:15:53,252 - model - INFO - Stored trained model with ID: random_forest_10
+2025-11-20 17:15:53,699 - model - INFO - Cached model object for random_forest_10
+2025-11-20 17:15:53,699 - model - INFO - Model random_forest trained successfully. CV Score: 4633745.8637
+2025-11-20 17:16:01,572 - model - INFO - Completed evaluation for random_forest: R² = 0.9718
+2025-11-20 17:16:01,573 - model - INFO - Training and evaluating KNN
+2025-11-20 17:16:01,573 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-20 17:16:05,036 - model - INFO - Tuning completed. Best score: 10699451.8847, Overfitting risk: low
+2025-11-20 17:16:05,036 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-20 17:16:05,037 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'auto'), ('metric', 'manhattan'), ('n_neighbors', 7), ('p', 1), ('weights', 'distance')]_-8158932413647881925
+2025-11-20 17:16:05,042 - model - INFO - Using cached results for KNN
+2025-11-20 17:16:05,042 - model - INFO - Model object not cached, retraining KNN
+2025-11-20 17:16:05,047 - model - INFO - Applied RobustScaler to features for KNN
+2025-11-20 17:16:05,047 - model - INFO - Training KNN model with params: {'algorithm': 'auto', 'metric': 'manhattan', 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+2025-11-20 17:16:05,048 - model - INFO - Stored trained model with ID: KNN_11
+2025-11-20 17:16:05,091 - model - INFO - KNN Validation: Optimal K=7, CV Score=10699451.8847
+2025-11-20 17:16:05,092 - model - INFO - Cached model object for KNN_11
+2025-11-20 17:16:05,092 - model - INFO - Model KNN trained successfully. CV Score: 10699451.8847
+2025-11-20 17:16:07,110 - model - INFO - Completed evaluation for KNN: R² = 0.8475
+2025-11-20 17:16:07,301 - model - ERROR - Failed to generate model comparison visualizations: [Errno 2] No such file or directory: 'visualizations/model_comparison_with_knn.png'
+2025-11-20 17:16:07,303 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251120_171607.json
+2025-11-20 17:16:07,303 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9718)

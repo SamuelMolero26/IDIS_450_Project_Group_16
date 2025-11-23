@@ -1,0 +1,313 @@
+Dataset loaded successfully. Shape: (7991, 16)
+Columns: ['OrderNumber', 'Sales Channel', 'WarehouseCode', 'ProcuredDate', 'OrderDate', 'ShipDate', 'DeliveryDate', 'CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID', 'Order Quantity', 'Discount Applied', 'Unit Cost', 'Unit Price']
+
+=== INITIAL DATA EXPLORATION ===
+Dataset shape: (7991, 16)
+
+Data types:
+OrderNumber                 object
+Sales Channel               object
+WarehouseCode               object
+ProcuredDate        datetime64[ns]
+OrderDate           datetime64[ns]
+ShipDate            datetime64[ns]
+DeliveryDate        datetime64[ns]
+CurrencyCode                object
+_SalesTeamID                 int64
+_CustomerID                  int64
+_StoreID                     int64
+_ProductID                   int64
+Order Quantity               int64
+Discount Applied           float64
+Unit Cost                  float64
+Unit Price                 float64
+dtype: object
+
+First 5 rows:
+   OrderNumber Sales Channel  ... Unit Cost Unit Price
+0  SO - 000101      In-Store  ...   1001.18     1963.1
+1  SO - 000102        Online  ...   3348.66     3939.6
+2  SO - 000103   Distributor  ...    781.22     1775.5
+3  SO - 000104     Wholesale  ...   1464.69     2324.9
+4  SO - 000105   Distributor  ...   1476.14     1822.4
+
+[5 rows x 16 columns]
+
+Summary statistics:
+        OrderNumber Sales Channel  ...    Unit Cost   Unit Price
+count          7991          7991  ...  7991.000000  7991.000000
+unique         7991             4  ...          NaN          NaN
+top     SO - 000101      In-Store  ...          NaN          NaN
+freq              1          3298  ...          NaN          NaN
+mean            NaN           NaN  ...  1431.911513  2284.536504
+min             NaN           NaN  ...    68.680000   167.500000
+25%             NaN           NaN  ...   606.120000  1031.800000
+50%             NaN           NaN  ...  1080.580000  1849.200000
+75%             NaN           NaN  ...  2040.250000  3611.300000
+max             NaN           NaN  ...  5498.560000  6566.000000
+std             NaN           NaN  ...  1112.413063  1673.096364
+
+[11 rows x 16 columns]
+
+Missing values:
+OrderNumber         0
+Sales Channel       0
+WarehouseCode       0
+ProcuredDate        0
+OrderDate           0
+ShipDate            0
+DeliveryDate        0
+CurrencyCode        0
+_SalesTeamID        0
+_CustomerID         0
+_StoreID            0
+_ProductID          0
+Order Quantity      0
+Discount Applied    0
+Unit Cost           0
+Unit Price          0
+dtype: int64
+
+Number of duplicate rows: 0
+
+=== DATA AND VARIABLE EXPLANATION ===
+
+    PROBLEM CONTEXT:
+    This dataset contains US regional sales data with 7,992 transactions across various sales channels.
+    The primary objective is to analyze sales patterns, optimize inventory, improve customer relationships,
+    and forecast future sales. This preprocessing pipeline prepares the data for machine learning tasks
+    such as sales prediction, customer segmentation, and channel classification.
+
+    DETAILED VARIABLE DESCRIPTIONS:
+
+    1. OrderNumber (string, categorical): Unique identifier for each sales order (e.g., 'SO - 000101')
+       - Type: Categorical (nominal)
+       - Relevance: Primary key for transaction identification, useful for deduplication and tracking
+
+    2. Sales Channel (string, categorical): Channel through which sale was made
+       - Type: Categorical (nominal)
+       - Values: In-Store, Online, Distributor, Wholesale
+       - Relevance: Critical for sales analysis, channel performance comparison, and customer segmentation
+
+    3. WarehouseCode (string, categorical): Warehouse identifier (e.g., 'WARE-UHY1004')
+       - Type: Categorical (nominal)
+       - Relevance: Enables regional analysis, inventory management, and supply chain optimization
+
+    4. ProcuredDate (datetime, temporal): When product was procured
+       - Type: DateTime
+       - Relevance: Foundation for temporal analysis, lead time calculations, and procurement optimization
+
+    5. OrderDate (datetime, temporal): When order was placed
+       - Type: DateTime
+       - Relevance: Key temporal marker for sales cycle analysis and forecasting
+
+    6. ShipDate (datetime, temporal): When product was shipped
+       - Type: DateTime
+       - Relevance: Enables shipping time analysis and delivery performance metrics
+
+    7. DeliveryDate (datetime, temporal): When product was delivered
+       - Type: DateTime
+       - Relevance: Critical for customer satisfaction analysis and delivery time optimization
+
+    8. CurrencyCode (string, categorical): Transaction currency (primarily USD)
+       - Type: Categorical (nominal)
+       - Relevance: Important for multi-currency analysis, though mostly uniform in this dataset
+
+    9. _SalesTeamID (int, categorical): Sales team identifier
+       - Type: Categorical (nominal)
+       - Relevance: Enables sales team performance analysis and territory management
+
+    10. _CustomerID (int, categorical): Customer identifier
+        - Type: Categorical (nominal)
+        - Relevance: Essential for customer segmentation, lifetime value analysis, and personalization
+
+    11. _StoreID (int, categorical): Store identifier
+        - Type: Categorical (nominal)
+        - Relevance: Supports store-level performance analysis and location-based insights
+
+    12. _ProductID (int, categorical): Product identifier
+        - Type: Categorical (nominal)
+        - Relevance: Enables product performance analysis, category insights, and recommendation systems
+
+    13. Order Quantity (int, numerical): Quantity of products ordered
+        - Type: Numerical (discrete)
+        - Relevance: Key metric for sales volume analysis, inventory management, and demand forecasting
+
+    14. Discount Applied (float, numerical): Discount percentage (0.0 to 1.0)
+        - Type: Numerical (continuous)
+        - Relevance: Critical for pricing strategy analysis, margin optimization, and discount effectiveness
+
+    15. Unit Cost (float, numerical): Cost price per unit
+        - Type: Numerical (continuous)
+        - Relevance: Essential for profit margin calculations, cost control, and pricing decisions
+
+    16. Unit Price (float, numerical): Selling price per unit
+        - Type: Numerical (continuous)
+        - Relevance: Primary revenue driver, enables pricing analysis and market positioning
+
+    DERIVED FEATURES (added during preprocessing):
+    - Procurement_to_Order_Days (int, numerical): Days between procurement and order
+    - Order_to_Ship_Days (int, numerical): Days between order and shipping
+    - Ship_to_Delivery_Days (int, numerical): Days between shipping and delivery
+    - Total_Lead_Time (int, numerical): Total days from procurement to delivery
+    - Profit_Margin (float, numerical): Profit margin percentage
+    - Total_Revenue (float, numerical): Total revenue per transaction
+
+    KEY INSIGHTS FOR ML IMPLEMENTATION:
+    1. Sales Analysis: Use Sales Channel, temporal features, and revenue metrics for pattern recognition
+    2. Inventory Management: Leverage Order Quantity, temporal features, and WarehouseCode for optimization
+    3. Customer Segmentation: Apply clustering on CustomerID, purchasing behavior, and channel preferences
+    4. Revenue Forecasting: Use time series analysis on temporal features and revenue metrics
+    5. Discount Effectiveness: Analyze Discount Applied correlations with Total_Revenue and Profit_Margin
+    
+
+=== MISSING VALUES ANALYSIS ===
+Empty DataFrame
+Columns: [Missing Count, Missing Percentage]
+Index: []
+No missing values found in the dataset.
+
+=== DATA CONSISTENCY CHECK ===
+Data consistency check completed.
+
+=== DATA TYPE CONVERSION AND FEATURE ENGINEERING ===
+Added derived features: temporal differences, profit margin, total revenue
+New shape: (7991, 22)
+
+=== CREATING INTERACTION FEATURES ===
+  Created: Price × Quantity interaction
+  Created: Cost × Quantity interaction
+  Created: Discount × Price interaction
+  Created: Margin × Quantity interaction
+  Created: Lead Time × Quantity interaction
+  Created: Price/Cost ratio
+  Created: Discount × Margin interaction
+
+Total interaction features created: 7
+New shape after interactions: (7991, 29)
+
+=== AGGRESSIVE UNIVARIATE OUTLIER DETECTION AND REMOVAL ===
+Order Quantity: 0 outliers (0.00%) - IQR bounds: [-9.00, 19.00]
+Discount Applied: 0 outliers (0.00%) - IQR bounds: [-0.25, 0.45]
+Unit Cost: 0 outliers (0.00%) - IQR bounds: [-3696.27, 6342.64]
+Unit Price: 0 outliers (0.00%) - IQR bounds: [-6706.70, 11349.80]
+Procurement_to_Order_Days: 0 outliers (0.00%) - IQR bounds: [-73.00, 291.00]
+Order_to_Ship_Days: 0 outliers (0.00%) - IQR bounds: [-34.00, 64.00]
+Ship_to_Delivery_Days: 0 outliers (0.00%) - IQR bounds: [-12.00, 23.00]
+Total_Lead_Time: 0 outliers (0.00%) - IQR bounds: [-56.00, 315.00]
+Profit_Margin: 0 outliers (0.00%) - IQR bounds: [-1.40, 2.33]
+Total_Revenue: 44 outliers (0.55%) - IQR bounds: [-27240.19, 42885.86]
+
+=== REMOVING OUTLIERS ===
+  Removed 44 rows based on Total_Revenue outliers
+
+=== REMOVING MISSING AND INFINITE VALUES ===
+  Removed 0 rows with missing or infinite values
+
+=== REMOVING DUPLICATES ===
+  Removed 0 duplicate rows
+
+=== DATA QUALITY SUMMARY ===
+  Initial rows: 7991
+  Final rows: 7947
+  Total removed: 44 (0.55%)
+  Data retention: 99.45%
+
+=== MULTIVARIATE OUTLIER DETECTION ===
+Isolation Forest detected 398 outliers (5.01%)
+LOF detected 50 outliers in sample (5.00%)
+
+=== CONTEXTUAL OUTLIER DETECTION ===
+In-Store: 0 price outliers
+Online: 0 price outliers
+Distributor: 0 price outliers
+Wholesale: 0 price outliers
+Procurement_to_Order_Days: 74 unusually long lead times
+Order_to_Ship_Days: 0 unusually long lead times
+Ship_to_Delivery_Days: 0 unusually long lead times
+
+=== DATASET BALANCE ASSESSMENT ===
+
+Sales Channel distribution:
+  In-Store: 3282 (41.30%)
+  Online: 2413 (30.36%)
+  Distributor: 1365 (17.18%)
+  Wholesale: 887 (11.16%)
+  ✓ Balanced distribution
+
+WarehouseCode distribution:
+  WARE-NMK1003: 2496 (31.41%)
+  WARE-PUJ1005: 1442 (18.15%)
+  WARE-UHY1004: 1259 (15.84%)
+  WARE-XYS1001: 1213 (15.26%)
+  WARE-MKL1006: 851 (10.71%)
+  WARE-NBV1002: 686 (8.63%)
+  ✓ Balanced distribution
+
+CurrencyCode distribution:
+  USD: 7947 (100.00%)
+  ⚠️  Imbalanced: USD dominates (100.0%)
+
+Numerical feature distributions:
+  Order Quantity: skewness = 0.00
+    ✓ Approximately normal
+  Discount Applied: skewness = 1.96
+    ⚠️  Highly skewed
+  Unit Cost: skewness = 1.10
+    ⚠️  Highly skewed
+  Unit Price: skewness = 0.86
+    ⚠️  Moderately skewed
+  Profit_Margin: skewness = 0.53
+    ⚠️  Moderately skewed
+  Total_Revenue: skewness = 1.47
+    ⚠️  Highly skewed
+
+=== EXPLORATORY DATA ANALYSIS ===
+Correlation matrix:
+                           Order Quantity  ...  Total_Revenue
+Order Quantity                   1.000000  ...       0.517354
+Discount Applied                -0.003331  ...      -0.082928
+Unit Cost                       -0.014520  ...       0.707521
+Unit Price                      -0.016787  ...       0.745261
+Procurement_to_Order_Days       -0.005044  ...       0.003621
+Order_to_Ship_Days              -0.005785  ...      -0.001932
+Ship_to_Delivery_Days           -0.000378  ...      -0.003290
+Total_Lead_Time                 -0.006222  ...       0.002833
+Profit_Margin                    0.002537  ...       0.020949
+Total_Revenue                    0.517354  ...       1.000000
+
+[10 rows x 10 columns]
+
+High correlations (|r| > 0.7):
+  Unit Cost ↔ Unit Price: 0.942
+  Unit Cost ↔ Total_Revenue: 0.708
+  Unit Price ↔ Total_Revenue: 0.745
+  Procurement_to_Order_Days ↔ Total_Lead_Time: 0.972
+Visualizations saved: sales_channel_distribution.png, unit_price_distribution.png, correlation_heatmap.png
+
+=== DROPPING COLUMNS ===
+Columns to drop: ['CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID']
+Dropping columns: ['CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID']
+New shape after dropping columns: (7947, 25)
+
+=== FINALIZE PREPROCESSED DATASET ===
+Preprocessing Summary:
+✓ Loaded and parsed CSV data
+✓ Handled missing values (none found)
+✓ Checked data consistency
+✓ Added derived temporal and financial features
+✓ Performed univariate outlier detection
+✓ Performed multivariate outlier detection
+✓ Considered contextual outliers
+✓ Applied scaling and encoding
+✓ Assessed dataset balance
+✓ Conducted exploratory data analysis
+
+Final dataset shape: (7947, 25)
+Final columns: 25
+Original columns: 16
+Derived features: 14
+Scaled features: 0
+Encoded features: 0
+Preprocessed dataset saved as '/Users/samuel/IDIS450/Project/preprocessed_sales_data.csv'
+Could not run improved visualizations automatically: improved_visualizations.py not found. Tried: [PosixPath('/Users/samuel/IDIS450/Project/utils/improved_visualizations.py'), PosixPath('/Users/samuel/IDIS450/Project/src/utils/improved_visualizations.py'), PosixPath('/Users/samuel/IDIS450/Project/utils/visualizations/improved_visualizations.py')]

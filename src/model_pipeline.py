@@ -629,7 +629,7 @@ class ModelPipeline:
     # ============================================================================
 
     def _create_model_instance(self, model_class, model_type: str,
-                               params: Dict[str, Any]) -> Any:
+                                params: Dict[str, Any]) -> Any:
         """
         Create a model instance with appropriate parameters.
 
@@ -661,7 +661,11 @@ class ModelPipeline:
                 return model_class(**filtered_params)
         else:
             # Tree-based models (decision_tree, random_forest) accept random_state
-            return model_class(random_state=RANDOM_STATE, **filtered_params)
+            model = model_class(random_state=RANDOM_STATE, **filtered_params)
+            # Log max_samples for RandomForest to debug the ValueError
+            if model_type == 'random_forest' and hasattr(model, 'max_samples'):
+                model_logger.info(f"RandomForest max_samples set to: {model.max_samples}")
+            return model
 
     def _perform_cv_with_scaling(self, model, X_train: pd.DataFrame, y_train: np.ndarray,
                                 model_type: str, task_type: str,
@@ -793,6 +797,9 @@ class ModelPipeline:
         params = params or {}
         feature_names = sorted(X_train.columns.tolist())
         model_id = f"{model_type}_{len(self.trained_models)}"
+
+        # Log dataset size for debugging max_samples issue
+        model_logger.info(f"Training {model_type} with dataset size: {len(X_train)} samples, {len(feature_names)} features")
 
         # Apply adaptive parameters for tree models
         if self._is_tree_model(model_type):
@@ -1245,7 +1252,8 @@ class ModelPipeline:
                 if key not in param_grid:
                     param_grid[key] = values
 
-        # Special handling for Random Forest max_samples parameter
+      
+
         if model_type == 'random_forest' and 'max_samples' in param_grid:
             # Filter out incompatible combinations where bootstrap=False and max_samples is not None
             # max_samples should only be used when bootstrap=True
@@ -1337,7 +1345,7 @@ class ModelPipeline:
         """
         from sklearn.model_selection import ParameterGrid
 
-        if 'bootstrap' not in param_grid or 'max_samples' not in param_grid:
+        if 'max_samples' not in param_grid:
             return param_grid
 
         # Generate all possible combinations

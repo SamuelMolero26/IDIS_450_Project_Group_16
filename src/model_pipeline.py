@@ -838,12 +838,6 @@ class ModelPipeline:
             model.fit(X_train_scaled, y_train)
             training_time = (datetime.now() - start_time).total_seconds()
 
-            # Apply tree-specific regularization
-            if self._is_tree_model(model_type):
-                self._apply_tree_regularization(
-                    model, model_type, params, X_train_scaled, y_train, is_final_model=True
-                )
-
             # Store trained model
             self.trained_models[model_id] = model
             model_logger.info(f"Stored trained model with ID: {model_id}")
@@ -852,6 +846,12 @@ class ModelPipeline:
         cv_scores = self._perform_cv_with_scaling(
             model, X_train, y_train, model_type, task_type, params
         )
+
+        # Apply tree-specific regularization AFTER CV to avoid fold size issues
+        if not use_cache and self._is_tree_model(model_type):
+            self._apply_tree_regularization(
+                model, model_type, params, X_train_scaled, y_train, is_final_model=True
+            )
 
         # Calculate metrics
         metrics = self._compute_training_metrics(

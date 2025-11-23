@@ -8724,3 +8724,43 @@
 2025-11-23 14:26:09,256 - pipeline - INFO - Starting phase: Finalizing
 2025-11-23 14:26:09,256 - pipeline - INFO - Finalizing pipeline
 2025-11-23 14:26:09,429 - pipeline - ERROR - Pipeline run 56c12ea1 failed: keys must be str, int, float, bool or None, not Interval
+2025-11-23 14:31:41,586 - pipeline - INFO - Starting complete pipeline run: 946c0572
+2025-11-23 14:31:41,599 - pipeline - INFO - Starting phase: Data
+2025-11-23 14:31:41,600 - pipeline - INFO - Running data pipeline
+2025-11-23 14:31:41,600 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 14:31:41,672 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 14:31:41,672 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 14:31:41,672 - pipeline - INFO - Preprocessing features
+2025-11-23 14:31:41,677 - pipeline - INFO - Processed 11 features
+2025-11-23 14:31:41,677 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 14:31:41,678 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 14:31:41,687 - pipeline - INFO - Data quality validation completed
+2025-11-23 14:31:43,475 - pipeline - INFO - Created dataset version: dataset_f8964de85981
+2025-11-23 14:31:43,475 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 14:31:43,476 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 14:31:43,476 - pipeline - INFO - Running modeling pipeline
+2025-11-23 14:31:43,476 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 14:31:43,477 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 14:31:43,503 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 14:31:46,416 - pipeline - INFO - Created model version: model_linear_9bce1e74ed9e
+2025-11-23 14:31:46,416 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 14:31:46,416 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 14:31:46,442 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 14:31:49,072 - pipeline - INFO - Created model version: model_ridge_9d2d75a0a421
+2025-11-23 14:31:49,072 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 14:31:49,072 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 14:31:49,242 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 14:31:53,927 - pipeline - INFO - Created model version: model_lasso_ab7e06465acf
+2025-11-23 14:31:53,927 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 14:31:53,927 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 14:32:06,977 - pipeline - INFO - Evaluating model decision_tree_3 - checking if exists in trained_models: True
+2025-11-23 14:32:09,963 - pipeline - INFO - Created model version: model_decision_tree_88a74522a6ff
+2025-11-23 14:32:09,963 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 14:32:09,963 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 14:32:12,194 - pipeline - INFO - Evaluating model random_forest_4 - checking if exists in trained_models: True
+2025-11-23 14:32:47,972 - pipeline - INFO - Created model version: model_random_forest_42ef25e18455
+2025-11-23 14:32:47,972 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 14:32:47,973 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 14:32:48,160 - pipeline - INFO - Evaluating model KNN_5 - checking if exists in trained_models: True
+2025-11-23 14:32:54,303 - pipeline - INFO - Created model version: model_KNN_7e16fb4a43b3
+2025-11-23 14:32:54,344 - pipeline - INFO - Running comprehensive model comparison with visualizations

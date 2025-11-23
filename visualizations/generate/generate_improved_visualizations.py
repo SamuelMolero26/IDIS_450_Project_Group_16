@@ -58,7 +58,9 @@ VIZ_DIR.mkdir(exist_ok=True)
 class ImprovedVisualizationGenerator:
     """Generate visualizations showing underfitting improvements."""
 
-    def __init__(self):
+    def __init__(self, use_pipeline_report=True):
+        self.use_pipeline_report = use_pipeline_report
+        self.report_data = None
         self.X_train = None
         self.X_test = None
         self.y_train = None
@@ -74,6 +76,79 @@ class ImprovedVisualizationGenerator:
             "Decision Tree": 125520,
             "Random Forest": 132987,
         }
+
+    def load_latest_pipeline_report(self):
+        """Load the latest pipeline report."""
+        print("📊 Loading latest pipeline report...")
+
+        reports_dir = Path("reports")
+        json_files = list(reports_dir.glob("pipeline_report_*.json"))
+
+        if not json_files:
+            print("⚠️  No pipeline reports found, will train models instead")
+            self.use_pipeline_report = False
+            return False
+
+        latest_report = max(json_files, key=lambda p: p.stat().st_mtime)
+        print(f"✅ Loading: {latest_report.name}")
+
+        with open(latest_report, 'r') as f:
+            self.report_data = json.load(f)
+
+        return True
+
+    def extract_metrics_from_report(self):
+        """Extract model metrics from pipeline report."""
+        if not self.report_data:
+            return False
+
+        print("📈 Extracting model metrics from report...")
+
+        modeling_results = self.report_data.get('modeling_results', {})
+        model_results = modeling_results.get('model_results', {})
+
+        for model_name, result in model_results.items():
+            if 'error' in result or model_name in ['comparison', 'comprehensive_comparison']:
+                continue
+
+            metrics = result.get('metrics', {})
+
+            # Map model names to display names
+            display_name = {
+                'linear': 'Linear Regression',
+                'ridge': 'Ridge',
+                'lasso': 'Lasso',
+                'elastic_net': 'ElasticNet',
+                'decision_tree': 'Decision Tree',
+                'random_forest': 'Random Forest',
+                'KNN': 'KNN'
+            }.get(model_name, model_name)
+
+            # Extract metrics
+            train_r2 = metrics.get('train_r2', 0)
+            test_r2 = metrics.get('test_r2', metrics.get('cv_r2_mean', 0))
+            train_rmse = metrics.get('train_rmse', 0)
+            test_rmse = metrics.get('test_rmse', metrics.get('cv_rmse_mean', 0))
+
+            # Estimate bias and variance (simplified)
+            bias_squared = test_rmse ** 2  # Approximation
+            variance = (train_r2 - test_r2) * test_rmse ** 2 if train_r2 > test_r2 else 0
+
+            self.metrics[display_name] = {
+                "train_r2": train_r2,
+                "test_r2": test_r2,
+                "train_rmse": train_rmse,
+                "test_rmse": test_rmse,
+                "bias_squared": bias_squared,
+                "variance": variance,
+                "overfitting_gap": train_r2 - test_r2,
+            }
+
+        print(f"✅ Extracted metrics for {len(self.metrics)} models")
+        for model, m in self.metrics.items():
+            print(f"  {model}: Test R² = {m['test_r2']:.4f}")
+
+        return True
 
     def load_and_prepare_data(self, sample_size: int = 50000):
         """Load and prepare data with feature engineering."""
@@ -820,17 +895,31 @@ class ImprovedVisualizationGenerator:
         print("=" * 70)
 
         try:
-            # Load and prepare data
-            self.load_and_prepare_data()
+            # Try to load from pipeline report first
+            if self.use_pipeline_report:
+                if self.load_latest_pipeline_report():
+                    if self.extract_metrics_from_report():
+                        print("\n✅ Using metrics from pipeline report")
+                    else:
+                        print("\n⚠️  Failed to extract metrics, falling back to training")
+                        self.use_pipeline_report = False
 
-            # Train improved models
-            self.train_improved_models()
+            # Fallback to training models if no report available
+            if not self.use_pipeline_report:
+                self.load_and_prepare_data()
+                self.train_improved_models()
 
             # Generate all visualizations
             bias_reduction = self.generate_bias_variance_comparison()
             self.generate_model_comparison_chart()
-            self.generate_residual_plots()
-            self.generate_feature_importance_plots()
+
+            # Skip residual and feature importance if using report (no predictions available)
+            if not self.use_pipeline_report:
+                self.generate_residual_plots()
+                self.generate_feature_importance_plots()
+            else:
+                print("\n⏭️  Skipping residual/feature plots (using report data)")
+
             self.generate_improvement_summary(bias_reduction)
             self.save_metrics_report()
 

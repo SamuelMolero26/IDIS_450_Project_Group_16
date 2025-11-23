@@ -665,10 +665,10 @@ class EvaluationEngine:
         return results
 
     def _analyze_bias_variance(self, model, X_train: pd.DataFrame, y_train: np.ndarray,
-                             X_test: pd.DataFrame, y_test: np.ndarray,
-                             n_bootstraps: int = 50) -> Dict[str, Any]:
+                              X_test: pd.DataFrame, y_test: np.ndarray,
+                              n_bootstraps: int = 50) -> Dict[str, Any]:
         """
-        Perform bias-variance analysis using bootstrapping.
+        Perform bias-variance analysis using bootstrapping with robust error handling.
 
         Args:
             model: Trained model
@@ -684,18 +684,54 @@ class EvaluationEngine:
         evaluation_logger.info("Performing bias-variance analysis")
 
         predictions = []
+        successful_bootstraps = 0
 
         for i in range(n_bootstraps):
-            # Bootstrap sample
-            X_boot, y_boot = resample(X_train, y_train, random_state=self.random_state + i)
+            try:
+                # Bootstrap sample
+                X_boot, y_boot = resample(X_train, y_train, random_state=self.random_state + i)
 
-            # Train model on bootstrap sample
-            model_boot = model.__class__(**model.get_params())
-            model_boot.fit(X_boot, y_boot)
+                # Train model on bootstrap sample
+                try:
+                    model_boot = model.__class__(**model.get_params())
+                except (TypeError, ValueError) as e:
+                    # Some models (like KNN) might not support all parameters or instantiation
+                    evaluation_logger.warning(f"Could not instantiate {type(model).__name__} with get_params(): {e}")
+                    # Try with minimal parameters
+                    try:
+                        if hasattr(model, 'n_neighbors'):  # KNN case
+                            model_boot = model.__class__(n_neighbors=model.n_neighbors)
+                        elif hasattr(model, 'C'):  # SVM case
+                            model_boot = model.__class__(C=model.C, random_state=self.random_state)
+                        else:
+                            # Skip this bootstrap sample
+                            continue
+                    except Exception as e2:
+                        evaluation_logger.warning(f"Could not create bootstrap model for {type(model).__name__}: {e2}")
+                        continue
 
-            # Predict on test set
-            y_pred = model_boot.predict(X_test)
-            predictions.append(y_pred)
+                model_boot.fit(X_boot, y_boot)
+
+                # Predict on test set
+                y_pred = model_boot.predict(X_test)
+                predictions.append(y_pred)
+                successful_bootstraps += 1
+
+            except Exception as e:
+                evaluation_logger.warning(f"Bootstrap sample {i} failed: {e}")
+                continue
+
+        if successful_bootstraps < 10:  # Need at least 10 successful bootstraps
+            evaluation_logger.error(f"Too few successful bootstraps ({successful_bootstraps}/{n_bootstraps}) for {type(model).__name__}")
+            return {
+                'error': f'Insufficient successful bootstraps ({successful_bootstraps}/{n_bootstraps})',
+                'bias': 0.0,
+                'variance': 0.0,
+                'irreducible_error': float(np.var(y_test)) if len(y_test) > 1 else 0.0,
+                'total_error': 0.0,
+                'bias_variance_ratio': 0.0,
+                'n_bootstraps': successful_bootstraps
+            }
 
         predictions = np.array(predictions)
 
@@ -716,10 +752,11 @@ class EvaluationEngine:
             'irreducible_error': float(irreducible_error),
             'total_error': float(bias + variance + irreducible_error),
             'bias_variance_ratio': float(variance / bias) if bias > 0 else float('inf'),
-            'n_bootstraps': n_bootstraps
+            'n_bootstraps': successful_bootstraps,
+            'success_rate': successful_bootstraps / n_bootstraps
         }
 
-        evaluation_logger.info(f"Bias-variance analysis completed. Bias: {bias:.4f}, Variance: {variance:.4f}")
+        evaluation_logger.info(f"Bias-variance analysis completed. Bias: {bias:.4f}, Variance: {variance:.4f}, Success rate: {successful_bootstraps}/{n_bootstraps}")
 
         return results
 

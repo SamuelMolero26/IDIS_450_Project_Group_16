@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/samuel/IDIS450/Project/src/main_pipeline.py", line 28, in <module>
+    from src.model_pipeline import create_model_pipeline
+  File "/Users/samuel/IDIS450/Project/src/model_pipeline.py", line 56, in <module>
+    class ModelPipeline:
+    ...<4017 lines>...
+                model_logger.error(f"Failed to save model comparison report: {e}")
+  File "/Users/samuel/IDIS450/Project/src/model_pipeline.py", line 963, in ModelPipeline
+    def _create_unified_pipeline(self, model_type: str, model_class, params: Dict[str, Any]) -> Pipeline:
+                                                                                                ^^^^^^^^
+NameError: name 'Pipeline' is not defined

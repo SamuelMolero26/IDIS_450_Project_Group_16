@@ -214,8 +214,8 @@ class AdvancedModelingPipeline:
             y_train = data_results['y_train']
             y_test = data_results['y_test']
 
-            # Default model types to train (now includes KNN)
-            model_types = experiment_config.get('model_types', ['linear', 'ridge', 'lasso', 'decision_tree', 'random_forest', 'KNN']) if experiment_config else ['linear', 'ridge', 'lasso', 'decision_tree', 'random_forest', 'KNN']
+            # Default model types to train (now includes KNN and ElasticNet)
+            model_types = experiment_config.get('model_types', ['linear', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'random_forest', 'KNN']) if experiment_config else ['linear', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'random_forest', 'KNN']
 
             model_results = {}
             evaluation_results = {}
@@ -547,8 +547,10 @@ class AdvancedModelingPipeline:
 
         # Generate comprehensive report
         report_path = REPORTS_DIR / f"pipeline_report_{self.current_experiment_id}.json"
+        # Serialize results to handle non-JSON-serializable objects like pandas Intervals
+        serializable_results = self.continuous_learning._make_serializable(final_results)
         with open(report_path, 'w') as f:
-            json.dump(final_results, f, indent=2, default=str)
+            json.dump(serializable_results, f, indent=2, default=str)
 
         # Log completion
         log_experiment_end(self.current_experiment_id, {

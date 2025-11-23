@@ -4,10 +4,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder, PolynomialFeatures, PowerTransformer
 from sklearn.ensemble import IsolationForest
 from sklearn.neighbors import LocalOutlierFactor
 from sklearn.impute import SimpleImputer
+from sklearn.feature_selection import mutual_info_regression, SelectKBest
 from scipy import stats
 import warnings
 import os
@@ -238,7 +239,7 @@ def explain_data():
 def check_missing_values(df):
     """
     Check for missing values and handle them appropriately.
-    Basic context awareness is applied to decide imputation strategies.
+    Enhanced with robust imputation and extreme value handling.
     """
     print("\n=== MISSING VALUES ANALYSIS ===")
     missing = df.isnull().sum()
@@ -255,23 +256,149 @@ def check_missing_values(df):
         print("No missing values found in the dataset.")
         return df
 
-    # Smart handleing of missing values based on the data types
+    # Enhanced handling of missing values with robust imputation
     for col in df.columns:
         if df[col].isnull().sum() > 0:
+            missing_pct = (df[col].isnull().sum() / len(df)) * 100
+
             if df[col].dtype in ['int64', 'float64']:
-                # For numerical --> use median imputation
-                imputer = SimpleImputer(strategy='median')
-                df[col] = imputer.fit_transform(df[[col]]).ravel()
-                print(f"Imputed missing values in {col} with median.")
+                # Enhanced numerical imputation based on missing percentage
+                if missing_pct < 5:
+                    # Low missing rate - use median imputation
+                    imputer = SimpleImputer(strategy='median')
+                    df[col] = imputer.fit_transform(df[[col]]).ravel()
+                    print(f"Imputed missing values in {col} with median (low missing rate: {missing_pct:.1f}%).")
+                elif missing_pct < 30:
+                    # Moderate missing rate - use iterative imputation if available
+                    try:
+                        from sklearn.experimental import enable_iterative_imputer
+                        from sklearn.impute import IterativeImputer
+
+                        # Use iterative imputation for better accuracy
+                        imputer = IterativeImputer(random_state=42, max_iter=10)
+                        df[col] = imputer.fit_transform(df[[col]]).ravel()
+                        print(f"Imputed missing values in {col} with iterative imputation (moderate missing rate: {missing_pct:.1f}%).")
+                    except ImportError:
+                        # Fallback to median if iterative imputer not available
+                        imputer = SimpleImputer(strategy='median')
+                        df[col] = imputer.fit_transform(df[[col]]).ravel()
+                        print(f"Imputed missing values in {col} with median (iterative imputer not available, missing rate: {missing_pct:.1f}%).")
+                else:
+                    # High missing rate - consider dropping or using model-based imputation
+                    print(f"High missing rate in {col} ({missing_pct:.1f}%). Consider feature engineering or removal.")
+                    # For now, use median but log warning
+                    imputer = SimpleImputer(strategy='median')
+                    df[col] = imputer.fit_transform(df[[col]]).ravel()
+                    print(f"Temporarily imputed missing values in {col} with median due to high missing rate.")
+
             elif df[col].dtype == 'object':
-                # For categorical --> use most frequent
-                imputer = SimpleImputer(strategy='most_frequent')
-                df[col] = imputer.fit_transform(df[[col]]).ravel()
-                print(f"Imputed missing values in {col} with most frequent value.")
+                # For categorical - use mode imputation with frequency check
+                mode_value = df[col].mode()
+                if len(mode_value) > 0:
+                    imputer = SimpleImputer(strategy='most_frequent')
+                    df[col] = imputer.fit_transform(df[[col]]).ravel()
+                    mode_pct = (df[col] == mode_value.iloc[0]).sum() / len(df) * 100
+                    print(f"Imputed missing values in {col} with mode '{mode_value.iloc[0]}' (mode frequency: {mode_pct:.1f}%).")
+                else:
+                    # If no mode, use a placeholder
+                    df[col] = df[col].fillna('Unknown')
+                    print(f"Imputed missing values in {col} with 'Unknown' (no clear mode found).")
+
             elif pd.api.types.is_datetime64_any_dtype(df[col]):
-                # For dates --> forward fill
-                df[col] = df[col].fillna(method='ffill')
-                print(f"Imputed missing values in {col} with forward fill.")
+                # For dates - use forward fill, then backward fill as fallback
+                df[col] = df[col].fillna(method='ffill').fillna(method='bfill')
+                print(f"Imputed missing values in {col} with forward/backward fill.")
+
+    # Additional check: ensure no missing values remain
+    remaining_missing = df.isnull().sum().sum()
+    if remaining_missing > 0:
+        print(f"Warning: {remaining_missing} missing values still remain after imputation.")
+    else:
+        print("All missing values successfully handled.")
+
+    return df
+
+def handle_extreme_values(df, method='iqr', threshold=3.0):
+    """
+    Handle extreme values (outliers) using robust methods.
+
+    Args:
+        df: Input DataFrame
+        method: Method for outlier detection ('iqr', 'zscore', 'isolation_forest')
+        threshold: Threshold for outlier detection
+
+    Returns:
+        DataFrame with extreme values handled
+    """
+    print(f"\n=== EXTREME VALUES HANDLING (Method: {method}) ===")
+
+    numerical_cols = df.select_dtypes(include=[np.number]).columns
+    processed_cols = []
+
+    for col in numerical_cols:
+        original_values = df[col].copy()
+        n_extreme = 0
+
+        if method == 'iqr':
+            # IQR method - more robust than z-score for skewed distributions
+            Q1 = df[col].quantile(0.25)
+            Q3 = df[col].quantile(0.75)
+            IQR = Q3 - Q1
+
+            lower_bound = Q1 - threshold * IQR
+            upper_bound = Q3 + threshold * IQR
+
+            # Cap extreme values
+            df[col] = np.clip(df[col], lower_bound, upper_bound)
+            n_extreme = ((original_values < lower_bound) | (original_values > upper_bound)).sum()
+
+        elif method == 'zscore':
+            # Z-score method with robust scaling
+            from scipy import stats
+            z_scores = np.abs(stats.zscore(df[col], nan_policy='omit'))
+            outlier_mask = z_scores > threshold
+
+            # Cap at percentile bounds
+            lower_cap = df[col].quantile(0.01)
+            upper_cap = df[col].quantile(0.99)
+
+            df.loc[outlier_mask, col] = np.clip(df.loc[outlier_mask, col], lower_cap, upper_cap)
+            n_extreme = outlier_mask.sum()
+
+        elif method == 'isolation_forest':
+            # Use Isolation Forest for multivariate outlier detection
+            try:
+                iso_forest = IsolationForest(contamination=0.1, random_state=42)
+                outlier_pred = iso_forest.fit_predict(df[[col]])
+
+                # For univariate case, cap extreme values
+                outlier_mask = outlier_pred == -1
+                lower_cap = df[col].quantile(0.05)
+                upper_cap = df[col].quantile(0.95)
+
+                df.loc[outlier_mask, col] = np.clip(df.loc[outlier_mask, col], lower_cap, upper_cap)
+                n_extreme = outlier_mask.sum()
+
+            except Exception as e:
+                print(f"Isolation Forest failed for {col}: {e}. Using IQR method.")
+                # Fallback to IQR
+                Q1 = df[col].quantile(0.25)
+                Q3 = df[col].quantile(0.75)
+                IQR = Q3 - Q1
+                lower_bound = Q1 - threshold * IQR
+                upper_bound = Q3 + threshold * IQR
+                df[col] = np.clip(df[col], lower_bound, upper_bound)
+                n_extreme = ((original_values < lower_bound) | (original_values > upper_bound)).sum()
+
+        if n_extreme > 0:
+            processed_cols.append(col)
+            pct_extreme = (n_extreme / len(df)) * 100
+            print(f"Handled {n_extreme} extreme values in {col} ({pct_extreme:.2f}%) using {method} method.")
+
+    if processed_cols:
+        print(f"Extreme values handled in {len(processed_cols)} numerical columns.")
+    else:
+        print("No extreme values detected requiring correction.")
 
     return df
 
@@ -551,8 +678,340 @@ def create_interaction_features(df):
     
     print(f"\nTotal interaction features created: {len(interactions)}")
     print(f"New shape after interactions: {df.shape}")
-    
+
     return df
+
+
+def detect_skewness_and_transform(df, skewness_threshold=1.0, transform_method='auto'):
+    """
+    Detect skewed numerical features and apply appropriate transformations.
+
+    Args:
+        df: Input DataFrame
+        skewness_threshold: Threshold for skewness detection (default 1.0)
+        transform_method: 'auto', 'log', 'yeo-johnson', or 'sqrt'
+
+    Returns:
+        DataFrame with transformed features
+    """
+    print(f"\n=== SKEWNESS DETECTION AND TRANSFORMATION (Method: {transform_method}) ===")
+
+    df_transformed = df.copy()
+    numerical_cols = df.select_dtypes(include=[np.number]).columns
+    transformed_features = []
+
+    for col in numerical_cols:
+        # Skip if constant or has negative values for log transform
+        if df[col].nunique() <= 1:
+            continue
+
+        skewness = stats.skew(df[col].dropna())
+
+        if abs(skewness) > skewness_threshold:
+            original_skew = skewness
+            try:
+                if transform_method == 'auto':
+                    # Auto-select based on data characteristics
+                    if (df[col] > 0).all():
+                        # All positive - use Yeo-Johnson (more flexible than log)
+                        transformer = PowerTransformer(method='yeo-johnson')
+                        transformed_values = transformer.fit_transform(df[[col]]).ravel()
+                        method_used = 'yeo-johnson'
+                    else:
+                        # Contains zeros/negatives - use Yeo-Johnson anyway
+                        transformer = PowerTransformer(method='yeo-johnson')
+                        transformed_values = transformer.fit_transform(df[[col]]).ravel()
+                        method_used = 'yeo-johnson'
+                elif transform_method == 'log':
+                    if (df[col] > 0).all():
+                        transformed_values = np.log1p(df[col])
+                        method_used = 'log'
+                    else:
+                        print(f"  Skipping log transform for {col} - contains non-positive values")
+                        continue
+                elif transform_method == 'yeo-johnson':
+                    transformer = PowerTransformer(method='yeo-johnson')
+                    transformed_values = transformer.fit_transform(df[[col]]).ravel()
+                    method_used = 'yeo-johnson'
+                elif transform_method == 'sqrt':
+                    min_val = df[col].min()
+                    if min_val < 0:
+                        transformed_values = np.sqrt(df[col] - min_val + 1)
+                    else:
+                        transformed_values = np.sqrt(df[col] + 1)
+                    method_used = 'sqrt'
+                else:
+                    continue
+
+                # Check if transformation improved skewness
+                new_skewness = stats.skew(transformed_values)
+                if abs(new_skewness) < abs(original_skew):
+                    new_col_name = f"{col}_transformed"
+                    df_transformed[new_col_name] = transformed_values
+                    transformed_features.append(col)
+                    print(f"  Transformed {col}: skewness {original_skew:.2f} → {new_skewness:.2f} ({method_used})")
+                else:
+                    print(f"  Skipped {col}: transformation did not improve skewness")
+
+            except Exception as e:
+                print(f"  Failed to transform {col}: {e}")
+                continue
+
+    if transformed_features:
+        print(f"Successfully transformed {len(transformed_features)} skewed features")
+    else:
+        print("No features were transformed")
+
+    return df_transformed
+
+
+def apply_winsorization(df, limits=(0.05, 0.05)):
+    """
+    Apply winsorization to handle extreme outliers.
+
+    Args:
+        df: Input DataFrame
+        limits: Tuple of (lower_limit, upper_limit) as fractions (default 0.05 for both)
+
+    Returns:
+        DataFrame with winsorized features
+    """
+    print(f"\n=== WINSORIZATION (Limits: {limits}) ===")
+
+    df_winsorized = df.copy()
+    numerical_cols = df.select_dtypes(include=[np.number]).columns
+    winsorized_features = []
+
+    for col in numerical_cols:
+        if df[col].nunique() <= 1:
+            continue
+
+        try:
+            # Calculate percentiles
+            lower_limit, upper_limit = np.percentile(df[col].dropna(), [limits[0]*100, (1-limits[1])*100])
+
+            # Count outliers before winsorization
+            n_lower_outliers = (df[col] < lower_limit).sum()
+            n_upper_outliers = (df[col] > upper_limit).sum()
+
+            # Apply winsorization
+            df_winsorized[col] = np.clip(df[col], lower_limit, upper_limit)
+
+            if n_lower_outliers > 0 or n_upper_outliers > 0:
+                winsorized_features.append(col)
+                print(f"  Winsorized {col}: {n_lower_outliers} lower, {n_upper_outliers} upper outliers")
+
+        except Exception as e:
+            print(f"  Failed to winsorize {col}: {e}")
+            continue
+
+    if winsorized_features:
+        print(f"Successfully winsorized {len(winsorized_features)} features")
+    else:
+        print("No features required winsorization")
+
+    return df_winsorized
+
+
+def generate_pairwise_interactions(df, important_features=None, max_features=10, correlation_threshold=0.9):
+    """
+    Generate automatic pairwise interaction terms between important features.
+
+    Args:
+        df: Input DataFrame
+        important_features: List of important feature names (if None, auto-select based on variance)
+        max_features: Maximum number of features to consider for interactions
+        correlation_threshold: Skip interactions between highly correlated features
+
+    Returns:
+        DataFrame with interaction features
+    """
+    print(f"\n=== AUTOMATIC PAIRWISE INTERACTION GENERATION ===")
+
+    df_interactions = df.copy()
+    numerical_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+
+    # Remove derived features that are already interactions
+    numerical_cols = [col for col in numerical_cols if 'Interaction' not in col and 'Ratio' not in col]
+
+    # Select important features
+    if important_features is None:
+        # Auto-select based on variance (higher variance = more information)
+        variances = df[numerical_cols].var().sort_values(ascending=False)
+        important_features = variances.head(max_features).index.tolist()
+
+    print(f"Selected {len(important_features)} important features for interactions: {important_features}")
+
+    # Calculate correlation matrix to avoid redundant interactions
+    corr_matrix = df[important_features].corr().abs()
+
+    interactions_created = []
+    skipped_due_to_correlation = 0
+
+    # Generate pairwise interactions
+    for i, feat1 in enumerate(important_features):
+        for feat2 in important_features[i+1:]:
+            # Skip if features are highly correlated
+            if corr_matrix.loc[feat1, feat2] > correlation_threshold:
+                skipped_due_to_correlation += 1
+                continue
+
+            try:
+                # Create interaction feature
+                interaction_name = f"{feat1}_x_{feat2}"
+                df_interactions[interaction_name] = df[feat1] * df[feat2]
+                interactions_created.append(interaction_name)
+                print(f"  Created: {interaction_name}")
+
+            except Exception as e:
+                print(f"  Failed to create {feat1} × {feat2}: {e}")
+                continue
+
+    print(f"Created {len(interactions_created)} interaction features")
+    if skipped_due_to_correlation > 0:
+        print(f"Skipped {skipped_due_to_correlation} highly correlated feature pairs")
+
+    return df_interactions
+
+
+def apply_mutual_info_selection(df, target_col, k_features='auto', random_state=42):
+    """
+    Apply mutual information-based feature selection.
+
+    Args:
+        df: Input DataFrame
+        target_col: Name of target column
+        k_features: Number of features to select ('auto' or int)
+        random_state: Random state for reproducibility
+
+    Returns:
+        DataFrame with selected features
+    """
+    print(f"\n=== MUTUAL INFORMATION FEATURE SELECTION ===")
+
+    if target_col not in df.columns:
+        print(f"Target column '{target_col}' not found in DataFrame")
+        return df
+
+    # Separate features and target
+    feature_cols = [col for col in df.columns if col != target_col and df[col].dtype in ['int64', 'float64']]
+    X = df[feature_cols]
+    y = df[target_col]
+
+    # Remove any NaN values for MI calculation
+    valid_idx = ~(X.isnull().any(axis=1) | y.isnull())
+    X_clean = X[valid_idx]
+    y_clean = y[valid_idx]
+
+    if len(X_clean) == 0:
+        print("No valid data for mutual information calculation")
+        return df
+
+    # Calculate mutual information
+    mi_scores = mutual_info_regression(X_clean, y_clean, random_state=random_state)
+
+    # Create feature importance DataFrame
+    feature_importance = pd.DataFrame({
+        'feature': feature_cols,
+        'mi_score': mi_scores
+    }).sort_values('mi_score', ascending=False)
+
+    print("Top 10 features by mutual information:")
+    for idx, row in feature_importance.head(10).iterrows():
+        print(f"  {row['feature']}: {row['mi_score']:.4f}")
+
+    # Determine number of features to select
+    if k_features == 'auto':
+        # Select features with MI score > 0.1 or top 20 features
+        selected_features = feature_importance[feature_importance['mi_score'] > 0.1]['feature'].tolist()
+        if len(selected_features) < 5:  # Minimum 5 features
+            selected_features = feature_importance.head(max(5, len(feature_importance)//2))['feature'].tolist()
+    else:
+        selected_features = feature_importance.head(k_features)['feature'].tolist()
+
+    print(f"Selected {len(selected_features)} features using mutual information")
+
+    # Return DataFrame with selected features + target
+    selected_cols = selected_features + [target_col]
+    return df[selected_cols].copy()
+
+
+def create_enhanced_feature_pipeline(df, config=None):
+    """
+    Enhanced feature engineering pipeline with configurable options.
+
+    Args:
+        df: Input DataFrame
+        config: Dictionary with configuration options
+
+    Returns:
+        DataFrame with enhanced features
+    """
+    if config is None:
+        config = {}
+
+    # Default configuration
+    default_config = {
+        'apply_polynomial': False,
+        'polynomial_degree': 2,
+        'apply_skewness_transform': True,
+        'skewness_threshold': 1.0,
+        'transform_method': 'auto',
+        'apply_winsorization': True,
+        'winsorization_limits': (0.05, 0.05),
+        'apply_interactions': True,
+        'max_interaction_features': 10,
+        'interaction_correlation_threshold': 0.9,
+        'apply_mutual_info_selection': False,
+        'mi_k_features': 'auto',
+        'target_column': 'Total_Revenue'  # Default target for MI selection
+    }
+
+    # Merge with provided config
+    config = {**default_config, **config}
+
+    print("=== ENHANCED FEATURE ENGINEERING PIPELINE ===")
+    print(f"Configuration: {config}")
+
+    df_enhanced = df.copy()
+
+    # 1. Winsorization for outlier handling
+    if config['apply_winsorization']:
+        df_enhanced = apply_winsorization(df_enhanced, config['winsorization_limits'])
+
+    # 2. Skewness transformation
+    if config['apply_skewness_transform']:
+        df_enhanced = detect_skewness_and_transform(
+            df_enhanced,
+            config['skewness_threshold'],
+            config['transform_method']
+        )
+
+    # 3. Polynomial features (for linear models - will be handled in model pipeline)
+    if config['apply_polynomial']:
+        print(f"\nNote: Polynomial features (degree {config['polynomial_degree']}) will be applied in model pipeline for linear models")
+
+    # 4. Automatic pairwise interactions
+    if config['apply_interactions']:
+        # Select important features for interactions (exclude transformed features)
+        base_features = [col for col in df_enhanced.select_dtypes(include=[np.number]).columns
+                        if not col.endswith('_transformed') and 'Interaction' not in col]
+        df_enhanced = generate_pairwise_interactions(
+            df_enhanced,
+            important_features=base_features[:config['max_interaction_features']],
+            correlation_threshold=config['interaction_correlation_threshold']
+        )
+
+    # 5. Mutual information feature selection
+    if config['apply_mutual_info_selection']:
+        df_enhanced = apply_mutual_info_selection(
+            df_enhanced,
+            config['target_column'],
+            config['mi_k_features']
+        )
+
+    print(f"\nEnhanced feature engineering completed. Final shape: {df_enhanced.shape}")
+    return df_enhanced
 
 def assess_scales_and_encoding(df):
     """
@@ -781,6 +1240,55 @@ def finalize_dataset(df):
 
     return df
 
+def get_processed_feature_names(df):
+    """
+    Get the names of processed features after preprocessing pipeline.
+
+    This provides a clean interface to retrieve feature names post-OneHotEncoding or scaling.
+
+    Args:
+        df: Preprocessed DataFrame
+
+    Returns:
+        Dictionary with different categories of feature names
+    """
+    # Original features (before encoding/scaling)
+    original_cols = ['OrderNumber', 'Sales Channel', 'WarehouseCode', 'ProcuredDate', 'OrderDate',
+                    'ShipDate', 'DeliveryDate', 'CurrencyCode', '_SalesTeamID', '_CustomerID',
+                    '_StoreID', '_ProductID', 'Order Quantity', 'Discount Applied', 'Unit Cost', 'Unit Price']
+
+    # Derived features (created during preprocessing)
+    derived_cols = [col for col in df.columns if col not in original_cols and not col.endswith('_scaled') and not col.startswith(('Sales Channel_', 'WarehouseCode_', 'CurrencyCode_'))]
+
+    # Scaled features
+    scaled_cols = [col for col in df.columns if col.endswith('_scaled')]
+
+    # Encoded features (OneHotEncoding)
+    encoded_cols = [col for col in df.columns if col.startswith(('Sales Channel_', 'WarehouseCode_', 'CurrencyCode_'))]
+
+    # All processed features (what would be used for modeling)
+    all_processed_features = derived_cols + scaled_cols + encoded_cols
+
+    # Numeric features for modeling (exclude categorical strings and dates)
+    numeric_features = [col for col in all_processed_features if not any(keyword in col.lower() for keyword in ['date', 'channel', 'warehouse', 'currency']) or col.endswith('_scaled')]
+
+    return {
+        'original_features': original_cols,
+        'derived_features': derived_cols,
+        'scaled_features': scaled_cols,
+        'encoded_features': encoded_cols,
+        'all_processed_features': all_processed_features,
+        'modeling_features': numeric_features,  # Features suitable for ML models
+        'feature_counts': {
+            'original': len(original_cols),
+            'derived': len(derived_cols),
+            'scaled': len(scaled_cols),
+            'encoded': len(encoded_cols),
+            'total_processed': len(all_processed_features),
+            'modeling_ready': len(numeric_features)
+        }
+    }
+
 def _run_all_steps(data_path: str):
     """Helper to run the entire preprocessing flow given a data path."""
     df = load_data(data_path)
@@ -810,6 +1318,16 @@ def _run_all_steps(data_path: str):
 
     df = assess_balance(df)
     df = exploratory_data_analysis(df)
+
+    # Apply enhanced feature engineering pipeline
+    enhanced_config = {
+        'apply_polynomial': False,  # Will be handled in model pipeline for specific models
+        'apply_skewness_transform': True,
+        'apply_winsorization': True,
+        'apply_interactions': True,
+        'apply_mutual_info_selection': False  # Can be enabled if target is available
+    }
+    df = create_enhanced_feature_pipeline(df, enhanced_config)
 
     # Drop unnecessary columns
     columns_to_drop = ['CurrencyCode', '_SalesTeamID', '_CustomerID', '_StoreID', '_ProductID']

@@ -9,6 +9,7 @@ from typing import Any, Optional
 from datetime import datetime
 import pandas as pd
 import numpy as np
+import pickle
 
 
 class RedisCache:
@@ -52,13 +53,133 @@ class RedisCache:
         with open(self.cache_file, "w") as f:
             json.dump(self.cache, f)
 
+    def _make_serializable(self, obj):
+        """
+        Convert object to JSON-serializable format, with fallback to pickle for complex objects.
+
+        Args:
+            obj: Object to make serializable
+
+        Returns:
+            Serializable version of the object
+        """
+        # Handle None early
+        if obj is None:
+            return None
+
+        # Handle pandas Interval types first (before dict/list checks)
+        if hasattr(pd, 'Interval') and isinstance(obj, pd.Interval):
+            return str(obj)
+
+        # Handle pandas IntervalIndex
+        if hasattr(pd, 'IntervalIndex') and isinstance(obj, pd.IntervalIndex):
+            return [str(interval) for interval in obj]
+
+        # Handle pandas Series with Interval dtype
+        if isinstance(obj, pd.Series):
+            if hasattr(obj.dtype, 'name') and 'interval' in str(obj.dtype).lower():
+                return obj.astype(str).tolist()
+            return obj.tolist()
+
+        # Handle pandas Categorical
+        if isinstance(obj, pd.Categorical):
+            return obj.tolist()
+
+        # Handle pandas Timestamp
+        if isinstance(obj, pd.Timestamp):
+            return obj.isoformat()
+
+        # Handle pandas Index types
+        if isinstance(obj, pd.Index):
+            # Check if it's an IntervalIndex
+            if hasattr(pd, 'IntervalIndex') and isinstance(obj, pd.IntervalIndex):
+                return [str(interval) for interval in obj]
+            # For other Index types, check if elements are Intervals
+            try:
+                result = obj.tolist()
+                # If the first element is an Interval, convert all to strings
+                if result and hasattr(pd, 'Interval') and isinstance(result[0], pd.Interval):
+                    return [str(item) for item in result]
+                return result
+            except:
+                return [str(item) for item in obj]
+
+        # Handle dicts and lists recursively
+        if isinstance(obj, dict):
+            # Convert both keys and values to ensure JSON serializability
+            serializable_dict = {}
+            for k, v in obj.items():
+                # Convert non-primitive keys to strings
+                if isinstance(k, (str, int, float, bool, type(None))):
+                    key = k
+                elif hasattr(pd, 'Interval') and isinstance(k, pd.Interval):
+                    key = str(k)
+                else:
+                    # For any other non-primitive type, convert to string
+                    key = str(k)
+                serializable_dict[key] = self._make_serializable(v)
+            return serializable_dict
+        elif isinstance(obj, (list, tuple)):
+            return [self._make_serializable(item) for item in obj]
+
+        # Handle numpy types
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, (np.int64, np.int32, np.int16, np.int8)):
+            return int(obj)
+        elif isinstance(obj, (np.float64, np.float32, np.float16)):
+            return float(obj)
+        elif isinstance(obj, np.bool_):
+            return bool(obj)
+
+        # Handle datetime types
+        elif isinstance(obj, (datetime)):
+            return obj.isoformat()
+
+        # For custom objects with __dict__
+        elif hasattr(obj, '__dict__'):
+            try:
+                return self._make_serializable(obj.__dict__)
+            except:
+                return str(obj)
+
+        # Final attempt: try direct JSON serialization
+        else:
+            try:
+                json.dumps(obj)
+                return obj
+            except (TypeError, ValueError):
+                # If JSON serialization fails, use pickle as fallback
+                try:
+                    return {"__pickled__": True, "__data__": pickle.dumps(obj).decode('latin1')}
+                except:
+                    return str(obj)
+
+    def _deserialize_object(self, obj):
+        """
+        Deserialize object that may have been pickled.
+
+        Args:
+            obj: Object to deserialize
+
+        Returns:
+            Deserialized object
+        """
+        if isinstance(obj, dict) and obj.get("__pickled__", False):
+            try:
+                return pickle.loads(obj["__data__"].encode('latin1'))
+            except:
+                return obj
+        return obj
+
     def set(self, key: str, value: Any, ttl: Optional[int] = None) -> bool:
         """Set a cache value."""
         try:
+            serializable_value = self._make_serializable(value)
             if self.redis_client:
-                self.redis_client.set(key, json.dumps(value), ex=ttl)
+                self.redis_client.set(key, json.dumps(serializable_value), ex=ttl)
             else:
-                self.cache[key] = {"value": value, "ttl": ttl}
+                self.cache[key] = {"value": serializable_value, "ttl": ttl}
                 self.save_cache()
             return True
         except Exception as e:
@@ -70,10 +191,13 @@ class RedisCache:
         try:
             if self.redis_client:
                 value = self.redis_client.get(key)
-                return json.loads(value) if value else None
+                if value:
+                    deserialized = json.loads(value)
+                    return self._deserialize_object(deserialized)
+                return None
             else:
                 if key in self.cache:
-                    return self.cache[key]["value"]
+                    return self._deserialize_object(self.cache[key]["value"])
                 return None
         except Exception as e:
             print(f"Cache get failed: {e}")

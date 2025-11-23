@@ -8764,3 +8764,992 @@
 2025-11-23 14:32:48,160 - pipeline - INFO - Evaluating model KNN_5 - checking if exists in trained_models: True
 2025-11-23 14:32:54,303 - pipeline - INFO - Created model version: model_KNN_7e16fb4a43b3
 2025-11-23 14:32:54,344 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 15:15:03,619 - pipeline - INFO - Starting complete pipeline run: 1e60d8bb
+2025-11-23 15:15:03,637 - pipeline - INFO - Starting phase: Data
+2025-11-23 15:15:03,637 - pipeline - INFO - Running data pipeline
+2025-11-23 15:15:03,637 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:15:03,708 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:15:03,708 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:15:03,708 - pipeline - INFO - Preprocessing features
+2025-11-23 15:15:03,714 - pipeline - INFO - Processed 11 features
+2025-11-23 15:15:03,714 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:15:03,715 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:15:03,724 - pipeline - INFO - Data quality validation completed
+2025-11-23 15:15:03,724 - pipeline - INFO - Created dataset version: dataset_f8964de85981
+2025-11-23 15:15:03,724 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 15:15:03,725 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 15:15:03,725 - pipeline - INFO - Running modeling pipeline
+2025-11-23 15:15:03,725 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 15:15:03,725 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:15:03,751 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 15:15:04,929 - pipeline - INFO - Created model version: model_linear_9ddef5a454ea
+2025-11-23 15:15:04,930 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 15:15:04,930 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:15:04,954 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 15:15:05,679 - pipeline - INFO - Created model version: model_ridge_88b4a2d1b1e9
+2025-11-23 15:15:05,679 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 15:15:05,679 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:15:05,842 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 15:15:08,827 - pipeline - INFO - Created model version: model_lasso_ec4de89772bd
+2025-11-23 15:15:08,827 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 15:15:08,827 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:15:22,251 - pipeline - INFO - Evaluating model decision_tree_3 - checking if exists in trained_models: True
+2025-11-23 15:15:23,493 - pipeline - INFO - Created model version: model_decision_tree_3a4261eb64d2
+2025-11-23 15:15:23,494 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 15:15:23,495 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:15:25,843 - pipeline - INFO - Evaluating model random_forest_4 - checking if exists in trained_models: True
+2025-11-23 15:16:00,649 - pipeline - INFO - Created model version: model_random_forest_1058f572662e
+2025-11-23 15:16:00,650 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 15:16:00,650 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:16:00,845 - pipeline - INFO - Evaluating model KNN_5 - checking if exists in trained_models: True
+2025-11-23 15:16:05,415 - pipeline - INFO - Created model version: model_KNN_9516a5bcb2cd
+2025-11-23 15:16:05,459 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 15:16:23,916 - pipeline - INFO - Comprehensive comparison completed. Best model: random_forest
+2025-11-23 15:16:23,916 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 15:16:23,917 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 15:16:23,917 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 15:16:23,917 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:16:23,979 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:16:23,979 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:16:23,979 - pipeline - INFO - Preprocessing features
+2025-11-23 15:16:23,982 - pipeline - INFO - Processed 11 features
+2025-11-23 15:16:23,982 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:16:23,983 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:16:29,266 - pipeline - INFO - Generating KNN-specific visualizations for KNN_5
+2025-11-23 15:16:29,266 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 15:16:29,266 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 15:16:29,266 - pipeline - INFO - Starting phase: Learning
+2025-11-23 15:16:29,267 - pipeline - INFO - Running learning pipeline
+2025-11-23 15:16:29,267 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:16:29,335 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:16:29,335 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:16:29,335 - pipeline - INFO - Preprocessing features
+2025-11-23 15:16:29,338 - pipeline - INFO - Processed 11 features
+2025-11-23 15:16:29,338 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:16:29,339 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:16:29,339 - pipeline - INFO - Evaluating learning progress
+2025-11-23 15:16:29,340 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 15:16:29,340 - pipeline - INFO - Adapting learning strategy
+2025-11-23 15:16:29,340 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 15:16:29,340 - pipeline - INFO - Updating learning system
+2025-11-23 15:16:29,981 - pipeline - INFO - Learning system updated successfully
+2025-11-23 15:16:29,982 - pipeline - INFO - Learning pipeline completed
+2025-11-23 15:16:29,982 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 15:16:29,982 - pipeline - INFO - Finalizing pipeline
+2025-11-23 15:16:30,685 - pipeline - INFO - Completed experiment 1e60d8bb
+2025-11-23 15:16:30,685 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_4', 'total_models': 8}
+2025-11-23 15:16:30,685 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_1e60d8bb.json
+2025-11-23 15:16:30,686 - pipeline - INFO - Pipeline run 1e60d8bb completed successfully
+2025-11-23 15:16:30,727 - pipeline - INFO - Starting complete pipeline run: 4455b22c
+2025-11-23 15:16:30,727 - pipeline - INFO - Starting phase: Data
+2025-11-23 15:16:30,727 - pipeline - INFO - Running data pipeline
+2025-11-23 15:16:30,727 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:16:30,791 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:16:30,791 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:16:30,792 - pipeline - INFO - Preprocessing features
+2025-11-23 15:16:30,794 - pipeline - INFO - Processed 11 features
+2025-11-23 15:16:30,794 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:16:30,795 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:16:30,803 - pipeline - INFO - Data quality validation completed
+2025-11-23 15:16:30,880 - pipeline - INFO - Created dataset version: dataset_f8964de85981
+2025-11-23 15:16:30,880 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 15:16:30,880 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 15:16:30,880 - pipeline - INFO - Running modeling pipeline
+2025-11-23 15:16:30,881 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 15:16:30,881 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:16:30,907 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 15:16:31,849 - pipeline - INFO - Created model version: model_linear_f2129bfdab52
+2025-11-23 15:16:31,849 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 15:16:31,849 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:16:31,873 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 15:16:32,672 - pipeline - INFO - Created model version: model_ridge_888e1832a874
+2025-11-23 15:16:32,672 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 15:16:32,672 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:16:32,834 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 15:16:35,855 - pipeline - INFO - Created model version: model_lasso_ed5535513869
+2025-11-23 15:16:35,856 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 15:16:35,856 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:16:48,984 - pipeline - INFO - Evaluating model decision_tree_3 - checking if exists in trained_models: True
+2025-11-23 15:16:50,303 - pipeline - INFO - Created model version: model_decision_tree_f2860484d4ea
+2025-11-23 15:16:50,303 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 15:16:50,303 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:16:52,546 - pipeline - INFO - Evaluating model random_forest_4 - checking if exists in trained_models: True
+2025-11-23 15:17:26,764 - pipeline - INFO - Created model version: model_random_forest_9b9f7ba91c9a
+2025-11-23 15:17:26,765 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 15:17:26,765 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:17:26,961 - pipeline - INFO - Evaluating model KNN_5 - checking if exists in trained_models: True
+2025-11-23 15:17:31,675 - pipeline - INFO - Created model version: model_KNN_b175347fd7d9
+2025-11-23 15:17:31,721 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 15:17:48,731 - pipeline - INFO - Comprehensive comparison completed. Best model: random_forest
+2025-11-23 15:17:48,731 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 15:17:48,732 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 15:17:48,732 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 15:17:48,732 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:17:48,814 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:17:48,814 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:17:48,815 - pipeline - INFO - Preprocessing features
+2025-11-23 15:17:48,818 - pipeline - INFO - Processed 11 features
+2025-11-23 15:17:48,818 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:17:48,819 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:17:54,183 - pipeline - INFO - Generating KNN-specific visualizations for KNN_5
+2025-11-23 15:17:54,183 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 15:17:54,183 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 15:17:54,183 - pipeline - INFO - Starting phase: Learning
+2025-11-23 15:17:54,183 - pipeline - INFO - Running learning pipeline
+2025-11-23 15:17:54,184 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:17:54,253 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:17:54,254 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:17:54,254 - pipeline - INFO - Preprocessing features
+2025-11-23 15:17:54,256 - pipeline - INFO - Processed 11 features
+2025-11-23 15:17:54,257 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:17:54,257 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:17:54,258 - pipeline - INFO - Evaluating learning progress
+2025-11-23 15:17:54,258 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 15:17:54,258 - pipeline - INFO - Adapting learning strategy
+2025-11-23 15:17:54,258 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 15:17:54,258 - pipeline - INFO - Updating learning system
+2025-11-23 15:17:54,927 - pipeline - INFO - Learning system updated successfully
+2025-11-23 15:17:54,928 - pipeline - INFO - Learning pipeline completed
+2025-11-23 15:17:54,928 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 15:17:54,928 - pipeline - INFO - Finalizing pipeline
+2025-11-23 15:17:55,656 - pipeline - INFO - Completed experiment 4455b22c
+2025-11-23 15:17:55,656 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_4', 'total_models': 8}
+2025-11-23 15:17:55,656 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_4455b22c.json
+2025-11-23 15:17:55,657 - pipeline - INFO - Pipeline run 4455b22c completed successfully
+2025-11-23 15:28:17,892 - pipeline - INFO - Starting complete pipeline run: 6736f41d
+2025-11-23 15:28:17,902 - pipeline - INFO - Starting phase: Data
+2025-11-23 15:28:17,902 - pipeline - INFO - Running data pipeline
+2025-11-23 15:28:17,902 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:28:17,970 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:28:17,970 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:28:17,970 - pipeline - INFO - Preprocessing features
+2025-11-23 15:28:17,976 - pipeline - INFO - Processed 11 features
+2025-11-23 15:28:17,976 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:28:17,977 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:28:17,988 - pipeline - INFO - Data quality validation completed
+2025-11-23 15:28:18,140 - pipeline - INFO - Created dataset version: dataset_f8964de85981
+2025-11-23 15:28:18,140 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 15:28:18,140 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 15:28:18,140 - pipeline - INFO - Running modeling pipeline
+2025-11-23 15:28:18,141 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 15:28:18,141 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:28:18,167 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 15:28:19,476 - pipeline - INFO - Created model version: model_linear_62eaddf4e21c
+2025-11-23 15:28:19,476 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 15:28:19,476 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:28:19,499 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 15:28:20,400 - pipeline - INFO - Created model version: model_ridge_540f3deaa97d
+2025-11-23 15:28:20,401 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 15:28:20,401 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:28:20,561 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 15:28:23,589 - pipeline - INFO - Created model version: model_lasso_4ddb8f549724
+2025-11-23 15:28:23,589 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 15:28:23,589 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:28:36,467 - pipeline - INFO - Evaluating model decision_tree_3 - checking if exists in trained_models: True
+2025-11-23 15:28:37,783 - pipeline - INFO - Created model version: model_decision_tree_6f43d213d938
+2025-11-23 15:28:37,783 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 15:28:37,784 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:29:15,094 - pipeline - INFO - Starting complete pipeline run: 9526deeb
+2025-11-23 15:29:15,104 - pipeline - INFO - Starting phase: Data
+2025-11-23 15:29:15,104 - pipeline - INFO - Running data pipeline
+2025-11-23 15:29:15,105 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:29:15,169 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:29:15,169 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:29:15,169 - pipeline - INFO - Preprocessing features
+2025-11-23 15:29:15,177 - pipeline - INFO - Processed 11 features
+2025-11-23 15:29:15,177 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:29:15,178 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:29:15,187 - pipeline - INFO - Data quality validation completed
+2025-11-23 15:29:15,378 - pipeline - INFO - Created dataset version: dataset_f8964de85981
+2025-11-23 15:29:15,378 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 15:29:15,379 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 15:29:15,379 - pipeline - INFO - Running modeling pipeline
+2025-11-23 15:29:15,379 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 15:29:15,379 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:29:15,405 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 15:29:16,700 - pipeline - INFO - Created model version: model_linear_2a2474dd6fcc
+2025-11-23 15:29:16,701 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 15:29:16,701 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:29:16,723 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 15:29:17,646 - pipeline - INFO - Created model version: model_ridge_11ea41c5c07c
+2025-11-23 15:29:17,646 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 15:29:17,646 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:29:17,809 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 15:29:20,857 - pipeline - INFO - Created model version: model_lasso_a6115dfd4f83
+2025-11-23 15:29:20,858 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 15:29:20,858 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:29:33,744 - pipeline - INFO - Evaluating model decision_tree_3 - checking if exists in trained_models: True
+2025-11-23 15:29:35,064 - pipeline - INFO - Created model version: model_decision_tree_ab6502b37a45
+2025-11-23 15:29:35,065 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 15:29:35,065 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:29:37,226 - pipeline - INFO - Evaluating model random_forest_4 - checking if exists in trained_models: True
+2025-11-23 15:30:11,018 - pipeline - INFO - Created model version: model_random_forest_4aa81004f4c1
+2025-11-23 15:30:11,019 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 15:30:11,019 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:30:11,205 - pipeline - INFO - Evaluating model KNN_5 - checking if exists in trained_models: True
+2025-11-23 15:30:15,773 - pipeline - INFO - Created model version: model_KNN_9827809f0355
+2025-11-23 15:30:15,813 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 15:30:33,694 - pipeline - INFO - Comprehensive comparison completed. Best model: random_forest
+2025-11-23 15:30:33,694 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 15:30:33,695 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 15:30:33,695 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 15:30:33,695 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:30:33,760 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:30:33,760 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:30:33,760 - pipeline - INFO - Preprocessing features
+2025-11-23 15:30:33,763 - pipeline - INFO - Processed 11 features
+2025-11-23 15:30:33,763 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:30:33,763 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:30:38,998 - pipeline - INFO - Generating KNN-specific visualizations for KNN_5
+2025-11-23 15:30:38,998 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 15:30:38,998 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 15:30:38,998 - pipeline - INFO - Starting phase: Learning
+2025-11-23 15:30:38,998 - pipeline - INFO - Running learning pipeline
+2025-11-23 15:30:38,998 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:30:39,059 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:30:39,059 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:30:39,059 - pipeline - INFO - Preprocessing features
+2025-11-23 15:30:39,061 - pipeline - INFO - Processed 11 features
+2025-11-23 15:30:39,061 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:30:39,062 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:30:39,063 - pipeline - INFO - Evaluating learning progress
+2025-11-23 15:30:39,063 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 15:30:39,063 - pipeline - INFO - Adapting learning strategy
+2025-11-23 15:30:39,063 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 15:30:39,063 - pipeline - INFO - Updating learning system
+2025-11-23 15:30:39,813 - pipeline - INFO - Learning system updated successfully
+2025-11-23 15:30:39,813 - pipeline - INFO - Learning pipeline completed
+2025-11-23 15:30:39,813 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 15:30:39,813 - pipeline - INFO - Finalizing pipeline
+2025-11-23 15:30:40,497 - pipeline - INFO - Completed experiment 9526deeb
+2025-11-23 15:30:40,497 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_4', 'total_models': 8}
+2025-11-23 15:30:40,497 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_9526deeb.json
+2025-11-23 15:30:40,498 - pipeline - INFO - Pipeline run 9526deeb completed successfully
+2025-11-23 15:30:40,629 - pipeline - INFO - Starting complete pipeline run: 821e7a4f
+2025-11-23 15:30:40,629 - pipeline - INFO - Starting phase: Data
+2025-11-23 15:30:40,629 - pipeline - INFO - Running data pipeline
+2025-11-23 15:30:40,629 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:30:40,689 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:30:40,689 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:30:40,689 - pipeline - INFO - Preprocessing features
+2025-11-23 15:30:40,692 - pipeline - INFO - Processed 11 features
+2025-11-23 15:30:40,692 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:30:40,693 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:30:40,700 - pipeline - INFO - Data quality validation completed
+2025-11-23 15:30:40,965 - pipeline - INFO - Created dataset version: dataset_f8964de85981
+2025-11-23 15:30:40,965 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 15:30:40,965 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 15:30:40,965 - pipeline - INFO - Running modeling pipeline
+2025-11-23 15:30:40,965 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 15:30:40,965 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:30:40,990 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 15:30:41,964 - pipeline - INFO - Created model version: model_linear_25492c481e70
+2025-11-23 15:30:41,964 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 15:30:41,964 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:30:41,987 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 15:30:42,977 - pipeline - INFO - Created model version: model_ridge_5f8d5c6c6e0a
+2025-11-23 15:30:42,977 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 15:30:42,978 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:30:43,143 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 15:30:46,293 - pipeline - INFO - Created model version: model_lasso_c8a9177bb7b2
+2025-11-23 15:30:46,293 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 15:30:46,294 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:30:59,179 - pipeline - INFO - Evaluating model decision_tree_3 - checking if exists in trained_models: True
+2025-11-23 15:31:00,590 - pipeline - INFO - Created model version: model_decision_tree_356207f476c8
+2025-11-23 15:31:00,590 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 15:31:00,590 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:31:02,800 - pipeline - INFO - Evaluating model random_forest_4 - checking if exists in trained_models: True
+2025-11-23 15:31:36,982 - pipeline - INFO - Created model version: model_random_forest_5e5dd3a61532
+2025-11-23 15:31:36,982 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 15:31:36,982 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 15:31:37,168 - pipeline - INFO - Evaluating model KNN_5 - checking if exists in trained_models: True
+2025-11-23 15:31:42,047 - pipeline - INFO - Created model version: model_KNN_26d2ee760a18
+2025-11-23 15:31:42,090 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 15:31:58,883 - pipeline - INFO - Comprehensive comparison completed. Best model: random_forest
+2025-11-23 15:31:58,883 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 15:31:58,883 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 15:31:58,883 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 15:31:58,884 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:31:58,944 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:31:58,944 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:31:58,944 - pipeline - INFO - Preprocessing features
+2025-11-23 15:31:58,947 - pipeline - INFO - Processed 11 features
+2025-11-23 15:31:58,947 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:31:58,948 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:32:04,209 - pipeline - INFO - Generating KNN-specific visualizations for KNN_5
+2025-11-23 15:32:04,209 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 15:32:04,209 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 15:32:04,210 - pipeline - INFO - Starting phase: Learning
+2025-11-23 15:32:04,210 - pipeline - INFO - Running learning pipeline
+2025-11-23 15:32:04,210 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 15:32:04,287 - pipeline - INFO - Loaded 7947 rows with 25 columns
+2025-11-23 15:32:04,288 - pipeline - INFO - Data hash: f8964de859813923
+2025-11-23 15:32:04,288 - pipeline - INFO - Preprocessing features
+2025-11-23 15:32:04,290 - pipeline - INFO - Processed 11 features
+2025-11-23 15:32:04,290 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 15:32:04,291 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 15:32:04,292 - pipeline - INFO - Evaluating learning progress
+2025-11-23 15:32:04,292 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 15:32:04,292 - pipeline - INFO - Adapting learning strategy
+2025-11-23 15:32:04,292 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 15:32:04,292 - pipeline - INFO - Updating learning system
+2025-11-23 15:32:04,925 - pipeline - INFO - Learning system updated successfully
+2025-11-23 15:32:04,925 - pipeline - INFO - Learning pipeline completed
+2025-11-23 15:32:04,926 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 15:32:04,926 - pipeline - INFO - Finalizing pipeline
+2025-11-23 15:32:05,946 - pipeline - INFO - Completed experiment 821e7a4f
+2025-11-23 15:32:05,946 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'random_forest_4', 'total_models': 8}
+2025-11-23 15:32:05,946 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_821e7a4f.json
+2025-11-23 15:32:05,947 - pipeline - INFO - Pipeline run 821e7a4f completed successfully
+2025-11-23 16:21:17,164 - pipeline - WARNING - evaluation_engine not available, using simplified evaluation
+2025-11-23 16:25:06,219 - pipeline - WARNING - evaluation_engine not available, using simplified evaluation
+2025-11-23 16:28:02,463 - pipeline - INFO - Starting complete pipeline run: c1324169
+2025-11-23 16:28:02,479 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:28:02,479 - pipeline - INFO - Running data pipeline
+2025-11-23 16:28:02,479 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:28:02,699 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:28:02,699 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:28:02,699 - pipeline - INFO - Preprocessing features
+2025-11-23 16:28:02,705 - pipeline - INFO - Processed 11 features
+2025-11-23 16:28:02,705 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:28:02,706 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:28:02,735 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:28:03,122 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:28:03,122 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:28:03,124 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:28:03,124 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:28:03,124 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:28:03,125 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:04,399 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:28:06,399 - pipeline - INFO - Created model version: model_linear_95aeaf841b39
+2025-11-23 16:28:06,399 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:28:06,400 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:07,271 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:28:08,516 - pipeline - INFO - Created model version: model_ridge_f8fb423e4cc3
+2025-11-23 16:28:08,516 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:28:08,516 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:09,525 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:28:10,833 - pipeline - INFO - Created model version: model_lasso_c9a0f09e4005
+2025-11-23 16:28:10,834 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:28:10,834 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:11,790 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:28:17,196 - pipeline - INFO - Created model version: model_elastic_net_1d473c2d0ccc
+2025-11-23 16:28:17,197 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:28:17,197 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:31,101 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:28:32,731 - pipeline - INFO - Created model version: model_decision_tree_452445536a58
+2025-11-23 16:28:32,731 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:28:32,731 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:33,051 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:28:41,234 - pipeline - INFO - Created model version: model_random_forest_693d2e6d5d76
+2025-11-23 16:28:41,234 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:28:41,235 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:28:41,363 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:28:44,684 - pipeline - INFO - Created model version: model_KNN_d0134274a02d
+2025-11-23 16:28:44,713 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:31:43,436 - pipeline - INFO - Comprehensive comparison completed. Best model: decision_tree
+2025-11-23 16:31:43,437 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 16:31:43,437 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 16:31:43,437 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 16:31:43,437 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:31:43,685 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:31:43,685 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:31:43,685 - pipeline - INFO - Preprocessing features
+2025-11-23 16:31:43,690 - pipeline - INFO - Processed 11 features
+2025-11-23 16:31:43,690 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:31:43,691 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:31:44,003 - pipeline - INFO - Generating KNN-specific visualizations for KNN_6
+2025-11-23 16:31:44,003 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 16:31:44,003 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 16:31:44,003 - pipeline - INFO - Starting phase: Learning
+2025-11-23 16:31:44,003 - pipeline - INFO - Running learning pipeline
+2025-11-23 16:31:44,003 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:31:44,213 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:31:44,213 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:31:44,213 - pipeline - INFO - Preprocessing features
+2025-11-23 16:31:44,216 - pipeline - INFO - Processed 11 features
+2025-11-23 16:31:44,216 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:31:44,217 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:31:44,218 - pipeline - INFO - Evaluating learning progress
+2025-11-23 16:31:44,218 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 16:31:44,218 - pipeline - INFO - Adapting learning strategy
+2025-11-23 16:31:44,218 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 16:31:44,218 - pipeline - INFO - Updating learning system
+2025-11-23 16:31:45,000 - pipeline - INFO - Learning system updated successfully
+2025-11-23 16:31:45,000 - pipeline - INFO - Learning pipeline completed
+2025-11-23 16:31:45,000 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 16:31:45,000 - pipeline - INFO - Finalizing pipeline
+2025-11-23 16:31:45,849 - pipeline - INFO - Completed experiment c1324169
+2025-11-23 16:31:45,849 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'decision_tree_4', 'total_models': 9}
+2025-11-23 16:31:45,849 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_c1324169.json
+2025-11-23 16:31:45,850 - pipeline - INFO - Pipeline run c1324169 completed successfully
+2025-11-23 16:31:46,081 - pipeline - INFO - Starting complete pipeline run: a828d5e0
+2025-11-23 16:31:46,082 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:31:46,082 - pipeline - INFO - Running data pipeline
+2025-11-23 16:31:46,082 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:31:46,279 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:31:46,280 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:31:46,280 - pipeline - INFO - Preprocessing features
+2025-11-23 16:31:46,283 - pipeline - INFO - Processed 11 features
+2025-11-23 16:31:46,283 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:31:46,284 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:31:46,303 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:31:46,758 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:31:46,759 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:31:46,761 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:31:46,761 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:31:46,762 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:31:46,762 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:31:46,896 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:31:48,320 - pipeline - INFO - Created model version: model_linear_491d8a62a076
+2025-11-23 16:31:48,321 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:31:48,321 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:31:48,372 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:31:49,668 - pipeline - INFO - Created model version: model_ridge_996c897b1e67
+2025-11-23 16:31:49,669 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:31:49,669 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:31:49,721 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:31:51,027 - pipeline - INFO - Created model version: model_lasso_5fedaea29776
+2025-11-23 16:31:51,027 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:31:51,028 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:31:51,195 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:31:56,407 - pipeline - INFO - Created model version: model_elastic_net_30f2b5bb5296
+2025-11-23 16:31:56,408 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:31:56,408 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:32:09,257 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:32:10,979 - pipeline - INFO - Created model version: model_decision_tree_13c42495c3c6
+2025-11-23 16:32:10,980 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:32:10,980 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:32:11,405 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:32:19,809 - pipeline - INFO - Created model version: model_random_forest_2d9619c2fc79
+2025-11-23 16:32:19,810 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:32:19,810 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:32:19,926 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:32:23,290 - pipeline - INFO - Created model version: model_KNN_31716615719b
+2025-11-23 16:32:23,319 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:33:03,938 - pipeline - INFO - Starting complete pipeline run: ece2e6e6
+2025-11-23 16:33:03,948 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:33:03,948 - pipeline - INFO - Running data pipeline
+2025-11-23 16:33:03,948 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:33:04,143 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:33:04,143 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:33:04,143 - pipeline - INFO - Preprocessing features
+2025-11-23 16:33:04,147 - pipeline - INFO - Processed 11 features
+2025-11-23 16:33:04,147 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:33:04,147 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:33:04,166 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:33:04,676 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:33:04,676 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:33:04,677 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:33:04,677 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:33:04,677 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:33:04,678 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:05,831 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:33:07,688 - pipeline - INFO - Created model version: model_linear_18f0ad7ee1ec
+2025-11-23 16:33:07,689 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:33:07,689 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:08,475 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:33:09,825 - pipeline - INFO - Created model version: model_ridge_879540560c09
+2025-11-23 16:33:09,826 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:33:09,826 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:09,856 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:33:11,228 - pipeline - INFO - Created model version: model_lasso_4b354da16ae2
+2025-11-23 16:33:11,228 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:33:11,228 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:12,312 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:33:22,104 - pipeline - INFO - Created model version: model_elastic_net_1fbee085b442
+2025-11-23 16:33:22,105 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:33:22,105 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:35,711 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:33:37,498 - pipeline - INFO - Created model version: model_decision_tree_6fe013b1b471
+2025-11-23 16:33:37,498 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:33:37,498 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:37,832 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:33:46,183 - pipeline - INFO - Created model version: model_random_forest_de3547a07fd4
+2025-11-23 16:33:46,184 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:33:46,184 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:33:46,355 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:33:49,835 - pipeline - INFO - Created model version: model_KNN_2d1d4296ad14
+2025-11-23 16:33:49,865 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:36:05,629 - pipeline - INFO - Comprehensive comparison completed. Best model: decision_tree
+2025-11-23 16:36:05,629 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 16:36:05,629 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 16:36:05,630 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 16:36:05,630 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:36:05,834 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:36:05,834 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:36:05,834 - pipeline - INFO - Preprocessing features
+2025-11-23 16:36:05,837 - pipeline - INFO - Processed 11 features
+2025-11-23 16:36:05,837 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:36:05,838 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:36:06,263 - pipeline - INFO - Generating KNN-specific visualizations for KNN_6
+2025-11-23 16:36:06,263 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 16:36:06,263 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 16:36:06,263 - pipeline - INFO - Starting phase: Learning
+2025-11-23 16:36:06,263 - pipeline - INFO - Running learning pipeline
+2025-11-23 16:36:06,263 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:36:06,458 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:36:06,458 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:36:06,458 - pipeline - INFO - Preprocessing features
+2025-11-23 16:36:06,461 - pipeline - INFO - Processed 11 features
+2025-11-23 16:36:06,461 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:36:06,462 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:36:06,463 - pipeline - INFO - Evaluating learning progress
+2025-11-23 16:36:06,463 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 16:36:06,463 - pipeline - INFO - Adapting learning strategy
+2025-11-23 16:36:06,463 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 16:36:06,463 - pipeline - INFO - Updating learning system
+2025-11-23 16:36:07,215 - pipeline - INFO - Learning system updated successfully
+2025-11-23 16:36:07,216 - pipeline - INFO - Learning pipeline completed
+2025-11-23 16:36:07,216 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 16:36:07,216 - pipeline - INFO - Finalizing pipeline
+2025-11-23 16:36:08,052 - pipeline - INFO - Completed experiment ece2e6e6
+2025-11-23 16:36:08,053 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'decision_tree_4', 'total_models': 9}
+2025-11-23 16:36:08,053 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_ece2e6e6.json
+2025-11-23 16:36:08,053 - pipeline - INFO - Pipeline run ece2e6e6 completed successfully
+2025-11-23 16:36:08,349 - pipeline - INFO - Starting complete pipeline run: 8fb9d2af
+2025-11-23 16:36:08,349 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:36:08,350 - pipeline - INFO - Running data pipeline
+2025-11-23 16:36:08,350 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:36:08,546 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:36:08,546 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:36:08,546 - pipeline - INFO - Preprocessing features
+2025-11-23 16:36:08,549 - pipeline - INFO - Processed 11 features
+2025-11-23 16:36:08,549 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:36:08,550 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:36:08,568 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:36:09,154 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:36:09,155 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:36:09,155 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:36:09,155 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:36:09,156 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:36:09,156 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:09,185 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:36:10,603 - pipeline - INFO - Created model version: model_linear_78a7db920e6d
+2025-11-23 16:36:10,604 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:36:10,604 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:10,643 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:36:12,054 - pipeline - INFO - Created model version: model_ridge_3bf2a265ca70
+2025-11-23 16:36:12,055 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:36:12,055 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:12,096 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:36:13,520 - pipeline - INFO - Created model version: model_lasso_43292b20dab3
+2025-11-23 16:36:13,520 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:36:13,521 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:13,786 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:36:23,598 - pipeline - INFO - Created model version: model_elastic_net_17090b6ee494
+2025-11-23 16:36:23,599 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:36:23,599 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:36,353 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:36:38,266 - pipeline - INFO - Created model version: model_decision_tree_97b39d5fc088
+2025-11-23 16:36:38,266 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:36:38,267 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:38,585 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:36:46,885 - pipeline - INFO - Created model version: model_random_forest_3dc90a602236
+2025-11-23 16:36:46,885 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:36:46,886 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:36:46,980 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:36:50,540 - pipeline - INFO - Created model version: model_KNN_d7e87967254d
+2025-11-23 16:36:50,570 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:38:49,832 - pipeline - INFO - Starting complete pipeline run: 184c21d8
+2025-11-23 16:38:49,842 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:38:49,842 - pipeline - INFO - Running data pipeline
+2025-11-23 16:38:49,842 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:38:50,038 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:38:50,038 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:38:50,038 - pipeline - INFO - Preprocessing features
+2025-11-23 16:38:50,042 - pipeline - INFO - Processed 11 features
+2025-11-23 16:38:50,042 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:38:50,043 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:38:50,072 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:38:50,763 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:38:50,764 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:38:50,764 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:38:50,764 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:38:50,765 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:38:50,765 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:38:51,772 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:38:53,710 - pipeline - INFO - Created model version: model_linear_f72d016b6c5a
+2025-11-23 16:38:53,710 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:38:53,710 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:38:54,486 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:38:55,967 - pipeline - INFO - Created model version: model_ridge_483dd86e24f4
+2025-11-23 16:38:55,968 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:38:55,968 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:38:56,744 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:38:58,314 - pipeline - INFO - Created model version: model_lasso_e9d2f17ab1c7
+2025-11-23 16:38:58,315 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:38:58,315 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:38:59,285 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:39:09,393 - pipeline - INFO - Created model version: model_elastic_net_8c13aaa8b170
+2025-11-23 16:39:09,393 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:39:09,394 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:39:24,111 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:39:26,122 - pipeline - INFO - Created model version: model_decision_tree_bf9520c59e51
+2025-11-23 16:39:26,123 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:39:26,123 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:39:26,475 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:39:35,139 - pipeline - INFO - Created model version: model_random_forest_74e424773893
+2025-11-23 16:39:35,139 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:39:35,140 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:39:35,298 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:39:39,151 - pipeline - INFO - Created model version: model_KNN_bd4b8e873efc
+2025-11-23 16:39:39,182 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:42:07,884 - pipeline - INFO - Comprehensive comparison completed. Best model: decision_tree
+2025-11-23 16:42:07,884 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 16:42:07,885 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 16:42:07,885 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 16:42:07,885 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:42:08,114 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:42:08,114 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:42:08,114 - pipeline - INFO - Preprocessing features
+2025-11-23 16:42:08,117 - pipeline - INFO - Processed 11 features
+2025-11-23 16:42:08,117 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:42:08,118 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:42:08,414 - pipeline - INFO - Generating KNN-specific visualizations for KNN_6
+2025-11-23 16:42:08,415 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 16:42:08,415 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 16:42:08,415 - pipeline - INFO - Starting phase: Learning
+2025-11-23 16:42:08,415 - pipeline - INFO - Running learning pipeline
+2025-11-23 16:42:08,415 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:42:08,639 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:42:08,639 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:42:08,639 - pipeline - INFO - Preprocessing features
+2025-11-23 16:42:08,642 - pipeline - INFO - Processed 11 features
+2025-11-23 16:42:08,642 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:42:08,643 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:42:08,645 - pipeline - INFO - Evaluating learning progress
+2025-11-23 16:42:08,645 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 16:42:08,645 - pipeline - INFO - Adapting learning strategy
+2025-11-23 16:42:08,645 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 16:42:08,645 - pipeline - INFO - Updating learning system
+2025-11-23 16:42:09,417 - pipeline - INFO - Learning system updated successfully
+2025-11-23 16:42:09,417 - pipeline - INFO - Learning pipeline completed
+2025-11-23 16:42:09,417 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 16:42:09,418 - pipeline - INFO - Finalizing pipeline
+2025-11-23 16:42:10,228 - pipeline - INFO - Completed experiment 184c21d8
+2025-11-23 16:42:10,228 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'decision_tree_4', 'total_models': 9}
+2025-11-23 16:42:10,228 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_184c21d8.json
+2025-11-23 16:42:10,229 - pipeline - INFO - Pipeline run 184c21d8 completed successfully
+2025-11-23 16:42:10,620 - pipeline - INFO - Starting complete pipeline run: fb5ed20a
+2025-11-23 16:42:10,621 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:42:10,621 - pipeline - INFO - Running data pipeline
+2025-11-23 16:42:10,621 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:42:10,833 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:42:10,833 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:42:10,833 - pipeline - INFO - Preprocessing features
+2025-11-23 16:42:10,837 - pipeline - INFO - Processed 11 features
+2025-11-23 16:42:10,837 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:42:10,837 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:42:10,857 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:42:11,613 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:42:11,613 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:42:11,614 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:42:11,614 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:42:11,614 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:42:11,614 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:42:11,666 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:42:13,362 - pipeline - INFO - Created model version: model_linear_ce3c93c58cb3
+2025-11-23 16:42:13,362 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:42:13,362 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:42:13,401 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:42:17,005 - pipeline - INFO - Created model version: model_ridge_92b3face10f8
+2025-11-23 16:42:17,007 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:42:17,008 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:42:17,139 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:42:22,217 - pipeline - INFO - Created model version: model_lasso_ad60a8188f92
+2025-11-23 16:42:22,218 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:42:22,218 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:42:22,751 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:42:36,318 - pipeline - INFO - Starting complete pipeline run: f13075cb
+2025-11-23 16:42:36,340 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:42:36,340 - pipeline - INFO - Running data pipeline
+2025-11-23 16:42:36,340 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:42:36,686 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:42:36,687 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:42:36,687 - pipeline - INFO - Preprocessing features
+2025-11-23 16:42:36,693 - pipeline - INFO - Processed 11 features
+2025-11-23 16:42:36,693 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:42:36,695 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:42:36,729 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:42:38,649 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:42:38,649 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:42:38,650 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:42:38,650 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:42:38,651 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:42:38,651 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:42:50,585 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:42:57,251 - pipeline - INFO - Created model version: model_linear_69fd7459a351
+2025-11-23 16:42:57,253 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:42:57,254 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:43:02,068 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:43:03,765 - pipeline - INFO - Created model version: model_ridge_92d60117b921
+2025-11-23 16:43:03,765 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:43:03,765 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:43:04,514 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:43:06,242 - pipeline - INFO - Created model version: model_lasso_4f73666c732e
+2025-11-23 16:43:06,243 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:43:06,243 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:43:07,252 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:43:17,315 - pipeline - INFO - Created model version: model_elastic_net_a1e2e94db6a2
+2025-11-23 16:43:17,316 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:43:17,316 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:43:30,951 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:43:33,062 - pipeline - INFO - Created model version: model_decision_tree_9c1c64dc97d2
+2025-11-23 16:43:33,062 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:43:33,063 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:43:33,409 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:43:42,081 - pipeline - INFO - Created model version: model_random_forest_63c6ad4a42db
+2025-11-23 16:43:42,081 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:43:42,082 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:43:42,229 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:43:46,117 - pipeline - INFO - Created model version: model_KNN_b1ce62ad12c2
+2025-11-23 16:43:46,147 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:47:42,072 - pipeline - INFO - Starting complete pipeline run: 7d6a8347
+2025-11-23 16:47:42,102 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:47:42,102 - pipeline - INFO - Running data pipeline
+2025-11-23 16:47:42,103 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:47:42,512 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:47:42,513 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:47:42,513 - pipeline - INFO - Preprocessing features
+2025-11-23 16:47:42,519 - pipeline - INFO - Processed 11 features
+2025-11-23 16:47:42,519 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:47:42,521 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:47:42,581 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:47:44,756 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:47:44,757 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:47:44,757 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:47:44,757 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:47:44,758 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:47:44,758 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:47:51,197 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:47:56,039 - pipeline - INFO - Created model version: model_linear_8ccf048dcb39
+2025-11-23 16:47:56,040 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:47:56,040 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:47:58,354 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:48:01,853 - pipeline - INFO - Created model version: model_ridge_0272d719e516
+2025-11-23 16:48:01,853 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:48:01,853 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:48:01,911 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:48:05,955 - pipeline - INFO - Created model version: model_lasso_a17a2e053dfb
+2025-11-23 16:48:05,957 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:48:05,958 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:48:09,544 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:48:29,734 - pipeline - INFO - Created model version: model_elastic_net_9697d54bc0aa
+2025-11-23 16:48:29,735 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:48:29,735 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:49:25,667 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:49:32,981 - pipeline - INFO - Created model version: model_decision_tree_b2153772ada8
+2025-11-23 16:49:32,985 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:49:32,986 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:49:45,228 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:50:13,004 - pipeline - INFO - Created model version: model_random_forest_012ab6c337d2
+2025-11-23 16:50:13,005 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:50:13,005 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:50:13,208 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:50:18,697 - pipeline - INFO - Created model version: model_KNN_68aa96909795
+2025-11-23 16:50:18,726 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:52:33,351 - pipeline - INFO - Comprehensive comparison completed. Best model: random_forest
+2025-11-23 16:52:33,351 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 16:52:33,351 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 16:52:33,351 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 16:52:33,351 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:52:33,550 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:52:33,550 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:52:33,550 - pipeline - INFO - Preprocessing features
+2025-11-23 16:52:33,552 - pipeline - INFO - Processed 11 features
+2025-11-23 16:52:33,553 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:52:33,553 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:52:33,835 - pipeline - INFO - Generating KNN-specific visualizations for KNN_6
+2025-11-23 16:52:33,835 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 16:52:33,835 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 16:52:33,835 - pipeline - INFO - Starting phase: Learning
+2025-11-23 16:52:33,835 - pipeline - INFO - Running learning pipeline
+2025-11-23 16:52:33,835 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:52:34,031 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:52:34,031 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:52:34,031 - pipeline - INFO - Preprocessing features
+2025-11-23 16:52:34,033 - pipeline - INFO - Processed 11 features
+2025-11-23 16:52:34,033 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:52:34,034 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:52:34,035 - pipeline - INFO - Evaluating learning progress
+2025-11-23 16:52:34,035 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 16:52:34,035 - pipeline - INFO - Adapting learning strategy
+2025-11-23 16:52:34,035 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 16:52:34,035 - pipeline - INFO - Updating learning system
+2025-11-23 16:52:34,792 - pipeline - INFO - Learning system updated successfully
+2025-11-23 16:52:34,793 - pipeline - INFO - Learning pipeline completed
+2025-11-23 16:52:34,793 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 16:52:34,793 - pipeline - INFO - Finalizing pipeline
+2025-11-23 16:52:35,607 - pipeline - INFO - Completed experiment 7d6a8347
+2025-11-23 16:52:35,607 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'decision_tree_4', 'total_models': 9}
+2025-11-23 16:52:35,607 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_7d6a8347.json
+2025-11-23 16:52:35,607 - pipeline - INFO - Pipeline run 7d6a8347 completed successfully
+2025-11-23 16:52:36,093 - pipeline - INFO - Starting complete pipeline run: 0cfecfc6
+2025-11-23 16:52:36,094 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:52:36,094 - pipeline - INFO - Running data pipeline
+2025-11-23 16:52:36,094 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:52:36,291 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:52:36,291 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:52:36,291 - pipeline - INFO - Preprocessing features
+2025-11-23 16:52:36,293 - pipeline - INFO - Processed 11 features
+2025-11-23 16:52:36,293 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:52:36,294 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:52:36,312 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:52:37,290 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:52:37,290 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:52:37,291 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:52:37,291 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:52:37,291 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:52:37,291 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:52:37,321 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:52:39,119 - pipeline - INFO - Created model version: model_linear_5b9acab58039
+2025-11-23 16:52:39,120 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:52:39,120 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:52:39,160 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:52:40,921 - pipeline - INFO - Created model version: model_ridge_77ffd74ac400
+2025-11-23 16:52:40,922 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:52:40,922 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:52:40,940 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:52:42,813 - pipeline - INFO - Created model version: model_lasso_4f356da6a862
+2025-11-23 16:52:42,813 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:52:42,813 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:52:43,086 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:52:53,320 - pipeline - INFO - Created model version: model_elastic_net_64d404cead30
+2025-11-23 16:52:53,320 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:52:53,320 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:53:05,951 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:53:08,188 - pipeline - INFO - Created model version: model_decision_tree_66860ccb7ef7
+2025-11-23 16:53:08,188 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:53:08,189 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:53:08,466 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:53:17,261 - pipeline - INFO - Created model version: model_random_forest_66d1980cba17
+2025-11-23 16:53:17,262 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:53:17,262 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:53:17,366 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:53:21,311 - pipeline - INFO - Created model version: model_KNN_8659a4b709a6
+2025-11-23 16:53:21,341 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:54:00,252 - pipeline - INFO - Starting complete pipeline run: c5fbd976
+2025-11-23 16:54:00,268 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:54:00,268 - pipeline - INFO - Running data pipeline
+2025-11-23 16:54:00,268 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:54:00,766 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:54:00,767 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:54:00,767 - pipeline - INFO - Preprocessing features
+2025-11-23 16:54:00,775 - pipeline - INFO - Processed 11 features
+2025-11-23 16:54:00,775 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:54:00,778 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:54:00,847 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:54:02,379 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:54:02,379 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:54:02,380 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:54:02,380 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:54:02,380 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:54:02,380 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:04,184 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:54:06,772 - pipeline - INFO - Created model version: model_linear_ab72b4268e5a
+2025-11-23 16:54:06,772 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:54:06,773 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:07,689 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:54:09,750 - pipeline - INFO - Created model version: model_ridge_aeb58306b1ee
+2025-11-23 16:54:09,751 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:54:09,751 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:11,060 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:54:13,073 - pipeline - INFO - Created model version: model_lasso_554d8f328c4d
+2025-11-23 16:54:13,074 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:54:13,074 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:13,347 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:54:23,619 - pipeline - INFO - Created model version: model_elastic_net_b9823f72904d
+2025-11-23 16:54:23,619 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:54:23,620 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:36,558 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:54:38,916 - pipeline - INFO - Created model version: model_decision_tree_6f6ab9614cd8
+2025-11-23 16:54:38,917 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:54:38,917 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:39,235 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:54:48,193 - pipeline - INFO - Created model version: model_random_forest_0b043329712d
+2025-11-23 16:54:48,194 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:54:48,194 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:54:48,297 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:54:52,324 - pipeline - INFO - Created model version: model_KNN_a5f9a2f5f12d
+2025-11-23 16:54:52,354 - pipeline - INFO - Running comprehensive model comparison with visualizations
+2025-11-23 16:57:30,919 - pipeline - INFO - Comprehensive comparison completed. Best model: random_forest
+2025-11-23 16:57:30,919 - pipeline - INFO - Modeling pipeline completed successfully
+2025-11-23 16:57:30,920 - pipeline - INFO - Starting phase: Qualitative
+2025-11-23 16:57:30,920 - pipeline - INFO - Running qualitative evaluation
+2025-11-23 16:57:30,920 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:57:31,139 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:57:31,139 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:57:31,139 - pipeline - INFO - Preprocessing features
+2025-11-23 16:57:31,142 - pipeline - INFO - Processed 11 features
+2025-11-23 16:57:31,142 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:57:31,143 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:57:31,643 - pipeline - INFO - Generating KNN-specific visualizations for KNN_6
+2025-11-23 16:57:31,643 - pipeline - WARNING - Failed to generate KNN visualizations and validation: 'y_train'
+2025-11-23 16:57:31,643 - pipeline - INFO - Qualitative evaluation completed
+2025-11-23 16:57:31,643 - pipeline - INFO - Starting phase: Learning
+2025-11-23 16:57:31,643 - pipeline - INFO - Running learning pipeline
+2025-11-23 16:57:31,643 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:57:31,869 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:57:31,869 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:57:31,869 - pipeline - INFO - Preprocessing features
+2025-11-23 16:57:31,873 - pipeline - INFO - Processed 11 features
+2025-11-23 16:57:31,873 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:57:31,874 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:57:31,875 - pipeline - INFO - Evaluating learning progress
+2025-11-23 16:57:31,875 - pipeline - INFO - Learning progress evaluation completed
+2025-11-23 16:57:31,875 - pipeline - INFO - Adapting learning strategy
+2025-11-23 16:57:31,875 - pipeline - INFO - Strategy adaptation completed
+2025-11-23 16:57:31,875 - pipeline - INFO - Updating learning system
+2025-11-23 16:57:32,738 - pipeline - INFO - Learning system updated successfully
+2025-11-23 16:57:32,738 - pipeline - INFO - Learning pipeline completed
+2025-11-23 16:57:32,739 - pipeline - INFO - Starting phase: Finalizing
+2025-11-23 16:57:32,739 - pipeline - INFO - Finalizing pipeline
+2025-11-23 16:57:33,638 - pipeline - INFO - Completed experiment c5fbd976
+2025-11-23 16:57:33,638 - pipeline - INFO - Results: {'status': 'completed', 'best_model': 'decision_tree_4', 'total_models': 9}
+2025-11-23 16:57:33,638 - pipeline - INFO - Pipeline finalized. Report saved to /Users/samuel/IDIS450/Project/reports/pipeline_report_c5fbd976.json
+2025-11-23 16:57:33,639 - pipeline - INFO - Pipeline run c5fbd976 completed successfully
+2025-11-23 16:57:34,274 - pipeline - INFO - Starting complete pipeline run: ac3b75e5
+2025-11-23 16:57:34,275 - pipeline - INFO - Starting phase: Data
+2025-11-23 16:57:34,275 - pipeline - INFO - Running data pipeline
+2025-11-23 16:57:34,275 - pipeline - INFO - Loading data from /Users/samuel/IDIS450/Project/preprocessed_sales_data.csv
+2025-11-23 16:57:34,496 - pipeline - INFO - Loaded 7947 rows with 75 columns
+2025-11-23 16:57:34,496 - pipeline - INFO - Data hash: 8ef014ec3adf767d
+2025-11-23 16:57:34,496 - pipeline - INFO - Preprocessing features
+2025-11-23 16:57:34,499 - pipeline - INFO - Processed 11 features
+2025-11-23 16:57:34,499 - pipeline - INFO - Splitting data with test_size=0.2
+2025-11-23 16:57:34,499 - pipeline - INFO - Train set: 6357 samples, Test set: 1590 samples
+2025-11-23 16:57:34,518 - pipeline - INFO - Data quality validation completed
+2025-11-23 16:57:35,697 - pipeline - INFO - Created dataset version: dataset_8ef014ec3adf
+2025-11-23 16:57:35,697 - pipeline - INFO - Data pipeline completed successfully
+2025-11-23 16:57:35,698 - pipeline - INFO - Starting phase: Modeling
+2025-11-23 16:57:35,698 - pipeline - INFO - Running modeling pipeline
+2025-11-23 16:57:35,698 - pipeline - INFO - Generating warm start configuration for linear
+2025-11-23 16:57:35,699 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:57:35,727 - pipeline - INFO - Evaluating model linear_0 - checking if exists in trained_models: True
+2025-11-23 16:57:37,762 - pipeline - INFO - Created model version: model_linear_b527d62babe8
+2025-11-23 16:57:37,762 - pipeline - INFO - Generating warm start configuration for ridge
+2025-11-23 16:57:37,762 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:57:37,791 - pipeline - INFO - Evaluating model ridge_1 - checking if exists in trained_models: True
+2025-11-23 16:57:39,845 - pipeline - INFO - Created model version: model_ridge_7d8a6fddf3f3
+2025-11-23 16:57:39,845 - pipeline - INFO - Generating warm start configuration for lasso
+2025-11-23 16:57:39,846 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:57:39,874 - pipeline - INFO - Evaluating model lasso_2 - checking if exists in trained_models: True
+2025-11-23 16:57:41,984 - pipeline - INFO - Created model version: model_lasso_615cb272e32b
+2025-11-23 16:57:41,985 - pipeline - INFO - Generating warm start configuration for elastic_net
+2025-11-23 16:57:41,985 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:57:42,242 - pipeline - INFO - Evaluating model elastic_net_3 - checking if exists in trained_models: True
+2025-11-23 16:57:52,702 - pipeline - INFO - Created model version: model_elastic_net_4312743e3ff9
+2025-11-23 16:57:52,703 - pipeline - INFO - Generating warm start configuration for decision_tree
+2025-11-23 16:57:52,703 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:58:05,755 - pipeline - INFO - Evaluating model decision_tree_4 - checking if exists in trained_models: True
+2025-11-23 16:58:08,262 - pipeline - INFO - Created model version: model_decision_tree_eaeb3f50f270
+2025-11-23 16:58:08,263 - pipeline - INFO - Generating warm start configuration for random_forest
+2025-11-23 16:58:08,263 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:58:08,538 - pipeline - INFO - Evaluating model random_forest_5 - checking if exists in trained_models: True
+2025-11-23 16:58:17,648 - pipeline - INFO - Created model version: model_random_forest_7cdad01967df
+2025-11-23 16:58:17,649 - pipeline - INFO - Generating warm start configuration for KNN
+2025-11-23 16:58:17,649 - pipeline - INFO - Warm start configuration generated with confidence 0.50
+2025-11-23 16:58:17,746 - pipeline - INFO - Evaluating model KNN_6 - checking if exists in trained_models: True
+2025-11-23 16:58:22,074 - pipeline - INFO - Created model version: model_KNN_dfc8755cb620
+2025-11-23 16:58:22,105 - pipeline - INFO - Running comprehensive model comparison with visualizations

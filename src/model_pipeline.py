@@ -19,6 +19,7 @@ from sklearn.linear_model import (
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from sklearn.preprocessing import PolynomialFeatures, RobustScaler, PowerTransformer, QuantileTransformer
+from sklearn.pipeline import Pipeline
 from sklearn.model_selection import cross_val_score, KFold, GridSearchCV, RandomizedSearchCV, learning_curve
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, classification_report
 from sklearn.feature_selection import RFECV
@@ -71,6 +72,40 @@ class ModelPipeline:
         self.cv = KFold(n_splits=CV_FOLDS, shuffle=True, random_state=RANDOM_STATE)
         self.poly_features = {}  # Store polynomial feature transformers
         self.scaler = None  # Store scaler for linear models
+
+    def _validate_cv_consistency(self) -> Dict[str, Any]:
+        """
+        Validate cross-validation consistency across all models.
+
+        Returns:
+            Dictionary with CV consistency validation results
+        """
+        validation_results = {
+            'cv_folds': CV_FOLDS,
+            'random_state': RANDOM_STATE,
+            'shuffle_enabled': True,
+            'cv_consistent': True,
+            'warnings': []
+        }
+
+        # Check if CV object has consistent parameters
+        if hasattr(self.cv, 'random_state') and self.cv.random_state != RANDOM_STATE:
+            validation_results['cv_consistent'] = False
+            validation_results['warnings'].append(f"CV random_state mismatch: expected {RANDOM_STATE}, got {self.cv.random_state}")
+
+        if hasattr(self.cv, 'shuffle') and not self.cv.shuffle:
+            validation_results['warnings'].append("CV shuffling is disabled - may lead to inconsistent splits")
+
+        if hasattr(self.cv, 'n_splits') and self.cv.n_splits != CV_FOLDS:
+            validation_results['cv_consistent'] = False
+            validation_results['warnings'].append(f"CV n_splits mismatch: expected {CV_FOLDS}, got {self.cv.n_splits}")
+
+        model_logger.info(f"CV consistency validation: {'PASS' if validation_results['cv_consistent'] else 'FAIL'}")
+        if validation_results['warnings']:
+            for warning in validation_results['warnings']:
+                model_logger.warning(f"CV Warning: {warning}")
+
+        return validation_results
 
     # ============================================================================
     # MODEL SELECTION AND CONFIGURATION
@@ -150,6 +185,50 @@ class ModelPipeline:
         else:
             return 'regression'
 
+    def _validate_shapes_before_fit(self, X: pd.DataFrame, y: np.ndarray, model_type: str) -> None:
+        """
+        Validate that X and y have compatible shapes before model fitting.
+
+        Args:
+            X: Feature matrix
+            y: Target values
+            model_type: Type of model being trained
+
+        Raises:
+            ValueError: If shapes are incompatible
+        """
+        # Check for empty datasets
+        if X.shape[0] == 0:
+            raise ValueError(f"Training features X is empty (shape: {X.shape})")
+
+        if len(y) == 0:
+            raise ValueError(f"Training targets y is empty (shape: {y.shape})")
+
+        # Check shape compatibility
+        if X.shape[0] != len(y):
+            raise ValueError(f"Shape mismatch: X has {X.shape[0]} samples, y has {len(y)} samples")
+
+        # Check for NaN values
+        if X.isnull().any().any():
+            raise ValueError(f"Training features X contains NaN values")
+
+        if np.isnan(y).any():
+            raise ValueError(f"Training targets y contains NaN values")
+
+        # Check for infinite values
+        if np.isinf(X.values).any():
+            raise ValueError(f"Training features X contains infinite values")
+
+        if np.isinf(y).any():
+            raise ValueError(f"Training targets y contains infinite values")
+
+        # Check feature count
+        if X.shape[1] == 0:
+            raise ValueError(f"No features found in training data (X.shape[1] = 0)")
+
+        # Log successful validation
+        model_logger.info(f"Shape validation passed for {model_type}: X.shape={X.shape}, y.shape={y.shape}")
+
     def _is_linear_model(self, model_type: str) -> bool:
         """Check if model type is linear-based (includes regularized variants)."""
         return model_type in ['linear', 'ridge', 'lasso', 'elastic_net']
@@ -227,7 +306,7 @@ class ModelPipeline:
 
             adaptive_params['n_estimators'] = n_estimators_range
             adaptive_params['bootstrap'] = [True, False]
-            adaptive_params['max_samples'] = [0.5, 0.75, 1.0]
+            # Removed max_samples from adaptive params to avoid CV issues
 
         return adaptive_params
 
@@ -474,8 +553,8 @@ class ModelPipeline:
         return X_enhanced
 
     def _apply_feature_engineering(self, X_train: pd.DataFrame, model_type: str,
-                                  model_id: str, params: Dict[str, Any],
-                                  fit: bool = True) -> pd.DataFrame:
+                                   model_id: str, params: Dict[str, Any],
+                                   fit: bool = True) -> pd.DataFrame:
         """
         Apply feature engineering (polynomial features and scaling).
 
@@ -491,9 +570,50 @@ class ModelPipeline:
         """
         X_transformed = X_train.copy()
 
-        if self._is_linear_model(model_type) or self._is_distance_based_model(model_type):
-            # Apply polynomial features if specified
-            poly_degree = params.get('polynomial_degree', 1)
+        if self._is_linear_model(model_type):
+            # Enhanced polynomial features for linear models (ridge, lasso, elastic_net)
+            poly_degree = params.get('polynomial_degree', 2)  # Default to degree 2 for linear models
+            if poly_degree > 1:
+                if fit:
+                    self.poly_features[model_id] = PolynomialFeatures(
+                        degree=poly_degree, include_bias=False, interaction_only=False
+                    )
+                    X_poly = self.poly_features[model_id].fit_transform(X_transformed)
+                else:
+                    if model_id in self.poly_features:
+                        X_poly = self.poly_features[model_id].transform(X_transformed)
+                    else:
+                        X_poly = X_transformed
+
+                poly_feature_names = self.poly_features[model_id].get_feature_names_out(
+                    X_transformed.columns
+                )
+                X_transformed = pd.DataFrame(
+                    X_poly, columns=poly_feature_names, index=X_transformed.index
+                )
+                if fit:
+                    model_logger.info(
+                        f"Applied polynomial features (degree {poly_degree}) to {model_type}"
+                    )
+
+            # Apply StandardScaler for linear models (consistent scaling across all linear-based models)
+            if fit:
+                self.scaler = StandardScaler()
+                X_scaled = self.scaler.fit_transform(X_transformed)
+                model_logger.info(f"Applied StandardScaler to features for {model_type}")
+            else:
+                if self.scaler is not None:
+                    X_scaled = self.scaler.transform(X_transformed)
+                else:
+                    X_scaled = X_transformed
+
+            X_transformed = pd.DataFrame(
+                X_scaled, columns=X_transformed.columns, index=X_transformed.index
+            )
+
+        elif self._is_distance_based_model(model_type):
+            # For KNN and similar distance-based models
+            poly_degree = params.get('polynomial_degree', 1)  # Usually no polynomial for distance-based
             if poly_degree > 1:
                 if fit:
                     self.poly_features[model_id] = PolynomialFeatures(
@@ -517,11 +637,11 @@ class ModelPipeline:
                         f"Applied polynomial features (degree {poly_degree}) to {model_type}"
                     )
 
-            # Apply RobustScaler for linear and distance-based models
+            # Apply StandardScaler for distance-based models (consistent with linear models)
             if fit:
-                self.scaler = RobustScaler()
+                self.scaler = StandardScaler()
                 X_scaled = self.scaler.fit_transform(X_transformed)
-                model_logger.info(f"Applied RobustScaler to features for {model_type}")
+                model_logger.info(f"Applied StandardScaler to features for {model_type}")
             else:
                 if self.scaler is not None:
                     X_scaled = self.scaler.transform(X_transformed)
@@ -667,9 +787,32 @@ class ModelPipeline:
                 model_logger.info(f"RandomForest max_samples set to: {model.max_samples}")
             return model
 
+    def _perform_cv_with_unified_pipeline(self, pipeline, X_train: pd.DataFrame, y_train: np.ndarray,
+                                         model_type: str, task_type: str) -> np.ndarray:
+        """
+        Perform cross-validation with unified pipeline for consistency.
+
+        Args:
+            pipeline: Unified pipeline
+            X_train: Training features
+            y_train: Training targets
+            model_type: Type of model
+            task_type: Task type
+
+        Returns:
+            Cross-validation scores
+        """
+        scoring = 'neg_mean_squared_error' if task_type == 'regression' else 'accuracy'
+
+        cv_scores = cross_val_score(
+            pipeline, X_train, y_train, cv=self.cv, scoring=scoring, n_jobs=-1
+        )
+
+        return cv_scores
+
     def _perform_cv_with_scaling(self, model, X_train: pd.DataFrame, y_train: np.ndarray,
-                                model_type: str, task_type: str,
-                                params: Optional[Dict[str, Any]] = None) -> np.ndarray:
+                                 model_type: str, task_type: str,
+                                 params: Optional[Dict[str, Any]] = None) -> np.ndarray:
         """
         Perform cross-validation with proper scaling for linear models.
 
@@ -694,13 +837,13 @@ class ModelPipeline:
                 # Pipeline with polynomial features, scaling, and model
                 pipeline = Pipeline([
                     ('poly', PolynomialFeatures(degree=poly_degree, include_bias=False)),
-                    ('scaler', RobustScaler()),
+                    ('scaler', StandardScaler()),
                     ('model', model.__class__(**model.get_params()))
                 ])
             else:
                 # Pipeline with just scaling and model
                 pipeline = Pipeline([
-                    ('scaler', RobustScaler()),
+                    ('scaler', StandardScaler()),
                     ('model', model.__class__(**model.get_params()))
                 ])
 
@@ -728,9 +871,54 @@ class ModelPipeline:
 
         return cv_scores
 
+    def _compute_training_metrics_with_pipeline(self, pipeline, X_train: pd.DataFrame,
+                                               y_train: np.ndarray, cv_scores: np.ndarray,
+                                               task_type: str) -> Dict[str, Any]:
+        """
+        Compute training and CV metrics using unified pipeline.
+
+        Args:
+            pipeline: Trained pipeline
+            X_train: Training features
+            y_train: Training targets
+            cv_scores: Cross-validation scores
+            task_type: Task type
+
+        Returns:
+            Dictionary of metrics
+        """
+        y_pred_train = pipeline.predict(X_train)
+
+        if task_type == 'regression':
+            train_mse = mean_squared_error(y_train, y_pred_train)
+            train_r2 = r2_score(y_train, y_pred_train)
+            cv_mean = -cv_scores.mean()
+            cv_std = cv_scores.std()
+
+            metrics = {
+                'train_mse': train_mse,
+                'train_rmse': np.sqrt(train_mse),
+                'train_r2': train_r2,
+                'cv_mse_mean': cv_mean,
+                'cv_mse_std': cv_std,
+                'cv_rmse_mean': np.sqrt(cv_mean)
+            }
+        else:
+            train_accuracy = accuracy_score(y_train, y_pred_train)
+            cv_mean = cv_scores.mean()
+            cv_std = cv_scores.std()
+
+            metrics = {
+                'train_accuracy': train_accuracy,
+                'cv_accuracy_mean': cv_mean,
+                'cv_accuracy_std': cv_std
+            }
+
+        return metrics
+
     def _compute_training_metrics(self, model, X_train_scaled: pd.DataFrame,
-                                 y_train: np.ndarray, cv_scores: np.ndarray,
-                                 task_type: str) -> Dict[str, Any]:
+                                  y_train: np.ndarray, cv_scores: np.ndarray,
+                                  task_type: str) -> Dict[str, Any]:
         """
         Compute training and CV metrics.
 
@@ -773,10 +961,56 @@ class ModelPipeline:
 
         return metrics
 
+    def _create_unified_pipeline(self, model_type: str, model_class, params: Dict[str, Any]) -> Pipeline:
+        """
+        Create a unified pipeline with preprocessing steps for all model types.
+
+        Args:
+            model_type: Type of model
+            model_class: Model class
+            params: Model parameters
+
+        Returns:
+            Unified pipeline
+        """
+        from sklearn.pipeline import Pipeline
+
+        pipeline_steps = []
+
+        # Add polynomial features for linear models if degree > 1
+        if self._is_linear_model(model_type) or self._is_distance_based_model(model_type):
+            poly_degree = params.get('polynomial_degree', 1)
+            if poly_degree > 1:
+                pipeline_steps.append(('poly', PolynomialFeatures(degree=poly_degree, include_bias=False)))
+
+        # Add scaling - StandardScaler for all models that need it
+        if self._is_linear_model(model_type) or self._is_distance_based_model(model_type) or self._is_ann_model(model_type):
+            pipeline_steps.append(('scaler', StandardScaler()))
+
+        # Add the model
+        filtered_params = {k: v for k, v in params.items() if k not in ['polynomial_degree']}
+        if self._is_linear_model(model_type):
+            # LinearRegression doesn't accept random_state
+            pipeline_steps.append(('model', model_class(**filtered_params)))
+        elif model_type == 'KNN':
+            # KNN doesn't accept random_state
+            pipeline_steps.append(('model', model_class(**filtered_params)))
+        elif self._is_ann_model(model_type):
+            # ANN models accept random_state but handle it automatically
+            if 'random_state' not in filtered_params:
+                pipeline_steps.append(('model', model_class(random_state=RANDOM_STATE, **filtered_params)))
+            else:
+                pipeline_steps.append(('model', model_class(**filtered_params)))
+        else:
+            # Tree-based models accept random_state
+            pipeline_steps.append(('model', model_class(random_state=RANDOM_STATE, **filtered_params)))
+
+        return Pipeline(pipeline_steps)
+
     def train_model(self, model_type: str, X_train: pd.DataFrame, y_train: np.ndarray,
                     params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
-        Train a single model with comprehensive tracking.
+        Train a single model with comprehensive tracking using unified pipeline.
 
         Args:
             model_type: Type of model to train
@@ -818,44 +1052,45 @@ class ModelPipeline:
             model = cached_model
             self.trained_models[model_id] = model
 
-            # Apply feature engineering for consistency
-            X_train_scaled = self._apply_feature_engineering(
-                X_train, model_type, model_id, params, fit=True
-            )
+            # Create unified pipeline for consistency (even with cached model)
+            pipeline = self._create_unified_pipeline(model_type, model_class, params)
+            pipeline.named_steps['model'] = model  # Replace with cached model
 
             training_time = cached_results.get('training_time', 0)
             model_logger.info(f"Using cached model for {model_type}")
         else:
-            # Train new model
-            X_train_scaled = self._apply_feature_engineering(
-                X_train, model_type, model_id, params, fit=True
-            )
+            # Create unified pipeline for new model
+            pipeline = self._create_unified_pipeline(model_type, model_class, params)
 
-            model = self._create_model_instance(model_class, model_type, params)
-            model_logger.info(f"Training {model_type} model with params: {params}")
+            # Validate shapes before fitting
+            self._validate_shapes_before_fit(X_train, y_train, model_type)
+
+            model_logger.info(f"Training {model_type} model with unified pipeline: {params}")
 
             start_time = datetime.now()
-            model.fit(X_train_scaled, y_train)
+            pipeline.fit(X_train, y_train)
             training_time = (datetime.now() - start_time).total_seconds()
 
-            # Store trained model
+            # Extract the trained model from pipeline
+            model = pipeline.named_steps['model']
             self.trained_models[model_id] = model
             model_logger.info(f"Stored trained model with ID: {model_id}")
 
-        # Perform cross-validation
-        cv_scores = self._perform_cv_with_scaling(
-            model, X_train, y_train, model_type, task_type, params
+        # Perform cross-validation with unified pipeline
+        cv_scores = self._perform_cv_with_unified_pipeline(
+            pipeline, X_train, y_train, model_type, task_type
         )
 
         # Apply tree-specific regularization AFTER CV to avoid fold size issues
         if not use_cache and self._is_tree_model(model_type):
+            # For tree models, apply regularization directly since they don't need preprocessing transformation
             self._apply_tree_regularization(
-                model, model_type, params, X_train_scaled, y_train, is_final_model=True
+                model, model_type, params, X_train, y_train, is_final_model=True
             )
 
-        # Calculate metrics
-        metrics = self._compute_training_metrics(
-            model, X_train_scaled, y_train, cv_scores, task_type
+        # Calculate metrics using pipeline predictions
+        metrics = self._compute_training_metrics_with_pipeline(
+            pipeline, X_train, y_train, cv_scores, task_type
         )
 
         # Calculate overfitting indicators
@@ -874,10 +1109,11 @@ class ModelPipeline:
             'overfitting_indicators': overfitting_indicators,
             'feature_names': feature_names,
             'feature_importance': self._get_feature_importance(
-                model, X_train_scaled.columns.tolist()
+                model, feature_names
             ) if hasattr(model, 'feature_importances_') else None,
             'coefficients': self._get_coefficients(model) if hasattr(model, 'coef_') else None,
-            'training_timestamp': datetime.now().isoformat()
+            'training_timestamp': datetime.now().isoformat(),
+            'pipeline_used': True  # Indicate unified pipeline was used
         }
 
         # KNN-specific validation and documentation
@@ -898,7 +1134,7 @@ class ModelPipeline:
             self._cache_model_and_results(model, model_id, model_type, params, results)
 
         cv_mean = metrics.get('cv_mse_mean', metrics.get('cv_accuracy_mean', 0))
-        model_logger.info(f"Model {model_type} trained successfully. CV Score: {cv_mean:.4f}")
+        model_logger.info(f"Model {model_type} trained successfully with unified pipeline. CV Score: {cv_mean:.4f}")
 
         return results
 
@@ -1252,12 +1488,30 @@ class ModelPipeline:
                 if key not in param_grid:
                     param_grid[key] = values
 
+            # Ensure max_samples values are fractions, not absolute integers
+            if model_type == 'random_forest' and 'max_samples' in param_grid:
+                max_samples_values = param_grid['max_samples']
+                # Convert any integers > 1 to fractions (defensive check)
+                safe_max_samples = []
+                for val in max_samples_values:
+                    if val is None:
+                        safe_max_samples.append(val)
+                    elif isinstance(val, (int, float)) and val > 1:
+                        # Convert to fraction (should not happen, but defensive)
+                        model_logger.warning(f"Found absolute max_samples value {val}, converting to fraction")
+                        safe_max_samples.append(min(1.0, val / len(X_train)))
+                    else:
+                        safe_max_samples.append(val)
+                param_grid['max_samples'] = safe_max_samples
+
       
 
         if model_type == 'random_forest' and 'max_samples' in param_grid:
             # Filter out incompatible combinations where bootstrap=False and max_samples is not None
             # max_samples should only be used when bootstrap=True
             param_grid = self._fix_random_forest_max_samples(param_grid)
+            # Log max_samples values to debug CV errors
+            model_logger.info(f"Random Forest max_samples values in param_grid: {param_grid.get('max_samples', 'not found')}")
 
         model_logger.info(f"Starting hyperparameter tuning for {model_type}")
 
@@ -1470,7 +1724,7 @@ class ModelPipeline:
 
     def predict(self, model_id: str, X: pd.DataFrame) -> np.ndarray:
         """
-        Make predictions using a trained model.
+        Make predictions using a trained model with unified pipeline approach.
 
         Args:
             model_id: ID of the trained model
@@ -1487,24 +1741,28 @@ class ModelPipeline:
         # Extract model type from model_id
         model_type = model_id.split('_')[0]
 
-        # Apply transformations
-        X_transformed = X.copy()
+        # Create unified pipeline for prediction (reusing the same preprocessing steps)
+        from sklearn.pipeline import Pipeline
 
-        # Apply polynomial features if exists
-        if model_id in self.poly_features:
-            X_poly = self.poly_features[model_id].transform(X_transformed)
-            poly_feature_names = self.poly_features[model_id].get_feature_names_out(X.columns)
-            X_transformed = pd.DataFrame(X_poly, columns=poly_feature_names, index=X.index)
+        pipeline_steps = []
 
-        # Apply scaling if needed
-        if (self._is_linear_model(model_type) or self._is_ann_model(model_type)) and self.scaler is not None:
-            X_transformed = pd.DataFrame(
-                self.scaler.transform(X_transformed),
-                columns=X_transformed.columns,
-                index=X_transformed.index
-            )
+        # Add polynomial features for linear/distance models if they were used during training
+        if (self._is_linear_model(model_type) or self._is_distance_based_model(model_type)):
+            # Check if polynomial features were applied during training
+            if hasattr(self, 'poly_features') and model_id in self.poly_features:
+                pipeline_steps.append(('poly', self.poly_features[model_id]))
 
-        return model.predict(X_transformed)
+        # Add scaling for models that need it
+        if (self._is_linear_model(model_type) or self._is_distance_based_model(model_type) or self._is_ann_model(model_type)):
+            if self.scaler is not None:
+                pipeline_steps.append(('scaler', self.scaler))
+
+        # Add the trained model
+        pipeline_steps.append(('model', model))
+
+        # Create and use pipeline for prediction
+        pipeline = Pipeline(pipeline_steps)
+        return pipeline.predict(X)
 
     def evaluate_model(self, model_id: str, X_test: pd.DataFrame,
                       y_test: np.ndarray) -> Dict[str, Any]:
@@ -3797,8 +4055,19 @@ class ModelPipeline:
 
             report_path = reports_dir / f'model_comparison_report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
 
+            # Convert any Interval keys to strings for JSON compatibility
+            def make_json_safe(obj):
+                if isinstance(obj, dict):
+                    return {str(k): make_json_safe(v) for k, v in obj.items()}
+                elif isinstance(obj, (list, tuple)):
+                    return [make_json_safe(item) for item in obj]
+                else:
+                    return obj
+
+            safe_report = make_json_safe(comparison_report)
+
             with open(report_path, 'w') as f:
-                json.dump(comparison_report, f, indent=2, default=str)
+                json.dump(safe_report, f, indent=2, default=str)
 
             model_logger.info(f"Saved model comparison report to {report_path}")
 

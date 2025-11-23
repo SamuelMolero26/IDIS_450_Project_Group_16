@@ -51,9 +51,9 @@ class QualitativeEvaluator:
             return False
 
     def perform_shap_analysis(self, model, X_train: pd.DataFrame, X_test: pd.DataFrame,
-                             model_name: str = "model", save_plots: bool = True) -> Dict[str, Any]:
+                              model_name: str = "model", save_plots: bool = True, y_test: np.ndarray = None) -> Dict[str, Any]:
         """
-        Perform SHAP analysis for model interpretability.
+        Perform SHAP analysis for model interpretability with graceful fallback for unsupported models.
 
         Args:
             model: Trained model
@@ -71,12 +71,21 @@ class QualitativeEvaluator:
 
         evaluation_logger.info(f"Performing SHAP analysis for {model_name}")
 
+        # Check for unsupported models (KNN and similar instance-based models)
+        model_type = type(model).__name__.lower()
+        if 'knn' in model_type or 'kneighbors' in model_type:
+            evaluation_logger.info(f"Skipping SHAP for KNN-based model {model_name}, using permutation importance instead")
+            # For KNN, we need y_test which should be available in the calling context
+            # Since this is called from perform_shap_analysis, we don't have y_test here
+            # Let's modify the approach - we'll try SHAP first and fallback if it fails
+            pass  # Continue to try SHAP, and if it fails, the except block will handle fallback
+
         try:
             import shap
 
             # Sample data for SHAP (to avoid computational issues with large datasets)
             X_sample = X_test.sample(min(SHAP_SAMPLE_SIZE, len(X_test)),
-                                   random_state=42)
+                                    random_state=42)
 
             # Choose explainer based on model type
             if isinstance(model, (RandomForestClassifier, RandomForestRegressor)):
@@ -137,9 +146,85 @@ class QualitativeEvaluator:
             evaluation_logger.info(f"SHAP analysis completed for {model_name}")
 
         except Exception as e:
-            evaluation_logger.error(f"SHAP analysis failed: {e}")
+            evaluation_logger.error(f"SHAP analysis failed for {model_name}: {e}, falling back to permutation importance")
+            # Fallback to permutation importance for unsupported models
+            return self._fallback_permutation_importance(model, X_train, X_test, model_name, save_plots, y_test)
+
+        return results
+
+    def _fallback_permutation_importance(self, model, X_train: pd.DataFrame, X_test: pd.DataFrame,
+                                        model_name: str = "model", save_plots: bool = True, y_test: np.ndarray = None) -> Dict[str, Any]:
+        """
+        Fallback method using permutation importance when SHAP is not available or suitable.
+
+        Args:
+            model: Trained model
+            X_train: Training features
+            X_test: Test features
+            model_name: Name for the model
+            save_plots: Whether to save plots
+            y_test: Test targets (needed for permutation importance)
+
+        Returns:
+            Dictionary with permutation importance results
+        """
+        if y_test is None:
+            evaluation_logger.error("y_test is required for permutation importance")
+            return {
+                'shap_available': False,
+                'fallback_method': 'permutation_importance',
+                'error': 'y_test not provided',
+                'analysis_timestamp': datetime.now().isoformat()
+            }
+
+        try:
+            from sklearn.inspection import permutation_importance
+
+            evaluation_logger.info(f"Computing permutation importance for {model_name}")
+
+            # Use negative mean squared error for regression (most common case)
+            # permutation_importance will handle the scoring appropriately
+            perm_importance = permutation_importance(
+                model, X_test, y_test, n_repeats=10, random_state=42,
+                scoring='neg_mean_squared_error'
+            )
+
+            # Calculate feature importance
+            feature_importance = dict(zip(X_test.columns, perm_importance.importances_mean))
+            importance_std = dict(zip(X_test.columns, perm_importance.importances_std))
+
+            # Sort by importance
+            sorted_features = sorted(feature_importance.items(), key=lambda x: abs(x[1]), reverse=True)
+
             results = {
                 'shap_available': False,
+                'fallback_method': 'permutation_importance',
+                'feature_importance': feature_importance,
+                'importance_std': importance_std,
+                'sorted_features': sorted_features,
+                'analysis_timestamp': datetime.now().isoformat()
+            }
+
+            # Generate feature importance plot if requested
+            if save_plots:
+                try:
+                    fig = plot_feature_importance(
+                        [f[0] for f in sorted_features[:10]],  # Top 10 features
+                        [f[1] for f in sorted_features[:10]],
+                        f"{model_name}_permutation",
+                        save_path=REPORTS_DIR / f"{model_name}_permutation_importance.png"
+                    )
+                    results['plot_path'] = str(REPORTS_DIR / f"{model_name}_permutation_importance.png")
+                except Exception as e:
+                    evaluation_logger.warning(f"Failed to generate permutation importance plot: {e}")
+
+            evaluation_logger.info(f"Permutation importance analysis completed for {model_name}")
+
+        except Exception as e:
+            evaluation_logger.error(f"Permutation importance analysis failed: {e}")
+            results = {
+                'shap_available': False,
+                'fallback_method': 'permutation_importance',
                 'error': str(e),
                 'analysis_timestamp': datetime.now().isoformat()
             }
@@ -165,12 +250,14 @@ class QualitativeEvaluator:
         evaluation_logger.info(f"Performing error analysis for {model_name}")
 
         # Calculate residuals/errors
-        if len(y_test.shape) > 1:  # Classification
+        if len(y_test.shape) > 1 or len(np.unique(y_test)) <= 10:  # Classification (assuming <= 10 unique values indicates classification)
             errors = (y_test != y_pred).astype(int)
             error_magnitude = errors  # Binary: 0 or 1
+            is_classification = True
         else:  # Regression
             errors = y_test - y_pred
             error_magnitude = np.abs(errors)
+            is_classification = False
 
         # Create error analysis dataframe
         error_df = X_test.copy()
@@ -178,18 +265,37 @@ class QualitativeEvaluator:
         error_df['predicted_value'] = y_pred
         error_df['error'] = errors
         error_df['error_magnitude'] = error_magnitude
-        error_df['is_error'] = (error_magnitude > 0).astype(int)
+
+        # For classification: error_rate is meaningful (percentage of misclassifications)
+        # For regression: error_rate doesn't make sense (all predictions have some error)
+        if is_classification:
+            error_df['is_error'] = (error_magnitude > 0).astype(int)
+            error_rate = error_df['is_error'].mean()
+        else:
+            # For regression, calculate percentage of predictions with error > 1 standard deviation
+            error_std = np.std(errors)
+            error_df['is_error'] = (error_magnitude > error_std).astype(int)
+            error_rate = error_df['is_error'].mean()
 
         # Error statistics
         error_stats = {
             'total_samples': len(error_df),
-            'error_rate': error_df['is_error'].mean(),
+            'error_rate': error_rate,
+            'is_classification': is_classification,
             'mean_error': float(np.mean(errors)),
             'std_error': float(np.std(errors)),
             'median_error': float(np.median(errors)),
             'max_error': float(np.max(np.abs(errors))),
             'min_error': float(np.min(np.abs(errors)))
         }
+
+        # Add regression-specific metrics if applicable
+        if not is_classification:
+            error_stats.update({
+                'mean_absolute_error': float(np.mean(error_magnitude)),
+                'root_mean_squared_error': float(np.sqrt(np.mean(errors**2))),
+                'error_rate_interpretation': f"Percentage of predictions with error > 1 std ({error_std:.4f})"
+            })
 
         # Feature correlation with errors
         numeric_cols = error_df.select_dtypes(include=[np.number]).columns

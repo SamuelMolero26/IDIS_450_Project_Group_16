@@ -57,7 +57,7 @@ class ContinuousLearning:
         self.learning_history.append({
             'event': 'initialization',
             'timestamp': datetime.now().isoformat(),
-            'data_info': initial_data_info
+            'data_info': self._make_serializable(initial_data_info)
         })
 
         pipeline_logger.info("Continuous learning system initialized")
@@ -415,22 +415,16 @@ class ContinuousLearning:
             # Keep only recent history to avoid file bloat
             recent_history = self.learning_history[-50:]  # Last 50 events
 
-            # Convert any non-serializable objects (like pandas Intervals) to strings
-            serializable_history = []
-            for event in recent_history:
-                serializable_event = {}
-                for key, value in event.items():
-                    if hasattr(value, 'dtype') and 'interval' in str(value.dtype).lower():
-                        serializable_event[key] = str(value)
-                    else:
-                        serializable_event[key] = value
-                serializable_history.append(serializable_event)
+            # Use comprehensive serialization method
+            serializable_history = self._make_serializable(recent_history)
 
             with open(history_file, 'w') as f:
                 json.dump(serializable_history, f, indent=2, default=str)
 
         except Exception as e:
             pipeline_logger.error(f"Error saving learning history: {e}")
+            # Log the problematic data for debugging
+            pipeline_logger.debug(f"Recent history sample: {recent_history[0] if recent_history else 'empty'}")
 
     def load_learning_history(self):
         """Load learning history from disk."""
@@ -633,11 +627,34 @@ class ContinuousLearning:
 
         # Handle pandas Index types
         if isinstance(obj, pd.Index):
-            return obj.tolist()
+            # Check if it's an IntervalIndex
+            if hasattr(pd, 'IntervalIndex') and isinstance(obj, pd.IntervalIndex):
+                return [str(interval) for interval in obj]
+            # For other Index types, check if elements are Intervals
+            try:
+                result = obj.tolist()
+                # If the first element is an Interval, convert all to strings
+                if result and hasattr(pd, 'Interval') and isinstance(result[0], pd.Interval):
+                    return [str(item) for item in result]
+                return result
+            except:
+                return [str(item) for item in obj]
 
         # Handle dicts and lists recursively
         if isinstance(obj, dict):
-            return {k: self._make_serializable(v) for k, v in obj.items()}
+            # Convert both keys and values to ensure JSON serializability
+            serializable_dict = {}
+            for k, v in obj.items():
+                # Convert non-primitive keys to strings
+                if isinstance(k, (str, int, float, bool, type(None))):
+                    key = k
+                elif hasattr(pd, 'Interval') and isinstance(k, pd.Interval):
+                    key = str(k)
+                else:
+                    # For any other non-primitive type, convert to string
+                    key = str(k)
+                serializable_dict[key] = self._make_serializable(v)
+            return serializable_dict
         elif isinstance(obj, (list, tuple)):
             return [self._make_serializable(item) for item in obj]
 

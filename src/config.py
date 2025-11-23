@@ -48,17 +48,22 @@ MODEL_CONFIGS = {
         'polynomial_degree': [1, 2]  # Degree 2 for interaction features
     },
     'ridge': {
-        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0],
-        'fit_intercept': [True],
-        'polynomial_degree': [1, 2, 3],
-        'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sag', 'saga']
+        'alpha': [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0],
+        'fit_intercept': [True, False],
+        'polynomial_degree': [1, 2, 3, 4],
+        'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sag', 'saga', 'lbfgs'],
+        'max_iter': [1000, 5000, 10000],
+        'tol': [1e-4, 1e-3, 1e-2]
     },
     'lasso': {
-        'alpha': [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
-        'fit_intercept': [True],
-        'polynomial_degree': [1, 2, 3],
+        'alpha': [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0],
+        'fit_intercept': [True, False],
+        'polynomial_degree': [1, 2, 3, 4],
         'selection': ['cyclic', 'random'],
-        'max_iter': [1000, 5000, 10000]
+        'max_iter': [1000, 5000, 10000, 20000],
+        'tol': [1e-4, 1e-3, 1e-2],
+        'warm_start': [True, False],
+        'precompute': [True, False, 'auto']
     },
     'elastic_net': {
         'alpha': [0.001, 0.01, 0.1, 1.0, 10.0],
@@ -66,7 +71,7 @@ MODEL_CONFIGS = {
         'fit_intercept': [True],
         'polynomial_degree': [1, 2, 3],
         'selection': ['cyclic', 'random'],
-        'max_iter': [1000, 5000]
+        'max_iter': [5000]
     },
     'decision_tree': {
         'max_depth': [10, 15, 20, 30],
@@ -78,24 +83,28 @@ MODEL_CONFIGS = {
         'splitter': ['best', 'random']
     },
     'random_forest': {
-        'n_estimators': [100, 150, 200, 250],
-        'max_depth': [10, 15, 20, 30],
-        'min_samples_split': [2, 5, 10, 15],
-        'min_samples_leaf': [1, 2, 4, 6],
-        'max_features': ['sqrt', 'log2', None, 0.5, 0.75],
+        'n_estimators': [50, 100, 150, 200, 250, 300, 400, 500],
+        'max_depth': [5, 10, 15, 20, 25, 30, None],
+        'min_samples_split': [2, 5, 10, 15, 20, 25],
+        'min_samples_leaf': [1, 2, 4, 6, 8, 10],
+        'max_features': ['sqrt', 'log2', None, 0.3, 0.5, 0.7, 0.8, 0.9],
         'bootstrap': [True, False],
         'criterion': ['squared_error', 'absolute_error', 'friedman_mse'],
-        'ccp_alpha': [0.0, 0.001, 0.01],
-        'max_samples': [None, 0.5, 0.6, 0.7, 0.8, 0.9],  # Only proportions, None when bootstrap=False
-        'min_impurity_decrease': [0.0, 0.001, 0.01]
+        'ccp_alpha': [0.0, 0.001, 0.01, 0.1],
+        'min_impurity_decrease': [0.0, 0.001, 0.01, 0.1],
+        'oob_score': [True, False],  # Only when bootstrap=True
+        'warm_start': [True, False],
+        'n_jobs': [-1]  # Use all available cores
     },
     
     'KNN': {
-        'n_neighbors': [3, 5, 7, 10, 15, 20, 30],
-        'metric': ['euclidean', 'manhattan', 'minkowski'],
+        'n_neighbors': [1, 3, 5, 7, 9, 11, 15, 20, 25, 30, 35, 40, 50],
+        'metric': ['euclidean', 'manhattan', 'minkowski', 'chebyshev', 'cosine'],
         'weights': ['uniform', 'distance'],
-        'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'], #optimization algorithms
-        'p': [1, 2, 3]  
+        'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+        'p': [1, 2, 3, 4, 5],  # Minkowski parameter
+        'leaf_size': [10, 20, 30, 40, 50],  # For ball_tree and kd_tree
+        'n_jobs': [-1]  # Use all available cores
     },
     'logistic': {
         'C': [0.01, 0.1, 1.0, 10.0, 100.0],

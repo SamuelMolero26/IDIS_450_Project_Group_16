@@ -28,7 +28,7 @@ cache
 *.pyd
 *.db
 
-cache
+cache/
 .venv
 __pycache__
 .vscode

@@ -1196,3 +1196,25 @@
 2025-11-20 17:16:12,871 - meta - INFO - Updating meta-learning model
 2025-11-20 17:16:12,871 - meta - INFO - Collecting experiment data for meta-learning
 2025-11-20 17:16:12,871 - meta - INFO - Collected data from 8 experiments
+2025-11-23 14:22:56,841 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:23:00,288 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:23:02,706 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:23:07,543 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:23:23,380 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:24:01,242 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:24:31,663 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-23 14:24:31,663 - meta - INFO - Collected data from 8 experiments
+2025-11-23 14:24:31,663 - meta - INFO - Updating meta-learning model
+2025-11-23 14:24:31,663 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-23 14:24:31,663 - meta - INFO - Collected data from 8 experiments
+2025-11-23 14:24:34,909 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:24:37,632 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:24:40,171 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:24:45,092 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:25:01,103 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:25:39,297 - meta - WARNING - Meta-model not trained, returning default configuration
+2025-11-23 14:26:08,888 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-23 14:26:08,888 - meta - INFO - Collected data from 8 experiments
+2025-11-23 14:26:08,889 - meta - INFO - Updating meta-learning model
+2025-11-23 14:26:08,889 - meta - INFO - Collecting experiment data for meta-learning
+2025-11-23 14:26:08,889 - meta - INFO - Collected data from 8 experiments

@@ -1,13 +1,13 @@
 [
   {
     "event": "system_update",
-    "timestamp": "2025-11-20T17:16:12.871176",
+    "timestamp": "2025-11-23T14:26:08.889151",
     "experiment_results": {
-      "experiment_id": "3c9250e1",
+      "experiment_id": "56c12ea1",
       "model_results": {
         "linear": {
           "model_id": "linear_0",
-          "version": "model_linear_ca1b5e5f927f",
+          "version": "model_linear_31cddf9b1e66",
           "training": {
             "model_id": "linear_0",
             "model_type": "linear",
@@ -16,7 +16,7 @@
               "fit_intercept": true,
               "polynomial_degree": 1
             },
-            "training_time": 0.001184,
+            "training_time": 0.001201,
             "metrics": {
               "train_mse": 11158547.880238915,
               "train_rmse": 3340.4412702873424,
@@ -57,7 +57,7 @@
               "Sales Channel": -126.02882956799905,
               "WarehouseCode": 14.320125301786742
             },
-            "training_timestamp": "2025-11-20T17:14:38.698630"
+            "training_timestamp": "2025-11-23T14:24:34.936921"
           },
           "evaluation": {
             "model_name": "linear_linear_0",
@@ -19314,7 +19314,7 @@
               "n_folds": 5,
               "task_type": "regression",
               "model_name": "linear_linear_0",
-              "timestamp": "2025-11-20T17:14:38.719021"
+              "timestamp": "2025-11-23T14:24:34.951675"
             },
             "bias_variance": {
               "bias": 11204396.205050066,
@@ -24789,7 +24789,7 @@
               "residual_diagnostics": "/Users/samuel/IDIS450/Project/reports/linear_linear_0_residual_diagnostics.png"
             },
             "cv_fold_performance_plot": null,
-            "evaluation_timestamp": "2025-11-20T17:14:39.460223"
+            "evaluation_timestamp": "2025-11-23T14:24:35.881434"
           },
           "warm_start": {
             "model_type": "linear",
@@ -24804,7 +24804,7 @@
         },
         "ridge": {
           "model_id": "ridge_1",
-          "version": "model_ridge_d9870d61ab68",
+          "version": "model_ridge_5ad11c78fb75",
           "training": {
             "model_id": "ridge_1",
             "model_type": "ridge",
@@ -24815,7 +24815,7 @@
               "polynomial_degree": 1,
               "solver": "auto"
             },
-            "training_time": 0.000749,
+            "training_time": 0.00072,
             "metrics": {
               "train_mse": 11158547.880337818,
               "train_rmse": 3340.441270302146,
@@ -24856,7 +24856,7 @@
               "Sales Channel": -126.02901178131069,
               "WarehouseCode": 14.320089691559344
             },
-            "training_timestamp": "2025-11-20T17:14:41.169723"
+            "training_timestamp": "2025-11-23T14:24:37.656748"
           },
           "evaluation": {
             "model_name": "ridge_ridge_1",
@@ -44113,7 +44113,7 @@
               "n_folds": 5,
               "task_type": "regression",
               "model_name": "ridge_ridge_1",
-              "timestamp": "2025-11-20T17:14:41.196717"
+              "timestamp": "2025-11-23T14:24:37.670491"
             },
             "bias_variance": {
               "bias": 11204395.897895463,
@@ -49588,7 +49588,7 @@
               "residual_diagnostics": "/Users/samuel/IDIS450/Project/reports/ridge_ridge_1_residual_diagnostics.png"
             },
             "cv_fold_performance_plot": null,
-            "evaluation_timestamp": "2025-11-20T17:14:41.883533"
+            "evaluation_timestamp": "2025-11-23T14:24:38.341800"
           },
           "warm_start": {
             "model_type": "ridge",
@@ -49605,7 +49605,7 @@
         },
         "lasso": {
           "model_id": "lasso_2",
-          "version": "model_lasso_de5473d84442",
+          "version": "model_lasso_999ce30c8283",
           "training": {
             "model_id": "lasso_2",
             "model_type": "lasso",
@@ -49617,7 +49617,7 @@
               "selection": "cyclic",
               "max_iter": 1000
             },
-            "training_time": 0.032114,
+            "training_time": 0.032392,
             "metrics": {
               "train_mse": 11158547.880260726,
               "train_rmse": 3340.4412702906075,
@@ -49658,7 +49658,7 @@
               "Sales Channel": -126.02756128774718,
               "WarehouseCode": 14.318427253231237
             },
-            "training_timestamp": "2025-11-20T17:14:43.716059"
+            "training_timestamp": "2025-11-23T14:24:40.345581"
           },
           "evaluation": {
             "model_name": "lasso_lasso_2",
@@ -68915,7 +68915,7 @@
               "n_folds": 5,
               "task_type": "regression",
               "model_name": "lasso_lasso_2",
-              "timestamp": "2025-11-20T17:14:43.878199"
+              "timestamp": "2025-11-23T14:24:40.497948"
             },
             "bias_variance": {
               "bias": 11204396.410756227,
@@ -74390,7 +74390,7 @@
               "residual_diagnostics": "/Users/samuel/IDIS450/Project/reports/lasso_lasso_2_residual_diagnostics.png"
             },
             "cv_fold_performance_plot": null,
-            "evaluation_timestamp": "2025-11-20T17:14:46.673111"
+            "evaluation_timestamp": "2025-11-23T14:24:43.288914"
           },
           "warm_start": {
             "model_type": "lasso",
@@ -74408,7 +74408,7 @@
         },
         "decision_tree": {
           "model_id": "decision_tree_3",
-          "version": "model_decision_tree_ad0b294895df",
+          "version": "model_decision_tree_e2ebcaada262",
           "training": {
             "model_id": "decision_tree_3",
             "model_type": "decision_tree",
@@ -74422,7 +74422,7 @@
               "ccp_alpha": 0.0,
               "splitter": "best"
             },
-            "training_time": 0.006669,
+            "training_time": 0.006161,
             "metrics": {
               "train_mse": 3177446.29529616,
               "train_rmse": 1782.5392829601708,
@@ -74463,7 +74463,7 @@
               "WarehouseCode": 0.0011049650552033307
             },
             "coefficients": null,
-            "training_timestamp": "2025-11-20T17:15:01.561396"
+            "training_timestamp": "2025-11-23T14:24:58.138297"
           },
           "evaluation": {
             "model_name": "decision_tree_decision_tree_3",
@@ -93720,7 +93720,7 @@
               "n_folds": 5,
               "task_type": "regression",
               "model_name": "decision_tree_decision_tree_3",
-              "timestamp": "2025-11-20T17:15:01.634381"
+              "timestamp": "2025-11-23T14:24:58.175327"
             },
             "bias_variance": {
               "bias": 2308046.6096075615,
@@ -99214,7 +99214,7 @@
               "residual_diagnostics": "/Users/samuel/IDIS450/Project/reports/decision_tree_decision_tree_3_residual_diagnostics.png"
             },
             "cv_fold_performance_plot": null,
-            "evaluation_timestamp": "2025-11-20T17:15:02.719066"
+            "evaluation_timestamp": "2025-11-23T14:24:59.257295"
           },
           "warm_start": {
             "model_type": "decision_tree",
@@ -99234,7 +99234,7 @@
         },
         "random_forest": {
           "model_id": "random_forest_4",
-          "version": "model_random_forest_ea59527a81db",
+          "version": "model_random_forest_238d4c3bd7aa",
           "training": {
             "model_id": "random_forest_4",
             "model_type": "random_forest",
@@ -99251,7 +99251,7 @@
               "max_samples": null,
               "min_impurity_decrease": 0.0
             },
-            "training_time": 0.4227,
+            "training_time": 0.414734,
             "metrics": {
               "train_mse": 974095.2765443969,
               "train_rmse": 986.9626520514324,
@@ -99292,7 +99292,7 @@
               "WarehouseCode": 0.0031806249326427373
             },
             "coefficients": null,
-            "training_timestamp": "2025-11-20T17:15:06.687692"
+            "training_timestamp": "2025-11-23T14:25:03.335762"
           },
           "evaluation": {
             "model_name": "random_forest_random_forest_4",
@@ -118549,7 +118549,7 @@
               "n_folds": 5,
               "task_type": "regression",
               "model_name": "random_forest_random_forest_4",
-              "timestamp": "2025-11-20T17:15:08.529325"
+              "timestamp": "2025-11-23T14:25:05.153511"
             },
             "bias_variance": {
               "bias": 2065784.856342414,
@@ -124037,7 +124037,7 @@
               "residual_diagnostics": "/Users/samuel/IDIS450/Project/reports/random_forest_random_forest_4_residual_diagnostics.png"
             },
             "cv_fold_performance_plot": null,
-            "evaluation_timestamp": "2025-11-20T17:15:41.356824"
+            "evaluation_timestamp": "2025-11-23T14:25:37.471907"
           },
           "warm_start": {
             "model_type": "random_forest",
@@ -124060,7 +124060,7 @@
         },
         "KNN": {
           "model_id": "KNN_5",
-          "version": "model_KNN_54a220b08090",
+          "version": "model_KNN_e2f94e5907a1",
           "training": {
             "model_id": "KNN_5",
             "model_type": "KNN",
@@ -124072,7 +124072,7 @@
               "algorithm": "auto",
               "p": 1
             },
-            "training_time": 0.001472,
+            "training_time": 0.001481,
             "metrics": {
               "train_mse": 6024031.076466182,
               "train_rmse": 2454.390163862743,
@@ -124101,7 +124101,7 @@
             ],
             "feature_importance": null,
             "coefficients": null,
-            "training_timestamp": "2025-11-20T17:15:43.295795",
+            "training_timestamp": "2025-11-23T14:25:39.484280",
             "knn_validation": {
               "optimal_k": 3,
               "cv_score": 8040551.035204413,
@@ -143387,7 +143387,7 @@
               "n_folds": 5,
               "task_type": "regression",
               "model_name": "KNN_KNN_5",
-              "timestamp": "2025-11-20T17:15:43.532343"
+              "timestamp": "2025-11-23T14:25:39.715993"
             },
             "bias_variance": {
               "bias": 7205410.36747706,
@@ -148878,7 +148878,7 @@
               "residual_diagnostics": "/Users/samuel/IDIS450/Project/reports/KNN_KNN_5_residual_diagnostics.png"
             },
             "cv_fold_performance_plot": null,
-            "evaluation_timestamp": "2025-11-20T17:15:47.669710"
+            "evaluation_timestamp": "2025-11-23T14:25:44.164317"
           },
           "warm_start": {
             "model_type": "KNN",
@@ -149157,7 +149157,7 @@
           }
         },
         "comprehensive_comparison": {
-          "comparison_timestamp": "2025-11-20T17:16:07.302603",
+          "comparison_timestamp": "2025-11-23T14:26:03.372220",
           "models_compared": [
             "linear",
             "ridge",
@@ -149182,7 +149182,7 @@
               "rmse_score": 1487.8615808288403,
               "rank_by_r2": 1,
               "rank_by_rmse": 1,
-              "training_time": 0.084585,
+              "training_time": 0.085874,
               "is_knn": false
             },
             {
@@ -149191,7 +149191,7 @@
               "rmse_score": 1799.074876189803,
               "rank_by_r2": 2,
               "rank_by_rmse": 2,
-              "training_time": 0.00192,
+              "training_time": 0.001858,
               "is_knn": false
             },
             {
@@ -149200,7 +149200,7 @@
               "rmse_score": 3457.664859127549,
               "rank_by_r2": 3,
               "rank_by_rmse": 3,
-              "training_time": 0.00058,
+              "training_time": 0.000512,
               "is_knn": true
             },
             {
@@ -149209,7 +149209,7 @@
               "rmse_score": 6543.882795085581,
               "rank_by_r2": 4,
               "rank_by_rmse": 4,
-              "training_time": 0.000557,
+              "training_time": 0.000498,
               "is_knn": false
             },
             {
@@ -149218,7 +149218,7 @@
               "rmse_score": 6592.235483490262,
               "rank_by_r2": 5,
               "rank_by_rmse": 5,
-              "training_time": 0.002115,
+              "training_time": 0.002374,
               "is_knn": false
             },
             {
@@ -149227,7 +149227,7 @@
               "rmse_score": 6598.26195290097,
               "rank_by_r2": 6,
               "rank_by_rmse": 6,
-              "training_time": 0.000643,
+              "training_time": 0.000568,
               "is_knn": false
             }
           ],
@@ -149247,13 +149247,13 @@
             "knn_r2_score": 0.8474979657346007,
             "knn_rmse_score": 3457.664859127549,
             "knn_rank": 3,
-            "knn_training_time": 0.00058,
+            "knn_training_time": 0.000512,
             "performance_vs_best": {
               "r2_difference": -0.1242639711908512,
               "percentage_of_best": 87.21250890068727,
               "better_than_best": false
             },
-            "speed_advantage": 25.97701149425287,
+            "speed_advantage": 29.845052083333336,
             "knn_strengths": [
               "Competitive predictive performance",
               "Fast training time"
@@ -151919,7 +151919,7 @@
                 }
               ]
             },
-            "analysis_timestamp": "2025-11-20T17:16:07.386057"
+            "analysis_timestamp": "2025-11-23T14:26:03.497485"
           },
           "error_analysis": {
             "error_statistics": {

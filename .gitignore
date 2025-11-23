@@ -19,3 +19,15 @@ architecture_diagram.dot
 !IMPORTANT.md
 
 CLAUDE.md
+
+cache
+
+./__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+.venv
+__pycache__
+.vscode

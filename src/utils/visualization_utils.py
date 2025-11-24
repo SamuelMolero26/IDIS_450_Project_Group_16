@@ -283,8 +283,8 @@ def create_model_comparison_plot(results_dict: Dict[str, Dict[str, float]],
     return fig
 
 def plot_shap_summary(shap_values: np.ndarray, feature_names: List[str],
-                     X_sample: pd.DataFrame, model_name: str,
-                     save_path: Optional[Path] = None) -> plt.Figure:
+                      X_sample: pd.DataFrame, model_name: str,
+                      save_path: Optional[Path] = None) -> plt.Figure:
     """
     Plot SHAP summary plot.
 
@@ -301,11 +301,11 @@ def plot_shap_summary(shap_values: np.ndarray, feature_names: List[str],
     try:
         import shap
 
-        fig, ax = plt.subplots(figsize=(10, 8))
-
-        # Create summary plot
+        # Create summary plot without ax parameter (not supported in newer SHAP versions)
         shap.summary_plot(shap_values, X_sample, feature_names=feature_names,
-                         show=False, ax=ax)
+                          show=False)
+        fig = plt.gcf()  # Get current figure
+        ax = plt.gca()  # Get current axis
         ax.set_title(f'SHAP Summary Plot - {model_name}')
 
         plt.tight_layout()

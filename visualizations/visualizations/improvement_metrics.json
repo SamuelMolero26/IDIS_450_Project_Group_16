@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-11-23T18:22:56.289960",
+  "original_bias": {
+    "Linear": 12369264,
+    "Decision Tree": 125520,
+    "Random Forest": 132987
+  },
+  "improved_metrics": {
+    "Random Forest": {
+      "train_r2": 1.0,
+      "test_r2": 0.9859499933619548,
+      "train_rmse": 2563.735305258463,
+      "test_rmse": 2698.6687423773296,
+      "bias_squared": 7282812.981084438,
+      "variance": 102323.57072787834,
+      "overfitting_gap": 0.014050006638045232
+    },
+    "Decision Tree": {
+      "train_r2": 1.0,
+      "test_r2": 0.9760018585543128,
+      "train_rmse": 1544.579838971589,
+      "test_rmse": 1625.8735147069358,
+      "bias_squared": 2643464.6858254843,
+      "variance": 63438.23943711915,
+      "overfitting_gap": 0.023998141445687238
+    },
+    "Linear Regression": {
+      "train_r2": 0.9207590637758827,
+      "test_r2": 0.8769133940722692,
+      "train_rmse": 2710.252653892376,
+      "test_rmse": 2852.8975304130277,
+      "bias_squared": 8139024.319036752,
+      "variance": 356860.972002163,
+      "overfitting_gap": 0.04384566970361348
+    },
+    "Lasso": {
+      "train_r2": 0.9207559123494644,
+      "test_r2": 0.8769103927137756,
+      "train_rmse": 2710.260145286765,
+      "test_rmse": 2852.9054160913315,
+      "bias_squared": 8139069.3131632535,
+      "variance": 356861.72338653187,
+      "overfitting_gap": 0.043845519635688834
+    },
+    "Ridge": {
+      "train_r2": 0.9207509839387374,
+      "test_r2": 0.8769056989892737,
+      "train_rmse": 2710.252669620657,
+      "test_rmse": 2852.8975469691127,
+      "bias_squared": 8139024.41350238,
+      "variance": 356857.84462065366,
+      "overfitting_gap": 0.043845284949463714
+    },
+    "KNN": {
+      "train_r2": 0.9011123849639803,
+      "test_r2": 0.8582022713942669,
+      "train_rmse": 0.0,
+      "test_rmse": 0,
+      "bias_squared": 0,
+      "variance": 0.0,
+      "overfitting_gap": 0.042910113569713415
+    },
+    "ANN": {
+      "train_r2": 0.9075712567661357,
+      "test_r2": 0.9169308104523217,
+      "train_rmse": 2322.336179139259,
+      "test_rmse": 2305.882448458332,
+      "bias_squared": 5317093.866108192,
+      "variance": 49765.625494329994,
+      "overfitting_gap": -0.009359553686186017
+    }
+  },
+  "best_model": "Random Forest",
+  "average_bias_reduction": -34.602953099121784
+}

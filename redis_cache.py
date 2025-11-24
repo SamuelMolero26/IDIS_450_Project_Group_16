@@ -136,6 +136,14 @@ class RedisCache:
         elif isinstance(obj, (datetime)):
             return obj.isoformat()
 
+        # Handle bytes objects
+        elif isinstance(obj, bytes):
+            return obj.decode('utf-8', errors='ignore')
+
+        # Handle warning objects (like IntervalConvergenceWarning)
+        elif hasattr(obj, '__class__') and 'Warning' in obj.__class__.__name__:
+            return str(obj)
+
         # For custom objects with __dict__
         elif hasattr(obj, '__dict__'):
             try:

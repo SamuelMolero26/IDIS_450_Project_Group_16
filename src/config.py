@@ -97,15 +97,26 @@ MODEL_CONFIGS = {
         'n_jobs': [-1]  # Use all available cores
     },
     
-    'KNN': {
-        'n_neighbors': [1, 3, 5, 7, 9, 11, 15, 20, 25, 30, 35, 40, 50],
-        'metric': ['euclidean', 'manhattan', 'minkowski', 'chebyshev', 'cosine'],
-        'weights': ['uniform', 'distance'],
-        'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
-        'p': [1, 2, 3, 4, 5],  # Minkowski parameter
-        'leaf_size': [10, 20, 30, 40, 50],  # For ball_tree and kd_tree
-        'n_jobs': [-1]  # Use all available cores
-    },
+    'KNN': [
+        # Parameter combinations for metrics compatible with tree-based algorithms
+        {
+            'n_neighbors': [1, 3, 5, 7, 9, 11, 15, 20, 25, 30, 35, 40, 50],
+            'metric': ['euclidean', 'manhattan', 'minkowski', 'chebyshev'],
+            'weights': ['uniform', 'distance'],
+            'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+            'p': [1, 2, 3, 4, 5],  # Minkowski parameter
+            'leaf_size': [10, 20, 30, 40, 50],  # For ball_tree and kd_tree
+            'n_jobs': [-1]  # Use all available cores
+        },
+        # Parameter combinations for cosine metric (only compatible with brute algorithm)
+        {
+            'n_neighbors': [1, 3, 5, 7, 9, 11, 15, 20, 25, 30, 35, 40, 50],
+            'metric': ['cosine'],
+            'weights': ['uniform', 'distance'],
+            'algorithm': ['brute'],  # Only brute is compatible with cosine
+            'n_jobs': [-1]  # Use all available cores
+        }
+    ],
     'logistic': {
         'C': [0.01, 0.1, 1.0, 10.0, 100.0],
         'penalty': ['l1', 'l2', None],

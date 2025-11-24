@@ -214,8 +214,8 @@ class AdvancedModelingPipeline:
             y_train = data_results['y_train']
             y_test = data_results['y_test']
 
-            # Default model types to train (now includes KNN and ElasticNet)
-            model_types = experiment_config.get('model_types', ['linear', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'random_forest', 'KNN']) if experiment_config else ['linear', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'random_forest', 'KNN']
+            # Default model types to train (now includes KNN, ElasticNet, and ANN)
+            model_types = experiment_config.get('model_types', ['linear', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'random_forest', 'KNN', 'ann']) if experiment_config else ['linear', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'random_forest', 'KNN', 'ann']
 
             model_results = {}
             evaluation_results = {}

@@ -8974,3 +8974,438 @@
 2025-11-23 18:27:28,228 - model - INFO - Generated model comparison visualizations: ['model_comparison', 'knn_comparison']
 2025-11-23 18:27:28,229 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251123_182728.json
 2025-11-23 18:27:28,229 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9859)
+2025-11-24 17:44:43,412 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-24 17:44:43,413 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-8931255580700212479
+2025-11-24 17:44:43,416 - model - INFO - Using cached results for linear
+2025-11-24 17:44:43,416 - model - INFO - Model object not cached, retraining linear
+2025-11-24 17:44:43,417 - model - INFO - Shape validation passed for linear: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:44:43,417 - model - INFO - Training linear model with unified pipeline: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-24 17:44:43,424 - model - INFO - Stored trained model with ID: linear_0
+2025-11-24 17:44:44,416 - model - INFO - Cached model object for linear_0
+2025-11-24 17:44:44,417 - model - INFO - Model linear trained successfully with unified pipeline. CV Score: 8284263.3244
+2025-11-24 17:44:47,882 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-24 17:44:47,882 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.0001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('solver', 'auto'), ('tol', 0.0001)]_-8931255580700212479
+2025-11-24 17:44:47,882 - model - INFO - Using cached results for ridge
+2025-11-24 17:44:47,883 - model - INFO - Model object not cached, retraining ridge
+2025-11-24 17:44:47,885 - model - INFO - Shape validation passed for ridge: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:44:47,885 - model - INFO - Training ridge model with unified pipeline: {'alpha': 0.0001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto', 'max_iter': 1000, 'tol': 0.0001}
+2025-11-24 17:44:47,893 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-24 17:44:48,597 - model - INFO - Cached model object for ridge_1
+2025-11-24 17:44:48,597 - model - INFO - Model ridge trained successfully with unified pipeline. CV Score: 8284263.2980
+2025-11-24 17:44:51,515 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-24 17:44:51,515 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.0001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('precompute', True), ('selection', 'cyclic'), ('tol', 0.0001), ('warm_start', True)]_-8931255580700212479
+2025-11-24 17:44:51,516 - model - INFO - Using cached results for lasso
+2025-11-24 17:44:51,516 - model - INFO - Model object not cached, retraining lasso
+2025-11-24 17:44:51,516 - model - INFO - Shape validation passed for lasso: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:44:51,516 - model - INFO - Training lasso model with unified pipeline: {'alpha': 0.0001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000, 'tol': 0.0001, 'warm_start': True, 'precompute': True}
+2025-11-24 17:44:51,519 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-24 17:44:52,149 - model - INFO - Cached model object for lasso_2
+2025-11-24 17:44:52,149 - model - INFO - Model lasso trained successfully with unified pipeline. CV Score: 8284224.4972
+2025-11-24 17:44:54,951 - model - INFO - Training elastic_net with dataset size: 6357 samples, 11 features
+2025-11-24 17:44:54,951 - model - INFO - Checking cache for elastic_net with key: elastic_net_[('alpha', 0.001), ('fit_intercept', True), ('l1_ratio', 0.1), ('max_iter', 5000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-8931255580700212479
+2025-11-24 17:44:54,951 - model - INFO - Using cached results for elastic_net
+2025-11-24 17:44:54,951 - model - INFO - Model object not cached, retraining elastic_net
+2025-11-24 17:44:54,952 - model - INFO - Shape validation passed for elastic_net: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:44:54,952 - model - INFO - Training elastic_net model with unified pipeline: {'alpha': 0.001, 'l1_ratio': 0.1, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 5000}
+2025-11-24 17:44:55,065 - model - INFO - Stored trained model with ID: elastic_net_3
+2025-11-24 17:44:55,222 - model - INFO - Cached model object for elastic_net_3
+2025-11-24 17:44:55,222 - model - INFO - Model elastic_net trained successfully with unified pipeline. CV Score: 8283777.6654
+2025-11-24 17:45:06,548 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-24 17:45:06,548 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-8931255580700212479
+2025-11-24 17:45:06,550 - model - INFO - Using cached results for decision_tree
+2025-11-24 17:45:06,550 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-24 17:45:06,551 - model - INFO - Shape validation passed for decision_tree: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:45:06,551 - model - INFO - Training decision_tree model with unified pipeline: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-24 17:45:06,558 - model - INFO - Stored trained model with ID: decision_tree_4
+2025-11-24 17:45:20,504 - model - INFO - Applied cost complexity pruning with alpha=2.0367269256810454
+2025-11-24 17:45:20,515 - model - INFO - Cached model object for decision_tree_4
+2025-11-24 17:45:20,515 - model - INFO - Model decision_tree trained successfully with unified pipeline. CV Score: 6525824.0152
+2025-11-24 17:45:23,972 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-24 17:45:23,972 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 5), ('max_features', 'sqrt'), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 50), ('n_jobs', -1), ('oob_score', True), ('warm_start', True)]_-8931255580700212479
+2025-11-24 17:45:23,972 - model - INFO - Using cached results for random_forest
+2025-11-24 17:45:23,973 - model - INFO - Model object not cached, retraining random_forest
+2025-11-24 17:45:23,974 - model - INFO - Shape validation passed for random_forest: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:45:23,974 - model - INFO - Training random_forest model with unified pipeline: {'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'min_impurity_decrease': 0.0, 'oob_score': True, 'warm_start': True, 'n_jobs': -1}
+2025-11-24 17:45:24,033 - model - INFO - Stored trained model with ID: random_forest_5
+2025-11-24 17:45:24,338 - model - INFO - Cached model object for random_forest_5
+2025-11-24 17:45:24,339 - model - INFO - Model random_forest trained successfully with unified pipeline. CV Score: 6553503.1636
+2025-11-24 17:45:34,403 - model - INFO - Training ann with dataset size: 6357 samples, 11 features
+2025-11-24 17:45:34,403 - model - INFO - Checking cache for ann with key: ann_[('activation', 'relu'), ('alpha', 0.0001), ('batch_size', 'auto'), ('early_stopping', True), ('hidden_layer_sizes', (50,)), ('learning_rate', 'constant'), ('learning_rate_init', 0.001), ('max_iter', 500), ('n_iter_no_change', 10), ('solver', 'adam'), ('validation_fraction', 0.1)]_-8931255580700212479
+2025-11-24 17:45:34,404 - model - INFO - Using cached results for ann
+2025-11-24 17:45:34,404 - model - INFO - Model object not cached, retraining ann
+2025-11-24 17:45:34,406 - model - INFO - Shape validation passed for ann: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 17:45:34,406 - model - INFO - Training ann model with unified pipeline: {'hidden_layer_sizes': (50,), 'activation': 'relu', 'solver': 'adam', 'alpha': 0.0001, 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'max_iter': 500, 'batch_size': 'auto', 'early_stopping': True, 'validation_fraction': 0.1, 'n_iter_no_change': 10}
+2025-11-24 17:45:36,174 - model - INFO - Stored trained model with ID: ann_6
+2025-11-24 17:45:38,068 - model - INFO - Cached model object for ann_6
+2025-11-24 17:45:38,068 - model - INFO - Model ann trained successfully with unified pipeline. CV Score: 6394896.8558
+2025-11-24 17:47:48,759 - model - INFO - Model linear_0 evaluation completed. Score: 0.8728
+2025-11-24 17:47:48,760 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8728
+2025-11-24 17:47:48,761 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8728
+2025-11-24 17:47:48,762 - model - INFO - Model elastic_net_3 evaluation completed. Score: 0.8728
+2025-11-24 17:47:48,762 - model - INFO - Model decision_tree_4 evaluation completed. Score: 0.9587
+2025-11-24 17:47:48,776 - model - INFO - Model random_forest_5 evaluation completed. Score: 0.8862
+2025-11-24 17:47:48,777 - model - INFO - Model ann_6 evaluation completed. Score: 0.9169
+2025-11-24 17:47:48,777 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-24 17:47:48,777 - model - INFO - Training and evaluating linear
+2025-11-24 17:47:48,777 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-24 17:47:48,777 - model - INFO - Checking cache for linear with key: linear_[]_-8931255580700212479
+2025-11-24 17:47:48,778 - model - INFO - Using cached results for linear
+2025-11-24 17:47:48,778 - model - INFO - Model object not cached, retraining linear
+2025-11-24 17:47:48,779 - model - INFO - Shape validation passed for linear: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 17:47:48,779 - model - INFO - Training linear model with unified pipeline: {}
+2025-11-24 17:47:48,780 - model - INFO - Stored trained model with ID: linear_7
+2025-11-24 17:47:48,827 - model - INFO - Cached model object for linear_7
+2025-11-24 17:47:48,827 - model - INFO - Model linear trained successfully with unified pipeline. CV Score: 8112377.9589
+2025-11-24 17:47:49,651 - model - INFO - Completed evaluation for linear: R² = 0.8769
+2025-11-24 17:47:49,651 - model - INFO - Training and evaluating ridge
+2025-11-24 17:47:49,651 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-24 17:47:49,651 - model - INFO - Checking cache for ridge with key: ridge_[]_-8931255580700212479
+2025-11-24 17:47:49,652 - model - INFO - Using cached results for ridge
+2025-11-24 17:47:49,652 - model - INFO - Model object not cached, retraining ridge
+2025-11-24 17:47:49,652 - model - INFO - Shape validation passed for ridge: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 17:47:49,652 - model - INFO - Training ridge model with unified pipeline: {}
+2025-11-24 17:47:49,653 - model - INFO - Stored trained model with ID: ridge_8
+2025-11-24 17:47:49,678 - model - INFO - Cached model object for ridge_8
+2025-11-24 17:47:49,678 - model - INFO - Model ridge trained successfully with unified pipeline. CV Score: 8108286.2033
+2025-11-24 17:47:50,478 - model - INFO - Completed evaluation for ridge: R² = 0.8769
+2025-11-24 17:47:50,478 - model - INFO - Training and evaluating lasso
+2025-11-24 17:47:50,479 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-24 17:47:50,479 - model - INFO - Checking cache for lasso with key: lasso_[]_-8931255580700212479
+2025-11-24 17:47:50,479 - model - INFO - Using cached results for lasso
+2025-11-24 17:47:50,479 - model - INFO - Model object not cached, retraining lasso
+2025-11-24 17:47:50,479 - model - INFO - Shape validation passed for lasso: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 17:47:50,479 - model - INFO - Training lasso model with unified pipeline: {}
+2025-11-24 17:47:50,493 - model - INFO - Stored trained model with ID: lasso_9
+2025-11-24 17:47:50,529 - model - INFO - Cached model object for lasso_9
+2025-11-24 17:47:50,529 - model - INFO - Model lasso trained successfully with unified pipeline. CV Score: 8113690.9716
+2025-11-24 17:47:52,145 - model - INFO - Completed evaluation for lasso: R² = 0.8769
+2025-11-24 17:47:52,145 - model - INFO - Training and evaluating decision_tree
+2025-11-24 17:47:52,145 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-24 17:47:52,145 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-8931255580700212479
+2025-11-24 17:47:52,146 - model - INFO - Using cached results for decision_tree
+2025-11-24 17:47:52,146 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-24 17:47:52,146 - model - INFO - Shape validation passed for decision_tree: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 17:47:52,146 - model - INFO - Training decision_tree model with unified pipeline: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-24 17:47:52,148 - model - INFO - Stored trained model with ID: decision_tree_10
+2025-11-24 17:47:53,089 - model - INFO - Applied cost complexity pruning with alpha=58.489213754714655
+2025-11-24 17:47:53,097 - model - INFO - Cached model object for decision_tree_10
+2025-11-24 17:47:53,098 - model - INFO - Model decision_tree trained successfully with unified pipeline. CV Score: 9101001.1883
+2025-11-24 17:47:54,006 - model - INFO - Completed evaluation for decision_tree: R² = 0.9760
+2025-11-24 17:47:54,007 - model - INFO - Training and evaluating random_forest
+2025-11-24 17:47:54,007 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-24 17:47:54,007 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-8931255580700212479
+2025-11-24 17:47:54,007 - model - INFO - Using cached results for random_forest
+2025-11-24 17:47:54,007 - model - INFO - Model object not cached, retraining random_forest
+2025-11-24 17:47:54,007 - model - INFO - Shape validation passed for random_forest: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 17:47:54,007 - model - INFO - Training random_forest model with unified pipeline: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True}
+2025-11-24 17:47:54,124 - model - INFO - Stored trained model with ID: random_forest_11
+2025-11-24 17:47:54,480 - model - INFO - Cached model object for random_forest_11
+2025-11-24 17:47:54,481 - model - INFO - Model random_forest trained successfully with unified pipeline. CV Score: 2808193.0095
+2025-11-24 17:48:05,594 - model - INFO - Completed evaluation for random_forest: R² = 0.9859
+2025-11-24 17:48:05,595 - model - INFO - Training and evaluating KNN
+2025-11-24 17:48:05,595 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-24 17:49:56,768 - model - INFO - Tuning completed. Best score: 7797134.3659, Overfitting risk: low
+2025-11-24 17:49:56,769 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-24 17:49:56,769 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'brute'), ('metric', 'cosine'), ('n_jobs', -1), ('n_neighbors', 11), ('weights', 'distance')]_-8931255580700212479
+2025-11-24 17:49:56,771 - model - INFO - Using cached results for KNN
+2025-11-24 17:49:56,771 - model - INFO - Model object not cached, retraining KNN
+2025-11-24 17:49:56,773 - model - INFO - Shape validation passed for KNN: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 17:49:56,773 - model - INFO - Training KNN model with unified pipeline: {'algorithm': 'brute', 'metric': 'cosine', 'n_jobs': -1, 'n_neighbors': 11, 'weights': 'distance'}
+2025-11-24 17:49:56,775 - model - INFO - Stored trained model with ID: KNN_12
+2025-11-24 17:49:56,847 - model - INFO - KNN Validation: Optimal K=11, CV Score=7392098.7828
+2025-11-24 17:49:56,852 - model - INFO - Cached model object for KNN_12
+2025-11-24 17:49:56,852 - model - INFO - Model KNN trained successfully with unified pipeline. CV Score: 7392098.7828
+2025-11-24 17:50:01,359 - model - INFO - Completed evaluation for KNN: R² = 0.8582
+2025-11-24 17:50:01,856 - model - INFO - Generated model comparison visualizations: ['model_comparison', 'knn_comparison']
+2025-11-24 17:50:01,856 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251124_175001.json
+2025-11-24 17:50:01,856 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9859)
+2025-11-24 18:28:11,814 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-24 18:28:11,815 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_1920569289946737407
+2025-11-24 18:28:11,816 - model - INFO - Using cached results for linear
+2025-11-24 18:28:11,816 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:28:11,817 - model - INFO - Shape validation passed for linear: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:28:11,817 - model - INFO - Training linear model with unified pipeline: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-24 18:28:11,825 - model - INFO - Stored trained model with ID: linear_0
+2025-11-24 18:28:13,374 - model - INFO - Cached model object for linear_0
+2025-11-24 18:28:13,374 - model - INFO - Model linear trained successfully with unified pipeline. CV Score: 8284263.3244
+2025-11-24 18:28:17,120 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-24 18:28:17,121 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.0001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('solver', 'auto'), ('tol', 0.0001)]_1920569289946737407
+2025-11-24 18:28:17,123 - model - INFO - Using cached results for ridge
+2025-11-24 18:28:17,123 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:28:17,126 - model - INFO - Shape validation passed for ridge: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:28:17,126 - model - INFO - Training ridge model with unified pipeline: {'alpha': 0.0001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto', 'max_iter': 1000, 'tol': 0.0001}
+2025-11-24 18:28:17,132 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-24 18:28:17,828 - model - INFO - Cached model object for ridge_1
+2025-11-24 18:28:17,828 - model - INFO - Model ridge trained successfully with unified pipeline. CV Score: 8284263.2980
+2025-11-24 18:28:21,246 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-24 18:28:21,247 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.0001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('precompute', True), ('selection', 'cyclic'), ('tol', 0.0001), ('warm_start', True)]_1920569289946737407
+2025-11-24 18:28:21,247 - model - INFO - Using cached results for lasso
+2025-11-24 18:28:21,248 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:28:21,249 - model - INFO - Shape validation passed for lasso: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:28:21,249 - model - INFO - Training lasso model with unified pipeline: {'alpha': 0.0001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000, 'tol': 0.0001, 'warm_start': True, 'precompute': True}
+2025-11-24 18:28:21,254 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-24 18:28:21,927 - model - INFO - Cached model object for lasso_2
+2025-11-24 18:28:21,927 - model - INFO - Model lasso trained successfully with unified pipeline. CV Score: 8284224.4972
+2025-11-24 18:28:24,869 - model - INFO - Training elastic_net with dataset size: 6357 samples, 11 features
+2025-11-24 18:28:24,870 - model - INFO - Checking cache for elastic_net with key: elastic_net_[('alpha', 0.001), ('fit_intercept', True), ('l1_ratio', 0.1), ('max_iter', 5000), ('polynomial_degree', 1), ('selection', 'cyclic')]_1920569289946737407
+2025-11-24 18:28:24,870 - model - INFO - Using cached results for elastic_net
+2025-11-24 18:28:24,870 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:28:24,870 - model - INFO - Shape validation passed for elastic_net: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:28:24,871 - model - INFO - Training elastic_net model with unified pipeline: {'alpha': 0.001, 'l1_ratio': 0.1, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 5000}
+2025-11-24 18:28:24,980 - model - INFO - Stored trained model with ID: elastic_net_3
+2025-11-24 18:28:25,738 - model - INFO - Cached model object for elastic_net_3
+2025-11-24 18:28:25,738 - model - INFO - Model elastic_net trained successfully with unified pipeline. CV Score: 8283777.6654
+2025-11-24 18:28:37,177 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-24 18:28:37,178 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_1920569289946737407
+2025-11-24 18:28:37,181 - model - INFO - Using cached results for decision_tree
+2025-11-24 18:28:37,184 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:28:37,185 - model - INFO - Shape validation passed for decision_tree: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:28:37,185 - model - INFO - Training decision_tree model with unified pipeline: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-24 18:28:37,193 - model - INFO - Stored trained model with ID: decision_tree_4
+2025-11-24 18:28:50,269 - model - INFO - Applied cost complexity pruning with alpha=2.0367269256810454
+2025-11-24 18:28:50,274 - model - INFO - Cached model object for decision_tree_4
+2025-11-24 18:28:50,275 - model - INFO - Model decision_tree trained successfully with unified pipeline. CV Score: 6525824.0152
+2025-11-24 18:28:53,877 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-24 18:28:53,877 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 5), ('max_features', 'sqrt'), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 50), ('n_jobs', -1), ('oob_score', True), ('warm_start', True)]_1920569289946737407
+2025-11-24 18:28:53,879 - model - INFO - Using cached results for random_forest
+2025-11-24 18:28:53,887 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:28:53,888 - model - INFO - Shape validation passed for random_forest: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:28:53,889 - model - INFO - Training random_forest model with unified pipeline: {'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'min_impurity_decrease': 0.0, 'oob_score': True, 'warm_start': True, 'n_jobs': -1}
+2025-11-24 18:28:53,947 - model - INFO - Stored trained model with ID: random_forest_5
+2025-11-24 18:28:54,326 - model - INFO - Cached model object for random_forest_5
+2025-11-24 18:28:54,327 - model - INFO - Model random_forest trained successfully with unified pipeline. CV Score: 6553503.1636
+2025-11-24 18:29:04,647 - model - INFO - Training ann with dataset size: 6357 samples, 11 features
+2025-11-24 18:29:04,648 - model - INFO - Checking cache for ann with key: ann_[('activation', 'relu'), ('alpha', 0.0001), ('batch_size', 'auto'), ('early_stopping', True), ('hidden_layer_sizes', (50,)), ('learning_rate', 'constant'), ('learning_rate_init', 0.001), ('max_iter', 500), ('n_iter_no_change', 10), ('solver', 'adam'), ('validation_fraction', 0.1)]_1920569289946737407
+2025-11-24 18:29:04,650 - model - INFO - Using cached results for ann
+2025-11-24 18:29:04,651 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:29:04,654 - model - INFO - Shape validation passed for ann: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-24 18:29:04,654 - model - INFO - Training ann model with unified pipeline: {'hidden_layer_sizes': (50,), 'activation': 'relu', 'solver': 'adam', 'alpha': 0.0001, 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'max_iter': 500, 'batch_size': 'auto', 'early_stopping': True, 'validation_fraction': 0.1, 'n_iter_no_change': 10}
+2025-11-24 18:29:06,484 - model - INFO - Stored trained model with ID: ann_6
+2025-11-24 18:29:08,458 - model - INFO - Cached model object for ann_6
+2025-11-24 18:29:08,458 - model - INFO - Model ann trained successfully with unified pipeline. CV Score: 6394896.8558
+2025-11-24 18:31:23,677 - model - INFO - Model linear_0 evaluation completed. Score: 0.8728
+2025-11-24 18:31:23,678 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8728
+2025-11-24 18:31:23,679 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8728
+2025-11-24 18:31:23,680 - model - INFO - Model elastic_net_3 evaluation completed. Score: 0.8728
+2025-11-24 18:31:23,681 - model - INFO - Model decision_tree_4 evaluation completed. Score: 0.9587
+2025-11-24 18:31:23,696 - model - INFO - Model random_forest_5 evaluation completed. Score: 0.8862
+2025-11-24 18:31:23,697 - model - INFO - Model ann_6 evaluation completed. Score: 0.9169
+2025-11-24 18:31:23,698 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-24 18:31:23,698 - model - INFO - Training and evaluating linear
+2025-11-24 18:31:23,698 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-24 18:31:23,698 - model - INFO - Checking cache for linear with key: linear_[]_1920569289946737407
+2025-11-24 18:31:23,698 - model - INFO - Using cached results for linear
+2025-11-24 18:31:23,699 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:31:23,699 - model - INFO - Shape validation passed for linear: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 18:31:23,699 - model - INFO - Training linear model with unified pipeline: {}
+2025-11-24 18:31:23,701 - model - INFO - Stored trained model with ID: linear_7
+2025-11-24 18:31:24,847 - model - INFO - Cached model object for linear_7
+2025-11-24 18:31:24,847 - model - INFO - Model linear trained successfully with unified pipeline. CV Score: 8112377.9589
+2025-11-24 18:31:25,909 - model - INFO - Completed evaluation for linear: R² = 0.8769
+2025-11-24 18:31:25,910 - model - INFO - Training and evaluating ridge
+2025-11-24 18:31:25,910 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-24 18:31:25,910 - model - INFO - Checking cache for ridge with key: ridge_[]_1920569289946737407
+2025-11-24 18:31:25,912 - model - INFO - Using cached results for ridge
+2025-11-24 18:31:25,912 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:31:25,914 - model - INFO - Shape validation passed for ridge: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 18:31:25,914 - model - INFO - Training ridge model with unified pipeline: {}
+2025-11-24 18:31:25,918 - model - INFO - Stored trained model with ID: ridge_8
+2025-11-24 18:31:25,978 - model - INFO - Cached model object for ridge_8
+2025-11-24 18:31:25,978 - model - INFO - Model ridge trained successfully with unified pipeline. CV Score: 8108286.2033
+2025-11-24 18:31:26,962 - model - INFO - Completed evaluation for ridge: R² = 0.8769
+2025-11-24 18:31:26,962 - model - INFO - Training and evaluating lasso
+2025-11-24 18:31:26,963 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-24 18:31:26,963 - model - INFO - Checking cache for lasso with key: lasso_[]_1920569289946737407
+2025-11-24 18:31:26,963 - model - INFO - Using cached results for lasso
+2025-11-24 18:31:26,963 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:31:26,965 - model - INFO - Shape validation passed for lasso: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 18:31:26,965 - model - INFO - Training lasso model with unified pipeline: {}
+2025-11-24 18:31:26,979 - model - INFO - Stored trained model with ID: lasso_9
+2025-11-24 18:31:27,047 - model - INFO - Cached model object for lasso_9
+2025-11-24 18:31:27,047 - model - INFO - Model lasso trained successfully with unified pipeline. CV Score: 8113690.9716
+2025-11-24 18:31:28,929 - model - INFO - Completed evaluation for lasso: R² = 0.8769
+2025-11-24 18:31:28,929 - model - INFO - Training and evaluating decision_tree
+2025-11-24 18:31:28,929 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-24 18:31:28,929 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_1920569289946737407
+2025-11-24 18:31:28,931 - model - INFO - Using cached results for decision_tree
+2025-11-24 18:31:28,939 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:31:28,940 - model - INFO - Shape validation passed for decision_tree: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 18:31:28,940 - model - INFO - Training decision_tree model with unified pipeline: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-24 18:31:28,942 - model - INFO - Stored trained model with ID: decision_tree_10
+2025-11-24 18:31:30,053 - model - INFO - Applied cost complexity pruning with alpha=58.489213754714655
+2025-11-24 18:31:30,057 - model - INFO - Cached model object for decision_tree_10
+2025-11-24 18:31:30,057 - model - INFO - Model decision_tree trained successfully with unified pipeline. CV Score: 9101001.1883
+2025-11-24 18:31:31,076 - model - INFO - Completed evaluation for decision_tree: R² = 0.9760
+2025-11-24 18:31:31,076 - model - INFO - Training and evaluating random_forest
+2025-11-24 18:31:31,076 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-24 18:31:31,076 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_1920569289946737407
+2025-11-24 18:31:31,078 - model - INFO - Using cached results for random_forest
+2025-11-24 18:31:31,195 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:31:31,196 - model - INFO - Shape validation passed for random_forest: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 18:31:31,196 - model - INFO - Training random_forest model with unified pipeline: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True}
+2025-11-24 18:31:31,336 - model - INFO - Stored trained model with ID: random_forest_11
+2025-11-24 18:31:31,629 - model - INFO - Cached model object for random_forest_11
+2025-11-24 18:31:31,629 - model - INFO - Model random_forest trained successfully with unified pipeline. CV Score: 2808193.0095
+2025-11-24 18:31:43,241 - model - INFO - Completed evaluation for random_forest: R² = 0.9859
+2025-11-24 18:31:43,242 - model - INFO - Training and evaluating KNN
+2025-11-24 18:31:43,242 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-24 18:33:35,628 - model - INFO - Tuning completed. Best score: 7797134.3659, Overfitting risk: low
+2025-11-24 18:33:35,629 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-24 18:33:35,629 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'brute'), ('metric', 'cosine'), ('n_jobs', -1), ('n_neighbors', 11), ('weights', 'distance')]_1920569289946737407
+2025-11-24 18:33:35,630 - model - INFO - Using cached results for KNN
+2025-11-24 18:33:35,634 - model - WARNING - Failed to load cached model: module 'joblib' has no attribute 'loads', retraining
+2025-11-24 18:33:35,635 - model - INFO - Shape validation passed for KNN: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-24 18:33:35,635 - model - INFO - Training KNN model with unified pipeline: {'algorithm': 'brute', 'metric': 'cosine', 'n_jobs': -1, 'n_neighbors': 11, 'weights': 'distance'}
+2025-11-24 18:33:35,636 - model - INFO - Stored trained model with ID: KNN_12
+2025-11-24 18:33:35,717 - model - INFO - KNN Validation: Optimal K=11, CV Score=7392098.7828
+2025-11-24 18:33:35,720 - model - INFO - Cached model object for KNN_12
+2025-11-24 18:33:35,721 - model - INFO - Model KNN trained successfully with unified pipeline. CV Score: 7392098.7828
+2025-11-24 18:33:40,449 - model - INFO - Completed evaluation for KNN: R² = 0.8582
+2025-11-24 18:33:40,969 - model - INFO - Generated model comparison visualizations: ['model_comparison', 'knn_comparison']
+2025-11-24 18:33:40,969 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251124_183340.json
+2025-11-24 18:33:40,969 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9859)
+2025-11-25 07:50:17,610 - model - INFO - Training linear with dataset size: 6357 samples, 11 features
+2025-11-25 07:50:17,611 - model - INFO - Checking cache for linear with key: linear_[('fit_intercept', True), ('polynomial_degree', 1)]_-2122547554431397903
+2025-11-25 07:50:17,613 - model - INFO - Using cached results for linear
+2025-11-25 07:50:17,614 - model - INFO - Model object not cached, retraining linear
+2025-11-25 07:50:17,615 - model - INFO - Shape validation passed for linear: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:50:17,615 - model - INFO - Training linear model with unified pipeline: {'fit_intercept': True, 'polynomial_degree': 1}
+2025-11-25 07:50:17,627 - model - INFO - Stored trained model with ID: linear_0
+2025-11-25 07:50:18,662 - model - INFO - Cached model object for linear_0
+2025-11-25 07:50:18,663 - model - INFO - Model linear trained successfully with unified pipeline. CV Score: 8284263.3244
+2025-11-25 07:50:22,194 - model - INFO - Training ridge with dataset size: 6357 samples, 11 features
+2025-11-25 07:50:22,194 - model - INFO - Checking cache for ridge with key: ridge_[('alpha', 0.0001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('solver', 'auto'), ('tol', 0.0001)]_-2122547554431397903
+2025-11-25 07:50:22,195 - model - INFO - Using cached results for ridge
+2025-11-25 07:50:22,196 - model - INFO - Model object not cached, retraining ridge
+2025-11-25 07:50:22,196 - model - INFO - Shape validation passed for ridge: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:50:22,196 - model - INFO - Training ridge model with unified pipeline: {'alpha': 0.0001, 'fit_intercept': True, 'polynomial_degree': 1, 'solver': 'auto', 'max_iter': 1000, 'tol': 0.0001}
+2025-11-25 07:50:22,201 - model - INFO - Stored trained model with ID: ridge_1
+2025-11-25 07:50:23,028 - model - INFO - Cached model object for ridge_1
+2025-11-25 07:50:23,028 - model - INFO - Model ridge trained successfully with unified pipeline. CV Score: 8284263.2980
+2025-11-25 07:50:26,080 - model - INFO - Training lasso with dataset size: 6357 samples, 11 features
+2025-11-25 07:50:26,081 - model - INFO - Checking cache for lasso with key: lasso_[('alpha', 0.0001), ('fit_intercept', True), ('max_iter', 1000), ('polynomial_degree', 1), ('precompute', True), ('selection', 'cyclic'), ('tol', 0.0001), ('warm_start', True)]_-2122547554431397903
+2025-11-25 07:50:26,081 - model - INFO - Using cached results for lasso
+2025-11-25 07:50:26,081 - model - INFO - Model object not cached, retraining lasso
+2025-11-25 07:50:26,081 - model - INFO - Shape validation passed for lasso: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:50:26,081 - model - INFO - Training lasso model with unified pipeline: {'alpha': 0.0001, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 1000, 'tol': 0.0001, 'warm_start': True, 'precompute': True}
+2025-11-25 07:50:26,086 - model - INFO - Stored trained model with ID: lasso_2
+2025-11-25 07:50:26,237 - model - INFO - Cached model object for lasso_2
+2025-11-25 07:50:26,237 - model - INFO - Model lasso trained successfully with unified pipeline. CV Score: 8284224.4972
+2025-11-25 07:50:29,586 - model - INFO - Training elastic_net with dataset size: 6357 samples, 11 features
+2025-11-25 07:50:29,586 - model - INFO - Checking cache for elastic_net with key: elastic_net_[('alpha', 0.001), ('fit_intercept', True), ('l1_ratio', 0.1), ('max_iter', 5000), ('polynomial_degree', 1), ('selection', 'cyclic')]_-2122547554431397903
+2025-11-25 07:50:29,587 - model - INFO - Using cached results for elastic_net
+2025-11-25 07:50:29,587 - model - INFO - Model object not cached, retraining elastic_net
+2025-11-25 07:50:29,589 - model - INFO - Shape validation passed for elastic_net: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:50:29,589 - model - INFO - Training elastic_net model with unified pipeline: {'alpha': 0.001, 'l1_ratio': 0.1, 'fit_intercept': True, 'polynomial_degree': 1, 'selection': 'cyclic', 'max_iter': 5000}
+2025-11-25 07:50:29,701 - model - INFO - Stored trained model with ID: elastic_net_3
+2025-11-25 07:50:29,881 - model - INFO - Cached model object for elastic_net_3
+2025-11-25 07:50:29,881 - model - INFO - Model elastic_net trained successfully with unified pipeline. CV Score: 8283777.6654
+2025-11-25 07:50:41,283 - model - INFO - Training decision_tree with dataset size: 6357 samples, 11 features
+2025-11-25 07:50:41,284 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 1), ('min_samples_split', 2), ('splitter', 'best')]_-2122547554431397903
+2025-11-25 07:50:41,284 - model - INFO - Using cached results for decision_tree
+2025-11-25 07:50:41,284 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-25 07:50:41,285 - model - INFO - Shape validation passed for decision_tree: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:50:41,285 - model - INFO - Training decision_tree model with unified pipeline: {'max_depth': 10, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'splitter': 'best'}
+2025-11-25 07:50:41,292 - model - INFO - Stored trained model with ID: decision_tree_4
+2025-11-25 07:50:54,676 - model - INFO - Applied cost complexity pruning with alpha=2.0367269256810454
+2025-11-25 07:50:54,686 - model - INFO - Cached model object for decision_tree_4
+2025-11-25 07:50:54,686 - model - INFO - Model decision_tree trained successfully with unified pipeline. CV Score: 6525824.0152
+2025-11-25 07:50:58,220 - model - INFO - Training random_forest with dataset size: 6357 samples, 11 features
+2025-11-25 07:50:58,220 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 5), ('max_features', 'sqrt'), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 50), ('n_jobs', -1), ('oob_score', True), ('warm_start', True)]_-2122547554431397903
+2025-11-25 07:50:58,222 - model - INFO - Using cached results for random_forest
+2025-11-25 07:50:58,222 - model - INFO - Model object not cached, retraining random_forest
+2025-11-25 07:50:58,223 - model - INFO - Shape validation passed for random_forest: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:50:58,223 - model - INFO - Training random_forest model with unified pipeline: {'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'bootstrap': True, 'criterion': 'squared_error', 'ccp_alpha': 0.0, 'min_impurity_decrease': 0.0, 'oob_score': True, 'warm_start': True, 'n_jobs': -1}
+2025-11-25 07:50:58,292 - model - INFO - Stored trained model with ID: random_forest_5
+2025-11-25 07:50:58,656 - model - INFO - Cached model object for random_forest_5
+2025-11-25 07:50:58,656 - model - INFO - Model random_forest trained successfully with unified pipeline. CV Score: 6553503.1636
+2025-11-25 07:51:08,837 - model - INFO - Training ann with dataset size: 6357 samples, 11 features
+2025-11-25 07:51:08,838 - model - INFO - Checking cache for ann with key: ann_[('activation', 'relu'), ('alpha', 0.0001), ('batch_size', 'auto'), ('early_stopping', True), ('hidden_layer_sizes', (50,)), ('learning_rate', 'constant'), ('learning_rate_init', 0.001), ('max_iter', 500), ('n_iter_no_change', 10), ('solver', 'adam'), ('validation_fraction', 0.1)]_-2122547554431397903
+2025-11-25 07:51:08,838 - model - INFO - Using cached results for ann
+2025-11-25 07:51:08,838 - model - INFO - Model object not cached, retraining ann
+2025-11-25 07:51:08,839 - model - INFO - Shape validation passed for ann: X.shape=(6357, 11), y.shape=(6357,)
+2025-11-25 07:51:08,839 - model - INFO - Training ann model with unified pipeline: {'hidden_layer_sizes': (50,), 'activation': 'relu', 'solver': 'adam', 'alpha': 0.0001, 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'max_iter': 500, 'batch_size': 'auto', 'early_stopping': True, 'validation_fraction': 0.1, 'n_iter_no_change': 10}
+2025-11-25 07:51:10,606 - model - INFO - Stored trained model with ID: ann_6
+2025-11-25 07:51:12,241 - model - INFO - Cached model object for ann_6
+2025-11-25 07:51:12,241 - model - INFO - Model ann trained successfully with unified pipeline. CV Score: 6394896.8558
+2025-11-25 07:53:23,813 - model - INFO - Model linear_0 evaluation completed. Score: 0.8728
+2025-11-25 07:53:23,814 - model - INFO - Model ridge_1 evaluation completed. Score: 0.8728
+2025-11-25 07:53:23,815 - model - INFO - Model lasso_2 evaluation completed. Score: 0.8728
+2025-11-25 07:53:23,816 - model - INFO - Model elastic_net_3 evaluation completed. Score: 0.8728
+2025-11-25 07:53:23,816 - model - INFO - Model decision_tree_4 evaluation completed. Score: 0.9587
+2025-11-25 07:53:23,831 - model - INFO - Model random_forest_5 evaluation completed. Score: 0.8862
+2025-11-25 07:53:23,832 - model - INFO - Model ann_6 evaluation completed. Score: 0.9169
+2025-11-25 07:53:23,832 - model - INFO - Starting comprehensive model comparison with 6 models
+2025-11-25 07:53:23,832 - model - INFO - Training and evaluating linear
+2025-11-25 07:53:23,832 - model - INFO - Training linear with dataset size: 1590 samples, 11 features
+2025-11-25 07:53:23,832 - model - INFO - Checking cache for linear with key: linear_[]_-2122547554431397903
+2025-11-25 07:53:23,833 - model - INFO - Using cached results for linear
+2025-11-25 07:53:23,833 - model - INFO - Model object not cached, retraining linear
+2025-11-25 07:53:23,834 - model - INFO - Shape validation passed for linear: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-25 07:53:23,834 - model - INFO - Training linear model with unified pipeline: {}
+2025-11-25 07:53:23,835 - model - INFO - Stored trained model with ID: linear_7
+2025-11-25 07:53:23,884 - model - INFO - Cached model object for linear_7
+2025-11-25 07:53:23,884 - model - INFO - Model linear trained successfully with unified pipeline. CV Score: 8112377.9589
+2025-11-25 07:53:24,742 - model - INFO - Completed evaluation for linear: R² = 0.8769
+2025-11-25 07:53:24,742 - model - INFO - Training and evaluating ridge
+2025-11-25 07:53:24,742 - model - INFO - Training ridge with dataset size: 1590 samples, 11 features
+2025-11-25 07:53:24,742 - model - INFO - Checking cache for ridge with key: ridge_[]_-2122547554431397903
+2025-11-25 07:53:24,742 - model - INFO - Using cached results for ridge
+2025-11-25 07:53:24,743 - model - INFO - Model object not cached, retraining ridge
+2025-11-25 07:53:24,743 - model - INFO - Shape validation passed for ridge: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-25 07:53:24,743 - model - INFO - Training ridge model with unified pipeline: {}
+2025-11-25 07:53:24,744 - model - INFO - Stored trained model with ID: ridge_8
+2025-11-25 07:53:24,759 - model - INFO - Cached model object for ridge_8
+2025-11-25 07:53:24,759 - model - INFO - Model ridge trained successfully with unified pipeline. CV Score: 8108286.2033
+2025-11-25 07:53:25,564 - model - INFO - Completed evaluation for ridge: R² = 0.8769
+2025-11-25 07:53:25,564 - model - INFO - Training and evaluating lasso
+2025-11-25 07:53:25,564 - model - INFO - Training lasso with dataset size: 1590 samples, 11 features
+2025-11-25 07:53:25,564 - model - INFO - Checking cache for lasso with key: lasso_[]_-2122547554431397903
+2025-11-25 07:53:25,565 - model - INFO - Using cached results for lasso
+2025-11-25 07:53:25,565 - model - INFO - Model object not cached, retraining lasso
+2025-11-25 07:53:25,565 - model - INFO - Shape validation passed for lasso: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-25 07:53:25,565 - model - INFO - Training lasso model with unified pipeline: {}
+2025-11-25 07:53:25,578 - model - INFO - Stored trained model with ID: lasso_9
+2025-11-25 07:53:25,615 - model - INFO - Cached model object for lasso_9
+2025-11-25 07:53:25,615 - model - INFO - Model lasso trained successfully with unified pipeline. CV Score: 8113690.9716
+2025-11-25 07:53:27,245 - model - INFO - Completed evaluation for lasso: R² = 0.8769
+2025-11-25 07:53:27,245 - model - INFO - Training and evaluating decision_tree
+2025-11-25 07:53:27,246 - model - INFO - Training decision_tree with dataset size: 1590 samples, 11 features
+2025-11-25 07:53:27,246 - model - INFO - Checking cache for decision_tree with key: decision_tree_[('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5)]_-2122547554431397903
+2025-11-25 07:53:27,246 - model - INFO - Using cached results for decision_tree
+2025-11-25 07:53:27,246 - model - INFO - Model object not cached, retraining decision_tree
+2025-11-25 07:53:27,247 - model - INFO - Shape validation passed for decision_tree: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-25 07:53:27,247 - model - INFO - Training decision_tree model with unified pipeline: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt'}
+2025-11-25 07:53:27,249 - model - INFO - Stored trained model with ID: decision_tree_10
+2025-11-25 07:53:28,133 - model - INFO - Applied cost complexity pruning with alpha=58.489213754714655
+2025-11-25 07:53:28,140 - model - INFO - Cached model object for decision_tree_10
+2025-11-25 07:53:28,140 - model - INFO - Model decision_tree trained successfully with unified pipeline. CV Score: 9101001.1883
+2025-11-25 07:53:29,061 - model - INFO - Completed evaluation for decision_tree: R² = 0.9760
+2025-11-25 07:53:29,061 - model - INFO - Training and evaluating random_forest
+2025-11-25 07:53:29,061 - model - INFO - Training random_forest with dataset size: 1590 samples, 11 features
+2025-11-25 07:53:29,061 - model - INFO - Checking cache for random_forest with key: random_forest_[('bootstrap', True), ('max_depth', 10), ('max_features', 'sqrt'), ('min_samples_leaf', 2), ('min_samples_split', 5), ('n_estimators', 100)]_-2122547554431397903
+2025-11-25 07:53:29,061 - model - INFO - Using cached results for random_forest
+2025-11-25 07:53:29,062 - model - INFO - Model object not cached, retraining random_forest
+2025-11-25 07:53:29,062 - model - INFO - Shape validation passed for random_forest: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-25 07:53:29,062 - model - INFO - Training random_forest model with unified pipeline: {'max_depth': 10, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'n_estimators': 100, 'bootstrap': True}
+2025-11-25 07:53:29,179 - model - INFO - Stored trained model with ID: random_forest_11
+2025-11-25 07:53:29,459 - model - INFO - Cached model object for random_forest_11
+2025-11-25 07:53:29,459 - model - INFO - Model random_forest trained successfully with unified pipeline. CV Score: 2808193.0095
+2025-11-25 07:53:40,570 - model - INFO - Completed evaluation for random_forest: R² = 0.9859
+2025-11-25 07:53:40,571 - model - INFO - Training and evaluating KNN
+2025-11-25 07:53:40,571 - model - INFO - Starting hyperparameter tuning for KNN
+2025-11-25 07:55:20,219 - model - INFO - Tuning completed. Best score: 7797134.3659, Overfitting risk: low
+2025-11-25 07:55:20,221 - model - INFO - Training KNN with dataset size: 1590 samples, 11 features
+2025-11-25 07:55:20,221 - model - INFO - Checking cache for KNN with key: KNN_[('algorithm', 'brute'), ('metric', 'cosine'), ('n_jobs', -1), ('n_neighbors', 11), ('weights', 'distance')]_-2122547554431397903
+2025-11-25 07:55:20,222 - model - INFO - Using cached results for KNN
+2025-11-25 07:55:20,222 - model - INFO - Model object not cached, retraining KNN
+2025-11-25 07:55:20,223 - model - INFO - Shape validation passed for KNN: X.shape=(1590, 11), y.shape=(1590,)
+2025-11-25 07:55:20,223 - model - INFO - Training KNN model with unified pipeline: {'algorithm': 'brute', 'metric': 'cosine', 'n_jobs': -1, 'n_neighbors': 11, 'weights': 'distance'}
+2025-11-25 07:55:20,224 - model - INFO - Stored trained model with ID: KNN_12
+2025-11-25 07:55:20,307 - model - INFO - KNN Validation: Optimal K=11, CV Score=7392098.7828
+2025-11-25 07:55:20,311 - model - INFO - Cached model object for KNN_12
+2025-11-25 07:55:20,311 - model - INFO - Model KNN trained successfully with unified pipeline. CV Score: 7392098.7828
+2025-11-25 07:55:24,722 - model - INFO - Completed evaluation for KNN: R² = 0.8582
+2025-11-25 07:55:25,198 - model - INFO - Generated model comparison visualizations: ['model_comparison', 'knn_comparison']
+2025-11-25 07:55:25,199 - model - INFO - Saved model comparison report to reports/model_comparison_report_20251125_075525.json
+2025-11-25 07:55:25,199 - model - INFO - Model comparison completed. Best model: random_forest (R² = 0.9859)

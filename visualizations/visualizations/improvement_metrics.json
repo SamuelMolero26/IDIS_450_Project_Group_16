@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-23T18:46:10.927170",
+  "timestamp": "2025-11-24T18:26:22.474262",
   "original_bias": {
     "Linear": 12369264,
     "Decision Tree": 125520,
@@ -7,69 +7,60 @@
   },
   "improved_metrics": {
     "Random Forest": {
-      "train_r2": 1.0,
+      "train_r2": 0.8917632184098392,
       "test_r2": 0.9859499933619548,
-      "train_rmse": 2563.735305258463,
-      "test_rmse": 2698.6687423773296,
-      "bias_squared": 7282812.981084438,
-      "variance": 102323.57072787834,
-      "overfitting_gap": 0.014050006638045232
+      "train_rmse": 2513.0955380628366,
+      "test_rmse": 948.3211611733905,
+      "bias_squared": 899313.0247292477,
+      "variance": 4984.823289072044,
+      "overfitting_gap": 0.005542923489374352
     },
     "Decision Tree": {
-      "train_r2": 1.0,
+      "train_r2": 0.9750006717651875,
       "test_r2": 0.9760018585543128,
-      "train_rmse": 1544.579838971589,
-      "test_rmse": 1625.8735147069358,
-      "bias_squared": 2643464.6858254843,
-      "variance": 63438.23943711915,
-      "overfitting_gap": 0.023998141445687238
+      "train_rmse": 1207.7741590674784,
+      "test_rmse": 1239.3842741437315,
+      "bias_squared": 1536073.3789947843,
+      "variance": 25037.43684287107,
+      "overfitting_gap": 0.016299635932272794
     },
     "Linear Regression": {
-      "train_r2": 0.9207590637758827,
+      "train_r2": 0.8579170314343907,
       "test_r2": 0.8769133940722692,
-      "train_rmse": 2710.252653892376,
-      "test_rmse": 2852.8975304130277,
-      "bias_squared": 8139024.319036752,
-      "variance": 356860.972002163,
-      "overfitting_gap": 0.04384566970361348
+      "train_rmse": 2879.3375116030866,
+      "test_rmse": 2806.871785984016,
+      "bias_squared": 7878529.222953099,
+      "variance": 117599.94093458487,
+      "overfitting_gap": 0.014926636381822678
     },
     "Lasso": {
-      "train_r2": 0.9207559123494644,
+      "train_r2": 0.8579170649351465,
       "test_r2": 0.8769103927137756,
-      "train_rmse": 2710.260145286765,
-      "test_rmse": 2852.9054160913315,
-      "bias_squared": 8139069.3131632535,
-      "variance": 356861.72338653187,
-      "overfitting_gap": 0.043845519635688834
+      "train_rmse": 2879.3371721535746,
+      "test_rmse": 2806.906007323766,
+      "bias_squared": 7878721.333950246,
+      "variance": 117597.00625310368,
+      "overfitting_gap": 0.014925899935864684
     },
     "Ridge": {
-      "train_r2": 0.9207509839387374,
+      "train_r2": 0.8579170312997976,
       "test_r2": 0.8769056989892737,
-      "train_rmse": 2710.252669620657,
-      "test_rmse": 2852.8975469691127,
-      "bias_squared": 8139024.41350238,
-      "variance": 356857.84462065366,
-      "overfitting_gap": 0.043845284949463714
+      "train_rmse": 2879.337512966863,
+      "test_rmse": 2806.959524099861,
+      "bias_squared": 7879021.769934919,
+      "variance": 117607.28243656477,
+      "overfitting_gap": 0.01492663504057512
     },
     "KNN": {
-      "train_r2": 0.9011123849639803,
+      "train_r2": 0,
       "test_r2": 0.8582022713942669,
-      "train_rmse": 0.0,
-      "test_rmse": 0,
-      "bias_squared": 0,
+      "train_rmse": 0,
+      "test_rmse": 3012.6717427336193,
+      "bias_squared": 9076191.029465623,
       "variance": 0.0,
-      "overfitting_gap": 0.042910113569713415
-    },
-    "ANN": {
-      "train_r2": 0.9075712567661357,
-      "test_r2": 0.9169308104523217,
-      "train_rmse": 2322.336179139259,
-      "test_rmse": 2305.882448458332,
-      "bias_squared": 5317093.866108192,
-      "variance": 49765.625494329994,
-      "overfitting_gap": -0.009359553686186017
+      "overfitting_gap": 0
     }
   },
   "best_model": "Random Forest",
-  "average_bias_reduction": -34.602953099121784
+  "average_bias_reduction": -39.16885949241524
 }

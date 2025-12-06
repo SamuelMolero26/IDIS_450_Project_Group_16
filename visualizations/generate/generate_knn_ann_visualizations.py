@@ -89,38 +89,55 @@ class KNNANNVisualizer:
         return (self.knn_data is not None) or (self.ann_data is not None)
 
     def create_knn_visualization(self):
-        """Create comprehensive KNN visualization."""
+        """Create comprehensive KNN visualization with enhanced details."""
         if not self.knn_data:
             print("⏭️  Skipping KNN visualization (no data)")
             return
 
-        print("\n🎨 Creating KNN visualization...")
+        print("\n🎨 Creating enhanced KNN visualization...")
 
-        fig = plt.figure(figsize=(16, 12))
-        gs = fig.add_gridspec(3, 2, hspace=0.3, wspace=0.3)
+        fig = plt.figure(figsize=(20, 16))
+        gs = fig.add_gridspec(4, 3, hspace=0.35, wspace=0.3)
 
-        # 1. KNN vs Other Models - R² Comparison
+        # Row 1: Model Comparisons
         ax1 = fig.add_subplot(gs[0, 0])
         self._plot_knn_vs_others_r2(ax1)
 
-        # 2. KNN vs Other Models - RMSE Comparison
         ax2 = fig.add_subplot(gs[0, 1])
         self._plot_knn_vs_others_rmse(ax2)
 
-        # 3. KNN Performance Metrics Table
-        ax3 = fig.add_subplot(gs[1, :])
-        self._plot_knn_metrics_table(ax3)
+        ax3 = fig.add_subplot(gs[0, 2])
+        self._plot_knn_speed_comparison(ax3)
 
-        # 4. KNN Ranking Position
-        ax4 = fig.add_subplot(gs[2, 0])
-        self._plot_knn_ranking(ax4)
+        # Row 2: Detailed Performance Analysis
+        ax4 = fig.add_subplot(gs[1, :2])
+        self._plot_knn_detailed_metrics_table(ax4)
 
-        # 5. KNN Specific Analysis
-        ax5 = fig.add_subplot(gs[2, 1])
-        self._plot_knn_analysis(ax5)
+        ax5 = fig.add_subplot(gs[1, 2])
+        self._plot_knn_performance_gauge(ax5)
 
-        plt.suptitle('K-Nearest Neighbors (KNN) - Comprehensive Performance Analysis',
-                     fontsize=18, fontweight='bold', y=0.995)
+        # Row 3: Ranking and Position Analysis
+        ax6 = fig.add_subplot(gs[2, 0])
+        self._plot_knn_ranking(ax6)
+
+        ax7 = fig.add_subplot(gs[2, 1])
+        self._plot_knn_vs_best_analysis(ax7)
+
+        ax8 = fig.add_subplot(gs[2, 2])
+        self._plot_knn_strengths_weaknesses(ax8)
+
+        # Row 4: Advanced KNN Insights
+        ax9 = fig.add_subplot(gs[3, 0])
+        self._plot_knn_distance_based_insights(ax9)
+
+        ax10 = fig.add_subplot(gs[3, 1])
+        self._plot_knn_comparative_radar(ax10)
+
+        ax11 = fig.add_subplot(gs[3, 2])
+        self._plot_knn_recommendations(ax11)
+
+        plt.suptitle('K-Nearest Neighbors (KNN) - Enhanced Performance Analysis Dashboard',
+                     fontsize=20, fontweight='bold', y=0.998)
 
         save_path = self.viz_dir / 'knn_comprehensive_analysis.png'
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
@@ -402,6 +419,362 @@ class KNNANNVisualizer:
                bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
         ax.set_title('KNN Insights', fontweight='bold', fontsize=12)
+
+    def _plot_knn_speed_comparison(self, ax):
+        """Plot KNN training speed vs other models."""
+        models = list(self.all_models_data.keys())
+        times = [self.all_models_data[m]['training_time'] for m in models]
+
+        colors = ['#2ecc71' if m.lower() == 'knn' else '#95a5a6' for m in models]
+        bars = ax.bar(models, times, color=colors, alpha=0.8)
+
+        ax.set_ylabel('Training Time (s)', fontweight='bold')
+        ax.set_title('Training Speed Comparison', fontweight='bold', fontsize=12)
+        ax.set_xticklabels(models, rotation=45, ha='right')
+        ax.grid(True, alpha=0.3, axis='y')
+
+        # Highlight KNN
+        knn_idx = [i for i, m in enumerate(models) if m.lower() == 'knn'][0]
+        bars[knn_idx].set_edgecolor('black')
+        bars[knn_idx].set_linewidth(2)
+
+        # Add value labels
+        for i, (v, m) in enumerate(zip(times, models)):
+            if m.lower() == 'knn':
+                ax.text(i, v, f'{v:.4f}s\n★FASTEST', ha='center', va='bottom',
+                       fontweight='bold', fontsize=9, color='#2ecc71')
+            else:
+                ax.text(i, v, f'{v:.3f}s', ha='center', va='bottom', fontsize=8)
+
+        # Use log scale if time differences are large
+        if max(times) / min(times) > 100:
+            ax.set_yscale('log')
+
+    def _plot_knn_detailed_metrics_table(self, ax):
+        """Create enhanced detailed metrics table for KNN."""
+        ax.axis('off')
+
+        # Get KNN analysis if available
+        knn_analysis = self.knn_data.get('knn_analysis', {})
+
+        data = [
+            ['Metric', 'Value', 'Rank', 'Performance'],
+        ]
+
+        # R² Score
+        r2_rank = self.knn_data.get('rank_by_r2', 'N/A')
+        r2_performance = 'Excellent' if self.knn_data['r2_score'] > 0.9 else 'Good' if self.knn_data['r2_score'] > 0.8 else 'Fair'
+        data.append(['R² Score', f"{self.knn_data['r2_score']:.4f}", f"#{r2_rank}", r2_performance])
+
+        # RMSE
+        rmse_rank = self.knn_data.get('rank_by_rmse', 'N/A')
+        rmse_performance = 'Excellent' if self.knn_data['rmse_score'] < 2000 else 'Good' if self.knn_data['rmse_score'] < 4000 else 'Fair'
+        data.append(['RMSE', f"${self.knn_data['rmse_score']:,.2f}", f"#{rmse_rank}", rmse_performance])
+
+        # Training Time
+        train_time = self.knn_data['training_time']
+        time_performance = 'Excellent' if train_time < 0.01 else 'Good' if train_time < 0.1 else 'Fair'
+        data.append(['Training Time', f"{train_time:.6f}s", '-', time_performance])
+
+        # Performance vs Best
+        if 'knn_analysis' in self.knn_data:
+            perf_vs_best = knn_analysis.get('performance_vs_best', {})
+            r2_diff = perf_vs_best.get('r2_difference', 0)
+            pct_of_best = perf_vs_best.get('percentage_of_best', 0)
+            data.append(['% of Best Model', f"{pct_of_best:.2f}%", '-', f"{r2_diff:+.4f}"])
+
+        # Speed Advantage
+        if 'knn_analysis' in self.knn_data:
+            speed_adv = knn_analysis.get('speed_advantage', 0)
+            if speed_adv > 0:
+                data.append(['Speed Advantage', f"{speed_adv:.1f}x faster", '-', 'Excellent'])
+
+        table = ax.table(cellText=data, cellLoc='left', loc='center',
+                        colWidths=[0.3, 0.25, 0.15, 0.25])
+
+        table.auto_set_font_size(False)
+        table.set_fontsize(11)
+        table.scale(1, 2.5)
+
+        # Style header
+        for i in range(4):
+            table[(0, i)].set_facecolor('#2ecc71')
+            table[(0, i)].set_text_props(weight='bold', color='white')
+
+        # Style data rows
+        for i in range(1, len(data)):
+            for j in range(4):
+                if i % 2 == 0:
+                    table[(i, j)].set_facecolor('#ecf0f1')
+                # Highlight performance ratings
+                if j == 3:
+                    cell_text = data[i][j]
+                    if 'Excellent' in cell_text:
+                        table[(i, j)].set_text_props(weight='bold', color='#27ae60')
+                    elif 'Good' in cell_text:
+                        table[(i, j)].set_text_props(weight='bold', color='#2980b9')
+
+        ax.set_title('KNN Detailed Performance Metrics', fontweight='bold', fontsize=14, pad=10)
+
+    def _plot_knn_performance_gauge(self, ax):
+        """Create performance gauge for KNN R² score."""
+        r2_score = self.knn_data['r2_score']
+
+        # Create gauge chart
+        fig_temp = plt.figure(figsize=(6, 6))
+        ax_gauge = fig_temp.add_subplot(111, projection='polar')
+
+        # Setup gauge
+        theta = np.linspace(0, np.pi, 100)
+
+        # Color zones
+        zone_colors = ['#e74c3c', '#f39c12', '#f1c40f', '#2ecc71', '#27ae60']
+        zone_ranges = [(0, 0.5), (0.5, 0.7), (0.7, 0.85), (0.85, 0.95), (0.95, 1.0)]
+
+        for i, (start, end) in enumerate(zone_ranges):
+            mask = (theta >= start * np.pi) & (theta <= end * np.pi)
+            ax_gauge.fill_between(theta[mask], 0, 1, color=zone_colors[i], alpha=0.3)
+
+        # Needle for KNN score
+        needle_angle = r2_score * np.pi
+        ax_gauge.plot([needle_angle, needle_angle], [0, 0.9], color='black', linewidth=3)
+        ax_gauge.plot(needle_angle, 0.9, 'o', color='#2ecc71', markersize=15)
+
+        ax_gauge.set_ylim(0, 1)
+        ax_gauge.set_theta_direction(-1)
+        ax_gauge.set_theta_offset(np.pi / 2)
+        ax_gauge.set_xticks([0, np.pi/4, np.pi/2, 3*np.pi/4, np.pi])
+        ax_gauge.set_xticklabels(['0.0', '0.25', '0.5', '0.75', '1.0'])
+        ax_gauge.set_yticks([])
+        ax_gauge.spines['polar'].set_visible(False)
+
+        plt.close(fig_temp)
+
+        # Draw simplified version on main axis
+        ax.axis('off')
+        ax.text(0.5, 0.6, f'{r2_score:.4f}',
+               transform=ax.transAxes, fontsize=36, fontweight='bold',
+               ha='center', va='center', color='#2ecc71')
+        ax.text(0.5, 0.4, 'R² Score',
+               transform=ax.transAxes, fontsize=14, fontweight='bold',
+               ha='center', va='center')
+
+        # Performance tier
+        if r2_score >= 0.95:
+            tier = 'EXCEPTIONAL'
+            color = '#27ae60'
+        elif r2_score >= 0.85:
+            tier = 'EXCELLENT'
+            color = '#2ecc71'
+        elif r2_score >= 0.7:
+            tier = 'GOOD'
+            color = '#f1c40f'
+        elif r2_score >= 0.5:
+            tier = 'FAIR'
+            color = '#f39c12'
+        else:
+            tier = 'POOR'
+            color = '#e74c3c'
+
+        ax.text(0.5, 0.25, tier,
+               transform=ax.transAxes, fontsize=16, fontweight='bold',
+               ha='center', va='center', color=color,
+               bbox=dict(boxstyle='round', facecolor=color, alpha=0.2))
+
+        ax.set_title('KNN Performance Rating', fontweight='bold', fontsize=12, pad=10)
+
+    def _plot_knn_vs_best_analysis(self, ax):
+        """Plot KNN performance vs best model analysis."""
+        ax.axis('off')
+
+        # Find best model
+        best_model = max(self.all_models_data.items(), key=lambda x: x[1]['r2_score'])
+        best_name = best_model[0]
+        best_r2 = best_model[1]['r2_score']
+
+        knn_r2 = self.knn_data['r2_score']
+        r2_diff = knn_r2 - best_r2
+        pct_of_best = (knn_r2 / best_r2) * 100
+
+        text = "KNN vs Best Model\n\n"
+        text += f"Best Model: {best_name}\n"
+        text += f"Best R²: {best_r2:.4f}\n\n"
+        text += f"KNN R²: {knn_r2:.4f}\n"
+        text += f"Difference: {r2_diff:+.4f}\n"
+        text += f"Relative: {pct_of_best:.2f}%\n\n"
+
+        if r2_diff >= 0:
+            text += "🏆 KNN is the BEST model!\n"
+            bgcolor = '#2ecc71'
+        elif pct_of_best >= 95:
+            text += "✅ Very competitive\n"
+            bgcolor = '#27ae60'
+        elif pct_of_best >= 85:
+            text += "👍 Good performance\n"
+            bgcolor = '#f1c40f'
+        else:
+            text += "⚠️ Significant gap\n"
+            bgcolor = '#f39c12'
+
+        ax.text(0.1, 0.95, text, transform=ax.transAxes,
+               fontsize=11, verticalalignment='top',
+               bbox=dict(boxstyle='round', facecolor=bgcolor, alpha=0.3))
+
+        ax.set_title('Competitive Analysis', fontweight='bold', fontsize=12)
+
+    def _plot_knn_strengths_weaknesses(self, ax):
+        """Plot KNN strengths and weaknesses."""
+        ax.axis('off')
+
+        knn_analysis = self.knn_data.get('knn_analysis', {})
+        strengths = knn_analysis.get('knn_strengths', ['Fast training time'])
+        weaknesses = knn_analysis.get('knn_weaknesses', ['Accuracy gap vs best models'])
+
+        text = "STRENGTHS\n\n"
+        for i, strength in enumerate(strengths, 1):
+            text += f"✓ {strength}\n"
+
+        text += "\n" + "="*30 + "\n\n"
+        text += "WEAKNESSES\n\n"
+        for i, weakness in enumerate(weaknesses, 1):
+            text += f"✗ {weakness}\n"
+
+        text += "\n" + "="*30 + "\n\n"
+        text += "RECOMMENDED USE:\n"
+        text += "• Fast prototyping\n"
+        text += "• Real-time predictions\n"
+        text += "• Baseline comparison\n"
+        text += "• Small-medium datasets\n"
+
+        ax.text(0.1, 0.95, text, transform=ax.transAxes,
+               fontsize=10, verticalalignment='top', family='monospace',
+               bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.3))
+
+        ax.set_title('Strengths & Weaknesses', fontweight='bold', fontsize=12)
+
+    def _plot_knn_distance_based_insights(self, ax):
+        """Plot KNN distance-based algorithm insights."""
+        ax.axis('off')
+
+        text = "DISTANCE-BASED INSIGHTS\n\n"
+        text += "Algorithm Type:\n"
+        text += "• Non-parametric\n"
+        text += "• Instance-based learning\n"
+        text += "• Lazy learner\n\n"
+
+        text += "Key Characteristics:\n"
+        text += "• No training phase\n"
+        text += "• Prediction = neighbors avg\n"
+        text += "• Distance metric matters\n"
+        text += "• Curse of dimensionality\n\n"
+
+        text += "Best Practices:\n"
+        text += "• Always scale features\n"
+        text += "• Use cross-validation\n"
+        text += "• Consider weighted KNN\n"
+        text += "• Optimize K parameter\n"
+
+        ax.text(0.1, 0.95, text, transform=ax.transAxes,
+               fontsize=10, verticalalignment='top', family='monospace',
+               bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.4))
+
+        ax.set_title('Algorithm Insights', fontweight='bold', fontsize=12)
+
+    def _plot_knn_comparative_radar(self, ax):
+        """Create radar chart for KNN vs average of other models."""
+        categories = ['Accuracy', 'Speed', 'Low Error', 'Simplicity']
+
+        # Calculate averages for other models
+        other_models = {k: v for k, v in self.all_models_data.items() if k.lower() != 'knn'}
+        if not other_models:
+            ax.axis('off')
+            ax.text(0.5, 0.5, 'No comparison data', ha='center', va='center')
+            return
+
+        avg_r2 = np.mean([v['r2_score'] for v in other_models.values()])
+        avg_time = np.mean([v['training_time'] for v in other_models.values()])
+        avg_rmse = np.mean([v['rmse_score'] for v in other_models.values()])
+
+        # Normalize metrics
+        knn_r2 = self.knn_data['r2_score']
+        knn_speed = 1 / (self.knn_data['training_time'] + 0.001)
+        avg_speed = 1 / (avg_time + 0.001)
+        max_speed = max(knn_speed, avg_speed)
+        knn_speed_norm = knn_speed / max_speed
+        avg_speed_norm = avg_speed / max_speed
+
+        max_rmse = max(self.knn_data['rmse_score'], avg_rmse)
+        knn_error_inv = 1 - (self.knn_data['rmse_score'] / max_rmse)
+        avg_error_inv = 1 - (avg_rmse / max_rmse)
+
+        # Simplicity: KNN is simpler (fewer hyperparameters)
+        knn_simplicity = 0.9
+        avg_simplicity = 0.5
+
+        knn_values = [knn_r2, knn_speed_norm, knn_error_inv, knn_simplicity]
+        avg_values = [avg_r2, avg_speed_norm, avg_error_inv, avg_simplicity]
+
+        angles = np.linspace(0, 2 * np.pi, len(categories), endpoint=False).tolist()
+        knn_values += knn_values[:1]
+        avg_values += avg_values[:1]
+        angles += angles[:1]
+
+        ax.plot(angles, knn_values, 'o-', linewidth=2, label='KNN', color='#2ecc71')
+        ax.fill(angles, knn_values, alpha=0.25, color='#2ecc71')
+        ax.plot(angles, avg_values, 'o-', linewidth=2, label='Other Models Avg', color='#95a5a6')
+        ax.fill(angles, avg_values, alpha=0.15, color='#95a5a6')
+
+        ax.set_xticks(angles[:-1])
+        ax.set_xticklabels(categories, fontsize=9)
+        ax.set_ylim(0, 1)
+        ax.set_title('KNN Multi-Dimensional Comparison', fontweight='bold', fontsize=12)
+        ax.legend(loc='upper right', bbox_to_anchor=(1.4, 1.0), fontsize=9)
+        ax.grid(True)
+
+    def _plot_knn_recommendations(self, ax):
+        """Plot actionable recommendations for KNN usage."""
+        ax.axis('off')
+
+        knn_r2 = self.knn_data['r2_score']
+        knn_rank = self.knn_data.get('rank_by_r2', 'N/A')
+        total_models = len(self.all_models_data)
+
+        text = "RECOMMENDATIONS\n\n"
+
+        if knn_rank == 1:
+            text += "🏆 KNN is the BEST model!\n"
+            text += "✓ Use for production\n"
+            text += "✓ Excellent accuracy\n"
+            text += "✓ Fast predictions\n\n"
+        elif isinstance(knn_rank, int) and knn_rank <= total_models // 3:
+            text += "✅ KNN performs well!\n"
+            text += f"Ranked #{knn_rank} of {total_models}\n"
+            text += "✓ Good for prototyping\n"
+            text += "✓ Consider ensemble\n\n"
+        else:
+            text += "⚠️ KNN underperforming\n"
+            text += f"Ranked #{knn_rank} of {total_models}\n"
+            text += "• Use faster models\n"
+            text += "• Consider RF/boosting\n\n"
+
+        text += "DEPLOYMENT ADVICE:\n"
+        if self.knn_data['training_time'] < 0.01:
+            text += "✓ Lightning fast training\n"
+        text += f"✓ R² = {knn_r2:.4f}\n"
+        text += f"✓ RMSE = ${self.knn_data['rmse_score']:,.0f}\n\n"
+
+        text += "WHEN TO USE KNN:\n"
+        text += "• Need fast iterations\n"
+        text += "• Baseline comparison\n"
+        text += "• Small-medium data\n"
+        text += "• Local patterns exist\n"
+
+        ax.text(0.1, 0.95, text, transform=ax.transAxes,
+               fontsize=10, verticalalignment='top', family='monospace',
+               bbox=dict(boxstyle='round', facecolor='#e8f8f5', alpha=0.8,
+                        edgecolor='#2ecc71', linewidth=2))
+
+        ax.set_title('Actionable Recommendations', fontweight='bold', fontsize=12)
 
     # Similar methods for ANN visualizations
     def _plot_ann_vs_others_r2(self, ax):

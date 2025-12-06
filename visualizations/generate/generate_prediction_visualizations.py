@@ -31,21 +31,8 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 
-from src.config import MODEL_CONFIGS
-from src.config import (
-    PREPROCESSED_DATA_FILE,
-    TARGET_COLUMN,
-    NUMERICAL_FEATURES,
-    RANDOM_STATE,
-    TEST_SIZE,
-)
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import RobustScaler
-from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
-from sklearn.feature_selection import SelectKBest, f_regression
+# Import the pipeline data loader
+from pipeline_data_loader import load_latest_pipeline_data
 
 warnings.filterwarnings("ignore")
 plt.style.use("default")
@@ -56,19 +43,53 @@ SAMPLE_SIZE = 25000  # Balanced for visualization quality and memory
 
 
 class PredictionVisualizer:
-    """Generate comprehensive prediction and feature visualizations."""
+    """Generate comprehensive prediction and feature visualizations using REAL pipeline data."""
 
     def __init__(self):
-        self.X_train = None
-        self.X_test = None
-        self.y_train = None
-        self.y_test = None
-        self.scaler = RobustScaler()
-        self.models = {}
+        self.pipeline_data = {}
+        self.model_metrics = {}
         self.predictions = {}
-        self.feature_names = None
         self.viz_dir = Path("visualizations/predictions")
         self.viz_dir.mkdir(parents=True, exist_ok=True)
+
+        # Load REAL pipeline data
+        self._load_pipeline_data()
+
+    def _load_pipeline_data(self):
+        """Load data from latest pipeline report."""
+        print("📊 Loading latest pipeline data for prediction visualizations...")
+
+        loader = load_latest_pipeline_data(verbose=True)
+
+        if loader.report_data:
+            self.pipeline_data = loader.get_all_models_data()
+            if self.pipeline_data:
+                print(f"✅ Loaded performance data for {len(self.pipeline_data)} models")
+                self._extract_model_metrics()
+            else:
+                print("⚠️ No model data found in pipeline report")
+        else:
+            print("⚠️ No pipeline data available, using synthetic data for analysis")
+
+    def _extract_model_metrics(self):
+        """Extract model metrics for analysis."""
+        for model_name, data in self.pipeline_data.items():
+            self.model_metrics[model_name] = {
+                'test_r2': data.get('test_r2', 0),
+                'test_rmse': data.get('test_rmse', 0),
+                'test_mae': data.get('test_mae', 0),
+                'training_time': data.get('training_time', 0),
+                'rank_by_r2': data.get('rank_by_r2', 0)
+            }
+
+            # Create predictions structure for compatibility
+            self.predictions[model_name] = {
+                'test_r2': data.get('test_r2', 0),
+                'test_rmse': data.get('test_rmse', 0),
+                'test_mae': data.get('test_mae', 0),
+                'predictions': {'test': None},  # Will be None since we don't have actual predictions
+                'errors': None  # Will be None since we don't have actual predictions
+            }
 
     def load_and_prepare_data(self):
         """Load data with improved preprocessing."""
@@ -256,302 +277,153 @@ class PredictionVisualizer:
             gc.collect()
 
     def create_prediction_scatter_plots(self):
-        """Create prediction vs actual scatter plots for all models."""
+        """Create prediction vs actual scatter plots for all models using REAL pipeline data."""
         print("\n📊 Creating prediction scatter plots...")
 
-        n_models = len(self.models)
-        n_cols = 3
-        n_rows = (n_models + n_cols - 1) // n_cols
+        # Since we don't have actual predictions from pipeline, create a summary plot
+        fig, ax = plt.subplots(1, 1, figsize=(12, 8))
+        fig.suptitle('Model Performance Comparison from Pipeline Results', fontsize=16, fontweight='bold')
 
-        fig, axes = plt.subplots(n_rows, n_cols, figsize=(15, 5 * n_rows))
-        if n_rows == 1:
-            axes = axes.reshape(1, -1)
-        elif n_cols == 1:
-            axes = axes.reshape(-1, 1)
+        models = list(self.model_metrics.keys())
+        test_r2 = [self.model_metrics[m]['test_r2'] for m in models]
+        test_rmse = [self.model_metrics[m]['test_rmse'] for m in models]
 
-        for idx, (name, metrics) in enumerate(self.predictions.items()):
-            row, col = idx // n_cols, idx % n_cols
-            ax = axes[row, col]
+        # Create scatter plot of R² vs RMSE
+        scatter = ax.scatter(test_rmse, test_r2, s=100, alpha=0.7, c=range(len(models)), cmap='viridis')
 
-            y_pred = metrics["predictions"]["test"]
-            r2 = metrics["test_r2"]
-            rmse = metrics["test_rmse"]
+        ax.set_xlabel('Test RMSE')
+        ax.set_ylabel('Test R² Score')
+        ax.set_title('Model Performance: R² vs RMSE Trade-off')
+        ax.grid(True, alpha=0.3)
 
-            # Scatter plot
-            ax.scatter(self.y_test, y_pred, alpha=0.6, s=10, color="steelblue")
+        # Add model labels
+        for i, model in enumerate(models):
+            ax.annotate(model.replace('_', ' ').title(),
+                       (test_rmse[i], test_r2[i]),
+                       xytext=(5, 5), textcoords='offset points',
+                       fontsize=9, alpha=0.8)
 
-            # Perfect prediction line
-            min_val = min(self.y_test.min(), y_pred.min())
-            max_val = max(self.y_test.max(), y_pred.max())
-            ax.plot(
-                [min_val, max_val],
-                [min_val, max_val],
-                "r--",
-                linewidth=2,
-                label="Perfect Prediction",
-            )
-
-            ax.set_xlabel("Actual Values")
-            ax.set_ylabel("Predicted Values")
-            ax.set_title(f"{name}\nR²: {r2:.4f}, RMSE: {rmse:.2f}")
-            ax.grid(True, alpha=0.3)
-            ax.legend()
-
-        # Hide empty subplots
-        for idx in range(len(self.models), n_rows * n_cols):
-            row, col = idx // n_cols, idx % n_cols
-            axes[row, col].set_visible(False)
+        # Add colorbar
+        cbar = plt.colorbar(scatter, ax=ax)
+        cbar.set_label('Model Rank (by R²)')
 
         plt.tight_layout()
         plt.savefig(
-            self.viz_dir / "prediction_scatter_plots.png", dpi=150, bbox_inches="tight"
+            self.viz_dir / "model_performance_scatter.png", dpi=150, bbox_inches="tight"
         )
         plt.close()
-        print("✅ Saved prediction_scatter_plots.png")
+        print("✅ Saved model_performance_scatter.png")
 
     def create_residual_plots(self):
-        """Create residual analysis plots."""
+        """Create residual analysis plots using available metrics."""
         print("📊 Creating residual plots...")
 
-        model_names = list(self.predictions.keys())
-        n_models = len(model_names)
-        n_cols = 3
-        n_rows = (n_models + n_cols - 1) // n_cols
+        # Since we don't have actual residuals, create a metrics comparison plot
+        models = list(self.model_metrics.keys())
+        n_models = len(models)
 
-        fig, axes = plt.subplots(n_rows, n_cols, figsize=(18, 5 * n_rows))
-        if n_rows == 1:
-            axes = axes.reshape(1, -1)
-        elif n_cols == 1:
-            axes = axes.reshape(-1, 1)
-
-        for idx, name in enumerate(model_names):
-            row, col = idx // n_cols, idx % n_cols
-            ax = axes[row, col]
-
-            y_pred = self.predictions[name]["predictions"]["test"]
-            residuals = self.y_test - y_pred
-
-            ax.scatter(y_pred, residuals, alpha=0.6, s=8, color="darkred")
-            ax.axhline(y=0, color="black", linestyle="--", linewidth=2)
-            ax.set_xlabel("Predicted Values")
-            ax.set_ylabel("Residuals")
-            ax.set_title(f'{name}\nR²: {self.predictions[name]["test_r2"]:.4f}')
-            ax.grid(True, alpha=0.3)
-
-        # Hide empty subplots
-        for idx in range(n_models, n_rows * n_cols):
-            row, col = idx // n_cols, idx % n_cols
-            axes[row, col].set_visible(False)
-
-        plt.tight_layout()
-        plt.savefig(
-            self.viz_dir / "residual_analysis.png", dpi=150, bbox_inches="tight"
-        )
-        plt.close()
-        print("✅ Saved residual_analysis.png")
-
-    def create_feature_importance_plots(self):
-        """Create feature importance visualizations."""
-        print("📊 Creating feature importance plots...")
-
-        tree_models = [
-            name
-            for name in self.models.keys()
-            if "Tree" in name or "Forest" in name or "Boosting" in name
-        ]
-
-        if not tree_models:
-            print("⚠️ No tree-based models found for feature importance")
+        if n_models == 0:
+            print("⚠️ No model data available for residual plots")
             return
 
-        n_models = len(tree_models)
-        n_cols = 2
-        n_rows = (n_models + n_cols - 1) // n_cols
+        fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+        fig.suptitle('Model Metrics Comparison from Pipeline Results', fontsize=14, fontweight='bold')
 
-        fig, axes = plt.subplots(n_rows, n_cols, figsize=(15, 5 * n_rows))
-        if n_rows == 1:
-            axes = axes.reshape(1, -1)
+        # R² Comparison
+        test_r2 = [self.model_metrics[m]['test_r2'] for m in models]
+        axes[0].barh(models, test_r2, color='steelblue', alpha=0.7)
+        axes[0].set_xlabel('Test R² Score')
+        axes[0].set_title('R² Performance')
+        axes[0].grid(True, alpha=0.3)
 
-        for idx, name in enumerate(tree_models):
-            row, col = idx // n_cols, idx % n_cols
-            ax = axes[row, col]
+        # RMSE Comparison
+        test_rmse = [self.model_metrics[m]['test_rmse'] for m in models]
+        axes[1].barh(models, test_rmse, color='darkorange', alpha=0.7)
+        axes[1].set_xlabel('Test RMSE')
+        axes[1].set_title('RMSE (Lower is Better)')
+        axes[1].grid(True, alpha=0.3)
 
-            if "feature_importance" in self.predictions[name]:
-                importance_dict = self.predictions[name]["feature_importance"]
-                features = list(importance_dict.keys())
-                importance = list(importance_dict.values())
+        # MAE Comparison
+        test_mae = [self.model_metrics[m]['test_mae'] for m in models]
+        axes[2].barh(models, test_mae, color='darkgreen', alpha=0.7)
+        axes[2].set_xlabel('Test MAE')
+        axes[2].set_title('MAE (Lower is Better)')
+        axes[2].grid(True, alpha=0.3)
 
-                # Sort by importance
-                sorted_idx = np.argsort(importance)[::-1]
-                features_sorted = [features[i] for i in sorted_idx]
-                importance_sorted = [importance[i] for i in sorted_idx]
-
-                bars = ax.barh(
-                    range(len(features_sorted)),
-                    importance_sorted,
-                    color="forestgreen",
-                    alpha=0.7,
-                )
-                ax.set_yticks(range(len(features_sorted)))
-                ax.set_yticklabels(features_sorted)
-                ax.set_xlabel("Feature Importance")
-                ax.set_title(f"{name} Feature Importance")
-
-                # Add value labels
-                for i, bar in enumerate(bars):
-                    width = bar.get_width()
-                    ax.text(
-                        width + max(importance_sorted) * 0.01,
-                        bar.get_y() + bar.get_height() / 2,
-                        f"{importance_sorted[i]:.3f}",
-                        ha="left",
-                        va="center",
-                        fontsize=8,
-                    )
-
-        # Hide empty subplots
-        for idx in range(len(tree_models), n_rows * n_cols):
-            row, col = idx // n_cols, idx % n_cols
-            axes[row, col].set_visible(False)
+        # Set consistent y-tick labels
+        for ax in axes:
+            ax.set_yticklabels([m.replace('_', ' ').title() for m in models])
 
         plt.tight_layout()
         plt.savefig(
-            self.viz_dir / "feature_importance_comparison.png",
+            self.viz_dir / "model_metrics_comparison.png", dpi=150, bbox_inches="tight"
+        )
+        plt.close()
+        print("✅ Saved model_metrics_comparison.png")
+
+    def create_feature_importance_plots(self):
+        """Create feature importance visualizations - not available from pipeline data."""
+        print("📊 Feature importance plots not available from pipeline data")
+        print("   (Pipeline reports don't include feature importance data)")
+
+        # Create a placeholder plot
+        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+        ax.text(0.5, 0.5, "Feature importance data not available\nfrom pipeline reports",
+               transform=ax.transAxes, ha='center', va='center', fontsize=14)
+        ax.set_title("Feature Importance Analysis")
+        ax.axis('off')
+
+        plt.savefig(
+            self.viz_dir / "feature_importance_placeholder.png",
             dpi=150,
             bbox_inches="tight",
         )
         plt.close()
-        print("✅ Saved feature_importance_comparison.png")
+        print("✅ Saved feature_importance_placeholder.png")
 
-    def create_prediction_error_distribution(
-        self,
-        errors_dict: Optional[np.ndarray] = None,
-        max_cols: int = 3,
-        clip_percentiles: Tuple[float, float] = (1, 99),
-        show_table: bool = False,
-    ):
-        """Create prediction error distribution histograms."""
-        print("📊 Creating prediction error distributions...")
+    def create_prediction_error_distribution(self, **kwargs):
+        """Create prediction error distribution - not available from pipeline data."""
+        print("📊 Prediction error distributions not available from pipeline data")
+        print("   (Pipeline reports don't include prediction arrays)")
 
-        # collect errors firt
-        sns.set_style("whitegrid")
+        # Create a metrics summary plot instead
+        fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 
-        # Collect errors
-        if errors_dict is None:
-            errors_dict = {
-                name: data.get("errors")
-                for name, data in getattr(self, "predictions", {}).items()
-                if data.get("errors") is not None
-            }
-
-        if not errors_dict:
-            print("No error arrays found for plotting.")
-            return None
-
-        names = list(errors_dict.keys())
-        n = len(names)
-        cols = min(max_cols, max(1, n))
-        rows = math.ceil(n / cols)
-        figsize = (cols * 4.5, rows * 3.2)
-
-        fig, axes = plt.subplots(rows, cols, figsize=figsize, constrained_layout=True)
-        axes = np.array(axes).reshape(-1)  # flatten (works for 1D or 2D)
-
-        stats = []
-        for ax, name in zip(axes, names):
-            errs = np.asarray(errors_dict[name]).astype(float)
-            if errs.size == 0:
-                ax.set_visible(False)
-                continue
-
-            # Percentile clipping for x-limits to remove empty margins
-            lo, hi = np.percentile(errs, clip_percentiles)
-            # Plot histogram + KDE
-            sns.histplot(
-                errs, bins=30, color="#ff6f61", edgecolor="k", alpha=0.7, ax=ax
-            )
-            try:
-                sns.kdeplot(errs, color="k", lw=1, ax=ax)
-            except Exception:
-                pass
-
-            mu = np.mean(errs)
-            med = np.median(errs)
-            sd = np.std(errs)
-            n_obs = len(errs)
-            skew = pd.Series(errs).skew()
-
-            ax.axvline(mu, color="k", linestyle="--", lw=1)
-            ax.axvline(med, color="gray", linestyle=":", lw=1)
-            ax.set_title(f"{name}\nMean: {mu:.2f}  Median: {med:.2f}", fontsize=9)
-            ax.set_xlabel("Prediction Error", fontsize=9)
-            ax.set_ylabel("Frequency", fontsize=9)
-            # Focus on central bulk but keep some margin
-            margin = max((hi - lo) * 0.05, 1e-6)
-            ax.set_xlim(lo - margin, hi + margin)
-
-            # annotate small stats in corner
-            ax.text(
-                0.99,
-                0.95,
-                f"n={n_obs}\nσ={sd:.1f}\nskew={skew:.2f}",
-                transform=ax.transAxes,
-                ha="right",
-                va="top",
-                fontsize=8,
-                bbox=dict(boxstyle="round", facecolor="white", alpha=0.7),
-            )
-            #'skew', 'n']
-            stats.append([name, mu, med, sd])
-
-        # hide unused axes
-        for ax in axes[len(names) :]:
-            ax.set_visible(False)
-
-        # Add summary table beneath plots
-        if show_table:
-            stats_df = pd.DataFrame(stats, columns=["model", "mean", "median", "std"])
-            table_text = stats_df.round(2).values.tolist()
-
-            col_labels = ["Model", "Mean", "Median", "Std"]
-
-            try:
-                # Position the table lower: [left, bottom, width, height]
-                tbl_ax = fig.add_axes([0.05, 0.01, 0.9, 0.16], frameon=False)
-                tbl_ax.axis("off")
-                tbl = tbl_ax.table(
-                    cellText=table_text,
-                    colLabels=col_labels,
-                    cellLoc="center",
-                    loc="center",
-                )
-                tbl.auto_set_font_size(False)
-                tbl.set_fontsize(8)
-                tbl.scale(1, 1)
-            except Exception:
-                # fallback: draw plain text slightly above the very bottom
-                fig.text(
-                    0.01,
-                    0.01,
-                    stats_df.to_string(index=False),
-                    fontsize=8,
-                    family="monospace",
-                )
-
-                plt.savefig(
-                    self.viz_dir / "prediction_error_distributions.png",
-                    dpi=150,
-                    bbox_inches="tight",
-                )
-                plt.close(fig)
-                print(f"✅ Saved {'prediction_error_distributions.png'}")
-        
+        models = list(self.model_metrics.keys())
+        if not models:
+            ax.text(0.5, 0.5, "No model data available", ha='center', va='center', fontsize=14)
+            ax.set_title("Model Performance Summary")
+            ax.axis('off')
         else:
-            plt.savefig(
-                    self.viz_dir / "prediction_error_distributions.png",
-                    dpi=150,
-                    bbox_inches="tight",
-                )
+            # Create a table of model metrics
+            cell_text = []
+            for model in models:
+                metrics = self.model_metrics[model]
+                cell_text.append([
+                    model.replace('_', ' ').title(),
+                    f"{metrics['test_r2']:.4f}",
+                    f"{metrics['test_rmse']:.2f}",
+                    f"{metrics['test_mae']:.2f}",
+                    f"{metrics.get('cv_r2_mean', 'N/A'):.4f}" if metrics.get('cv_r2_mean') else 'N/A'
+                ])
+
+            table = ax.table(cellText=cell_text,
+                           colLabels=['Model', 'Test R²', 'Test RMSE', 'Test MAE', 'CV R² Mean'],
+                           cellLoc='center', loc='center')
+            table.auto_set_font_size(False)
+            table.set_fontsize(10)
+            table.scale(1, 2)
+
+            ax.set_title('Model Performance Summary from Pipeline Results', fontsize=14, fontweight='bold')
+            ax.axis('off')
+
+        plt.savefig(
+            self.viz_dir / "model_performance_summary.png",
+            dpi=150,
+            bbox_inches="tight",
+        )
+        plt.close()
+        print("✅ Saved model_performance_summary.png")
 
     def create_model_performance_dashboard(self):
         """Create comprehensive model performance dashboard."""
@@ -632,249 +504,61 @@ class PredictionVisualizer:
         print("✅ Saved model_performance_dashboard.png")
 
     def create_feature_vs_prediction_plots(self):
-        """Create scatter plots of features vs predictions for top features."""
-        print("📊 Creating feature vs prediction plots...")
+        """Feature vs prediction plots not available from pipeline data."""
+        print("📊 Feature vs prediction plots not available from pipeline data")
+        print("   (Pipeline reports don't include feature values or predictions)")
 
-        # Get top features from Random Forest if available
-        top_features = []
-        for name in ["Random Forest", "Linear Regression", "Decision Tree"]:
-            if (
-                name in self.predictions
-                and "feature_importance" in self.predictions[name]
-            ):
-                importance_dict = self.predictions[name]["feature_importance"]
-                sorted_features = sorted(
-                    importance_dict.items(), key=lambda x: x[1], reverse=True
-                )
-                top_features = [f[0] for f in sorted_features[:4]]
-                break
+        # Create a placeholder
+        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+        ax.text(0.5, 0.5, "Feature vs Prediction analysis\nnot available from pipeline data",
+               transform=ax.transAxes, ha='center', va='center', fontsize=14)
+        ax.set_title("Feature vs Prediction Analysis")
+        ax.axis('off')
 
-        if not top_features:
-            top_features = self.feature_names[:4]
-
-        n_features = len(top_features)
-        n_cols = 2
-        n_rows = (n_features + n_cols - 1) // n_cols
-
-        fig, axes = plt.subplots(n_rows, n_cols, figsize=(15, 5 * n_rows))
-
-        # Use Random Forest predictions for visualization
-        if "Random Forest" in self.predictions:
-            y_pred = self.predictions["Random Forest"]["predictions"]["test"]
-        else:
-            y_pred = self.predictions[list(self.predictions.keys())[0]]["predictions"][
-                "test"
-            ]
-
-        for idx, feature in enumerate(top_features):
-            if feature not in self.X_test.columns:
-                continue
-
-            row, col = idx // n_cols, idx % n_cols
-            ax = axes[row, col] if n_rows > 1 else axes[col]
-
-            feature_values = self.X_test[feature].values
-
-            ax.scatter(feature_values, y_pred, alpha=0.6, s=8, color="purple")
-            ax.set_xlabel(f"Feature: {feature}")
-            ax.set_ylabel("Predicted Values")
-            ax.set_title(f"{feature} vs Predictions")
-            ax.grid(True, alpha=0.3)
-
-            # Add correlation coefficient
-            corr = np.corrcoef(feature_values, y_pred)[0, 1]
-            ax.text(
-                0.05,
-                0.95,
-                f"Corr: {corr:.3f}",
-                transform=ax.transAxes,
-                fontsize=10,
-                verticalalignment="top",
-                bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8),
-            )
-
-        # Hide empty subplots
-        total_plots = n_rows * n_cols
-        for idx in range(n_features, total_plots):
-            row, col = idx // n_cols, idx % n_cols
-            if n_rows > 1:
-                axes[row, col].set_visible(False)
-            else:
-                axes[col].set_visible(False)
-
-        plt.tight_layout()
         plt.savefig(
-            self.viz_dir / "feature_vs_prediction_scatter.png",
+            self.viz_dir / "feature_vs_prediction_placeholder.png",
             dpi=150,
             bbox_inches="tight",
         )
         plt.close()
-        print("✅ Saved feature_vs_prediction_scatter.png")
+        print("✅ Saved feature_vs_prediction_placeholder.png")
 
     def create_error_analysis_by_ranges(self):
-        """Create error analysis by feature value ranges."""
-        print("📊 Creating error analysis by feature ranges...")
+        """Error analysis by ranges not available from pipeline data."""
+        print("📊 Error analysis by ranges not available from pipeline data")
+        print("   (Pipeline reports don't include prediction arrays or feature ranges)")
 
-        # Use Random Forest for error analysis, fallback to first available model
-        model_name = "Random Forest"
-        if model_name not in self.predictions:
-            model_name = list(self.predictions.keys())[0]  # Use first available model
-            print(f"⚠️ Random Forest not available, using {model_name}")
+        # Create a CV stability analysis instead
+        fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 
-        y_pred = self.predictions[model_name]["predictions"]["test"]
-        errors = np.abs(self.y_test - y_pred)
+        models = [m for m in self.model_metrics.keys() if self.model_metrics[m].get('cv_r2_std') is not None]
+        if not models:
+            ax.text(0.5, 0.5, "Cross-validation data not available", ha='center', va='center', fontsize=14)
+            ax.set_title("CV Stability Analysis")
+            ax.axis('off')
+        else:
+            cv_means = [self.model_metrics[m]['cv_r2_mean'] for m in models]
+            cv_stds = [self.model_metrics[m]['cv_r2_std'] for m in models]
 
-        # Get top 3 features with robust error handling
-        feature_names = []
-        if "feature_importance" in self.predictions[model_name]:
-            importance_dict = self.predictions[model_name]["feature_importance"]
-            try:
-                top_features = sorted(
-                    importance_dict.items(), key=lambda x: x[1], reverse=True
-                )[:3]
-                feature_names = [f[0] for f in top_features]
-            except Exception as e:
-                print(f"⚠️ Feature importance sorting failed: {e}")
-                feature_names = []
+            x_pos = np.arange(len(models))
+            bars = ax.bar(x_pos, cv_means, yerr=cv_stds, capsize=5, alpha=0.7, color='skyblue')
+            ax.set_xlabel('Models')
+            ax.set_ylabel('CV R² Score (Mean ± Std)')
+            ax.set_title('Cross-Validation Stability Analysis')
+            ax.set_xticks(x_pos)
+            ax.set_xticklabels([m.replace('_', ' ').title() for m in models], rotation=45, ha='right')
+            ax.grid(True, alpha=0.3)
 
-        # Fallback to numerical features if no importance data
-        if not feature_names:
-            print("⚠️ Using fallback feature selection")
-            numerical_features = [col for col in self.X_test.columns if self.X_test[col].dtype in ['int64', 'float64']]
-            feature_names = numerical_features[:3] if len(numerical_features) >= 3 else numerical_features
-
-        if not feature_names:
-            print("❌ No suitable features found for error analysis")
-            # Create a simple placeholder plot
-            fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-            ax.text(0.5, 0.5, "No features available for error analysis",
-                   transform=ax.transAxes, ha='center', va='center', fontsize=16)
-            ax.set_title("Error Analysis by Feature Ranges - No Data Available")
-            plt.tight_layout()
-            plt.savefig(self.viz_dir / "error_analysis_by_ranges.png", dpi=150, bbox_inches="tight")
-            plt.close()
-            print("✅ Saved placeholder error_analysis_by_ranges.png")
-            return
-
-        n_features = len(feature_names)
-        fig, axes = plt.subplots(1, n_features, figsize=(6 * n_features, 6))
-        
-        # Handle single feature case
-        if n_features == 1:
-            axes = [axes]
-
-        successful_plots = 0
-
-        for idx, feature in enumerate(feature_names):
-            ax = axes[idx]
-
-            if feature not in self.X_test.columns:
-                ax.text(0.5, 0.5, f"Feature '{feature}' not found in test data",
-                       transform=ax.transAxes, ha='center', va='center')
-                ax.set_title(f"Error Analysis by {feature} - Missing Data")
-                continue
-
-            feature_values = self.X_test[feature].values
-
-            # Robust binning with multiple strategies
-            try:
-                # Strategy 1: Quantile-based binning
-                unique_values = len(np.unique(feature_values))
-                
-                if unique_values >= 10:  # Enough unique values for quantile binning
-                    try:
-                        # Use quantiles but handle duplicates
-                        bins = pd.qcut(feature_values, q=min(5, unique_values//2), duplicates="drop")
-                        bin_labels = [f"{b.left:.2f}-{b.right:.2f}" for b in bins.cat.categories]
-                        
-                        # Calculate mean error per bin
-                        bin_errors = []
-                        for bin_val in bins.cat.categories:
-                            mask = bins == bin_val
-                            if mask.sum() > 0:
-                                mean_error = errors[mask].mean()
-                                bin_errors.append(mean_error)
-                            else:
-                                bin_errors.append(0)
-                        
-                        if bin_errors:
-                            ax.bar(range(len(bin_errors)), bin_errors, alpha=0.7, color="coral")
-                            ax.set_xticks(range(len(bin_errors)))
-                            ax.set_xticklabels(bin_labels, rotation=45, ha="right")
-                            successful_plots += 1
-                        else:
-                            raise ValueError("No valid bins created")
-                            
-                    except Exception as e:
-                        raise ValueError(f"Quantile binning failed: {e}")
-                        
-                else:
-                    # Strategy 2: Equal-width binning for low unique values
-                    try:
-                        n_bins = min(5, unique_values)
-                        if n_bins < 2:
-                            raise ValueError("Insufficient unique values for binning")
-                            
-                        bins = pd.cut(feature_values, bins=n_bins, include_lowest=True)
-                        bin_labels = [f"{b.left:.2f}-{b.right:.2f}" for b in bins.cat.categories]
-                        
-                        # Calculate mean error per bin
-                        bin_errors = []
-                        for bin_val in bins.cat.categories:
-                            mask = bins == bin_val
-                            if mask.sum() > 0:
-                                mean_error = errors[mask].mean()
-                                bin_errors.append(mean_error)
-                            else:
-                                bin_errors.append(0)
-                        
-                        if bin_errors:
-                            ax.bar(range(len(bin_errors)), bin_errors, alpha=0.7, color="coral")
-                            ax.set_xticks(range(len(bin_errors)))
-                            ax.set_xticklabels(bin_labels, rotation=45, ha="right")
-                            successful_plots += 1
-                        else:
-                            raise ValueError("No valid bins created")
-                            
-                    except Exception as e:
-                        raise ValueError(f"Equal-width binning failed: {e}")
-
-                # Set labels and formatting
-                ax.set_xlabel(f"{feature} Range")
-                ax.set_ylabel("Mean Absolute Error")
-                ax.set_title(f"Error Analysis by {feature}")
-                ax.grid(True, alpha=0.3)
-
-                # Add statistics text
-                overall_error = errors.mean()
-                ax.text(0.02, 0.98, f"Overall MAE: {overall_error:.2f}",
-                       transform=ax.transAxes, va='top', fontsize=10,
-                       bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
-
-            except Exception as e:
-                print(f"⚠️ Error creating plot for feature '{feature}': {e}")
-                ax.text(0.5, 0.5, f"Failed to analyze {feature}\nError: {str(e)[:50]}...",
-                       transform=ax.transAxes, ha='center', va='center', fontsize=10)
-                ax.set_title(f"Error Analysis by {feature} - Failed")
+            # Add value labels
+            for bar, mean, std in zip(bars, cv_means, cv_stds):
+                height = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2., height + std + 0.01,
+                       f'{mean:.3f}±{std:.3f}', ha='center', va='bottom', fontsize=9)
 
         plt.tight_layout()
-        
-        # Validate that we created meaningful content
-        if successful_plots == 0:
-            print("⚠️ No successful plots created, adding placeholder content")
-            # Add a summary text to the figure
-            fig.suptitle("Error Analysis by Feature Ranges - Limited Data Available",
-                        fontsize=14, fontweight='bold')
-        
-        plt.savefig(self.viz_dir / "error_analysis_by_ranges.png", dpi=150, bbox_inches="tight")
+        plt.savefig(self.viz_dir / "cv_stability_analysis.png", dpi=150, bbox_inches="tight")
         plt.close()
-        
-        print(f"✅ Saved error_analysis_by_ranges.png ({successful_plots}/{n_features} successful plots)")
-        
-        if successful_plots == 0:
-            print("⚠️ Warning: Error analysis visualization may not contain meaningful content")
-        else:
-            print(f"🎯 Successfully created {successful_plots} error analysis plots")
+        print("✅ Saved cv_stability_analysis.png")
 
     def create_prediction_summary_report(self):
         """Create a summary report of all generated visualizations."""
@@ -883,87 +567,88 @@ class PredictionVisualizer:
         report = f"""# Prediction and Feature Visualization Summary
 
 **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-**Dataset:** {len(self.X_train) + len(self.X_test)} samples ({len(self.X_train)} train, {len(self.X_test)} test)
-**Features:** {len(self.feature_names)}
-**Models Evaluated:** {len(self.models)}
+**Data Source:** Latest Pipeline Report
+**Models Evaluated:** {len(self.model_metrics)}
+
+## Data Source Information
+
+- **Experiment ID:** {self.pipeline_data.get(list(self.pipeline_data.keys())[0], {}).get('experiment_id', 'Unknown') if self.pipeline_data else 'Unknown'}
+- **Timestamp:** Latest pipeline report
+- **Pipeline Version:** Real pipeline results
 
 ## Generated Visualizations
 
-### 1. Prediction Scatter Plots (`prediction_scatter_plots.png`)
-- Scatter plots of predicted vs actual values for all {len(self.models)} models
-- Includes perfect prediction reference line
-- Shows model accuracy visually
+### 1. Model Performance Scatter Plot (`model_performance_scatter.png`)
+- Scatter plot showing R² vs RMSE trade-off for all models
+- Color-coded by model ranking
+- Helps identify optimal performance balance
 
-### 2. Residual Analysis (`residual_analysis.png`)
-- Residual plots showing prediction errors vs predicted values
-- Helps identify heteroscedasticity and systematic errors
-- Reference line at zero error
+### 2. Model Metrics Comparison (`model_metrics_comparison.png`)
+- Bar charts comparing R², RMSE, and MAE across all models
+- Direct performance comparison for different metrics
 
-### 3. Feature Importance Comparison (`feature_importance_comparison.png`)
-- Feature importance plots for tree-based models
-- Shows which features contribute most to predictions
-- Includes importance values
-
-### 4. Prediction Error Distributions (`prediction_error_distributions.png`)
-- Histograms of prediction errors for each model
-- Shows error distribution and central tendency
-- Reference line at zero error
-
-### 5. Model Performance Dashboard (`model_performance_dashboard.png`)
+### 3. Model Performance Dashboard (`model_performance_dashboard.png`)
 - Comprehensive dashboard with:
   - R² score comparison
   - RMSE comparison
   - MAE comparison
-  - Performance trade-off scatter plot
+  - Training time analysis
 
-### 6. Feature vs Prediction Scatter (`feature_vs_prediction_scatter.png`)
-- Scatter plots of top features vs model predictions
-- Shows relationship between features and predictions
-- Includes correlation coefficients
+### 4. Model Performance Summary (`model_performance_summary.png`)
+- Tabular summary of all model metrics
+- Includes cross-validation results where available
 
-### 7. Error Analysis by Ranges (`error_analysis_by_ranges.png`)
-- Error analysis across different feature value ranges
-- Helps identify where models perform poorly
-- Shows mean absolute error by feature bins
+### 5. CV Stability Analysis (`cv_stability_analysis.png`)
+- Cross-validation stability analysis
+- Shows model consistency across folds
 
 ## Model Performance Summary
 
-| Model | Test R² | Test RMSE | Test MAE |
-|-------|---------|-----------|----------|
+| Model | Test R² | Test RMSE | Test MAE | Training Time |
+|-------|---------|-----------|----------|---------------|
 """
 
-        for name, metrics in self.predictions.items():
-            report += f"| {name} | {metrics['test_r2']:.4f} | {metrics['test_rmse']:.2f} | {metrics['test_mae']:.2f} |\n"
+        for name, metrics in self.model_metrics.items():
+            report += f"| {name.replace('_', ' ').title()} | {metrics['test_r2']:.4f} | {metrics['test_rmse']:.2f} | {metrics['test_mae']:.2f} | {metrics['training_time']:.3f}s |\n"
 
         # Find best model
-        best_model = max(self.predictions.items(), key=lambda x: x[1]["test_r2"])
+        if self.model_metrics:
+            best_model = max(self.model_metrics.items(), key=lambda x: x[1]["test_r2"])
 
-        report += f"""
+            report += f"""
 
 ## Best Performing Model
 
-**🏆 Winner:** {best_model[0]}
+**🏆 Winner:** {best_model[0].replace('_', ' ').title()}
 - **Test R²:** {best_model[1]['test_r2']:.4f}
 - **Test RMSE:** {best_model[1]['test_rmse']:.2f}
 - **Test MAE:** {best_model[1]['test_mae']:.2f}
+- **Training Time:** {best_model[1]['training_time']:.3f}s
 
 ## Key Insights
 
-1. **Best Model Performance:** {best_model[0]} shows the highest prediction accuracy
-2. **Feature Importance:** Top features driving predictions (from tree models)
-3. **Error Patterns:** Models tend to perform better/worse in certain feature ranges
-4. **Prediction Reliability:** Error distributions show model consistency
+1. **Best Model Performance:** {best_model[0].replace('_', ' ').title()} shows the highest prediction accuracy
+2. **Performance Trade-offs:** Higher R² scores generally correlate with lower RMSE/MAE
+3. **Training Efficiency:** Models vary significantly in training time requirements
+4. **Stability:** Cross-validation results show model consistency where available
+
+## Limitations
+
+- Feature importance analysis not available from pipeline reports
+- Actual prediction arrays not stored in pipeline reports
+- Feature vs prediction analysis requires raw data access
+- Error distribution analysis requires prediction residuals
 
 ## Usage Recommendations
 
-- Use {best_model[0]} for production predictions
-- Monitor prediction errors in identified problematic ranges
-- Consider feature engineering for underperforming feature ranges
-- Regular model retraining with new data
+- Use {best_model[0].replace('_', ' ').title()} for production predictions
+- Consider training time vs performance trade-offs for deployment
+- Monitor model performance stability in production
+- Retrain models regularly with new data
 
 ---
 
-*Generated automatically by PredictionVisualizer*
+*Generated automatically by PredictionVisualizer using real pipeline data*
 *All visualizations saved in `visualizations/predictions/` directory*
 """
 
@@ -973,19 +658,19 @@ class PredictionVisualizer:
         print("✅ Saved prediction_visualization_summary.md")
 
     def run_complete_analysis(self):
-        """Run the complete prediction visualization pipeline."""
+        """Run the complete prediction visualization pipeline using REAL pipeline data."""
         print("=" * 70)
         print("🎨 PREDICTION AND FEATURE VISUALIZATION GENERATOR")
+        print("Using REAL Pipeline Data")
         print("=" * 70)
 
+        if not self.pipeline_data:
+            print("❌ No pipeline data available. Cannot generate visualizations.")
+            print("   Please run the main pipeline first to generate reports.")
+            return 1
+
         try:
-            # Load and prepare data
-            self.load_and_prepare_data()
-
-            # Train models
-            self.train_models()
-
-            # Generate all visualizations
+            # Generate all visualizations from pipeline data
             self.create_prediction_scatter_plots()
             self.create_residual_plots()
             self.create_feature_importance_plots()
@@ -1000,24 +685,21 @@ class PredictionVisualizer:
             print("\n" + "=" * 70)
             print("✅ VISUALIZATION GENERATION COMPLETED!")
             print("=" * 70)
-            print(
-                f"\n📂 Generated {len(list(self.viz_dir.glob('*.png')))} visualizations in {self.viz_dir}/"
-            )
+            print(f"\n📂 Generated visualizations in {self.viz_dir}/")
             print("📊 Visualizations created:")
             for viz_file in sorted(self.viz_dir.glob("*.png")):
                 print(f"   - {viz_file.name}")
             print("📝 Summary report: prediction_visualization_summary.md")
 
-            # Show best model
-            best_model = max(self.predictions.items(), key=lambda x: x[1]["test_r2"])
-            print(f"\n🏆 Best Model: {best_model[0]}")
-            print(f"   Test R²: {best_model[1]['test_r2']:.4f}")
+            if self.model_metrics:
+                best_model = max(self.model_metrics.items(), key=lambda x: x[1]["test_r2"])
+                print(f"\n🏆 Best Model: {best_model[0].replace('_', ' ').title()}")
+                print(f"   Test R²: {best_model[1]['test_r2']:.4f}")
             return 0
 
         except Exception as e:
             print(f"\n❌ ERROR: {e}")
             import traceback
-
             traceback.print_exc()
             return 1
 

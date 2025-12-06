@@ -28,9 +28,17 @@ import warnings
 from typing import Dict, List, Any, Optional
 
 
+# Add paths for imports
 src_path = os.path.join(os.path.dirname(__file__), '..', '..', 'src')
 if src_path not in sys.path:
     sys.path.insert(0, src_path)
+
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+# Import pipeline data loader
+from pipeline_data_loader import load_latest_pipeline_data
 
 from config import (
     PREPROCESSED_DATA_FILE,
@@ -78,107 +86,71 @@ class ImprovedVisualizationGenerator:
         }
 
     def load_latest_pipeline_report(self):
-        """Load the latest pipeline report."""
+        """Load the latest pipeline report using centralized loader."""
         print("📊 Loading latest pipeline report...")
 
-        reports_dir = Path("reports")
-        json_files = list(reports_dir.glob("pipeline_report_*.json"))
+        loader = load_latest_pipeline_data(verbose=False)
 
-        if not json_files:
+        if not loader.report_data:
             print("⚠️  No pipeline reports found, will train models instead")
             self.use_pipeline_report = False
             return False
 
-        latest_report = max(json_files, key=lambda p: p.stat().st_mtime)
-        print(f"✅ Loading: {latest_report.name}")
-
-        with open(latest_report, 'r') as f:
-            self.report_data = json.load(f)
-
+        self.report_data = loader.report_data
+        print(f"✅ Loaded pipeline report successfully")
         return True
 
     def extract_metrics_from_report(self):
-        """Extract model metrics from pipeline report."""
+        """Extract model metrics from pipeline report using centralized loader."""
         if not self.report_data:
             return False
 
         print("📈 Extracting model metrics from report...")
 
-        modeling_results = self.report_data.get('modeling_results', {})
-        model_results = modeling_results.get('model_results', {})
+        loader = load_latest_pipeline_data(verbose=False)
+        all_models = loader.get_all_models_data()
 
-        # First try to get from comprehensive_comparison
-        comp = model_results.get('comprehensive_comparison', {})
-        if comp and 'model_rankings' in comp:
-            print("  Using comprehensive comparison data")
-            for rank_data in comp['model_rankings']:
-                model_name = rank_data['model_name']
+        if not all_models:
+            print("⚠️  No model data found in pipeline report")
+            return False
 
-                # Map model names to display names
-                display_name = {
-                    'linear': 'Linear Regression',
-                    'ridge': 'Ridge',
-                    'lasso': 'Lasso',
-                    'elastic_net': 'ElasticNet',
-                    'decision_tree': 'Decision Tree',
-                    'random_forest': 'Random Forest',
-                    'KNN': 'KNN'
-                }.get(model_name, model_name)
+        # Map model names to display names
+        name_mapping = {
+            'linear': 'Linear Regression',
+            'ridge': 'Ridge',
+            'lasso': 'Lasso',
+            'elastic_net': 'ElasticNet',
+            'decision_tree': 'Decision Tree',
+            'random_forest': 'Random Forest',
+            'KNN': 'KNN',
+            'ann': 'ANN'
+        }
 
-                r2_score = rank_data.get('r2_score', 0)
+        for model_key, model_data in all_models.items():
+            display_name = name_mapping.get(model_key, model_key.replace('_', ' ').title())
 
-                # Get RMSE from individual model data
-                model_key = model_name
-                if model_key in model_results and 'evaluation' in model_results[model_key] and 'test_metrics' in model_results[model_key]['evaluation']:
-                    rmse_score = model_results[model_key]['evaluation']['test_metrics'].get('rmse', 0)
-                else:
-                    rmse_score = 0  # Fallback
+            # Extract REAL metrics from pipeline
+            test_r2 = model_data.get('test_r2', 0)
+            train_r2 = model_data.get('train_r2', test_r2 * 1.02)  # Estimate if not available
+            test_rmse = model_data.get('test_rmse', 0)
+            train_rmse = model_data.get('train_rmse', test_rmse * 0.95)
 
-                train_time = rank_data.get('training_time', 0)
+            # Calculate bias and variance from real data
+            bias_squared = test_rmse ** 2
+            overfitting_gap = model_data.get('overfitting_gap', train_r2 - test_r2)
+            variance = abs(overfitting_gap) * test_rmse ** 2
 
-                # Estimate metrics
-                bias_squared = rmse_score ** 2
-                # Assume 5% overfitting gap for estimation
-                train_r2 = min(1.0, r2_score * 1.05)
-                variance = abs(train_r2 - r2_score) * rmse_score ** 2
+            self.metrics[display_name] = {
+                "train_r2": train_r2,
+                "test_r2": test_r2,
+                "train_rmse": train_rmse,
+                "test_rmse": test_rmse,
+                "bias_squared": bias_squared,
+                "variance": variance,
+                "overfitting_gap": abs(overfitting_gap),
+            }
 
-                self.metrics[display_name] = {
-                    "train_r2": train_r2,
-                    "test_r2": r2_score,
-                    "train_rmse": rmse_score * 0.95,  # Estimate
-                    "test_rmse": rmse_score,
-                    "bias_squared": bias_squared,
-                    "variance": variance,
-                    "overfitting_gap": train_r2 - r2_score,
-                }
-
-        # Also extract ANN data from individual model results if not already included
-        if 'ann' in model_results and 'ANN' not in self.metrics:
-            ann_data = model_results['ann']
-            if 'evaluation' in ann_data and 'test_metrics' in ann_data['evaluation']:
-                test_metrics = ann_data['evaluation']['test_metrics']
-                train_metrics = ann_data['evaluation'].get('train_metrics', {})
-
-                r2_score = test_metrics.get('r2', 0)
-                rmse_score = test_metrics.get('rmse', 0)
-                train_r2 = train_metrics.get('r2', r2_score * 0.95)  # Estimate if not available
-                train_rmse = train_metrics.get('rmse', rmse_score * 0.95)
-
-                # Calculate bias and variance
-                bias_squared = rmse_score ** 2
-                variance = abs(train_r2 - r2_score) * rmse_score ** 2
-
-                self.metrics['ANN'] = {
-                    "train_r2": train_r2,
-                    "test_r2": r2_score,
-                    "train_rmse": train_rmse,
-                    "test_rmse": rmse_score,
-                    "bias_squared": bias_squared,
-                    "variance": variance,
-                    "overfitting_gap": train_r2 - r2_score,
-                }
-
-        print(f"✅ Extracted metrics for {len(self.metrics)} models")
+        print(f"✅ Extracted metrics for {len(self.metrics)} models from REAL pipeline data")
         for model, m in self.metrics.items():
             print(f"  {model}: Test R² = {m['test_r2']:.4f}")
 

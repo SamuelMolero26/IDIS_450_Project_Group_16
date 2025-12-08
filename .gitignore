@@ -32,4 +32,6 @@ cache/
 .venv
 __pycache__/
 .vscode
+Documentation/utils
 dir.txt
+Documentation/output

@@ -148,13 +148,6 @@ IDIS_450_Project_Group_16/
 ├── Project4_USRegionalSales/
 │   ├── Data-USRegionalSales.csv   # Raw sales data
 │   └── README.md                   # Project subdirectory readme
-│
-└── Documentation/
-    ├── README.md                   # This file
-    ├── PIPELINE_IMPLEMENTATION_REPORT.md  # Implementation details
-    ├── architecture_diagram.md     # System architecture
-    ├── pipeline_implementation_requirements.md
-    └── visualization_design.md     # Visualization approach
 ```
 
 ## 🔬 Technical Highlights
@@ -174,13 +167,6 @@ IDIS_450_Project_Group_16/
 - **Qualitative**: SHAP interpretability, error pattern detection, business rule validation
 - **Model-specific**: KNN distance analysis, ANN convergence curves, tree pruning metrics
 
-## 📖 Documentation
-
-Comprehensive documentation available in `Documentation/`:
-- **Pipeline Implementation**: Full technical report with architecture details
-- **Architecture Diagram**: Component interactions and data flow
-- **Model Reports**: Detailed analysis of KNN, ANN, and ensemble methods
-- See `CLAUDE.md` for developer guidance
 
 ## 🏆 Performance Metrics
 
